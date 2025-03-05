@@ -1,0 +1,20 @@
+/* [project]/src/app/_components/navigation/_css/aside.module.css [app-client] (css) */
+.aside-module__6tt_fG__aside {
+  display: flex;
+}
+
+.aside-module__6tt_fG__aside button {
+  display: flex;
+  background-color: #0000;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.aside-module__6tt_fG__aside span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #585858;
+}
+
+/*# sourceMappingURL=src_app__components_navigation__css_aside_module_b52d8e88.css.map*/

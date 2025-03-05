@@ -1,0 +1,18 @@
+/* [project]/src/app/_components/navigation/_css/header.module.css [app-client] (css) */
+.header-module__zG83_G__page {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 936px;
+  display: flex;
+  padding: 15px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-module__zG83_G__logo a {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=src_app__components_navigation__css_header_module_b52d8e88.css.map*/
