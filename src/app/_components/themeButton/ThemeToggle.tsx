@@ -1,20 +1,32 @@
 "use client";
 
-import { useContext } from "react";
+import { useRecoilState } from "recoil";
 import styles from "./theme.module.css";
-import { ThemeContext } from "@/app/_theme/ThemeProvider";
+import { themeState, ThemeType } from "@/store/themeAtom";
+import { useEffect } from "react";
 
 export default function ThemeToggle() {
-  const { state, actions } = useContext(ThemeContext);
-  const item = actions.setTheme("light");
-  console.log("state :", state, "actions : ", item);
-  const toggleTheme = () => {
-    // actions.setTheme(state.theme === "light" ? "dark" : "light");
-  };
+  const [theme, setTheme] = useRecoilState(themeState);
 
+  // ✅ 클라이언트에서 `localStorage`에서 초기 테마 설정
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme") as ThemeType | null;
+      if (storedTheme === "light" || storedTheme === "dark") {
+        setTheme(storedTheme);
+      }
+    }
+  }, []);
+
+  // ✅ 테마 변경 함수
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
   return (
-    <button className={styles.toggleButton} onClick={() => toggleTheme}>
-      {state.theme == "light" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+    <button className={styles.toggleButton} onClick={toggleTheme}>
+      {theme == "light" ? "🌞 Light Mode" : "🌙 Dark Mode"}
     </button>
   );
 }
