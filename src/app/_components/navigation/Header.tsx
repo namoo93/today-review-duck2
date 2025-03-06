@@ -10,7 +10,12 @@ export default function Header() {
     <header className={styles.page}>
       <h1 className={styles.logo}>
         <Link href={"./"}>
-          <Image src={Logo} alt="logo image" loading="lazy" />
+          <Image
+            src={Logo}
+            alt="logo image"
+            loading="lazy"
+            property={"public/images/logo.svg"}
+          />
         </Link>
       </h1>
       <Gnb />

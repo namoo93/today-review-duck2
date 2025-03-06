@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/namookim/Documents/GitHub/today-review-duck/src/app/layout.tsx"],"sourcesContent":["import type { Metadata } from \"next\";\nimport \"./globals.css\";\nimport { RecoilRoot } from \"recoil\";\n\nexport const metadata: Metadata = {\n  title: \"오늘도 리뷰\",\n  description: \"모든것을 리뷰하는 오늘도 리뷰 웹 사이트 입니다.\",\n};\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"ko\">\n      <body>\n        <RecoilRoot>{children}</RecoilRoot>\n      </body>\n    </html>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;;;;AAEO,MAAM,WAAqB;IAChC,OAAO;IACP,aAAa;AACf;AAEe,SAAS,WAAW,EACjC,QAAQ,EAGT;IACC,qBACE,6WAAC;QAAK,MAAK;kBACT,cAAA,6WAAC;sBACC,cAAA,6WAAC,qQAAA,CAAA,aAAU;0BAAE;;;;;;;;;;;;;;;;AAIrB","debugId":null}},
-    {"offset": {"line": 42, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
