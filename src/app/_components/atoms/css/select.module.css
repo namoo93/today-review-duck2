@@ -1,0 +1,69 @@
+.component {
+  position: relative;
+  padding: 0px;
+}
+
+.select_options_list {
+  padding-top: 5px;
+  position: absolute;
+  top: 30px;
+  margin-bottom: 0px;
+  bottom: 0;
+  left: '50%';
+	transform: translateX(-25%);
+  right: 0;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+	background-color: #fff;
+}
+
+.list_item {
+  width: 100%;
+  background-color: #fff;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+}
+.list_item:hover {
+	background-color: var(--select-hover);
+}
+.first_list_item {
+	border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+.last_list_item {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+}
+
+.list_item > button{
+	border: none;
+	padding: 5px 10px;
+	background-color: transparent;
+	cursor: pointer ;
+}
+.list_item > button > span{
+	font-size: 13px;
+	font-weight: 300;
+	color: #585858;
+}
+
+.select_button {
+	border: none;
+	background-color:  transparent;
+	cursor: pointer;
+	padding: 5px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.select_button > span{
+	display: inline-block;
+	width: 40px;
+	font-size: 13px;
+	font-weight: 300;
+	color: #585858;
+	padding-right: 4px;
+	padding-top: 2px;
+}

@@ -1,0 +1,69 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: var(--button-normal-bg-color);
+  color: var(--font-black-color);
+  border: none;
+	cursor: pointer;
+}
+
+.button_checked {
+  background-color: var(--button-light-normal);
+  color: white;
+}
+
+.button_filled {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button_checked a {color: white;}
+.button_filled a {color: white;}
+
+.button_checked:hover {
+  background-color: var(--primary-hover-color);
+}
+.button_filled:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.button_normal {
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.button_success {
+  background-color: var(--success-color);
+}
+
+.button_warning {
+  background-color: var(--error-color);
+}
+
+.button_disabled {
+  border: none;
+  color: #d1d1d1;
+  background-color: #e3e3e3;
+  cursor: auto;
+}
+.button_disabled:hover {
+  background-color: var(--light-gray-color);
+}
+
+.button_transparent {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+}

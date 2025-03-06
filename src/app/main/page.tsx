@@ -8,5 +8,5 @@ export default function Main() {
 
   console.log("theme -----", theme);
 
-  return <div>Main Page - Theme: {"theme"}</div>;
+  return <div>Main Page - Theme: {theme}</div>;
 }

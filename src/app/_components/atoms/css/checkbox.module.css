@@ -1,0 +1,21 @@
+.component {
+  display: block;
+}
+
+.label {
+  position: relative;
+  cursor: pointer;
+}
+
+.inputCheckbox {
+  transform: translateY(3px);
+  appearance: none;
+}
+
+.margin {
+  margin: 0px;
+}
+
+.marginLeft {
+  margin-left: 0px; /* Default margin left */
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./_css/gnb.module.css";
+import styles from "./css/gnb.module.css";
 import Link from "next/link";
 
 export default function Gnb() {

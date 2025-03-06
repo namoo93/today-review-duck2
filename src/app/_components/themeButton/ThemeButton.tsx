@@ -4,6 +4,9 @@ import { useRecoilState } from "recoil";
 import styles from "./theme.module.css";
 import { useEffect } from "react";
 import { themeState, ThemeType } from "@/app/_recoil/themeAtom";
+import IocModeOff from "@/../../public/icon/icon-mode-off.svg";
+import IocModeOn from "@/../../public/icon/icon-mode-on.svg";
+import { Icon } from "../atoms";
 
 export default function ThemeButton() {
   const [theme, setTheme] = useRecoilState(themeState);
@@ -26,7 +29,21 @@ export default function ThemeButton() {
   };
   return (
     <button className={styles.toggleButton} onClick={toggleTheme}>
-      {theme == "light" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+      {theme == "light" ? (
+        <Icon
+          src={IocModeOn}
+          alt="라이트모드 버튼 아이콘"
+          width={24}
+          height={24}
+        />
+      ) : (
+        <Icon
+          src={IocModeOff}
+          alt="다크모드 버튼 아이콘"
+          width={24}
+          height={24}
+        />
+      )}
     </button>
   );
 }

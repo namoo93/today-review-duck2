@@ -1,4 +1,5 @@
 import Header from "./_components/navigation/Header";
+import ThemeButton from "./_components/themeButton/ThemeButton";
 import Main from "./main/page";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Header />
       <Main></Main>
+      <ThemeButton />
       {/* <footer className={styles.footer}></footer> */}
     </>
   );
