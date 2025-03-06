@@ -1,0 +1,14 @@
+.aside {
+  display: flex;
+}
+
+.aside button {
+  display: flex;
+  align-items: center;
+}
+
+.aside span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #585858;
+}

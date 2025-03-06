@@ -1,0 +1,15 @@
+.button_wrap {
+  position: fixed;
+  bottom: 60px;
+  right: 120px;
+  width: 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle_button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #eee;
+}

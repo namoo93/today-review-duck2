@@ -1,4 +1,4 @@
-import styles from "./css/input.module.css";
+import styles from "./_css/input.module.css";
 
 type Props = { text: string };
 export default function Input({}: Props) {

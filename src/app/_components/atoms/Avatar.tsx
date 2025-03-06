@@ -1,4 +1,4 @@
-import styles from "./css/avatar.module.css";
+import styles from "./_css/avatar.module.css";
 // import profileDefault from "@/../../public/image/img-default-profile.svg";
 
 type Props = {

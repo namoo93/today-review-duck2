@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "./css/select.module.css";
+import styles from "./_css/select.module.css";
 import Icon from "./Icon";
 import IocSelect from "@/../../public/icon/icon-select.svg";
 

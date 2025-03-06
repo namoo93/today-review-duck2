@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./css/gnb.module.css";
+import styles from "./_css/gnb.module.css";
 import Link from "next/link";
 
 export default function Gnb() {
@@ -14,13 +14,13 @@ export default function Gnb() {
   ];
 
   return (
-    <ul className={styles.gnbList}>
+    <ul className={styles.gnb_list}>
       {navItems
         .filter((item) => item.show)
         .map((item) => (
           <li key={item.label}>
             <Link href={item.href}>
-              <h2 className={styles.gnbItem}>
+              <h2 className={styles.gnb_item}>
                 <span>{item.label}</span>
               </h2>
             </Link>

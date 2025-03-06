@@ -1,4 +1,4 @@
-import styles from "./css/tooltip.module.css";
+import styles from "./_css/tooltip.module.css";
 
 type Props = { text: string };
 export default function Tooltip({}: Props) {

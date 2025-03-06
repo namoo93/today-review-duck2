@@ -61,6 +61,12 @@ input::-webkit-search-results-decoration {
   display: none;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 /* 전역 공통 */
 .sr_only {
   display: none;

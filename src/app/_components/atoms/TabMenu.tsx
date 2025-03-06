@@ -1,4 +1,4 @@
-import styles from "./css/tabmenu.module.css";
+import styles from "./_css/tabmenu.module.css";
 // import profileDefault from '@/../../public/image/img-default-profile.svg';
 
 export type MenuProps = {

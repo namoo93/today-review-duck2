@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "./css/checkbox.module.css";
+import styles from "./_css/checkbox.module.css";
 
 type Props = {
   defaultChecked?: boolean;

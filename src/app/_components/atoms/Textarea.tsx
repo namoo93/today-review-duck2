@@ -1,4 +1,4 @@
-import styles from "./css/textarea.module.css";
+import styles from "./_css/textarea.module.css";
 
 type Props = { text: string };
 export default function Textarea({}: Props) {

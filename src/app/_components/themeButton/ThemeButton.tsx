@@ -28,22 +28,24 @@ export default function ThemeButton() {
     localStorage.setItem("theme", newTheme);
   };
   return (
-    <button className={styles.toggleButton} onClick={toggleTheme}>
-      {theme == "light" ? (
-        <Icon
-          src={IocModeOn}
-          alt="라이트모드 버튼 아이콘"
-          width={24}
-          height={24}
-        />
-      ) : (
-        <Icon
-          src={IocModeOff}
-          alt="다크모드 버튼 아이콘"
-          width={24}
-          height={24}
-        />
-      )}
-    </button>
+    <div className={styles.button_wrap}>
+      <button className={styles.toggle_button} onClick={toggleTheme}>
+        {theme == "light" ? (
+          <Icon
+            src={IocModeOn}
+            alt="라이트모드 버튼 아이콘"
+            width={24}
+            height={24}
+          />
+        ) : (
+          <Icon
+            src={IocModeOff}
+            alt="다크모드 버튼 아이콘"
+            width={24}
+            height={24}
+          />
+        )}
+      </button>
+    </div>
   );
 }

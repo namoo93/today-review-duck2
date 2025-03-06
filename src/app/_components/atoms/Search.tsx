@@ -1,7 +1,7 @@
-import React from 'react';
-import IocSearch from '@/../../public/icon/icon-search.svg';
-import styles from './css/search.module.css';
-import Icon from './Icon';
+import React from "react";
+import IocSearch from "@/../../public/icon/icon-search.svg";
+import styles from "./_css/search.module.css";
+import Icon from "./Icon";
 
 type SearchProps = {
   placeholder?: string;
@@ -47,8 +47,8 @@ export default function Search({
       />
       <button className={styles.button} onClick={onClick} type="button">
         <Icon
-          width={'20px'}
-          height={'20px'}
+          width={"20px"}
+          height={"20px"}
           src={IocSearch}
           alt="검색 아이콘"
         />
