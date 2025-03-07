@@ -13,8 +13,8 @@ type Props = {
   height?: string;
   fontSize?: string;
   color?: string;
-  $borderRadius?: string;
-  $border?: boolean;
+  borderRadius?: string;
+  border?: boolean;
   disabled?: boolean;
   filled?: boolean;
   success?: boolean;
@@ -37,8 +37,8 @@ export default function Button({
   height,
   fontSize,
   color,
-  $borderRadius,
-  // $border,
+  borderRadius,
+  border,
   disabled,
   filled,
   normal,
@@ -56,6 +56,7 @@ export default function Button({
   if (warning && filled) buttonClasses += ` ${styles.button_warning}`;
   if (disabled) buttonClasses += ` ${styles.button_disabled}`;
   if (transparent) buttonClasses += ` ${styles.button_transparent}`;
+  if (border) buttonClasses += ` ${styles.button_border}`;
   return (
     <button
       className={buttonClasses}
@@ -70,7 +71,7 @@ export default function Button({
         height: height ? height : undefined,
         fontSize: fontSize ? fontSize : undefined,
         color: color ? color : undefined,
-        borderRadius: $borderRadius ? $borderRadius : undefined,
+        borderRadius: borderRadius ? borderRadius : undefined,
       }}
     >
       {children || text}

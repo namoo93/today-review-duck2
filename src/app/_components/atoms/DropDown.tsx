@@ -36,7 +36,7 @@ export default function DropDown({
         width={buttonWidth}
         height={buttonHeight}
         fontSize="14px"
-        $borderRadius="7px"
+        borderRadius="7px"
         onClick={() => setShowDropDown(!showDropDown)}
         disabled={disabled}
         buttonType={"button"}

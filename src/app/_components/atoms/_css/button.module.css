@@ -12,7 +12,7 @@
   background-color: var(--button-normal-bg-color);
   color: var(--font-black-color);
   border: none;
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .button_checked {
@@ -25,8 +25,12 @@
   color: white;
 }
 
-.button_checked a {color: white;}
-.button_filled a {color: white;}
+.button_checked a {
+  color: white;
+}
+.button_filled a {
+  color: white;
+}
 
 .button_checked:hover {
   background-color: var(--primary-hover-color);
@@ -66,4 +70,8 @@
   margin: 0;
   width: fit-content;
   height: fit-content;
+}
+.button_border {
+  background-color: transparent;
+  border: 1px solid #e3e3e3;
 }
