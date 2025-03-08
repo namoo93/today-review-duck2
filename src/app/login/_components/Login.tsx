@@ -5,11 +5,12 @@ import IcoNaver from "@/../../public/icon/icon-sns-naver.svg";
 import IcoKakao from "@/../../public/icon/icon-sns-kakao.svg";
 import IcoGoogle from "@/../../public/icon/icon-sns-google.svg";
 import IcoAple from "@/../../public/icon/icon-sns-aple.svg";
+import IcoMail from "@/../../public/icon/icon-mail.svg";
 import { Button, Icon } from "@/app/_components/atoms";
 import Image from "next/image";
 // import Link from "next/link";
 
-export default function SignUp() {
+export default function Login() {
   return (
     <section className={styles.page}>
       <div className={styles.login_wrap}>
@@ -82,13 +83,32 @@ export default function SignUp() {
             </Button>
           </li>
         </ul>
-        <span>또는</span>
-        <Button buttonType="button" border onClick={() => {}}>
-          이메일로 계속하기
-        </Button>
-        <Button buttonType="button" border onClick={() => {}}>
-          회원가입 하러 가기
-        </Button>
+        <div className={styles.list_or}>
+          <span className={styles.list_or_line}></span>
+          <span className={styles.list_or_text}>또는</span>
+          <span className={styles.list_or_line}></span>
+        </div>
+        <ul className={styles.local_list}>
+          <li>
+            <button
+              className={styles.local_signin}
+              type="button"
+              onClick={() => {}}
+            >
+              <Icon width={24} height={24} alt="이메일 아이콘" src={IcoMail} />
+              <span>이메일로 계속하기</span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              className={styles.local_signup}
+              onClick={() => {}}
+            >
+              회원가입 하러 가기
+            </button>
+          </li>
+        </ul>
       </div>
     </section>
   );
