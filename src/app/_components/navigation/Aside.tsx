@@ -3,7 +3,7 @@
 import styles from "./_css/aside.module.css";
 import Alarm from "@/../public/icon/alarm-icon.svg";
 import AlarmDark from "@/../public/icon/alarm-icon-dark.svg";
-import { themeState } from "@/app/_recoil/themeAtom";
+import { themeState } from "@/app/_recoil";
 import { useRecoilState } from "recoil";
 import { Icon } from "../atoms";
 import { useRouter } from "next/navigation";

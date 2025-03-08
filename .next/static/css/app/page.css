@@ -372,6 +372,7 @@ transform: rotate(180deg);
   border-radius: 0px;
   border: none;
   background-color: transparent;
+  color: #585858;
 }
 .search_input__PEPU2::placeholder {
   font-size: 16px;

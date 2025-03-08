@@ -1,19 +1,20 @@
 "use client"; // ✅ 클라이언트 컴포넌트로 변환
 
 import { useRecoilState } from "recoil";
-import { themeState } from "../_recoil/themeAtom";
+import { onSearchPageState, themeState } from "../_recoil";
 import Banner from "./_components/Banner";
 
 export default function Main() {
   const [theme] = useRecoilState(themeState);
-
-  console.log("theme -----", theme);
+  const [onSearchPage] = useRecoilState(onSearchPageState);
+  // console.log("theme -----", theme);
 
   return (
     <>
       <Banner />
       Main Page - Theme: {theme}
-      <div style={{ height: "100vh" }}></div>
+      <br />
+      {onSearchPage ? <>-----search list</> : <>-----main list</>}
     </>
   );
 }

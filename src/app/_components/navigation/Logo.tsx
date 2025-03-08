@@ -1,6 +1,6 @@
 "use client";
 
-import { themeState } from "@/app/_recoil/themeAtom";
+import { themeState } from "@/app/_recoil";
 import { useRecoilState } from "recoil";
 import Image from "next/image";
 import Link from "next/link";
