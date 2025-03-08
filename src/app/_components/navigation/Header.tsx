@@ -6,12 +6,14 @@ import Logo from "./Logo";
 
 export default function Header() {
   return (
-    <header className={styles.page}>
-      <h1 className={styles.logo}>
-        <Logo />
-      </h1>
-      <Gnb />
-      <Aside />
+    <header className={styles.header}>
+      <div className={styles.header_box}>
+        <h1 className={styles.logo}>
+          <Logo />
+        </h1>
+        <Gnb />
+        <Aside />
+      </div>
     </header>
   );
 }

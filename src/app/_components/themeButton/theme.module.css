@@ -9,4 +9,8 @@
 .toggle_button {
   padding: 0;
   margin: 0;
+  /* width: 80px; // 현재 이미지 자체에 음영이 들어감
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); */
 }

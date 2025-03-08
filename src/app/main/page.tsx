@@ -13,6 +13,7 @@ export default function Main() {
     <>
       <Banner />
       Main Page - Theme: {theme}
+      <div style={{ height: "100vh" }}></div>
     </>
   );
 }

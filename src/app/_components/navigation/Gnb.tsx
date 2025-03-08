@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./_css/gnb.module.css";
 import Link from "next/link";
 
 export default function Gnb() {
   const session = true; // 로그인 상태 확인
+  const [activeItem, setActiveItem] = useState<string>("트랜드");
 
   const navItems = [
     { label: "트랜드", href: "./", show: true },
@@ -19,8 +21,12 @@ export default function Gnb() {
         .filter((item) => item.show)
         .map((item) => (
           <li key={item.label}>
-            <Link href={item.href}>
-              <h2 className={styles.gnb_item}>
+            <Link href={item.href} onClick={() => setActiveItem(item.label)}>
+              <h2
+                className={`${styles.gnb_item} ${
+                  activeItem === item.label ? styles.gnb_item_on : ""
+                }`}
+              >
                 <span>{item.label}</span>
               </h2>
             </Link>

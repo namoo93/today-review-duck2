@@ -5,15 +5,14 @@
   align-items: center;
   flex-direction: row;
 }
-.gnb_list a {
+
+.gnb_item {
+  padding: 0 20px;
   font-size: 16px;
   font-weight: 500;
   color: #999;
 }
 
-.gnb_item {
-  padding: 0 20px;
-}
-
-.gnbItem {
+.gnb_item_on {
+  color: #585858;
 }

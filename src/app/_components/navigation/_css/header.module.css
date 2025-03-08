@@ -1,4 +1,11 @@
-.page {
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+.header_box {
   margin: 0 auto;
   width: 100%;
   max-width: 936px;

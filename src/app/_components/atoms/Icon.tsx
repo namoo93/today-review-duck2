@@ -1,5 +1,5 @@
 import Image from "next/image";
-import imageDefault from "@/../../public/images/logo.svg";
+import imageDefault from "@/../../public/images/img-default.svg";
 
 type Props = {
   src: string;
