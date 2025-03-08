@@ -246,86 +246,42 @@
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/dropdown.module.css ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.dropdown_component__qez2V {
-  position: relative;
-	display: flex;
-	width: 100%;
-	border-bottom: 1px solid var(--primary-color);
-}
-
-.dropdown_component__qez2V  > button {
-	display: flex;
-	width: 100%;
-	justify-content: flex-start;
-	padding:  0 30px 0 15px;
-	position: relative;
-}
-.dropdown_component__qez2V > button >  .dropdown_icon_position__S6cFY {
-position: absolute !important;
-right: 5px;
-transition: all 0.1s;
-transform: rotate(180deg);
-}
-.dropdown_component__qez2V  > button > span {
-	font-size: 15px;
-	padding-left: 2px;
-	text-align: left;
-	font-weight: normal;
-}
-
-.dropdown_icon_arrow_motion___X61M {
-	transform: rotate(0deg) !important;
-}
-
-.dropdown_dropdown_list__vkRoh {
+.dropdown_dropdown__4a1ba {
   position: absolute;
-  top: 36px;
+  top: 0;
+  margin-top: 10px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 8;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  display: none;
+  width: 100%; /* 기본 너비 */
+}
+
+.dropdown_dropdown__4a1ba.dropdown_open__XARpL {
+  display: inline-block;
+}
+
+.dropdown_left__XAcnL {
+  left: 0;
+}
+
+.dropdown_right__wJWhT {
+  right: 0;
+}
+
+.dropdown_center__a7MSM {
   left: 50%;
-	width: 100%;
   transform: translateX(-50%);
-  background-color: #fff;
-  /* border: 1px solid var(--border-color); */
-	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 8px;
-  border-radius: 5px;
-  overflow: hidden;
-  z-index: 1;
 }
 
-.dropdown_list_item__z3ioJ {
-  width: 100%;
-  display: flex;
-  align-items: center;
-	padding: 10px 40px;
-	cursor: pointer;
-	overflow: hidden;
-}
-.dropdown_list_item_bullets__BHl0G {
-	letter-spacing: 0.1px;
-	width: 40px;
-	font-weight: bold;
-	font-size: 16px;
-	display: flex;
-}
-.dropdown_component__qez2V  .dropdown_button__TRieS {
-	display: flex;
-	flex: 1 0;
-	align-items: center;
-  border: none;
-  background-color: transparent;
-  color: var(--color-gray);
-  transition: all 0.1s;
-	cursor: pointer;
-
-}
-.dropdown_component__qez2V  .dropdown_button__TRieS span {
-	font-size: 15px;
-	font-weight: normal;
-	text-align: left;
+.dropdown_scrollable__9DgZ1 {
+  overflow-y: auto;
+  max-height: 500px;
 }
 
-.dropdown_list_item__z3ioJ:hover {
-  background-color: var(--list-hover-bg-color);
-}
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/input.module.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/

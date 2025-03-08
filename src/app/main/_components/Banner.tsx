@@ -1,32 +1,12 @@
 "use client";
 import styles from "../_css/banner.module.css";
 import { useRecoilState } from "recoil";
-import { onSearchPageState, themeState } from "@/app/_recoil";
-import { Search } from "@/app/_components/atoms";
-import { useState } from "react";
+import { themeState } from "@/app/_recoil";
+
+import BannerSearch from "./BannerSearch";
 
 export default function Banner() {
   const [theme] = useRecoilState(themeState);
-  const [searchValue, setSearchValue] = useState<string>("");
-  const [, setOnSearchPage] = useRecoilState(onSearchPageState);
-
-  const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && searchValue !== "") {
-      console.log("검색 실행:", searchValue);
-      setOnSearchPage(true);
-    }
-
-    if (e.key === "Backspace" || searchValue === "") {
-      console.log("검색 값 초기화");
-      setOnSearchPage(false);
-    }
-  };
-  const searchButtonHandler = () => {
-    if (searchValue !== "") {
-      console.log("검색 실행:", searchValue);
-      setOnSearchPage(true);
-    }
-  };
 
   return (
     <section className={styles.page}>
@@ -44,15 +24,7 @@ export default function Banner() {
           여러분의 일상, 취미 모든 것을 자유롭게 공유해주세요!
         </p>
 
-        <div className={styles.search_input_wrap}>
-          <Search
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            onKeyDown={(e) => searchHandler(e)}
-            onClick={() => searchButtonHandler()}
-            placeholder="어떤 리뷰가 궁금하신가요?"
-          />
-        </div>
+        <BannerSearch />
       </div>
     </section>
   );
