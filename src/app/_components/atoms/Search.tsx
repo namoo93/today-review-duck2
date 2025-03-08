@@ -38,13 +38,6 @@ export default function Search({
         margin: margin,
       }}
     >
-      <input
-        className={`${styles.input} elipsis_1_lines`}
-        value={value}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        placeholder={placeholder}
-      />
       <button className={styles.button} onClick={onClick} type="button">
         <Icon
           width={"20px"}
@@ -53,7 +46,13 @@ export default function Search({
           alt="검색 아이콘"
         />
       </button>
-
+      <input
+        className={`${styles.input} elipsis_1_lines`}
+        value={value}
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+      />
       {errorMessage && <p className={styles.error_message}>{errorMessage}</p>}
     </div>
   );

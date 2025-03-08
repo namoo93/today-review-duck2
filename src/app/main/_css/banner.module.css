@@ -49,8 +49,29 @@
 .banner_back_pattern_bottom {
   position: absolute;
   top: 60px;
-  right: 200px;
+  right: 420px;
   bottom: auto;
   left: auto;
   z-index: 0;
+}
+
+.search_position {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+}
+.search_input_wrap {
+  height: 60px;
+  padding: 0 20px;
+  padding-right: 50px;
+  margin: 0 auto;
+  width: 936px;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
 }

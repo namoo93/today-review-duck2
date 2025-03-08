@@ -358,7 +358,6 @@ transform: rotate(180deg);
   margin: 0;
   background: transparent;
   border-radius: 5px;
-  border: 1px solid var(--point-gray);
   overflow: hidden;
   position: relative;
 }
@@ -367,20 +366,21 @@ transform: rotate(180deg);
   display: flex;
   width: 100%;
   flex: 1 0;
-  font-size: 14px;
-  padding: 6px 30px 6px 12px;
+  font-size: 16px;
+  padding: 6px;
+  padding-left: 58px;
   border-radius: 0px;
   border: none;
   background-color: transparent;
 }
 .search_input__PEPU2::placeholder {
-	font-size: 14px;
-	color: #969696;
+  font-size: 16px;
+  color: #aaa;
 }
 
 .search_button__AkL3V {
   position: absolute;
-  right: 0;
+  left: 0;
   width: 30px;
   height: 30px;
   border: none;
@@ -392,6 +392,7 @@ transform: rotate(180deg);
   color: var(--error-color);
   font-size: 12px;
 }
+
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/tabmenu.module.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -536,9 +537,30 @@ color: var(--font-black-color);
 .banner_banner_back_pattern_bottom__uoq2O {
   position: absolute;
   top: 60px;
-  right: 200px;
+  right: 420px;
   bottom: auto;
   left: auto;
   z-index: 0;
+}
+
+.banner_search_position__jNew9 {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+}
+.banner_search_input_wrap__lddMm {
+  height: 60px;
+  padding: 0 20px;
+  padding-right: 50px;
+  margin: 0 auto;
+  width: 936px;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
 }
 

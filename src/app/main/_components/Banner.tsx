@@ -5,10 +5,27 @@ import ImgStarDark from "@/../../public/images/img-banner-star-dark.svg";
 import { useRecoilState } from "recoil";
 import { themeState } from "@/app/_recoil/themeAtom";
 import { Icon, Search } from "@/app/_components/atoms";
+import { useState } from "react";
 // import Link from "next/link";
 
 export default function Banner() {
   const [theme] = useRecoilState(themeState);
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchValue !== "") {
+      console.log("검색 실행:", searchValue);
+    } else {
+    }
+    if (e.key === "Backspace" && searchValue === "") {
+      console.log("검색 값 초기화");
+    }
+  };
+  const searchButtonHandler = () => {
+    if (searchValue !== "") {
+      console.log("검색 실행:", searchValue);
+    }
+  };
 
   return (
     <section className={styles.page}>
@@ -28,8 +45,16 @@ export default function Banner() {
           </p>
         </div>
 
-        <div className={styles.search_bar_wrap}>
-          <Search value={""} onChange={() => {}} onKeyDown={() => {}} />
+        <div className={styles.search_position}>
+          <button type="button" className={styles.search_input_wrap}>
+            <Search
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              onKeyDown={(e) => searchHandler(e)}
+              onClick={() => searchButtonHandler()}
+              placeholder="어떤 리뷰가 궁금하신가요?"
+            />
+          </button>
         </div>
 
         <div className={styles.banner_back_pattern_top}>
