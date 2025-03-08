@@ -1,0 +1,56 @@
+.banner_wrap {
+  width: 100vw;
+  height: 443px;
+  position: relative;
+  overflow: hidden;
+}
+.wrap_light {
+  background-color: #fffaf5;
+}
+.wrap_dark {
+  background-color: #f5f5f5;
+}
+
+.text_wrap {
+  position: absolute;
+  top: 80px;
+  z-index: 1;
+  width: 100%;
+}
+.banner_title {
+  margin: 0 auto;
+  max-width: 936px;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 63px;
+  text-align: left;
+  color: #000;
+  padding-bottom: 25px;
+}
+.banner_title_sub {
+  margin: 0 auto;
+  max-width: 936px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #818181;
+}
+
+.banner_back_pattern_top {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  bottom: auto;
+  right: auto;
+  z-index: 0;
+}
+
+.banner_back_pattern_bottom {
+  position: absolute;
+  top: 60px;
+  right: 200px;
+  bottom: auto;
+  left: auto;
+  z-index: 0;
+}

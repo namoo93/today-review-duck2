@@ -474,3 +474,63 @@ color: var(--font-black-color);
   background-color: #eee;
 }
 
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/main/_css/banner.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.banner_banner_wrap__2u3Af {
+  width: 100vw;
+  height: 443px;
+  position: relative;
+  overflow: hidden;
+}
+.banner_wrap_light__g7LIo {
+  background-color: #fffaf5;
+}
+.banner_wrap_dark___ZKne {
+  background-color: #f5f5f5;
+}
+
+.banner_text_wrap__aYvMr {
+  position: absolute;
+  top: 80px;
+  z-index: 1;
+  width: 100%;
+}
+.banner_banner_title__H7fdj {
+  margin: 0 auto;
+  max-width: 936px;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 63px;
+  text-align: left;
+  color: #000;
+  padding-bottom: 25px;
+}
+.banner_banner_title_sub__kolQZ {
+  margin: 0 auto;
+  max-width: 936px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #818181;
+}
+
+.banner_banner_back_pattern_top__p_Dve {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  bottom: auto;
+  right: auto;
+  z-index: 0;
+}
+
+.banner_banner_back_pattern_bottom__uoq2O {
+  position: absolute;
+  top: 60px;
+  right: 200px;
+  bottom: auto;
+  left: auto;
+  z-index: 0;
+}
+

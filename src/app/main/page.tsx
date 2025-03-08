@@ -2,11 +2,17 @@
 
 import { useRecoilState } from "recoil";
 import { themeState } from "../_recoil/themeAtom";
+import Banner from "./_components/Banner";
 
 export default function Main() {
   const [theme] = useRecoilState(themeState);
 
   console.log("theme -----", theme);
 
-  return <div>Main Page - Theme: {theme}</div>;
+  return (
+    <>
+      <Banner />
+      Main Page - Theme: {theme}
+    </>
+  );
 }
