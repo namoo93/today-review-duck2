@@ -492,7 +492,7 @@ color: var(--font-black-color);
   height: 443px;
   overflow: hidden;
   background-size: contain;
-  background-position: center;
+  background-position: 50% -40px;
   background-repeat: no-repeat;
   /* transition: background 0.3s ease-in-out; */
 }

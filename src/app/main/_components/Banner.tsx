@@ -1,12 +1,9 @@
 "use client";
 import styles from "../_css/banner.module.css";
-// import ImgStar from "@/../../public/images/img-banner-star.svg";
-// import ImgStarDark from "@/../../public/images/img-banner-star-dark.svg";
 import { useRecoilState } from "recoil";
 import { onSearchPageState, themeState } from "@/app/_recoil";
 import { Search } from "@/app/_components/atoms";
 import { useState } from "react";
-// import Link from "next/link";
 
 export default function Banner() {
   const [theme] = useRecoilState(themeState);
