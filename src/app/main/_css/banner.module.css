@@ -1,22 +1,21 @@
 .banner_wrap {
-  width: 100vw;
+  width: 100%;
   height: 443px;
-  position: relative;
   overflow: hidden;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* transition: background 0.3s ease-in-out; */
 }
 .wrap_light {
   background-color: #fffaf5;
+  background-image: url("/images/img-main-background.png");
 }
 .wrap_dark {
   background-color: #f5f5f5;
+  background-image: url("/images/img-main-background-dark.png");
 }
 
-.banner_text_wrap {
-  position: absolute;
-  top: 80px;
-  z-index: 1;
-  width: 100%;
-}
 .banner_title {
   margin: 0 auto;
   max-width: 936px;
@@ -26,6 +25,7 @@
   text-align: left;
   color: #000;
   padding-bottom: 25px;
+  padding-top: 80px;
 }
 .banner_title_sub {
   margin: 0 auto;
@@ -35,40 +35,15 @@
   line-height: 24px;
   text-align: left;
   color: #818181;
+  padding-bottom: 90px;
 }
 
-.banner_back_pattern_top {
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  bottom: auto;
-  right: auto;
-  z-index: 0;
-}
-
-.banner_back_pattern_bottom {
-  position: absolute;
-  top: 60px;
-  right: 420px;
-  bottom: auto;
-  left: auto;
-  z-index: 0;
-}
-
-.search_position {
-  position: absolute;
-  z-index: 3;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  right: auto;
-}
 .search_input_wrap {
   height: 60px;
   padding: 0 20px;
   padding-right: 50px;
   margin: 0 auto;
-  width: 936px;
+  width: 956px;
   border: none;
   background-color: #fff;
   display: flex;
