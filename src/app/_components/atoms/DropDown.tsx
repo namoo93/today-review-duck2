@@ -5,9 +5,10 @@ interface DropdownProps {
   isOpen: boolean;
   onClose: () => void;
   position?: "left" | "right" | "center";
+  width?: string;
   height?: string;
   margin?: string;
-  scrollable?: boolean;
+  borderRadius?: "radius_8" | "radius_16";
   children: React.ReactNode;
 }
 
@@ -15,9 +16,10 @@ export default function Dropdown({
   isOpen,
   onClose,
   position = "center",
+  width,
   height = "auto",
   margin,
-  scrollable = false,
+  borderRadius = "radius_8",
   children,
 }: DropdownProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -42,8 +44,8 @@ export default function Dropdown({
       ref={dropdownRef}
       className={`${styles.dropdown} ${isOpen ? styles.open : ""} ${
         styles[position]
-      } ${scrollable ? styles.scrollable : ""}`}
-      style={{ height, margin }}
+      } ${styles[borderRadius]}`}
+      style={{ width, height, margin }}
     >
       {children}
     </div>

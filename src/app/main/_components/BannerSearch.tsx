@@ -4,14 +4,14 @@ import { useRecoilState } from "recoil";
 import { DropDown, Search } from "@/app/_components/atoms";
 import { useState } from "react";
 import { onSearchPageState } from "@/app/_recoil";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 export default function BannerSearch() {
   const [, setOnSearchPage] = useRecoilState(onSearchPageState);
-  const router = useRouter();
+  // const router = useRouter();
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchValue !== "") {
@@ -47,14 +47,14 @@ export default function BannerSearch() {
     );
 
     //초기화
-    setIsOpen(false);
+    setIsDropDownOpen(false);
     setSearchValue("");
   };
 
   return (
     <div
       className={styles.search_input_wrap}
-      onClick={() => setIsOpen((prev) => !prev)}
+      onClick={() => setIsDropDownOpen((prev) => !prev)}
     >
       <Search
         value={searchValue}
@@ -65,8 +65,8 @@ export default function BannerSearch() {
       />
       <DropDown
         margin="70px 0 0 0"
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        isOpen={isDropDownOpen}
+        onClose={() => setIsDropDownOpen(false)}
       >
         <div className={styles.list_wrap}>
           <div className={styles.list_box}>
