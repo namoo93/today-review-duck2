@@ -3,8 +3,8 @@
 import styles from "./_css/aside.module.css";
 import Alarm from "@/../public/icon/alarm-icon.svg";
 import AlarmDark from "@/../public/icon/alarm-icon-dark.svg";
-import { themeState } from "@/app/_recoil";
-import { useRecoilState } from "recoil";
+import { themeState, userState } from "@/app/_recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { DropDown, Icon } from "../atoms";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -12,21 +12,20 @@ import { useState } from "react";
 
 export default function Aside() {
   const [theme] = useRecoilState(themeState);
-  const session = true;
+  const user = useRecoilValue(userState);
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+	const [, setUser] = useRecoilState(userState);
 
   const goToSignPage = () => {
     router.push(`/login`);
+    //TODO:임시강제로그인
+      setUser({ id: "123" });
   };
 
   return (
     <aside className={styles.aside}>
-      {session ? (
-        <button type="button" onClick={() => goToSignPage()}>
-          <span>로그인 및 회원가입</span>
-        </button>
-      ) : (
+      {user.id ? (
         <button
           type="button"
           className={styles.alaram_button}
@@ -37,7 +36,6 @@ export default function Aside() {
           ) : (
             <Icon src={AlarmDark} alt="alarm image" width={24} height={24} />
           )}
-
           <DropDown
             margin="30px 0 0 0"
             isOpen={isDropDownOpen}
@@ -48,6 +46,10 @@ export default function Aside() {
           >
             <p>alaram</p>
           </DropDown>
+        </button>
+      ) : (
+        <button type="button" onClick={() => goToSignPage()}>
+          <span>로그인 및 회원가입</span>
         </button>
       )}
     </aside>
