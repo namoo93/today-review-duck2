@@ -1,0 +1,63 @@
+.tooltip_container {
+  position: relative;
+  display: inline-block;
+}
+
+/* 툴팁 스타일 */
+.tooltip {
+  position: absolute;
+  top: 100%;
+  background: #f0f0f0;
+  color: #585858;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: center;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 삼각형 (▲) */
+.tooltip_arrow {
+  position: absolute;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #f0f0f0;
+}
+
+/* 위치 조정 */
+.tooltip_left {
+  left: 0;
+  transform: translateX(-10%);
+}
+
+.tooltip_right {
+  right: 0;
+  transform: translateX(10%);
+}
+
+.tooltip_center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 삼각형 위치 */
+.tooltip_arrow_left {
+  left: 20px;
+}
+
+.tooltip_arrow_right {
+  right: 20px;
+}
+
+.tooltip_arrow_center {
+  left: 50%;
+  transform: translateX(-50%);
+}

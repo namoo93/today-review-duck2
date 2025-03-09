@@ -1,13 +1,10 @@
 "use client";
 import styles from "../_css/signup.module.css";
 import ImgLogo from "@/../../public/images/logo.svg";
-import IcoNaver from "@/../../public/icon/icon-sns-naver.svg";
-import IcoKakao from "@/../../public/icon/icon-sns-kakao.svg";
-import IcoGoogle from "@/../../public/icon/icon-sns-google.svg";
-import IcoAple from "@/../../public/icon/icon-sns-aple.svg";
 import IcoMail from "@/../../public/icon/icon-mail.svg";
-import { Button, Icon } from "@/app/_components/atoms";
+import { Icon } from "@/app/_components/atoms";
 import Image from "next/image";
+import SocialLogin from "./SocialLogin";
 // import Link from "next/link";
 
 export default function Login() {
@@ -29,60 +26,7 @@ export default function Login() {
         <strong className={styles.sns_title}>
           소셜 계정으로 빠르게 시작하기
         </strong>
-        <ul className={styles.sns_list}>
-          <li>
-            <Button buttonType="button" padding="0" onClick={() => {}}>
-              <Icon
-                alt="네이버 소셜 로그인 버튼"
-                width={60}
-                height={60}
-                src={IcoNaver}
-              />
-            </Button>
-          </li>
-          <li>
-            <Button buttonType="button" padding="0" onClick={() => {}}>
-              <Icon
-                alt="카카오 소셜 로그인 버튼"
-                width={60}
-                height={60}
-                src={IcoKakao}
-              />
-            </Button>
-          </li>
-          <li>
-            <Button
-              buttonType="button"
-              height="60px"
-              border
-              borderRadius="60px"
-              onClick={() => {}}
-            >
-              <Icon
-                alt="구글 소셜 로그인 버튼"
-                height={24}
-                width={24}
-                src={IcoGoogle}
-              />
-            </Button>
-          </li>
-          <li>
-            <Button
-              buttonType="button"
-              height="60px"
-              border
-              borderRadius="60px"
-              onClick={() => {}}
-            >
-              <Icon
-                alt="애플 소셜 로그인 버튼"
-                height={22}
-                width={18}
-                src={IcoAple}
-              />
-            </Button>
-          </li>
-        </ul>
+        <SocialLogin />
         <div className={styles.list_or}>
           <span className={styles.list_or_line}></span>
           <span className={styles.list_or_text}>또는</span>

@@ -31,25 +31,7 @@
   line-height: 1.5;
   color: #969696;
 }
-
-.sns_list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding-top: 20px;
-  margin-bottom: 20px;
-}
-
-.sns_list li {
-  display: flex;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
+ 
 .local_list {
   display: flex;
   flex-direction: column;

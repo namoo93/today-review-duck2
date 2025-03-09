@@ -12,7 +12,7 @@ import { useState } from "react";
 
 export default function Aside() {
   const [theme] = useRecoilState(themeState);
-  const session = false;
+  const session = true;
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
