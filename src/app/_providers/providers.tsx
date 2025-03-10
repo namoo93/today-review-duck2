@@ -4,6 +4,8 @@ import { RecoilRoot } from "recoil";
 import { ReactNode, useState } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { postRefreshToken } from "../api/auth";
+import { handleApiError } from "../api/axios";
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [client] = useState(
@@ -12,9 +14,11 @@ export default function Providers({ children }: { children: ReactNode }) {
         // react-query 전역 설정
         queries: {
           refetchOnWindowFocus: false,
-          retryOnMount: true,
           refetchOnReconnect: false,
           retry: false,
+        },
+        mutations: {
+          onError: (error: unknown) => handleApiError(error),
         },
       },
     })
