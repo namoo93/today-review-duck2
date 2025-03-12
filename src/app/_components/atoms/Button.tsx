@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 import styles from "./_css/button.module.css";
 
 type Props = {

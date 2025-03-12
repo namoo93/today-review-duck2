@@ -8,6 +8,7 @@ type Props = {
   label?: string;
   type?: "text" | "email" | "password";
   value: string;
+  name: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   error?: string | boolean;
@@ -20,6 +21,7 @@ type Props = {
 export default function Input({
   label,
   type = "text",
+  name,
   value,
   onChange,
   placeholder,
@@ -44,6 +46,7 @@ export default function Input({
       >
         <input
           type={isPassword && showPassword ? "text" : type}
+          name={name}
           value={value}
           onChange={onChange}
           placeholder={placeholder}

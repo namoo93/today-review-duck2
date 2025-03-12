@@ -35,7 +35,7 @@ tokenInstance.interceptors.request.use((config) => {
 /* 공통 API Instance 생성 함수 */
 function createAPIInstance(baseURL: string) {
   const instance = axios.create({
-    baseURL: `${process.env.NEXT_PUBLIC_API_URL}/${baseURL}`,
+    baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}/${baseURL}`,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${getAuthorityCookie("accessToken")}`,

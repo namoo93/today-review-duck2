@@ -32,12 +32,12 @@
   color: white;
 }
 
-.button_checked:hover {
+/* .button_checked:hover {
   background-color: var(--primary-hover-color);
 }
 .button_filled:hover {
   background-color: var(--primary-hover-color);
-}
+} */
 
 .button_normal {
   background-color: white;
@@ -55,12 +55,9 @@
 
 .button_disabled {
   border: none;
-  color: #d1d1d1;
+  color: #aaa;
   background-color: #e3e3e3;
   cursor: auto;
-}
-.button_disabled:hover {
-  background-color: var(--light-gray-color);
 }
 
 .button_transparent {
