@@ -28,6 +28,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     <RecoilRoot>
       <QueryClientProvider client={client}>
         {children}
+
         <ReactQueryDevtools
           initialIsOpen={process.env.NEXT_PUBLIC_MODE === "local"}
         />

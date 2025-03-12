@@ -62,9 +62,9 @@
   padding: 0 10px;
 }
 
-.signin_form_button__w7Vck {
+.signin_form_button_wrap__plhEb {
   position: absolute;
-  max-width: 335px;
+  width: 335px;
   bottom: 20px;
   top: auto;
   left: 50%;
@@ -545,5 +545,71 @@
 
 .tabmenu_button_text_inactive__xn1SE {
 color: var(--font-black-color);
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/toast/toast.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.toast_toast_container__EkI_i {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.toast_toast__Ma_iG {
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  flex-wrap: wrap;
+  min-height: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.toast_toast__Ma_iG.toast_success__0w_sH {
+  background-color: #ffebd4;
+  color: #ff7e29;
+}
+
+.toast_toast__Ma_iG.toast_error__5xCYm {
+  background-color: #ffeded;
+  color: #ff0000;
+}
+
+.toast_toast__Ma_iG.toast_info__UC2GW {
+  background-color: #ffebd4;
+  color: #ff7e29;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/modal/modal.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.modal_overlay__l352C {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal_modal__fW9Wr {
+  background-color: #fff;
+  min-width: 300px;
+  min-height: 100px;
 }
 

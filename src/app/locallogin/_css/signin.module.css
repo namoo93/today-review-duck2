@@ -59,9 +59,9 @@
   padding: 0 10px;
 }
 
-.form_button {
+.form_button_wrap {
   position: absolute;
-  max-width: 335px;
+  width: 335px;
   bottom: 20px;
   top: auto;
   left: 50%;

@@ -1,7 +1,7 @@
 import { userState } from "@/app/_recoil";
 import { useMutation } from "@tanstack/react-query";
 import { useRecoilState } from "recoil";
-import { authInstance, handleApiError } from "../axios";
+import { authInstance, handleApiError } from "../api/axios";
 import { setAuthorityCookie } from "@/app/_utils/cookies";
 
 interface LoginParams {

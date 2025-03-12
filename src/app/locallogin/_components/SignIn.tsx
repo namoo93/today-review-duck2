@@ -2,18 +2,23 @@
 import styles from "../_css/signin.module.css";
 import Image from "next/image";
 import ImgLogo from "@/../../public/images/logo.svg";
-import useAuth from "@/app/api/auth/login";
+import useAuth from "@/app/_hooks/useAuth";
 import { userState } from "@/app/_recoil";
 import { useRecoilValue } from "recoil";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button, Input } from "@/app/_components/atoms";
-// import Link from "next/link";
+import { useToast } from "@/app/_hooks/useToast";
+import ToastContainer from "@/app/_components/toast/ToastContainer";
+import Modal from "@/app/_components/modal/Modal";
+import { useModal } from "@/app/_hooks/useModal";
 
 export default function SignIn() {
   const { login, isPending } = useAuth();
   const user = useRecoilValue(userState);
   const router = useRouter();
+  const { addToast } = useToast();
+  const { openModal } = useModal();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -90,21 +95,34 @@ export default function SignIn() {
             <button
               type="button"
               className={styles.find_password_button}
-              onClick={() => {}}
+              onClick={() => openModal(<p>안녕하세요! 🌟</p>)}
             >
               비밀번호 찾기
             </button>
           </p>
         </form>
-        <Button
-          buttonType="submit"
-          filled
-          onClick={() => {}}
-          className={styles.form_button}
-        >
-          로그인
-        </Button>
+        <div className={styles.form_button_wrap}>
+          <Button
+            buttonType="submit"
+            filled
+            onClick={() =>
+              addToast("에러 발생! 두줄이상의 에러일 경우", "info")
+            }
+            className={styles.form_button}
+            disabled={!isPending}
+          >
+            로그인
+          </Button>
+        </div>
       </div>
+
+      <ToastContainer
+        width="335px"
+        top="70%"
+        right="50%"
+        transform="translateX(50%)"
+      />
+      <Modal />
     </section>
   );
 }
