@@ -15,12 +15,9 @@ export default function Aside() {
   const user = useRecoilValue(userState);
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-	const [, setUser] = useRecoilState(userState);
 
   const goToSignPage = () => {
     router.push(`/login`);
-    //TODO:임시강제로그인
-      setUser({ id: "123" });
   };
 
   return (

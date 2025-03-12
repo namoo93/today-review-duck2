@@ -1,0 +1,573 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/navigation/_css/header.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.header_header__VlzMU {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+.header_header_box__J6AM0 {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 936px;
+  display: flex;
+  padding: 15px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_logo__PMBUt a {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/navigation/_css/aside.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.aside_aside__DGCyd {
+  display: flex;
+}
+
+.aside_aside__DGCyd button {
+  display: flex;
+  align-items: center;
+}
+
+.aside_aside__DGCyd span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #585858;
+}
+
+.aside_alaram_button__OEr7s {
+  position: relative;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/avatar.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.avatar_avatar__0cnhO {
+  display: flex;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.avatar_avatar__0cnhO img{
+  width: 100%;
+  height: 100%;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/button.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.button_button__pV3cX {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: var(--button-normal-bg-color);
+  color: var(--font-black-color);
+  border: none;
+  cursor: pointer;
+}
+
+.button_button_checked__LT25n {
+  background-color: var(--button-light-normal);
+  color: white;
+}
+
+.button_button_filled__FPri6 {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button_button_checked__LT25n a {
+  color: white;
+}
+.button_button_filled__FPri6 a {
+  color: white;
+}
+
+.button_button_checked__LT25n:hover {
+  background-color: var(--primary-hover-color);
+}
+.button_button_filled__FPri6:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.button_button_normal__Lrayw {
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.button_button_success__AlD6h {
+  background-color: var(--success-color);
+}
+
+.button_button_warning__X31p5 {
+  background-color: var(--error-color);
+}
+
+.button_button_disabled__oGM2s {
+  border: none;
+  color: #d1d1d1;
+  background-color: #e3e3e3;
+  cursor: auto;
+}
+.button_button_disabled__oGM2s:hover {
+  background-color: var(--light-gray-color);
+}
+
+.button_button_transparent__llmbV {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.button_button_border__U9LsR {
+  background-color: transparent;
+  border: 1px solid #e3e3e3;
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/checkbox.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.checkbox_component__goY91 {
+  display: block;
+}
+
+.checkbox_label__H5ojC {
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox_inputCheckbox__P62YK {
+  transform: translateY(3px);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.checkbox_margin__RmPj7 {
+  margin: 0px;
+}
+
+.checkbox_marginLeft__I5MCx {
+  margin-left: 0px; /* Default margin left */
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/dropdown.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dropdown_dropdown__4a1ba {
+  position: absolute;
+  top: 0;
+  margin-top: 10px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 8;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  display: none;
+  width: 100%; /* 기본 너비 */
+}
+
+.dropdown_dropdown__4a1ba.dropdown_open__XARpL {
+  display: inline-block;
+}
+
+.dropdown_left__XAcnL {
+  left: 0;
+}
+
+.dropdown_right__wJWhT {
+  right: 0;
+}
+
+.dropdown_center__a7MSM {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dropdown_radius_8__IDpt4 {
+  border-radius: 8px;
+}
+
+.dropdown_radius_16__cSNaE {
+  border-radius: 16px;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/input.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/radio.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/select.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.select_component__fQDyk {
+  position: relative;
+  padding: 0px;
+}
+
+.select_select_options_list___shKj {
+  padding-top: 5px;
+  position: absolute;
+  top: 30px;
+  margin-bottom: 0px;
+  bottom: 0;
+  left: '50%';
+	transform: translateX(-25%);
+  right: 0;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+	background-color: #fff;
+}
+
+.select_list_item__mtPXz {
+  width: 100%;
+  background-color: #fff;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+}
+.select_list_item__mtPXz:hover {
+	background-color: var(--select-hover);
+}
+.select_first_list_item__oTKsW {
+	border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+.select_last_list_item__7tzQu {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+}
+
+.select_list_item__mtPXz > button{
+	border: none;
+	padding: 5px 10px;
+	background-color: transparent;
+	cursor: pointer ;
+}
+.select_list_item__mtPXz > button > span{
+	font-size: 13px;
+	font-weight: 300;
+	color: #585858;
+}
+
+.select_select_button___5fQw {
+	border: none;
+	background-color:  transparent;
+	cursor: pointer;
+	padding: 5px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.select_select_button___5fQw > span{
+	display: inline-block;
+	width: 40px;
+	font-size: 13px;
+	font-weight: 300;
+	color: #585858;
+	padding-right: 4px;
+	padding-top: 2px;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/tooltip.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tooltip_tooltip_container__8upvF {
+  position: relative;
+  display: inline-block;
+}
+
+/* 툴팁 스타일 */
+.tooltip_tooltip__VqKJR {
+  position: absolute;
+  top: 100%;
+  background: #f0f0f0;
+  color: #585858;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: center;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 삼각형 (▲) */
+.tooltip_tooltip_arrow__CzkYd {
+  position: absolute;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #f0f0f0;
+}
+
+/* 위치 조정 */
+.tooltip_tooltip_left__5EJCh {
+  left: 0;
+  transform: translateX(-10%);
+}
+
+.tooltip_tooltip_right__6uu3u {
+  right: 0;
+  transform: translateX(10%);
+}
+
+.tooltip_tooltip_center__71zXY {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 삼각형 위치 */
+.tooltip_tooltip_arrow_left__angxF {
+  left: 20px;
+}
+
+.tooltip_tooltip_arrow_right___cwMV {
+  right: 20px;
+}
+
+.tooltip_tooltip_arrow_center__fVBBo {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/search.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.search_component__8Bzuk {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 35px;
+  font-size: 14px;
+  margin: 0;
+  background: transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.search_input__PEPU2 {
+  display: flex;
+  width: 100%;
+  flex: 1 0;
+  font-size: 16px;
+  padding: 6px;
+  padding-left: 58px;
+  border-radius: 0px;
+  border: none;
+  background-color: transparent;
+  color: #585858;
+}
+.search_input__PEPU2::placeholder {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.search_button__AkL3V {
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search_error_message__YMOnQ {
+  color: var(--error-color);
+  font-size: 12px;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/tabmenu.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tabmenu_component__JWDmr {
+  width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.tabmenu_tab_button__glxbX {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+	padding: 5px;
+  transition: all 0.1s;
+}
+
+.tabmenu_tab_button_active__CumSj {
+	background: transparent;
+  border-radius: 0px;
+  border-bottom: 2px solid var(--primary-hover-color);
+}
+
+.tabmenu_tab_button_inactive__ekbch {
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+}
+
+
+.tabmenu_button_text__eqjbv {
+  font-size: 14px;
+}
+
+.tabmenu_button_text_bold__bhw7p {
+  font-weight: bold;
+}
+
+.tabmenu_button_text_active__3H56H {
+  color: var(--primary-hover-color);
+}
+
+.tabmenu_button_text_inactive__xn1SE {
+color: var(--font-black-color);
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/navigation/_css/gnb.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.gnb_gnb_list__NYHhW {
+  display: flex;
+  flex: 1 0;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+}
+
+.gnb_gnb_item__EFksd {
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #999;
+}
+
+.gnb_gnb_item_on__SK7zA {
+  color: #585858;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/themeButton/theme.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.theme_button_wrap__f_NKH {
+  position: fixed;
+  bottom: 60px;
+  right: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.theme_toggle_button__tvmF3 {
+  padding: 0;
+  margin: 0;
+  /* width: 80px; // 현재 이미지 자체에 음영이 들어감
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); */
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/main/_css/banner.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.banner_banner_wrap__2u3Af {
+  width: 100%;
+  height: 443px;
+  background-size: contain;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  /* transition: background 0.3s ease-in-out; */
+}
+.banner_wrap_light__g7LIo {
+  background-color: #fffaf5;
+  background-image: url("/images/img-main-background.png");
+}
+.banner_wrap_dark___ZKne {
+  background-color: #f5f5f5;
+  background-image: url("/images/img-main-background-dark.png");
+}
+
+.banner_banner_title__H7fdj {
+  margin: 0 auto;
+  max-width: 936px;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 63px;
+  text-align: left;
+  color: #000;
+  padding-bottom: 25px;
+  padding-top: 80px;
+}
+.banner_banner_title_sub__kolQZ {
+  margin: 0 auto;
+  max-width: 936px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #818181;
+  padding-bottom: 90px;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/main/_css/bannersearch.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.bannersearch_search_input_wrap__1UhYE {
+  height: 60px;
+  padding: 0 20px;
+  padding-right: 50px;
+  margin: 0 auto;
+  width: 956px;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  position: relative;
+}
+
+.bannersearch_list_wrap__6cqKO {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.bannersearch_list_box__jAzeu {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
