@@ -60,9 +60,19 @@ export default function Input({
             onClick={() => setShowPassword((prev) => !prev)}
           >
             {showPassword ? (
-              <Icon src={IocEyeOn} alt="비밀번호 보임 처리 아이콘" />
+              <Icon
+                src={IocEyeOn}
+                alt="비밀번호 보임 처리 아이콘"
+                width={20}
+                height={20}
+              />
             ) : (
-              <Icon src={IocEyeOff} alt="비밀번호 보임 처리 아이콘" />
+              <Icon
+                src={IocEyeOff}
+                alt="비밀번호 보임 처리 아이콘"
+                width={20}
+                height={20}
+              />
             )}
           </button>
         )}
