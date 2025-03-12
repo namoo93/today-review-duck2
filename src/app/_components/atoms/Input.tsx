@@ -15,7 +15,7 @@ type Props = {
   disabled?: boolean;
   height?: string;
   padding?: string;
-  showSuccess?: boolean;
+  success?: string | boolean;
 };
 export default function Input({
   label,
@@ -26,7 +26,7 @@ export default function Input({
   error,
   subInfo,
   disabled = false,
-  showSuccess = false,
+  success,
   height = "50px",
   padding,
 }: Props) {
@@ -36,7 +36,6 @@ export default function Input({
   return (
     <span className={styles.input_container} style={{ padding }}>
       {label && <label className={styles.label}>{label}</label>}
-
       <span
         className={`${styles.input_wrap} ${error ? styles.error : ""} ${
           disabled ? styles.disabled : ""
@@ -51,7 +50,6 @@ export default function Input({
           disabled={disabled}
           className={styles.input}
         />
-
         {isPassword && (
           <button
             type="button"
@@ -68,6 +66,7 @@ export default function Input({
       </span>
       {error && <span className={styles.error_message}>{error}</span>}
       {subInfo && <span className={styles.sub_info_message}>{subInfo}</span>}
+      {success && <span className={styles.success_message}>{success}</span>}
     </span>
   );
 }

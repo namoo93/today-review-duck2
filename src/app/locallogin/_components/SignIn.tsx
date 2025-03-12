@@ -95,10 +95,15 @@ export default function SignIn() {
               비밀번호 찾기
             </button>
           </p>
-          <Button buttonType="submit" filled onClick={() => {}}>
-            로그인
-          </Button>
         </form>
+        <Button
+          buttonType="submit"
+          filled
+          onClick={() => {}}
+          className={styles.form_button}
+        >
+          로그인
+        </Button>
       </div>
     </section>
   );

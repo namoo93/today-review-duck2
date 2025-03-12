@@ -50,7 +50,11 @@
   font-size: 13px;
   color: #999;
 }
-
+.success_message {
+  font-weight: 400;
+  font-size: 13px;
+  color: #ff7e29;
+}
 /* .input:focus {
   border-color: #007bff;
 } */

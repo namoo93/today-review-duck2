@@ -12,6 +12,8 @@
   height: 80vh;
   background-color: #fff;
   border-radius: 32px;
+  position: relative;
+  overflow-y: auto;
 }
 
 .logo_wrap {
@@ -27,6 +29,8 @@
   flex-direction: column;
   width: 335px;
   margin: 0 auto;
+  min-height: 385px;
+  margin-bottom: 100px;
 }
 
 .sub_title {
@@ -53,4 +57,13 @@
   font-weight: 500;
   color: #ff7e29;
   padding: 0 10px;
+}
+
+.form_button {
+  position: absolute;
+  max-width: 335px;
+  bottom: 20px;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
 }
