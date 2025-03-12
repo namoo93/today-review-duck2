@@ -7,7 +7,7 @@
   width: 100%;
   height: 50px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
   border-radius: 5px;
   background-color: var(--button-normal-bg-color);
   color: var(--font-black-color);

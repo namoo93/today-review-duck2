@@ -13,8 +13,8 @@ export default function Login() {
   const goToSignInPage = () => {
     router.push(`/locallogin`);
   };
-	const goToSignUpPage = () => {
-    router.push(`/locallogin`);
+  const goToSignUpPage = () => {
+    router.push(`/localsignup`);
   };
 
   return (
