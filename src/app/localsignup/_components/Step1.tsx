@@ -4,7 +4,7 @@ import { SetStateAction, useState } from "react";
 import { validateEmail } from "@/app/_utils/validation";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
-import { useInspectEmail } from "@/app/_hooks/useInspectEmail";
+import { useInspectDuplicateEmail } from "@/app/_hooks/useInspectEmail";
 
 type Props = {
   setStep: React.Dispatch<SetStateAction<number>>;
@@ -12,7 +12,7 @@ type Props = {
 };
 export default function Step1({ setStep, setEmail }: Props) {
   const { addToast } = useToast();
-  const { mutate: inspectEmailMutate, isPending } = useInspectEmail();
+  const { mutate: inspectEmailMutate, isPending } = useInspectDuplicateEmail();
   const [emailError, setEmailError] = useState("");
   const [emailData, setEmailData] = useState("");
 
@@ -51,7 +51,8 @@ export default function Step1({ setStep, setEmail }: Props) {
     });
   };
 
-  const isButtonDisabled = !emailData.trim() || emailError.trim() !== "";
+  const isButtonDisabled =
+    !emailData.trim() || emailError.trim() !== "" || isPending;
 
   return (
     <>

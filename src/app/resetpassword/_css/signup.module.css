@@ -1,0 +1,25 @@
+.page {
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.signup_wrap {
+  width: 566px;
+  height: 80vh;
+  background-color: #fff;
+  border-radius: 32px;
+  position: relative;
+  overflow-y: auto;
+}
+
+.logo_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: clamp(1em, 5vw, 2em); /* (최소, 기본, 최대) */
+  padding-bottom: 50px;
+}
