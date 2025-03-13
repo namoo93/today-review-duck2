@@ -17,20 +17,20 @@ const ToastContainer = ({
   const { toasts, removeToast } = useToast();
 
   return (
-    <div
+    <span
       className={styles.toast_container}
       style={{ width, top, right, transform }}
     >
       {toasts.map((toast) => (
-        <div
+        <span
           key={toast.id}
           className={`${styles.toast} ${styles[toast.type]}`}
           onClick={() => removeToast(toast.id)}
         >
           {toast.message}
-        </div>
+        </span>
       ))}
-    </div>
+    </span>
   );
 };
 

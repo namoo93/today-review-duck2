@@ -1,0 +1,115 @@
+.form_wrap {
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  margin: 0 auto;
+  min-height: 385px;
+  margin-bottom: 100px;
+}
+
+.main_title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+}
+.sub_title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #818181;
+  padding: 10px 0;
+}
+
+.find_password {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.find_password_title {
+  color: #d1d1d1;
+  font-size: 14px;
+  font-weight: 500;
+}
+.find_password_button {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ff7e29;
+  padding: 0 10px;
+}
+
+.form_button_wrap {
+  position: absolute;
+  width: 335px;
+  bottom: 20px;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* step 2 */
+.code_input_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.code_input {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 12px;
+  outline: none;
+  background-color: #f7f7f7;
+  transition: background-color 0.3s;
+}
+
+.code_input:focus {
+  background-color: #fff6ed;
+}
+
+.code_input_error {
+  background-color: #ffeded;
+}
+
+.timer {
+  font-size: 14px;
+  font-weight: 300;
+  color: #ff7e29;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.resend_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding-top: 20px;
+}
+
+.resend_wrap span {
+  color: #d1d1d1;
+}
+
+.resend_wrap button {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-decoration-skip-ink: none;
+  color: #ff7e29;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.resend_wrap button:disabled {
+  color: #d1d1d1;
+  cursor: default;
+}

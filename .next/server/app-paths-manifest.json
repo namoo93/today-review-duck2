@@ -1,4 +1,5 @@
 {
   "/locallogin/page": "app/locallogin/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/localsignup/page": "app/localsignup/page.js",
+  "/login/page": "app/login/page.js"
 }

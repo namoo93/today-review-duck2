@@ -30,8 +30,6 @@ export default function SignIn() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
     // 이메일 검증
     if (name === "email") {
       setEmailError(validateEmail(value));
@@ -40,6 +38,7 @@ export default function SignIn() {
     if (name === "password") {
       setPasswordError(validatePassword(value));
     }
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -59,7 +58,7 @@ export default function SignIn() {
     }
   };
 
-  const goToFindPassword = () => {
+  const goToFindPasswordPage = () => {
     // router.push(`/`); // 페이지가 아닌 컴포넌트로분기 고려
   };
 
@@ -117,12 +116,13 @@ export default function SignIn() {
             <button
               type="button"
               className={styles.find_password_button}
-              onClick={() => goToFindPassword()}
+              onClick={() => goToFindPasswordPage()}
             >
               비밀번호 찾기
             </button>
           </p>
         </form>
+
         <div className={styles.form_button_wrap}>
           <Button
             buttonType="submit"
@@ -132,15 +132,14 @@ export default function SignIn() {
           >
             로그인
           </Button>
+          <ToastContainer
+            width="335px"
+            top="-60px"
+            right="50%"
+            transform="translateX(50%)"
+          />
         </div>
       </div>
-
-      <ToastContainer
-        width="335px"
-        top="70%"
-        right="50%"
-        transform="translateX(50%)"
-      />
     </section>
   );
 }
