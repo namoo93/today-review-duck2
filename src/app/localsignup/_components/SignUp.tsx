@@ -20,7 +20,7 @@ export default function SignUp() {
       {step !== 4 && (
         <div className={styles.signup_wrap}>
           <h1 className={styles.logo_wrap}>
-            {/* <Link href={"./"}> */}
+            {/* <Link href={"/"}> */}
             <Image
               src={ImgLogo}
               alt="logo image"

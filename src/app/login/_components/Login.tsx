@@ -21,7 +21,7 @@ export default function Login() {
     <section className={styles.page}>
       <div className={styles.login_wrap}>
         <h1 className={styles.logo_wrap}>
-          {/* <Link href={"./"}> */}
+          {/* <Link href={"/"}> */}
           <Image
             src={ImgLogo}
             alt="logo image"

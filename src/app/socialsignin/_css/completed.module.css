@@ -1,0 +1,38 @@
+.page {
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.box_wrap {
+  width: 566px;
+  height: 80vh;
+  background-color: #fff;
+  border-radius: 32px;
+  position: relative;
+  overflow-y: auto;
+}
+.icon_wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: clamp(8em, 15vw, 15em);
+}
+.sub_title {
+  padding-top: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.button_wrap {
+  position: absolute;
+  width: 335px;
+  bottom: 20px;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}

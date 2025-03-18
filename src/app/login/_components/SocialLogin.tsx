@@ -9,9 +9,28 @@ import { Button, Icon, Tooltip } from "@/app/_components/atoms";
 
 export default function SocialLogin() {
   const [lastLogin, setLastLogin] = useState<string | null>(null);
+	// 구글 인증
+  const REDIRECT_GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  const REDIRECT_GOOGLE_URI = process.env
+    .NEXT_PUBLIC_GOOGLE_REDIRECT_URI as string;
 
+  console.log(REDIRECT_GOOGLE_CLIENT_ID, "google id");
+  console.log(REDIRECT_GOOGLE_URI, "google uri");
   // 로그인 버튼 클릭 핸들러
   const handleLogin = (provider: string) => {
+    if (provider == "google") {
+      const url =
+        "https://accounts.google.com/o/oauth2/auth?client_id=" +
+        REDIRECT_GOOGLE_CLIENT_ID +
+        "&redirect_uri=" +
+        encodeURIComponent(REDIRECT_GOOGLE_URI) +
+        "&response_type=code" +
+        "&scope=email%20profile";
+
+      window.location.href = url;
+    }
+
+    //TODO : 로컬스토리지에 저장
     setLastLogin(provider); // 마지막 로그인한 소셜 업데이트
   };
 

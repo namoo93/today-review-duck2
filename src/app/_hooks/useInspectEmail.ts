@@ -1,27 +1,30 @@
 import { useMutation } from "@tanstack/react-query";
-import { authInstance } from "../api/axios";
+import { axiosInstance } from "../api/axios";
 
 /*
-  이메일 중복 검사 API 요청 (회원가입용) Hook
- */
+  ✅ 이메일 중복 검사 API 요청 (회원가입 시 사용)
+*/
 export const useInspectDuplicateEmail = () => {
   return useMutation({
     mutationFn: async (email: string) => {
-      const response = await authInstance.post("/email/inspect-duplicate", {
-        email,
-      });
+      const response = await axiosInstance.post(
+        "/auth/email/inspect-duplicate",
+        {
+          email,
+        }
+      );
       return response.data;
     },
   });
 };
 
 /*
-  가입 이메일 검사 API 요청 Hook
- */
+  ✅ 가입 이메일 검사 API 요청
+*/
 export const useInspectEmail = () => {
   return useMutation({
     mutationFn: async (email: string) => {
-      const response = await authInstance.post("/email/inspect", {
+      const response = await axiosInstance.post("/auth/email/inspect", {
         email,
       });
       return response.data;
