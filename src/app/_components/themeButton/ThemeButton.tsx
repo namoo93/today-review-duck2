@@ -11,7 +11,7 @@ import { Icon } from "../atoms";
 export default function ThemeButton() {
   const [theme, setTheme] = useRecoilState(themeState);
 
-  // ✅ 클라이언트에서 `localStorage`에서 초기 테마 설정
+  // 클라이언트에서 `localStorage`에서 초기 테마 설정
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedTheme = localStorage.getItem("theme") as ThemeType | null;
@@ -21,7 +21,7 @@ export default function ThemeButton() {
     }
   }, []);
 
-  // ✅ 테마 변경 함수
+  // 테마 변경 함수
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -30,7 +30,7 @@ export default function ThemeButton() {
   return (
     <div className={styles.button_wrap}>
       <button className={styles.toggle_button} onClick={toggleTheme}>
-        {theme == "light" ? (
+        {theme !== "light" ? (
           <Icon
             src={IocModeLight}
             alt="라이트모드 버튼 아이콘"

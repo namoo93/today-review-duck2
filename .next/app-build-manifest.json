@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/locallogin/page": [
+    "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/locallogin/page.css",
-      "static/chunks/app/locallogin/page.js"
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -23,22 +23,23 @@
       "static/css/app/localsignup/page.css",
       "static/chunks/app/localsignup/page.js"
     ],
-    "/_not-found/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
-    "/login/page": [
+    "/locallogin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
+      "static/css/app/locallogin/page.css",
+      "static/chunks/app/locallogin/page.js"
     ],
-    "/resetpassword/page": [
+    "/[userId]/mypage/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/resetpassword/page.css",
-      "static/chunks/app/resetpassword/page.js"
+      "static/css/app/[userId]/mypage/page.css",
+      "static/chunks/app/[userId]/mypage/page.js"
     ]
   }
 }

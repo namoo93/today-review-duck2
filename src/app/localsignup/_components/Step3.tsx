@@ -42,6 +42,7 @@ export default function Step3({ setStep }: Props) {
   ) => {
     e.preventDefault();
     if (isButtonDisabled) return;
+    // TODO : api 연결
     addToast("두줄이상 인포의 경우 두줄이상 ", "info");
     setStep(4);
   };
