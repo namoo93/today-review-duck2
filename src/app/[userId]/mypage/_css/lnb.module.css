@@ -1,0 +1,47 @@
+.lnb {
+  padding: 40px 10px;
+}
+
+.lnb_list {
+  list-style: none;
+  padding: 0;
+}
+.lnb_list_wrap li {
+  padding: 10px 20px;
+}
+.lnb_list_title {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #585858;
+  display: flex;
+  padding-bottom: 5px;
+}
+.lnb_list li {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lnb_list strong {
+  font-size: 14px;
+  color: #999;
+  font-weight: 600;
+}
+
+.lnb_list button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  color: #818181;
+  display: flex;
+  flex: 1;
+}
+.lnb_list button.on {
+  color: #ff7e29;
+}

@@ -1,33 +1,53 @@
-import styles from "../_css/sidebar.module.css";
+"use client";
+import { useState } from "react";
 import Lnb from "./Lnb";
+import styles from "../_css/sidebar.module.css";
 
-export default function SideBar() {
+export default function SideBar({
+  onSelectMenu,
+  selectedMenu,
+}: {
+  onSelectMenu: (menu: string) => void;
+  selectedMenu: string;
+}) {
   return (
     <div className={styles.page}>
-      <dl>
-        <dt id="post-label">게시글</dt>
-        <dd aria-labelledby="post-label">
-          <button type="button" onClick={() => {}}>
+      {/* 상단 통계 */}
+      <ul className={styles.top_list}>
+        <li>
+          <strong className={styles.top_list_title}>게시글</strong>
+          <button
+            className={styles.top_list_button}
+            type="button"
+            onClick={() => {}}
+          >
             10개
           </button>
-        </dd>
-
-        <dt id="follower-label">덕후</dt>
-        <dd aria-labelledby="follower-label">
-          <button type="button" onClick={() => {}}>
-            82명
+        </li>
+        <li>
+          <strong className={styles.top_list_title}>덕후</strong>
+          <button
+            className={styles.top_list_button}
+            type="button"
+            onClick={() => {}}
+          >
+            482명
           </button>
-        </dd>
-
-        <dt id="follow-label">덕질</dt>
-        <dd aria-labelledby="follow-label">
-          <button type="button" onClick={() => {}}>
+        </li>
+        <li>
+          <strong className={styles.top_list_title}>덕질</strong>
+          <button
+            className={styles.top_list_button}
+            type="button"
+            onClick={() => {}}
+          >
             42명
           </button>
-        </dd>
-      </dl>
+        </li>
+      </ul>
 
-      <Lnb />
+      {/* 네비게이션 목록 */}
+      <Lnb onSelectMenu={onSelectMenu} selectedMenu={selectedMenu} />
     </div>
   );
 }

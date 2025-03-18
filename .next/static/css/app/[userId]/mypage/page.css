@@ -2,241 +2,71 @@
   !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/mypage.module.css ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .mypage_page__CguZM {
-	
-}
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/sidebar.module.css ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.sidebar_page__QYIkJ {
-}
-
-.sidebar_lnb__dn00p {
-}
-.sidebar_lnb_list__HO6pU {
-}
-
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/yourpage.module.css ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.yourpage_page__R1wfH {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  grid-gap: 64px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .yourpage_page__R1wfH {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.yourpage_main__CWyrN {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  position: relative;
 }
 
-.yourpage_main__CWyrN ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
+.mypage_contents__xRTmW {
+  flex: 1 1;
+  padding: 0 30px;
+}
+.mypage_contents_title__G7Xv3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #585858;
+  text-align: left;
+  padding: 30px 0;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/lnb.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.lnb_lnb__p9NZw {
+  padding: 40px 10px;
+}
+
+.lnb_lnb_list__DhQyT {
+  list-style: none;
+  padding: 0;
+}
+.lnb_lnb_list_wrap__OWl5Y li {
+  padding: 10px 20px;
+}
+.lnb_lnb_list_title__jSssW {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #585858;
+  display: flex;
+  padding-bottom: 5px;
+}
+.lnb_lnb_list__DhQyT li {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lnb_lnb_list__DhQyT strong {
   font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.yourpage_main__CWyrN li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.yourpage_main__CWyrN code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
+  color: #999;
   font-weight: 600;
 }
 
-.yourpage_ctas__MwZjZ {
-  display: flex;
-  gap: 16px;
-}
-
-.yourpage_ctas__MwZjZ a {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
+.lnb_lnb_list__DhQyT button {
+  background: none;
   border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
   font-weight: 500;
-}
-
-a.yourpage_primary__2UXUA {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.yourpage_secondary__IVXDr {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.yourpage_footer__stn7o {
-  grid-row-start: 3;
+  text-align: left;
+  color: #818181;
   display: flex;
-  gap: 24px;
+  flex: 1 1;
 }
-
-.yourpage_footer__stn7o a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.yourpage_footer__stn7o img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.yourpage_primary__2UXUA:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.yourpage_secondary__IVXDr:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .yourpage_footer__stn7o a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .yourpage_page__R1wfH {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .yourpage_main__CWyrN {
-    align-items: center;
-  }
-
-  .yourpage_main__CWyrN ol {
-    text-align: center;
-  }
-
-  .yourpage_ctas__MwZjZ {
-    flex-direction: column;
-  }
-
-  .yourpage_ctas__MwZjZ a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.yourpage_secondary__IVXDr {
-    min-width: auto;
-  }
-
-  .yourpage_footer__stn7o {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .yourpage_logo__k68VB {
-    filter: invert();
-  }
-}
-
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/navigation/_css/header.module.css ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.header_header__VlzMU {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 9;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
-}
-.header_header_box__J6AM0 {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 936px;
-  display: flex;
-  padding: 15px 0;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header_logo__PMBUt a {
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-}
-
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/navigation/_css/aside.module.css ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.aside_aside__DGCyd {
-  display: flex;
-}
-
-.aside_aside__DGCyd button {
-  display: flex;
-  align-items: center;
-}
-
-.aside_aside__DGCyd span {
-  font-size: 16px;
-  font-weight: 500;
-  color: #585858;
-}
-
-.aside_alaram_button__OEr7s {
-  position: relative;
+.lnb_lnb_list__DhQyT button.lnb_on__MsbJY {
+  color: #ff7e29;
 }
 
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -710,6 +540,299 @@ a.yourpage_secondary__IVXDr {
 
 .tabmenu_button_text_inactive__xn1SE {
 color: var(--font-black-color);
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/sidebar.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.sidebar_page__QYIkJ {
+  width: 262px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+}
+
+.sidebar_top_list__1ceBz {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+}
+.sidebar_top_list__1ceBz li {
+  width: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar_top_list_title__GzePQ {
+  color: #333;
+  font-size: 12px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+.sidebar_top_list_button__YUsyt {
+  font-size: 16px;
+  font-weight: 600;
+  color: #585858;
+  text-align: center;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding-bottom: 15px;
+}
+
+.sidebar_top_list__1ceBz li:not(:first-child) {
+  position: relative;
+}
+
+.sidebar_top_list__1ceBz::before {
+  content: "";
+  width: calc(100% - 50px);
+  height: 1px;
+  background-color: #f0f0f0;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sidebar_top_list__1ceBz li:not(:first-child)::before {
+  content: "";
+  width: 1px;
+  height: 54px;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/yourpage.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.yourpage_page__R1wfH {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 80px;
+  grid-gap: 64px;
+  gap: 64px;
+  font-family: var(--font-geist-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  .yourpage_page__R1wfH {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.yourpage_main__CWyrN {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  grid-row-start: 2;
+}
+
+.yourpage_main__CWyrN ol {
+  font-family: var(--font-geist-mono);
+  padding-left: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  list-style-position: inside;
+}
+
+.yourpage_main__CWyrN li:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.yourpage_main__CWyrN code {
+  font-family: inherit;
+  background: var(--gray-alpha-100);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.yourpage_ctas__MwZjZ {
+  display: flex;
+  gap: 16px;
+}
+
+.yourpage_ctas__MwZjZ a {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border: 1px solid transparent;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+a.yourpage_primary__2UXUA {
+  background: var(--foreground);
+  color: var(--background);
+  gap: 8px;
+}
+
+a.yourpage_secondary__IVXDr {
+  border-color: var(--gray-alpha-200);
+  min-width: 180px;
+}
+
+.yourpage_footer__stn7o {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+}
+
+.yourpage_footer__stn7o a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yourpage_footer__stn7o img {
+  flex-shrink: 0;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.yourpage_primary__2UXUA:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.yourpage_secondary__IVXDr:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .yourpage_footer__stn7o a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .yourpage_page__R1wfH {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+  .yourpage_main__CWyrN {
+    align-items: center;
+  }
+
+  .yourpage_main__CWyrN ol {
+    text-align: center;
+  }
+
+  .yourpage_ctas__MwZjZ {
+    flex-direction: column;
+  }
+
+  .yourpage_ctas__MwZjZ a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.yourpage_secondary__IVXDr {
+    min-width: auto;
+  }
+
+  .yourpage_footer__stn7o {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .yourpage_logo__k68VB {
+    filter: invert();
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/navigation/_css/header.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.header_header__VlzMU {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+.header_header_box__J6AM0 {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 936px;
+  display: flex;
+  padding: 15px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_logo__PMBUt a {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/navigation/_css/aside.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.aside_aside__DGCyd {
+  display: flex;
+}
+
+.aside_aside__DGCyd button {
+  display: flex;
+  align-items: center;
+}
+
+.aside_aside__DGCyd span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #585858;
+}
+
+.aside_alaram_button__OEr7s {
+  position: relative;
 }
 
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
