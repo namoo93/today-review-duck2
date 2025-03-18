@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/navigation";
 import styles from "../_css/sidebar.module.css";
 
@@ -5,8 +6,8 @@ export default function Lnb() {
   const router = useRouter();
 
   return (
-    <nav>
-      <ul>
+    <nav className={styles.lnb}>
+      <ul className={styles.lnb_list}>
         <li>
           설정
           <ul>

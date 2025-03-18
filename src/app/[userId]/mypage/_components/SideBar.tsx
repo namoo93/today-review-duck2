@@ -3,7 +3,7 @@ import Lnb from "./Lnb";
 
 export default function SideBar() {
   return (
-    <section className={styles.page}>
+    <div className={styles.page}>
       <dl>
         <dt id="post-label">게시글</dt>
         <dd aria-labelledby="post-label">
@@ -28,6 +28,6 @@ export default function SideBar() {
       </dl>
 
       <Lnb />
-    </section>
+    </div>
   );
 }

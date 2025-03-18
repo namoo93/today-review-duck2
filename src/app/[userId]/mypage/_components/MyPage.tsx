@@ -1,10 +1,13 @@
-'use client'
+"use client";
 import styles from "../_css/mypage.module.css";
-import Lnb from "./Lnb";
+import Contents from "./Contents";
+import SideBar from "./SideBar";
 
 export default function MyPage() {
-  return <section className={styles.page}>
-		<Lnb />
-
-	</section>;
+  return (
+    <section className={styles.page}>
+      <SideBar />
+      <Contents />
+    </section>
+  );
 }

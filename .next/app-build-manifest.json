@@ -40,6 +40,12 @@
       "static/chunks/main-app.js",
       "static/css/app/[userId]/mypage/page.css",
       "static/chunks/app/[userId]/mypage/page.js"
+    ],
+    "/socialsignin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/socialsignin/page.css",
+      "static/chunks/app/socialsignin/page.js"
     ]
   }
 }
