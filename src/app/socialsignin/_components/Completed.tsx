@@ -4,12 +4,12 @@ import styles from "../_css/completed.module.css";
 import { useSearchParams } from "next/navigation";
 import IconCheck from "@/../../public/icon/icon-check.svg";
 import useSocialAuth from "@/app/_hooks/useSocialAuth";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 // ✅ Next.js에서 서버 프리렌더링 방지 설정 추가
 export const dynamic = "force-dynamic";
 
-export default function Completed() {
+function CompletedContent() {
   const searchParams = useSearchParams();
   const { mutate: loginWithGoogle, isSuccess, isPending } = useSocialAuth();
   const [code, setCode] = useState<string | null>(null);
@@ -42,5 +42,13 @@ export default function Completed() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function Completed() {
+  return (
+    <Suspense fallback={<p>로딩 중...</p>}>
+      <CompletedContent />
+    </Suspense>
   );
 }
