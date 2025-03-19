@@ -20,26 +20,13 @@ export default function Logo() {
   };
 
   return (
-    <>
-      {theme == "light" ? (
-        <button type="button" onClick={handleNavigation}>
-          <Image
-            src={ImgLogo}
-            alt="logo image"
-            loading="lazy"
-            property={"public/images/logo.svg"}
-          />
-        </button>
-      ) : (
-        <button type="button" onClick={handleNavigation}>
-          <Image
-            src={ImgLogoDark}
-            alt="logo image"
-            loading="lazy"
-            property={"public/images/logo.svg"}
-          />
-        </button>
-      )}
-    </>
+    <button type="button" onClick={handleNavigation}>
+      <Image
+        src={theme == "light" ? ImgLogo : ImgLogoDark}
+        alt="logo image"
+        loading="lazy"
+        property={"public/images/logo.svg"}
+      />
+    </button>
   );
 }

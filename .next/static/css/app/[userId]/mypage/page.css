@@ -18,57 +18,6 @@
   padding: 30px 0;
 }
 
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/lnb.module.css ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.lnb_lnb__p9NZw {
-  padding: 40px 10px;
-}
-
-.lnb_lnb_list__DhQyT {
-  list-style: none;
-  padding: 0;
-}
-.lnb_lnb_list_wrap__OWl5Y li {
-  padding: 10px 20px;
-}
-.lnb_lnb_list_title__jSssW {
-  font-size: 16px;
-  font-weight: 600;
-  text-align: left;
-  color: #585858;
-  display: flex;
-  padding-bottom: 5px;
-}
-.lnb_lnb_list__DhQyT li {
-  padding: 15px 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.lnb_lnb_list__DhQyT strong {
-  font-size: 14px;
-  color: #999;
-  font-weight: 600;
-}
-
-.lnb_lnb_list__DhQyT button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: left;
-  color: #818181;
-  display: flex;
-  flex: 1 1;
-}
-.lnb_lnb_list__DhQyT button.lnb_on__MsbJY {
-  color: #ff7e29;
-}
-
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/avatar.module.css ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -201,7 +150,6 @@
   margin-top: 10px;
   background: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  padding: 10px;
   z-index: 8;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   display: none;
@@ -540,6 +488,99 @@
 
 .tabmenu_button_text_inactive__xn1SE {
 color: var(--font-black-color);
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/profilesettings.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.profilesettings_contents__EFoLD {
+  /* position: relative; */
+}
+.profilesettings_profile_img_button__k4Vij {
+  display: flex;
+  position: absolute;
+  top: -60px;
+  cursor: pointer;
+}
+.profilesettings_profile_edit_icon__Z86oX {
+  position: absolute;
+  bottom: -85px;
+  left: -25px;
+}
+.profilesettings_profile_img__b28II {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #ffebd4;
+  overflow: hidden;
+}
+.profilesettings_dropdown_wrap__yQAPZ {
+  position: relative;
+}
+
+.profilesettings_profile_setting_list_button__yNscG {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+.profilesettings_profile_setting_list_button__yNscG:hover {
+  background-color: #f0f0f0;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/lnb.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.lnb_lnb__p9NZw {
+  padding: 40px 10px;
+}
+
+.lnb_lnb_list__DhQyT {
+  list-style: none;
+  padding: 0;
+}
+.lnb_lnb_list_wrap__OWl5Y li {
+  padding: 10px 20px;
+}
+.lnb_lnb_list_title__jSssW {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #585858;
+  display: flex;
+  padding-bottom: 5px;
+}
+.lnb_lnb_list__DhQyT li {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lnb_lnb_list__DhQyT strong {
+  font-size: 14px;
+  color: #999;
+  font-weight: 600;
+}
+
+.lnb_lnb_list__DhQyT button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  color: #818181;
+  display: flex;
+  flex: 1 1;
+}
+.lnb_lnb_list__DhQyT button.lnb_on__MsbJY {
+  color: #ff7e29;
 }
 
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

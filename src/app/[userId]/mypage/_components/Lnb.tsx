@@ -20,7 +20,7 @@ export default function Lnb({
     <nav className={styles.lnb}>
       <ul className={styles.lnb_list_wrap}>
         <li>
-          <strong className={styles.lnb_list_title}>설정</strong>
+          <strong className={styles.lnb_list_title}>계정 설정</strong>
           <ul className={styles.lnb_list}>
             <li>
               <button
@@ -166,40 +166,6 @@ export default function Lnb({
                 width={20}
                 height={20}
                 src={selectedMenu == "정책" ? IcoArrowOn : IcoArrowOff}
-                alt="화살표 아이콘"
-              />
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <strong className={styles.lnb_list_title}>계정</strong>
-          <ul className={styles.lnb_list}>
-            <li>
-              <button
-                className={selectedMenu == "로그아웃" ? `${styles.on}` : ""}
-                onClick={() => handleSelectMenu("로그아웃")}
-              >
-                로그아웃
-              </button>
-              <Icon
-                width={20}
-                height={20}
-                src={selectedMenu == "로그아웃" ? IcoArrowOn : IcoArrowOff}
-                alt="화살표 아이콘"
-              />
-            </li>
-            <li>
-              <button
-                className={selectedMenu == "회원 탈퇴" ? `${styles.on}` : ""}
-                onClick={() => handleSelectMenu("회원 탈퇴")}
-              >
-                회원 탈퇴
-              </button>
-              <Icon
-                width={20}
-                height={20}
-                src={selectedMenu == "회원 탈퇴" ? IcoArrowOn : IcoArrowOff}
                 alt="화살표 아이콘"
               />
             </li>

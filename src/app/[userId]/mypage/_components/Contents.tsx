@@ -28,10 +28,6 @@ export default function Contents({ selectedMenu }: { selectedMenu: string }) {
         return <>새창으로 링크 열기</>;
       case "정책":
         return <>새창으로 링크 열기</>;
-      case "로그아웃":
-        return <>모달열기</>;
-      case "회원 탈퇴":
-        return <>모달열기</>;
       default:
         return <ProfileSettings />;
     }

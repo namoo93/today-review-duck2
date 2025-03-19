@@ -1,0 +1,38 @@
+.contents {
+  /* position: relative; */
+}
+.profile_img_button {
+  display: flex;
+  position: absolute;
+  top: -60px;
+  cursor: pointer;
+}
+.profile_edit_icon {
+  position: absolute;
+  bottom: -85px;
+  left: -25px;
+}
+.profile_img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #ffebd4;
+  overflow: hidden;
+}
+.dropdown_wrap {
+  position: relative;
+}
+
+.profile_setting_list_button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+.profile_setting_list_button:hover {
+  background-color: #f0f0f0;
+}

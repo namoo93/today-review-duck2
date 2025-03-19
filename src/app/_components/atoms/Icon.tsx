@@ -1,5 +1,8 @@
 import Image from "next/image";
-import imageDefault from "@/../../public/images/img-default.svg";
+import imageDefault from "@/../../public/images/img-default-profile.svg";
+import imageDefaultDark from "@/../../public/images/img-default-profile-dark.svg";
+import { useRecoilState } from "recoil";
+import { themeState } from "@/app/_recoil";
 
 type Props = {
   src: string;
@@ -17,6 +20,8 @@ export default function Icon({
   className,
   margin,
 }: Props) {
+  const [theme] = useRecoilState(themeState);
+
   return (
     <span
       className={className}
@@ -29,7 +34,7 @@ export default function Icon({
       }}
     >
       <Image
-        src={src ? src : imageDefault}
+        src={src ? src : theme == "light" ? imageDefault : imageDefaultDark}
         alt={alt}
         loading={"lazy"}
         fill
