@@ -21,6 +21,7 @@ type Props = {
   warning?: boolean;
   isChecked?: boolean;
   normal?: boolean;
+  inlineText?: boolean;
   transparent?: boolean;
   className?: string;
 };
@@ -46,6 +47,7 @@ export default function Button({
   warning,
   isChecked,
   transparent,
+  inlineText,
   className,
 }: Props) {
   let buttonClasses = `${styles.button} ${className}`;
@@ -57,6 +59,8 @@ export default function Button({
   if (disabled) buttonClasses += ` ${styles.button_disabled}`;
   if (transparent) buttonClasses += ` ${styles.button_transparent}`;
   if (border) buttonClasses += ` ${styles.button_border}`;
+  if (inlineText) buttonClasses += ` ${styles.button_inline_text}`;
+
   return (
     <button
       className={buttonClasses}

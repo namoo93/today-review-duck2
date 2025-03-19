@@ -1,7 +1,5 @@
 {
-  "/socialsignin/page": "app/socialsignin/page.js",
-  "/locallogin/page": "app/locallogin/page.js",
   "/page": "app/page.js",
   "/[userId]/mypage/page": "app/[userId]/mypage/page.js",
-  "/login/page": "app/login/page.js"
+  "/locallogin/page": "app/locallogin/page.js"
 }
