@@ -266,6 +266,19 @@
   background-color: #f7f7f7;
 }
 
+.input_input_line_wrap__Ga2Di {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fff;
+}
+.input_input_line_wrap__Ga2Di .input_input__R_OcA::placeholder {
+  color: #e3e3e3;
+}
+
 .input_input__R_OcA {
   flex: 1 1;
   border: none;
@@ -308,6 +321,10 @@
 .input_disabled__vlpRE {
   background-color: #f1f1f1;
   cursor: not-allowed;
+}
+
+.input_important__CTEQn {
+  color: #ff0000;
 }
 
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

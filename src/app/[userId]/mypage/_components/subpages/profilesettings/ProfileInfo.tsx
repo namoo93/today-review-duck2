@@ -5,15 +5,18 @@ import ShareSnsList from "@/app/_components/list/shareSnsList/ShareSnsList";
 
 export default function ProfileInfo() {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const tags = ["dsa", "dsa"];
+  const [interest, setInterest] = useState([
+    "첫번째 관심사 #태그",
+    "두번째 관심사",
+  ]);
 
   return (
     <div className={styles.profile_box}>
       <strong className={styles.profile_name}>{`${`N번째 오리`}`}</strong>
       <p className={styles.profile_info}>{`${`한 줄 소개를 입력해보세요`}`}</p>
       <ul className={styles.profile_tgs}>
-        {tags.map((tag) => (
-          <li>#{tag}</li>
+        {interest.map((list) => (
+          <li>{list}</li>
         ))}
       </ul>
       {/* sns 공유하기 드롭다운 박스 */}

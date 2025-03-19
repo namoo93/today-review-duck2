@@ -60,20 +60,54 @@
 /* 프로필 인포 */
 .profilesettings_profile_box__IYu94 {
   padding-top: 75px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .profilesettings_dropdown_wrap__yQAPZ {
   position: relative;
 }
 .profilesettings_profile_name__WKVCA {
+  font-size: 20px;
+  font-weight: 700;
+  color: #585858;
 }
 .profilesettings_profile_info__HVlpX {
+  font-size: 16px;
+  font-weight: 500;
+  color: #818181;
 }
 .profilesettings_profile_tgs__5BWTo {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 .profilesettings_profile_tgs__5BWTo li {
+  color: #585858;
+  font-size: 14px;
+  font-weight: 400;
 }
 /* 프로필 정보 수정 폼 */
 .profilesettings_profile_form__IZWSU {
+  max-width: 764px;
+}
+.profilesettings_row_wrap__21rZN {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-top: 20px;
+}
+.profilesettings_padding_top__og6li {
+  padding-top: 40px;
+}
+.profilesettings_interest_wrap__3fP9v {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
 }
 
 /* 프로필 하단 버튼 */
@@ -81,6 +115,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 40px;
 }
 
 /* 마이페이지 모달 */
@@ -349,6 +384,19 @@
   background-color: #f7f7f7;
 }
 
+.input_input_line_wrap__Ga2Di {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fff;
+}
+.input_input_line_wrap__Ga2Di .input_input__R_OcA::placeholder {
+  color: #e3e3e3;
+}
+
 .input_input__R_OcA {
   flex: 1 1;
   border: none;
@@ -391,6 +439,10 @@
 .input_disabled__vlpRE {
   background-color: #f1f1f1;
   cursor: not-allowed;
+}
+
+.input_important__CTEQn {
+  color: #ff0000;
 }
 
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -632,6 +684,50 @@
 
 .tabmenu_button_text_inactive__xn1SE {
 color: var(--font-black-color);
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/textarea.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.textarea_textarea_wrapper__dGtgx {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.textarea_textarea_wrapper__dGtgx label {
+  font-size: 14px;
+  color: #818181;
+}
+
+.textarea_textarea_box__uyc2_ {
+  padding: 15px;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+  background-color: #fff;
+  padding-bottom: 25px;
+  position: relative;
+}
+.textarea_textarea__YZrXt {
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.textarea_textarea__YZrXt::placeholder {
+  font-size: 14px;
+  color: #e3e3e3;
+}
+
+.textarea_sub_info__0tSaL {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #e3e3e3;
 }
 
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

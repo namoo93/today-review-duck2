@@ -15,8 +15,11 @@ type Props = {
   subInfo?: string | boolean;
   disabled?: boolean;
   height?: string;
+  width?: string;
   padding?: string;
   success?: string | boolean;
+  important?: boolean;
+  lineStyle?: boolean;
 };
 export default function Input({
   label,
@@ -30,18 +33,26 @@ export default function Input({
   disabled = false,
   success,
   height = "50px",
+  width = "100%",
   padding,
+  important,
+  lineStyle,
 }: Props) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === "password";
 
   return (
-    <span className={styles.input_container} style={{ padding }}>
-      {label && <label className={styles.label}>{label}</label>}
+    <span className={styles.input_container} style={{ padding, width }}>
+      {label && (
+        <label className={styles.label}>
+          {label}
+          {important && <span className={styles.important}>*</span>}
+        </label>
+      )}
       <span
-        className={`${styles.input_wrap} ${error ? styles.error : ""} ${
-          disabled ? styles.disabled : ""
-        }`}
+        className={`${lineStyle ? styles.input_line_wrap : styles.input_wrap} ${
+          error ? styles.error : ""
+        } ${disabled ? styles.disabled : ""}`}
         style={{ height }}
       >
         <input
