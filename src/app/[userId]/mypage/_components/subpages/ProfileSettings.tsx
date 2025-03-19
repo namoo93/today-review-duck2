@@ -1,10 +1,10 @@
 "use client";
 import styles from "../../_css/profilesettings.module.css";
 import Modal from "@/app/_components/modal/Modal";
-import ProfileBottom from "./profilesettings/ProfileBottom";
-import ProfileForm from "./profilesettings/ProfileForm";
-import ProfileInfo from "./profilesettings/ProfileInfo";
-import ProfileImage from "./profilesettings/ProfileImage";
+import ProfileBottom from "./profileSettings/ProfileBottom";
+import ProfileForm from "./profileSettings/ProfileForm";
+import ProfileInfo from "./profileSettings/ProfileInfo";
+import ProfileImage from "./profileSettings/ProfileImage";
 
 export default function ProfileSettings() {
   return (

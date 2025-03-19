@@ -59,8 +59,19 @@
 
 /* 프로필 인포 */
 .profilesettings_profile_box__IYu94 {
+  padding-top: 75px;
 }
-
+.profilesettings_dropdown_wrap__yQAPZ {
+  position: relative;
+}
+.profilesettings_profile_name__WKVCA {
+}
+.profilesettings_profile_info__HVlpX {
+}
+.profilesettings_profile_tgs__5BWTo {
+}
+.profilesettings_profile_tgs__5BWTo li {
+}
 /* 프로필 정보 수정 폼 */
 .profilesettings_profile_form__IZWSU {
 }
@@ -621,6 +632,35 @@
 
 .tabmenu_button_text_inactive__xn1SE {
 color: var(--font-black-color);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/list/shareSnsList/sharesnslist.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.sharesnslist_share_sns_list__8MU16 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 10px;
+}
+.sharesnslist_share_sns_list__8MU16 li:first-child,
+.sharesnslist_share_sns_list__8MU16 li:nth-child(3) {
+  padding-right: 15px;
+}
+.sharesnslist_share_sns_list__8MU16 li:first-child {
+  padding-bottom: 10px;
+}
+.sharesnslist_sns_item_button__oNK7Z {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sharesnslist_sns_label__kNJWV {
+  flex: 1 1;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
 }
 
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

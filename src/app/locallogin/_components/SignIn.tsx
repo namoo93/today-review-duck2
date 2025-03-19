@@ -58,7 +58,7 @@ export default function SignIn() {
   };
 
   const goToFindPasswordPage = () => {
-    router.push(`/resetpassword`); // 페이지가 아닌 컴포넌트로분기 고려
+    router.push(`/resetPassword`); // 페이지가 아닌 컴포넌트로분기 고려
   };
 
   const isButtonDisabled =

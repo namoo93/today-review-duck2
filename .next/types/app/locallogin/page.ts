@@ -1,8 +1,8 @@
-// File: /Users/namookim/Documents/GitHub/today-review-duck/src/app/locallogin/page.tsx
-import * as entry from '../../../../src/app/locallogin/page.js'
+// File: /Users/namookim/Documents/GitHub/today-review-duck/src/app/localLogin/page.tsx
+import * as entry from '../../../../src/app/localLogin/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../src/app/locallogin/page.js')
+type TEntry = typeof import('../../../../src/app/localLogin/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{

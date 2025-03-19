@@ -36,8 +36,19 @@
 
 /* 프로필 인포 */
 .profile_box {
+  padding-top: 75px;
 }
-
+.dropdown_wrap {
+  position: relative;
+}
+.profile_name {
+}
+.profile_info {
+}
+.profile_tgs {
+}
+.profile_tgs li {
+}
 /* 프로필 정보 수정 폼 */
 .profile_form {
 }

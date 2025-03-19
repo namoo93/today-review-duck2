@@ -1,7 +1,7 @@
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/locallogin/_css/signin.module.css ***!
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/localLogin/_css/signin.module.css ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.signin_page__AF86O {
+.signin_page__MnVwb {
   background-color: #f7f7f7;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
   height: 100vh;
 }
 
-.signin_signup_wrap__Hx2mU {
+.signin_signup_wrap__16s9N {
   width: 566px;
   height: 80vh;
   background-color: #fff;
@@ -19,7 +19,7 @@
   overflow-y: auto;
 }
 
-.signin_logo_wrap__iycPu {
+.signin_logo_wrap__8bH8X {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@
   padding-bottom: clamp(1.8em, 5vw, 4em);
 }
 
-.signin_form_wrap__ritit {
+.signin_form_wrap__DMy1H {
   display: flex;
   flex-direction: column;
   width: 335px;
@@ -36,7 +36,7 @@
   margin-bottom: 100px;
 }
 
-.signin_sub_title__ucQTc {
+.signin_sub_title__WbMot {
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -44,25 +44,25 @@
   color: #000000;
 }
 
-.signin_find_password__JJEMC {
+.signin_find_password__UMYYh {
   padding-top: 20px;
   display: flex;
   align-items: center;
 }
 
-.signin_find_password_title__01oj_ {
+.signin_find_password_title__l1TNt {
   color: #d1d1d1;
   font-size: 14px;
   font-weight: 500;
 }
-.signin_find_password_button__1RVPW {
+.signin_find_password_button__urbcm {
   font-size: 14px;
   font-weight: 500;
   color: #ff7e29;
   padding: 0 10px;
 }
 
-.signin_form_button_wrap__plhEb {
+.signin_form_button_wrap__QKxGr {
   position: absolute;
   width: 335px;
   bottom: 20px;
