@@ -24,6 +24,10 @@
   background-color: var(--primary-color);
   color: white;
 }
+.button_bright_filled {
+  background-color: #ffebd4;
+  color: #ff7e29;
+}
 
 .button_checked a {
   color: white;

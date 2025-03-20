@@ -1,1 +1,5 @@
-{}
+{
+  "/page": "app/page.js",
+  "/localLogin/page": "app/localLogin/page.js",
+  "/[userId]/mypage/page": "app/[userId]/mypage/page.js"
+}

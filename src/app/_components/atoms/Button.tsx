@@ -17,6 +17,7 @@ type Props = {
   border?: boolean;
   disabled?: boolean;
   filled?: boolean;
+  brightFilled?: boolean;
   success?: boolean;
   warning?: boolean;
   isChecked?: boolean;
@@ -42,6 +43,7 @@ export default function Button({
   border,
   disabled,
   filled,
+  brightFilled,
   normal,
   success,
   warning,
@@ -53,6 +55,7 @@ export default function Button({
   let buttonClasses = `${styles.button} ${className}`;
   if (isChecked) buttonClasses += ` ${styles.button_checked}`;
   if (filled) buttonClasses += ` ${styles.button_filled}`;
+  if (brightFilled) buttonClasses += ` ${styles.button_bright_filled}`;
   if (normal) buttonClasses += ` ${styles.button_normal}`;
   if (success && filled) buttonClasses += ` ${styles.button_success}`;
   if (warning && filled) buttonClasses += ` ${styles.button_warning}`;
