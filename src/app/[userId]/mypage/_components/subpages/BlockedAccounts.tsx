@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../../_css/mypage.module.css";
 import ProfileBox from "@/app/_components/profile/ProfileBox";
+import { useHorizontalScroll } from "@/app/_hooks/useHorizontalScroll";
 
 //TODO :  must delete
 const list0 = [
@@ -230,25 +231,7 @@ export default function BlockedAccounts() {
   const [blockUsers, setBlockUsers] = useState(list0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 마우스 휠 이벤트 처리 (Y축 스크롤을 X축으로 변환)
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleWheelScroll = (e: WheelEvent) => {
-      if (container.scrollWidth > container.clientWidth) {
-        e.preventDefault();
-        container.scrollLeft += e.deltaY * 2;
-      }
-    };
-
-    //  passive: false 로 이벤트 수동 등록
-    container.addEventListener("wheel", handleWheelScroll, { passive: false });
-
-    return () => {
-      container.removeEventListener("wheel", handleWheelScroll);
-    };
-  }, []);
+  useHorizontalScroll(containerRef);
 
   return (
     <div ref={containerRef} className={styles.contents_block_users}>
