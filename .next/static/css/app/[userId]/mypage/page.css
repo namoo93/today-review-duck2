@@ -10,6 +10,17 @@
   flex: 1 1;
   padding: 0 30px;
 }
+.mypage_list_contents__4yVSL {
+  flex: 1 1;
+  max-width: 936px;
+}
+
+.mypage_list_wrap__4eqQy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 30px;
+}
 
 .mypage_contents_title__G7Xv3 {
   font-size: 20px;
@@ -577,6 +588,77 @@
 
 .tabmenu_button_text_inactive__xn1SE {
 color: var(--font-black-color);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/list/postList/list.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list_list_box__6e_Hg {
+}
+.list_list_button__unpeA {
+  display: flex;
+  gap: 25px;
+}
+.list_list_img__sCTKm {
+  display: flex;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #e6e6e6;
+}
+.list_list_info__ydvZh {
+  flex: 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.list_list_title__vtZdX {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+  color: #333;
+}
+.list_list_user__f1gxD {
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  color: #aaa;
+  padding: 20px 0 30px 0;
+}
+.list_list_value__SEhXv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #ffebd4;
+  background-color: #fff6ed;
+  color: #ff7e29;
+  font-size: 13px;
+  font-weight: 500;
+}
+.list_list_contents__d_89o {
+  padding-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  display: inline-block;
+  text-align: left;
+  color: #969696;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/datanone.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.datanone_empty_text__JXC7W {
+  display: inline-block;
+  width: 100%;
+  height: 80%;
+  text-align: center;
+  padding: 10rem;
+  color: #6a6a6a;
+  font-size: 24px;
+  font-weight: 500;
+  word-break: keep-all;
 }
 
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

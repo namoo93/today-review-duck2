@@ -39,6 +39,12 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
+    ],
+    "/resetPassword/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/resetPassword/page.css",
+      "static/chunks/app/resetPassword/page.js"
     ]
   }
 }

@@ -7,6 +7,17 @@
   flex: 1;
   padding: 0 30px;
 }
+.list_contents {
+  flex: 1;
+  max-width: 936px;
+}
+
+.list_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 30px;
+}
 
 .contents_title {
   font-size: 20px;

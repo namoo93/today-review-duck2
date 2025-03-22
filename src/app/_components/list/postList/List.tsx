@@ -6,12 +6,12 @@ import ImgManager from "@/../public/images/img-manager.svg";
 interface Props {
   width?: string;
   onClkickList?: () => void;
-  alt: string;
-  src: string;
-  title: string;
-  user: string;
-  value: string;
-  contents: string;
+  alt?: string;
+  src?: string;
+  title?: string;
+  user?: string;
+  value?: string;
+  contents?: string;
   isManager?: boolean;
 }
 
