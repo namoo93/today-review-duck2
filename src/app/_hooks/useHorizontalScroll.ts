@@ -10,7 +10,7 @@ export const useHorizontalScroll = (
   ref: RefObject<HTMLElement>,
   options: ScrollOptions = {}
 ) => {
-  const { width = "900px", height = "650px", speed = 2 } = options;
+  const { width = "860px", height = "650px", speed = 2 } = options;
 
   useEffect(() => {
     const el = ref.current;

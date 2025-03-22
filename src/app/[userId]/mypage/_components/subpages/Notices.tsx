@@ -4,6 +4,7 @@ import List from "@/app/_components/list/postList/List";
 
 import { ListTypes } from "./WrittenReviews";
 import DataNone from "@/app/_components/atoms/DataNone";
+import Pagination from "@/app/_components/pagination/Pagination";
 //TODO: api
 export const dummyListData = [
   {
@@ -60,6 +61,7 @@ export default function Notices() {
       ) : (
         <DataNone target={"올라온 공지"} />
       )}
+      <Pagination currentPage={1} totalPages={10} onPageChange={() => {}} />
     </div>
   );
 }

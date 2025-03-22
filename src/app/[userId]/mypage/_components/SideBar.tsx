@@ -241,7 +241,9 @@ export default function SideBar({
   const [follower, setFollower] = useState(list0);
   const [following, setFollowing] = useState(list0);
 
-  const goToMyPost = () => {};
+  const goToMyPost = () => {
+    onSelectMenu("작성한 리뷰");
+  };
 
   return (
     <div className={styles.page}>
