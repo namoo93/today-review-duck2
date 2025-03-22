@@ -12,7 +12,7 @@ const list0 = [
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname1_0",
+    nickname: "nickname1_0 dasd ddsada dsaddsd dsadasd",
     interest1: "스포츠",
     interest2: "여행",
   },

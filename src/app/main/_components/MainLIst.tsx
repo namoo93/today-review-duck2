@@ -15,6 +15,7 @@ export default function MainList() {
       </ul>
       <ul className={styles.list_wrap}>
         <List
+          isManager
           alt={""}
           src={""}
           title={
@@ -23,7 +24,7 @@ export default function MainList() {
           user={"fdajj kafkas lkf | 2024.05.05"}
           value={"good"}
           contents={
-            "fjdlsajf lasjfjfjkjfk jjskfj lf ksdkfsklfjie. eijfefjslfjdfjs fksfjskfjsdk fkdfsl f fjksdf sk ldskfklkf lskfkskd ksdk ksfkskf lkskfk slfk kfksdlfksk.  kdfks lfksl ksfksflksekfk ksf kekfk sfkdl kfslkf kfk ksfdsfffe f wff. f wefefwff f. fe fwf. f. fefwfwfwfef f f f f ewfwfefwfwfw f fefw f f wf. fw fe fwfwfefw f ffwfew fwfewfwefw fwfwfweff wef fwf wf w f we f fw askfjsklj fsajf lskj lfksjf lsjfl sjkf jdslkajf lsj flsjflsd"
+            "fjdlsajf lasjfjfjkjfk jjskfj lf ksdkfsklfjie. eijfefjslfjdfjs fksfjskfjsdk fkdfsl f fjksdf sk ldskfklkf lskfkskd ksdk ksfkskf lkskfk slfk kfksdlfksk.  kdfks lfksl ksfksflksekfk ksf kekfk sfkdl kfslkf kfk ksfdsfffe f wff. f wefefwff f. fe fwf. f. fefwfwfwfef f f f f ewfwfefwfwfw f fefw f f wf. fw fe fwfwfefw f ffwfew fwfewfwefw fwfwfweff wef fwf wf w f we f fw askfjsklj fsajf lskj lfksjf lsjfl sjkf jdslkajf lsj flsjflsd dsad adsdjkdjdjdsj jdjdajdjdsj jdsajdjdjsa jdsjadjas djadjajdj jdja djsdjsajd jdsj jajdjdjs jdsjdajdaj fda fdsafsa ds"
           }
         />
         <List
@@ -35,7 +36,7 @@ export default function MainList() {
           user={"fdajj kafkas lkf | 2024.05.05"}
           value={"good"}
           contents={
-            "fjdlsajf lasjfjfjkjfk jjskfj lf ksdkfsklfjie. eijfefjslfjdfjs fksfjskfjsdk fkdfsl f fjksdf sk ldskfklkf lskfkskd ksdk ksfkskf lkskfk slfk kfksdlfksk.  kdfks lfksl ksfksflksekfk ksf kekfk sfkdl kfslkf kfk ksfdsfffe f wff. f wefefwff f. fe fwf. f. fefwfwfwfef f f f f ewfwfefwfwfw f fefw f f wf. fw fe fwfwfefw f ffwfew fwfewfwefw fwfwfweff wef fwf wf w f we f fw askfjsklj fsajf lskj lfksjf lsjfl sjkf jdslkajf lsj flsjflsd"
+            "fjdlsajf lasjfjfjkjfk jjskfj lf ksdkfsklfjie. eijfefjslfjdfjs fksfjskfjsdk fkdfsl f fjksdf sk ldskfklkf lskfkskd ksdk ksfkskf lkskfk slfk kfksdlfksk.  kdfks lfksl ksfksflksekfk ksf kekfk sfkdl kfslkf kf"
           }
         />
         <List

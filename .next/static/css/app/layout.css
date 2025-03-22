@@ -78,7 +78,7 @@ button {
 }
 
 .elipsis_1_lines {
-  display: -webkit-box;
+  display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
@@ -87,19 +87,26 @@ button {
 
 .elipsis_2_lines {
   display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 2 !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
   height: auto;
 }
-
+.elipsis_5_lines {
+  /*  최대 5줄까지만 표시 */
+  display: -webkit-box !important;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .elipsis_8_lines {
   display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 8 !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+  text-overflow: ellipsis;
   height: auto;
 }
 
