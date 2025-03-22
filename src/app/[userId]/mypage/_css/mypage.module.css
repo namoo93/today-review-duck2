@@ -7,10 +7,37 @@
   flex: 1;
   padding: 0 30px;
 }
+
 .contents_title {
   font-size: 20px;
   font-weight: 600;
   color: #585858;
   text-align: left;
   padding: 30px 0;
+}
+
+.contents_block_users {
+  padding: 0 30px;
+  width: 900px;
+  height: 650px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.block_list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 100%;
+}
+.block_list li {
+  width: 300px;
+  margin-right: 100px;
+  flex-shrink: 0;
 }

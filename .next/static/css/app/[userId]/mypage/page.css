@@ -10,6 +10,7 @@
   flex: 1 1;
   padding: 0 30px;
 }
+
 .mypage_contents_title__G7Xv3 {
   font-size: 20px;
   font-weight: 600;
@@ -18,175 +19,88 @@
   padding: 30px 0;
 }
 
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/profilesettings.module.css ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/* 프로필 상단 이미지 */
-.profilesettings_dropdown_wrap__yQAPZ {
-  position: relative;
-}
-.profilesettings_profile_img_button__k4Vij {
+.mypage_contents_block_users__6pyMZ {
+  padding: 0 30px;
+  width: 900px;
+  height: 650px;
+  overflow-x: scroll;
+  overflow-y: hidden;
   display: flex;
-  position: absolute;
-  top: -60px;
-  cursor: pointer;
-}
-.profilesettings_profile_edit_icon__Z86oX {
-  position: absolute;
-  bottom: -85px;
-  left: -25px;
-}
-.profilesettings_profile_img__b28II {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #ffebd4;
-  overflow: hidden;
-}
-.profilesettings_profile_setting_list_button__yNscG {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-}
-.profilesettings_profile_setting_list_button__yNscG:hover {
-  background-color: #f0f0f0;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  scroll-behavior: smooth;
+  white-space: nowrap;
 }
 
-/* 프로필 인포 */
-.profilesettings_profile_box__IYu94 {
-  padding-top: 75px;
+.mypage_block_list__VsXIR {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 10px;
-}
-.profilesettings_dropdown_wrap__yQAPZ {
-  position: relative;
-}
-.profilesettings_profile_name__WKVCA {
-  font-size: 20px;
-  font-weight: 700;
-  color: #585858;
-}
-.profilesettings_profile_info__HVlpX {
-  font-size: 16px;
-  font-weight: 500;
-  color: #818181;
-}
-.profilesettings_profile_tgs__5BWTo {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-.profilesettings_profile_tgs__5BWTo li {
-  color: #585858;
-  font-size: 14px;
-  font-weight: 400;
-}
-/* 프로필 정보 수정 폼 */
-.profilesettings_profile_form__IZWSU {
-  max-width: 764px;
-}
-.profilesettings_row_wrap__21rZN {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  padding-top: 20px;
-}
-.profilesettings_padding_top__og6li {
-  padding-top: 40px;
-}
-.profilesettings_interest_wrap__3fP9v {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-}
-
-/* 프로필 하단 버튼 */
-.profilesettings_profile_bottom_buttons__0yb12 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 40px;
-}
-
-/* 마이페이지 모달 */
-.profilesettings_modal__OKYzY {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.profilesettings_modal_title__OJ3IP {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 30px;
-  color: #000;
-  display: flex;
-  align-items: center;
-  padding-top: 30px;
-  padding-bottom: 12px;
-}
-.profilesettings_modal_title_left__06cmw {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 30px;
-  text-align: left;
-  width: 100%;
-  padding-bottom: 12px;
-  color: #585858;
-}
-.profilesettings_modal_info__LoRdC {
-  font-size: 12px;
-  font-weight: 400;
-  text-align: center;
-  color: #6a6a6a;
-  padding-bottom: 40px;
-}
-.profilesettings_modal_info_left__PvCfH {
-  font-size: 12px;
-  display: inline-flex;
-  width: 100%;
-  font-weight: 400;
-  text-align: center;
-  color: #6a6a6a;
-  padding-bottom: 30px;
-}
-.profilesettings_button_wrap__OqgOc {
-  display: flex;
-  width: 100%;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/modal/modal.module.css ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.modal_overlay__l352C {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  gap: 20px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+}
+.mypage_block_list__VsXIR li {
+  width: 300px;
+  margin-right: 100px;
+  flex-shrink: 0;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/profile/profilebox.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.profilebox_box_wrap__a7g_8 {
+  display: flex;
+  align-items: center;
+}
+.profilebox_profile_box__o2km_ {
+  display: flex;
+  align-items: center;
+}
+
+.profilebox_avatar__Pb1_7 {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ffebd4;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
 }
-
-.modal_modal__fW9Wr {
-  background-color: #fff;
-  min-width: 300px;
-  min-height: 100px;
+.profilebox_avatar__Pb1_7 img {
+  width: 100%;
+  height: 100%;
+}
+.profilebox_profile_info__87yqL {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+.profilebox_button_wrap__kJ0aR {
+  padding-left: 20px;
+}
+.profilebox_name__I5A3z {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.profilebox_interest__9XiB1 {
+  font-size: 13px;
+  font-weight: 400;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  padding-top: 5px;
 }
 
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -674,6 +588,177 @@
 color: var(--font-black-color);
 }
 
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/profilesettings.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* 프로필 상단 이미지 */
+.profilesettings_dropdown_wrap__yQAPZ {
+  position: relative;
+}
+.profilesettings_profile_img_button__k4Vij {
+  display: flex;
+  position: absolute;
+  top: -60px;
+  cursor: pointer;
+}
+.profilesettings_profile_edit_icon__Z86oX {
+  position: absolute;
+  bottom: -85px;
+  left: -25px;
+}
+.profilesettings_profile_img__b28II {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #ffebd4;
+  overflow: hidden;
+}
+.profilesettings_profile_setting_list_button__yNscG {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+.profilesettings_profile_setting_list_button__yNscG:hover {
+  background-color: #f0f0f0;
+}
+
+/* 프로필 인포 */
+.profilesettings_profile_box__IYu94 {
+  padding-top: 75px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.profilesettings_dropdown_wrap__yQAPZ {
+  position: relative;
+}
+.profilesettings_profile_name__WKVCA {
+  font-size: 20px;
+  font-weight: 700;
+  color: #585858;
+}
+.profilesettings_profile_info__HVlpX {
+  font-size: 16px;
+  font-weight: 500;
+  color: #818181;
+}
+.profilesettings_profile_tgs__5BWTo {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.profilesettings_profile_tgs__5BWTo li {
+  color: #585858;
+  font-size: 14px;
+  font-weight: 400;
+}
+/* 프로필 정보 수정 폼 */
+.profilesettings_profile_form__IZWSU {
+  max-width: 764px;
+}
+.profilesettings_row_wrap__21rZN {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-top: 20px;
+}
+.profilesettings_padding_top__og6li {
+  padding-top: 40px;
+}
+.profilesettings_interest_wrap__3fP9v {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+/* 프로필 하단 버튼 */
+.profilesettings_profile_bottom_buttons__0yb12 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+/* 마이페이지 모달 */
+.profilesettings_modal__OKYzY {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.profilesettings_modal_title__OJ3IP {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+.profilesettings_modal_title_left__06cmw {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+  width: 100%;
+  padding-bottom: 12px;
+  color: #585858;
+}
+.profilesettings_modal_info__LoRdC {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  color: #6a6a6a;
+  padding-bottom: 40px;
+}
+.profilesettings_modal_info_left__PvCfH {
+  font-size: 12px;
+  display: inline-flex;
+  width: 100%;
+  font-weight: 400;
+  text-align: center;
+  color: #6a6a6a;
+  padding-bottom: 30px;
+}
+.profilesettings_button_wrap__OqgOc {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/modal/modal.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.modal_overlay__l352C {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal_modal__fW9Wr {
+  background-color: #fff;
+  min-width: 300px;
+  min-height: 100px;
+}
+
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/textarea.module.css ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -877,64 +962,6 @@ color: var(--font-black-color);
 }
 .sidebar_follow_list__p3HRC li {
   width: 100%;
-}
-
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/profile/profilebox.module.css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.profilebox_box_wrap__a7g_8 {
-  display: flex;
-  align-items: center;
-}
-.profilebox_profile_box__o2km_ {
-  display: flex;
-  align-items: center;
-}
-
-.profilebox_avatar__Pb1_7 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border: 1px solid #ffebd4;
-  overflow: hidden;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.profilebox_avatar__Pb1_7 img {
-  width: 100%;
-  height: 100%;
-}
-.profilebox_profile_info__87yqL {
-  flex: 1 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 20px;
-}
-.profilebox_button_wrap__kJ0aR {
-  padding-left: 20px;
-}
-.profilebox_name__I5A3z {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  padding-bottom: 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
-}
-.profilebox_interest__9XiB1 {
-  font-size: 13px;
-  font-weight: 400;
-  color: #aaa;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
 }
 
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

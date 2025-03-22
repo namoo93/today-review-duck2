@@ -11,9 +11,11 @@ type Props = {
   onClickBox?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onClickButton?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   name: string;
-  interest: string;
+  interest?: string;
   textWidth?: string | number;
-  isFollowing?: boolean;
+  isOn?: boolean;
+  isOnText?: string;
+  isOffText?: string;
 };
 export default function ProfileBox({
   src,
@@ -26,7 +28,9 @@ export default function ProfileBox({
   name,
   interest,
   textWidth,
-  isFollowing,
+  isOn,
+  isOnText,
+  isOffText,
 }: Props) {
   return (
     <div className={styles.box_wrap}>
@@ -50,13 +54,15 @@ export default function ProfileBox({
           <span className={styles.name} style={{ width: textWidth }}>
             {name}
           </span>
-          <span className={styles.interest} style={{ width: textWidth }}>
-            {interest}
-          </span>
+          {interest && (
+            <span className={styles.interest} style={{ width: textWidth }}>
+              {interest}
+            </span>
+          )}
         </span>
       </button>
       <span className={styles.button_wrap}>
-        {isFollowing ? (
+        {isOn ? (
           <Button
             buttonType="button"
             width="74px"
@@ -65,7 +71,7 @@ export default function ProfileBox({
             fontSize="12px"
             brightFilled
           >
-            {`덕직 중`}
+            {isOnText}
           </Button>
         ) : (
           <Button
@@ -76,7 +82,7 @@ export default function ProfileBox({
             fontSize="12px"
             filled
           >
-            {`덕질하기`}
+            {isOffText}
           </Button>
         )}
       </span>

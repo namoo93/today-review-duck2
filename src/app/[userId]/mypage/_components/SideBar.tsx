@@ -5,171 +5,227 @@ import styles from "../_css/sidebar.module.css";
 import { DropDown } from "@/app/_components/atoms";
 import ProfileBox from "@/app/_components/profile/ProfileBox";
 
+//TODO :  must delete
 const list0 = [
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54ea1a918a29",
+    idx: "idx-0",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname1",
+    nickname: "nickname1_0",
     interest1: "스포츠",
     interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54ea1a918a29",
+    idx: "idx-1",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname1",
+    nickname: "nickname1_1",
     interest1: "스포츠",
     interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54ea1a918a29",
+    idx: "idx-2",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname1",
+    nickname: "nickname2_0",
     interest1: "스포츠",
     interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54ea1a918a29",
+    idx: "idx-3",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname1",
+    nickname: "nickname2_1",
     interest1: "스포츠",
     interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-4",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname3_0",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-5",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname3_1",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-6",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname4_0",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-7",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname4_1",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-8",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname5_0",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-9",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname5_1",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-10",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname6_0",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-11",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname6_1",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-12",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname7_0",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-13",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname7_1",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
   },
   {
     isMyFollowing: false,
     isMyBlock: false,
-    idx: "a3a066c8-845a-41d5-9862-54eads1a918a29",
+    idx: "idx-14",
     email: "test2@a.com",
     profile: "수정된 프로필",
     profileImg: null,
-    nickname: "nickname2 dsad dsdas sadsadas dsasda",
+    nickname: "nickname8_0",
     interest1: "스포츠",
-    interest2: "여행 dsadsa dsadsad adsa dsad sadsad sadsad sadsada",
+    interest2: "여행",
+  },
+  {
+    isMyFollowing: false,
+    isMyBlock: false,
+    idx: "idx-15",
+    email: "test2@a.com",
+    profile: "수정된 프로필",
+    profileImg: null,
+    nickname: "nickname8_1",
+    interest1: "스포츠",
+    interest2: "여행",
+  },
+  {
+    isMyFollowing: false,
+    isMyBlock: false,
+    idx: "idx-16",
+    email: "test2@a.com",
+    profile: "수정된 프로필",
+    profileImg: null,
+    nickname: "nickname9_0",
+    interest1: "스포츠",
+    interest2: "여행",
+  },
+  {
+    isMyFollowing: false,
+    isMyBlock: false,
+    idx: "idx-17",
+    email: "test2@a.com",
+    profile: "수정된 프로필",
+    profileImg: null,
+    nickname: "nickname9_1",
+    interest1: "스포츠",
+    interest2: "여행",
+  },
+  {
+    isMyFollowing: false,
+    isMyBlock: false,
+    idx: "idx-18",
+    email: "test2@a.com",
+    profile: "수정된 프로필",
+    profileImg: null,
+    nickname: "nickname10_0",
+    interest1: "스포츠",
+    interest2: "여행",
+  },
+  {
+    isMyFollowing: false,
+    isMyBlock: false,
+    idx: "idx-19",
+    email: "test2@a.com",
+    profile: "수정된 프로필",
+    profileImg: null,
+    nickname: "nickname10_1",
+    interest1: "스포츠",
+    interest2: "여행",
   },
 ];
 
@@ -182,9 +238,10 @@ export default function SideBar({
 }) {
   const [isFollowerDropDownOpen, setIsFollowerDropDownOpen] = useState(false);
   const [isFollowingDropDownOpen, setIsFollowingDropDownOpen] = useState(false);
-  // 팔로워 리스트
   const [follower, setFollower] = useState(list0);
   const [following, setFollowing] = useState(list0);
+
+  const goToMyPost = () => {};
 
   return (
     <div className={styles.page}>
@@ -192,7 +249,11 @@ export default function SideBar({
       <ul className={styles.top_list}>
         <li>
           <strong className={styles.top_list_title}>게시글</strong>
-          <button className={styles.top_list_button} type="button">
+          <button
+            className={styles.top_list_button}
+            type="button"
+            onClick={() => goToMyPost()}
+          >
             10개
           </button>
         </li>
@@ -218,8 +279,11 @@ export default function SideBar({
                   <ProfileBox
                     name={item.nickname}
                     interest={`${item.interest1} ${item.interest2}`}
-                    textWidth={"166px"}
-                    isFollowing={item.isMyFollowing}
+                    textWidth={"190px"}
+                    isOn={item.isMyFollowing}
+                    isOnText="덕질 중"
+                    isOffText="덕질하기"
+                    onClickButton={() => {}}
                   />
                 </li>
               ))}
@@ -248,8 +312,11 @@ export default function SideBar({
                   <ProfileBox
                     name={item.nickname}
                     interest={`${item.interest1} ${item.interest2}`}
-                    textWidth={"166px"}
-                    isFollowing={item.isMyFollowing}
+                    textWidth={"190px"}
+                    isOn={item.isMyFollowing}
+                    isOnText="덕질 중"
+                    isOffText="덕질하기"
+                    onClickButton={() => {}}
                   />
                 </li>
               ))}
