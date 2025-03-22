@@ -3,6 +3,7 @@
 import { useRecoilState } from "recoil";
 import { onSearchPageState, themeState } from "../_recoil";
 import Banner from "./_components/Banner";
+import MainList from "./_components/MainLIst";
 
 export default function Main() {
   const [theme] = useRecoilState(themeState);
@@ -14,7 +15,7 @@ export default function Main() {
       <Banner />
       Main Page - Theme: {theme}
       <br />
-      {onSearchPage ? <>-----search list</> : <>-----main list</>}
+      {onSearchPage ? <>-----search list</> : <MainList />}
     </>
   );
 }

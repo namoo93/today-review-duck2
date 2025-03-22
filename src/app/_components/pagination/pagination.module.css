@@ -8,22 +8,14 @@
 
 .pageButton {
   padding: 6px 10px;
-  border: 1px solid #ddd;
-  background-color: white;
   color: #333;
   cursor: pointer;
   border-radius: 4px;
   min-width: 36px;
 }
 
-.pageButton:hover {
-  background-color: #f3f3f3;
-}
-
 .active {
-  background-color: #ffb271;
-  color: white;
-  border-color: #ffb271;
+  color: #ff7e29;
   font-weight: bold;
 }
 
