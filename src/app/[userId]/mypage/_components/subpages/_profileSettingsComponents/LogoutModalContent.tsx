@@ -12,12 +12,18 @@ export default function LogoutModalContent() {
       <strong className={styles.modal_title}>로그아웃 하시겠어요?</strong>
       <p className={styles.modal_info}>언제든 다시 로그인 할 수 있어요.</p>
       <div className={styles.button_wrap}>
-        <Button buttonType="button" height="42px" onClick={() => closeModal()}>
+        <Button
+          buttonType="button"
+          height="42px"
+          fontSize="12px"
+          onClick={() => closeModal()}
+        >
           취소
         </Button>
         <Button
           buttonType="button"
           height="42px"
+          fontSize="12px"
           filled
           onClick={() => closeModal()}
         >

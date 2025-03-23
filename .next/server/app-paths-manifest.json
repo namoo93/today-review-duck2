@@ -1,5 +1,4 @@
 {
-  "/locallogin/page": "app/locallogin/page.js",
-  "/writing/page": "app/writing/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/writing/page": "app/writing/page.js"
 }

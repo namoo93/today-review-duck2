@@ -17,12 +17,18 @@ export default function DeleteAccountModal() {
         height={183}
       />
       <div className={styles.button_wrap}>
-        <Button buttonType="button" height="42px" onClick={() => closeModal()}>
+        <Button
+          buttonType="button"
+          height="42px"
+          fontSize="12px"
+          onClick={() => closeModal()}
+        >
           취소하기
         </Button>
         <Button
           buttonType="button"
           height="42px"
+          fontSize="12px"
           filled
           onClick={() => closeModal()}
         >

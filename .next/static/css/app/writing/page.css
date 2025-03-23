@@ -557,11 +557,91 @@ color: var(--font-black-color);
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/writing/_css/writingform.module.css ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.writingform_page__QyFfG {
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 70px);
+}
+
+.writingform_writing_form_box__8FaHZ {
+  width: 1016px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  padding: 40px;
+  border-radius: 20px;
+}
+.writingform_back_button__RkBEu {
+  padding-right: 20px;
+}
+.writingform_page_title__6IkGU {
+  font-size: 28px;
+  font-weight: 600;
+  padding: 20px 0;
+  text-align: left;
+  color: #585858;
+  display: flex;
+  align-items: center;
+}
 .writingform_writing_form__vHvTD {
+  display: flex;
+  padding-top: 20px;
+  gap: 20px;
+}
+/* 글쓰기 페이지 모달 */
+.writingform_modal__lCmLZ {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.writingform_modal_title__SHGij {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+
+.writingform_modal_info__UbXFk {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  color: #6a6a6a;
+  padding-bottom: 40px;
+}
+
+.writingform_button_wrap__bGizz {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/modal/modal.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.modal_overlay__l352C {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  padding-top: 20px;
+  z-index: 99;
+}
+
+.modal_modal__fW9Wr {
+  background-color: #fff;
+  min-width: 300px;
+  min-height: 100px;
 }
 

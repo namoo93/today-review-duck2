@@ -1,7 +1,5 @@
 .button_wrap {
   position: fixed;
-  /* bottom: 60px; */
-  /* left: 80%; */
   display: flex;
   bottom: 16px;
   right: 16px;

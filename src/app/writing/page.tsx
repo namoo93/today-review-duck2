@@ -1,11 +1,11 @@
 import Header from "../_components/navigation/Header";
-import WritingForm from "./_components/SocialLogin";
+import WritingForm from "./_components/WritingForm";
 
 export default function Writing() {
   return (
-    <section>
+    <>
       <Header />
       <WritingForm />
-    </section>
+    </>
   );
 }

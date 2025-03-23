@@ -1,7 +1,65 @@
-.writing_form {
+.page {
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 70px);
+}
+
+.writing_form_box {
+  width: 1016px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  padding: 40px;
+  border-radius: 20px;
+}
+.back_button {
+  padding-right: 20px;
+}
+.page_title {
+  font-size: 28px;
+  font-weight: 600;
+  padding: 20px 0;
+  text-align: left;
+  color: #585858;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
+}
+.writing_form {
+  display: flex;
   padding-top: 20px;
+  gap: 20px;
+}
+/* 글쓰기 페이지 모달 */
+.modal {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.modal_title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+
+.modal_info {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  color: #6a6a6a;
+  padding-bottom: 40px;
+}
+
+.button_wrap {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  margin-top: 20px;
 }
