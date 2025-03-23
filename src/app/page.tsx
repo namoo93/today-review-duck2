@@ -1,5 +1,5 @@
 import Header from "./_components/navigation/Header";
-import ThemeButton from "./_components/themeButton/ThemeButton";
+import ThemeButton from "./_components/fixedButton/FixedButton";
 import Main from "./main/page";
 
 export default function Home() {

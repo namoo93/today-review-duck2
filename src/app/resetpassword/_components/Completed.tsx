@@ -24,7 +24,7 @@ export default function Completed() {
           buttonType="button"
           filled
           onClick={() => {
-            router.push(`/localLogin`);
+            router.push(`/locallogin`);
           }}
         >
           로그인하러 가기

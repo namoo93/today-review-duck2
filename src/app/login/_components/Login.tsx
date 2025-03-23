@@ -11,10 +11,10 @@ import { useRouter } from "next/navigation";
 export default function Login() {
   const router = useRouter();
   const goToSignInPage = () => {
-    router.push(`/localLogin`);
+    router.push(`/locallogin`);
   };
   const goToSignUpPage = () => {
-    router.push(`/localSignup`);
+    router.push(`/localsignup`);
   };
 
   return (

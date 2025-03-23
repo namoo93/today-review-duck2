@@ -1,0 +1,12 @@
+.button_wrap {
+  position: fixed;
+  bottom: 60px;
+  left: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle_button {
+  padding: 0;
+  margin: 0;
+}
