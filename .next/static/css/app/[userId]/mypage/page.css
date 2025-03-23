@@ -605,7 +605,7 @@ color: var(--font-black-color);
   display: flex;
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #f0f0f0;
 }
 .list_list_info__ydvZh {
   flex: 1 0;
@@ -651,11 +651,13 @@ color: var(--font-black-color);
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/datanone.module.css ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.datanone_empty_text__JXC7W {
-  display: inline-block;
+.datanone_data_none__hyNED {
+  display: flex;
   width: 100%;
   height: 80%;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   padding: 10rem;
   color: #6a6a6a;
   font-size: 24px;
@@ -1052,6 +1054,7 @@ color: var(--font-black-color);
   left: 0;
 }
 
+/* 드롭다운 리스트 css */
 .sidebar_follow_list__p3HRC {
   padding: 30px;
   display: flex;
@@ -1068,175 +1071,129 @@ color: var(--font-black-color);
   !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/[userId]/mypage/_css/yourpage.module.css ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .yourpage_page__R1wfH {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  grid-gap: 64px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .yourpage_page__R1wfH {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.yourpage_main__CWyrN {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
 }
 
-.yourpage_main__CWyrN ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.yourpage_main__CWyrN li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.yourpage_main__CWyrN code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.yourpage_ctas__MwZjZ {
+.yourpage_list_wrap__ZTWud {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  position: relative;
+  max-width: 936px;
+  margin: 0 auto;
+  gap: 20px;
+  padding-bottom: 30px;
+  margin-top: 20px;
 }
 
-.yourpage_ctas__MwZjZ a {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.yourpage_user_info__hlyiF {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  gap: 40px;
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.yourpage_profile_img_box__UstNy {
+  display: flex;
+  position: absolute;
+  top: -60px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #ffebd4;
+  overflow: hidden;
+}
+.yourpage_profile_box__o6R5x {
+  padding-top: 75px;
+  max-width: 510px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.yourpage_profile_name__lEJgX {
+  font-size: 20px;
+  font-weight: 700;
+  color: #585858;
+}
+.yourpage_profile_info__muBQ0 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #818181;
+}
+.yourpage_profile_tgs__y53_b {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.yourpage_profile_tgs__y53_b li {
+  color: #585858;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 게시글 덕후 덕질 버튼 리스트 */
+.yourpage_info_list__stoIj {
+  display: flex;
+  width: 400px;
+  align-items: center;
+  justify-content: space-between;
+}
+.yourpage_info_list__stoIj li {
+  width: 33%;
+}
+.yourpage_info_list__stoIj li:not(:first-child) {
+  position: relative;
+}
+.yourpage_info_list__stoIj > li:not(:first-child)::before {
+  content: "";
+  width: 2px;
+  height: 76px;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.yourpage_info_list_title__ZXC_N {
+  font-size: 16px;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  color: #333;
 }
-
-a.yourpage_primary__2UXUA {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.yourpage_secondary__IVXDr {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.yourpage_footer__stn7o {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.yourpage_footer__stn7o a {
+.yourpage_info_list_button__l_kbm {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  width: 100%;
+  font-weight: 600;
+  font-size: 24px;
+  color: #585858;
+  padding: 20px;
 }
 
-.yourpage_footer__stn7o img {
-  flex-shrink: 0;
+/* 드롭다운 리스트 css */
+.yourpage_follow_list__8c7wQ {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow-y: auto;
+  gap: 30px;
 }
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.yourpage_primary__2UXUA:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.yourpage_secondary__IVXDr:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .yourpage_footer__stn7o a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .yourpage_page__R1wfH {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .yourpage_main__CWyrN {
-    align-items: center;
-  }
-
-  .yourpage_main__CWyrN ol {
-    text-align: center;
-  }
-
-  .yourpage_ctas__MwZjZ {
-    flex-direction: column;
-  }
-
-  .yourpage_ctas__MwZjZ a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.yourpage_secondary__IVXDr {
-    min-width: auto;
-  }
-
-  .yourpage_footer__stn7o {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .yourpage_logo__k68VB {
-    filter: invert();
-  }
+.yourpage_follow_list__8c7wQ li {
+  width: 100%;
 }
 
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\

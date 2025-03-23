@@ -1,6 +1,6 @@
 import Image from "next/image";
-import imageDefault from "@/../../public/images/img-default-profile.svg";
-import imageDefaultDark from "@/../../public/images/img-default-profile-dark.svg";
+import imgDefault from "@/../../public/images/img-default-profile.svg";
+import imgDefaultDark from "@/../../public/images/img-default-profile-dark.svg";
 import { useRecoilState } from "recoil";
 import { themeState } from "@/app/_recoil";
 
@@ -34,7 +34,7 @@ export default function Icon({
       }}
     >
       <Image
-        src={src ? src : theme == "light" ? imageDefault : imageDefaultDark}
+        src={src ? src : theme == "light" ? imgDefault : imgDefaultDark}
         alt={alt}
         loading={"lazy"}
         fill

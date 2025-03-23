@@ -670,7 +670,7 @@ color: var(--font-black-color);
   display: flex;
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #f0f0f0;
 }
 .list_list_info__ydvZh {
   flex: 1 0;

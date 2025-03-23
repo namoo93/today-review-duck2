@@ -6,7 +6,7 @@ import { DropDown } from "@/app/_components/atoms";
 import ProfileBox from "@/app/_components/profile/ProfileBox";
 
 //TODO :  must delete
-const list0 = [
+export const list0 = [
   {
     isMyFollowing: false,
     isMyBlock: false,
