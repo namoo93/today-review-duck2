@@ -1,7 +1,5 @@
-import styles from "./page.module.css";
+import ReviewDetails from "./_components/ReviewDetails";
 
 export default function Detail() {
-  return <section className={styles.page}>
-		
-	</section>;
+  return <ReviewDetails />;
 }
