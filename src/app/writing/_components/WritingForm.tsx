@@ -11,15 +11,10 @@ import Modal from "@/app/_components/modal/Modal";
 import { useModal } from "@/app/_hooks/useModal";
 import IsBackModalContent from "./IsBackModalContent";
 import TextArea from "@/app/_components/atoms/TextArea";
-
-import IcoRange0Btn from "@/../../public/icon/icon-range-0.svg";
-import IcoRange1Btn from "@/../../public/icon/icon-range-1.svg";
-import IcoRange2Btn from "@/../../public/icon/icon-range-2.svg";
-import IcoRange3Btn from "@/../../public/icon/icon-range-3.svg";
-import IcoRange4Btn from "@/../../public/icon/icon-range-4.svg";
-import IcoRange5Btn from "@/../../public/icon/icon-range-5.svg";
 import TagInput from "./TagInput";
 import EvaluationSelector from "./EvaluationSelector";
+import { ImageDataType } from "@/types";
+import ImageUploader from "./ImageUploader";
 
 export default function WritingForm() {
   const [theme] = useRecoilState(themeState);
@@ -30,6 +25,7 @@ export default function WritingForm() {
 
   const [rangeValue, setRangeValue] = useState<number>(3);
   const [tags, setTags] = useState<string[]>([]);
+  const [images, setImages] = useState<ImageDataType[]>([]);
 
   const handleBack = () => {
     openModal(<IsBackModalContent />);
@@ -50,6 +46,32 @@ export default function WritingForm() {
   const handleDeleteTagInput = (index: number) => {
     const newTags = tags.filter((_, i) => i !== index); // 해당 인덱스의 태그 삭제
     setTags(newTags);
+  };
+
+  // 이미지 데이터
+  const handleAddImage = (image: ImageDataType) => {
+    if (images.length < 6) {
+      setImages([...images, image]);
+    }
+  };
+
+  const handleRemoveImage = (index: number) => {
+    const updated = [...images];
+    updated.splice(index, 1);
+
+    // 삭제 후 첫 번째 이미지를 대표로 설정
+    const newImages = updated.map((img, i) => ({
+      ...img,
+      isRepresentative: i === 0,
+    }));
+
+    setImages(newImages);
+  };
+
+  const handleDescriptionChange = (index: number, desc: string) => {
+    const updated = [...images];
+    updated[index].description = desc;
+    setImages(updated);
   };
 
   const handleSubmit = () => {};
@@ -120,13 +142,13 @@ export default function WritingForm() {
             <span className={`${styles.input_info}`}>
               이미지는 최대 6장까지 등록할 수 있습니다.
             </span>
-            <div className={`${styles.img_add_button_wrap}`}>
-              {["", "", "", "", ""].map((img) => (
-                <button key={`${img} 사진 추가 버튼`} onClick={() => {}}>
-                  사진 추가하기
-                </button>
-              ))}
-            </div>
+
+            <ImageUploader
+              images={images}
+              onAddImage={handleAddImage}
+              onRemoveImage={handleRemoveImage}
+              onChangeDescription={handleDescriptionChange}
+            />
           </div>
           <div className={`${styles.input_container}`}>
             <strong className={`${styles.custom_label}`}>
@@ -134,7 +156,6 @@ export default function WritingForm() {
             </strong>
             <TextArea
               name="review"
-              // label="리뷰를 작성해주세요."
               placeholder="리뷰 내용을 자유롭게 작성해주세요."
               value={review}
               onChange={(e) => setReview(e.target.value)}

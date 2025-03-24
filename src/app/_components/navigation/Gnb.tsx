@@ -14,6 +14,7 @@ export default function Gnb() {
     { label: "트랜드", href: "/", show: true },
     { label: "최신", href: "/", show: true },
     { label: "덕질 중", href: "/", show: user.id }, // 로그인 시 표시
+    { label: "리뷰 작성하기", href: "/writing", show: user.id }, // 로그인 시 표시
     {
       label: "마이페이지",
       href: user.id ? `${user.id}/mypage` : "/login",

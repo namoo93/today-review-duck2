@@ -10,8 +10,10 @@ import IocWritingDark from "@/../../public/icon/icon-writing-dark.svg";
 import IocModeLight from "@/../../public/icon/icon-mode-light.svg";
 import IocWritingLight from "@/../../public/icon/icon-writing-light.svg";
 import { Icon } from "../atoms";
+import { activeItemState } from "@/app/_recoil";
 
 export default function FixedButton() {
+  const [, setActiveItem] = useRecoilState(activeItemState);
   const [theme, setTheme] = useRecoilState(themeState);
   const router = useRouter();
 
@@ -34,6 +36,7 @@ export default function FixedButton() {
 
   const goToWriting = () => {
     router.push(`/writing`);
+    setActiveItem("리뷰 작성하기");
   };
 
   return (

@@ -845,3 +845,105 @@ color: var(--font-black-color);
   background-color: #969696;
 }
 
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/writing/_css/imageuploader.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.imageuploader_image_container__j9udF {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.imageuploader_add_button_box__Oz5Ko {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageuploader_add_button__6N9T0 {
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.imageuploader_count__HeK1N {
+  font-size: 16px;
+  color: #666;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4px;
+}
+.imageuploader_count_color__0BWHo {
+  color: #ff7e29;
+}
+.imageuploader_image_box__1pxRV {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 120px;
+}
+.imageuploader_preview_img__xJtrC {
+  flex: 0 0 1;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imageuploader_desc_textarea__ozvL_ {
+  width: 80%;
+  border: none;
+  font-size: 12px;
+  margin: 6px;
+  outline: none;
+  text-align: center;
+  height: 40px;
+}
+.imageuploader_button_box__HSrQq {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.imageuploader_delete_button__ugl3E {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: black;
+  border-radius: 50%;
+  border: none;
+  padding: 2px;
+  z-index: 1;
+}
+
+.imageuploader_representative_badge__V0Onu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #000;
+  color: #fff;
+  padding: 4px 6px;
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+}
+
