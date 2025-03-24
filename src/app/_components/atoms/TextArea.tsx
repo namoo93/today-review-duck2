@@ -18,12 +18,18 @@ export default function TextArea({
   value,
   onChange,
   height = "100px",
-  maxLength = 100,
+  maxLength,
 }: Props) {
+  const isLimited = typeof maxLength === "number";
+
   return (
     <div className={styles.textarea_wrapper}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className={styles.textarea_box}>
+      <div
+        className={`${styles.textarea_box} ${
+          !isLimited ? styles.textarea_box_filled : ""
+        }`}
+      >
         <textarea
           id={name}
           name={name}
@@ -34,10 +40,11 @@ export default function TextArea({
           style={{ height }}
           className={styles.textarea}
         />
-
-        <span
-          className={styles.sub_info}
-        >{`${value.length}/${maxLength}`}</span>
+        {isLimited && (
+          <span className={styles.sub_info}>
+            {`${value.length}/${maxLength}`}
+          </span>
+        )}
       </div>
     </div>
   );

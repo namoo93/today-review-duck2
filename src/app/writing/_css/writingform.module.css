@@ -2,7 +2,7 @@
   background-color: #f7f7f7;
   display: flex;
   justify-content: center;
-  height: calc(100vh - 70px);
+  padding-bottom: 20px;
 }
 
 .writing_form_box {
@@ -10,6 +10,7 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 30px;
   padding: 40px;
   border-radius: 20px;
@@ -25,12 +26,26 @@
   color: #585858;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .writing_form {
   display: flex;
+  flex-direction: column;
   padding-top: 20px;
   gap: 20px;
+  width: 100%;
 }
+.writing_info {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+  color: #d1d1d1;
+}
+.writing_form_button {
+  padding: 20px 0;
+}
+
 /* 글쓰기 페이지 모달 */
 .modal {
   padding: 20px;
@@ -62,4 +77,25 @@
   width: 100%;
   gap: 15px;
   margin-top: 20px;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.custom_label {
+  font-weight: 500;
+  font-size: 18px;
+  vertical-align: middle;
+  color: #818181;
+  padding-bottom: 15px;
+}
+.input_info {
+  font-weight: 400;
+  font-size: 16px;
+  vertical-align: middle;
+  color: #d1d1d1;
+  padding-bottom: 20px;
 }

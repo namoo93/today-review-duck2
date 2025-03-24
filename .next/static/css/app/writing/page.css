@@ -76,6 +76,10 @@
   background-color: var(--primary-color);
   color: white;
 }
+.button_button_filled_dark__ckuUl {
+  background-color: #6a6a6a;
+  color: white;
+}
 .button_button_bright_filled__sAXTF {
   background-color: #ffebd4;
   color: #ff7e29;
@@ -561,7 +565,7 @@ color: var(--font-black-color);
   background-color: #f7f7f7;
   display: flex;
   justify-content: center;
-  height: calc(100vh - 70px);
+  padding-bottom: 20px;
 }
 
 .writingform_writing_form_box__8FaHZ {
@@ -569,6 +573,7 @@ color: var(--font-black-color);
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 30px;
   padding: 40px;
   border-radius: 20px;
@@ -584,12 +589,26 @@ color: var(--font-black-color);
   color: #585858;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .writingform_writing_form__vHvTD {
   display: flex;
+  flex-direction: column;
   padding-top: 20px;
   gap: 20px;
+  width: 100%;
 }
+.writingform_writing_info__ZuC2p {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+  color: #d1d1d1;
+}
+.writingform_writing_form_button__AP68Y {
+  padding: 20px 0;
+}
+
 /* 글쓰기 페이지 모달 */
 .writingform_modal__lCmLZ {
   padding: 20px;
@@ -623,6 +642,27 @@ color: var(--font-black-color);
   margin-top: 20px;
 }
 
+.writingform_input_container__1972o {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.writingform_custom_label__blt71 {
+  font-weight: 500;
+  font-size: 18px;
+  vertical-align: middle;
+  color: #818181;
+  padding-bottom: 15px;
+}
+.writingform_input_info__ZVOmz {
+  font-weight: 400;
+  font-size: 16px;
+  vertical-align: middle;
+  color: #d1d1d1;
+  padding-bottom: 20px;
+}
+
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/modal/modal.module.css ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -643,5 +683,165 @@ color: var(--font-black-color);
   background-color: #fff;
   min-width: 300px;
   min-height: 100px;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/_components/atoms/_css/textarea.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.textarea_textarea_wrapper__dGtgx {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.textarea_textarea_wrapper__dGtgx label {
+  font-size: 14px;
+  color: #818181;
+}
+
+.textarea_textarea_box__uyc2_ {
+  padding: 15px;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+  background-color: #fff;
+  padding-bottom: 25px;
+  position: relative;
+}
+.textarea_textarea_box_filled__rxU9F {
+  padding: 15px;
+  border: 1px solid #f7f7f7;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+  position: relative;
+}
+.textarea_textarea__YZrXt {
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.textarea_textarea__YZrXt::placeholder {
+  font-size: 14px;
+  color: #e3e3e3;
+}
+
+.textarea_sub_info__0tSaL {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #e3e3e3;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/writing/_css/taginput.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.taginput_tags_input_wrap__1MrTb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.taginput_tag_input_container__Jq1mN {
+  background-color: #fff6ed;
+  display: inline-flex;
+  width: auto;
+  font-size: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 8px 10px;
+  padding-left: 20px;
+}
+.taginput_tag_input_container_dark__SWZOJ {
+  background-color: #f0f0f0;
+  display: inline-flex;
+  width: auto;
+  font-size: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 8px 10px;
+  padding-left: 20px;
+}
+.taginput_tag_input_container__Jq1mN .taginput_tag_input__lwJc2 {
+  background-color: #fff6ed;
+  color: var(--primary-color);
+  padding-right: 10px;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  min-width: 20px; /* 최소 크기 설정 */
+  outline: none;
+  flex-grow: 1;
+}
+.taginput_tag_input_container_dark__SWZOJ .taginput_tag_input__lwJc2 {
+  color: #333;
+  padding-right: 10px;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  min-width: 20px; /* 최소 크기 설정 */
+  outline: none;
+  flex-grow: 1;
+}
+.taginput_hidden_span__OmiMv {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre; /* 공백을 그대로 유지하여 정확한 너비 계산 */
+  font-size: 14px; /* input과 동일한 스타일을 유지 */
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/.pnpm/next@14.2.4_@opentelemetry+api@1.9.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/writing/_css/evaluationselector.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.evaluationselector_selector_wrapper__PAipS {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.evaluationselector_select_button___ymV9 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff6ed;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 70px;
+}
+
+.evaluationselector_active__omXOU {
+  background-color: #ffd2a8;
+}
+
+.evaluationselector_label__hIdG9 {
+  font-size: 13px;
+  color: #969696;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+/* 다크모드 일시 */
+.evaluationselector_select_button_dark__h4mcX {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 70px;
+}
+.evaluationselector_active_dark__hfs9c {
+  background-color: #969696;
 }
 

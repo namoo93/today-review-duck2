@@ -18,11 +18,19 @@
   padding-bottom: 25px;
   position: relative;
 }
+.textarea_box_filled {
+  padding: 15px;
+  border: 1px solid #f7f7f7;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+  position: relative;
+}
 .textarea {
   resize: none;
   outline: none;
   font-size: 14px;
   width: 100%;
+  background-color: transparent;
 }
 
 .textarea::placeholder {

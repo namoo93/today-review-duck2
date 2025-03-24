@@ -1,0 +1,55 @@
+.tags_input_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.tag_input_container {
+  background-color: #fff6ed;
+  display: inline-flex;
+  width: auto;
+  font-size: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 8px 10px;
+  padding-left: 20px;
+}
+.tag_input_container_dark {
+  background-color: #f0f0f0;
+  display: inline-flex;
+  width: auto;
+  font-size: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 8px 10px;
+  padding-left: 20px;
+}
+.tag_input_container .tag_input {
+  background-color: #fff6ed;
+  color: var(--primary-color);
+  padding-right: 10px;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  min-width: 20px; /* 최소 크기 설정 */
+  outline: none;
+  flex-grow: 1;
+}
+.tag_input_container_dark .tag_input {
+  color: #333;
+  padding-right: 10px;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  min-width: 20px; /* 최소 크기 설정 */
+  outline: none;
+  flex-grow: 1;
+}
+.hidden_span {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre; /* 공백을 그대로 유지하여 정확한 너비 계산 */
+  font-size: 14px; /* input과 동일한 스타일을 유지 */
+}
