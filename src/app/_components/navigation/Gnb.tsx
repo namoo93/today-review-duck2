@@ -20,7 +20,7 @@ export default function Gnb() {
       href: user.id ? `${user.id}/mypage` : "/login",
       show: user.id,
     }, // 로그인 시 표시
-  ];
+  ]; // TODO : 추천하지 않는 스타일 컴포넌트를 새로 하나파는것을 추천
 
   const handleNavigation = (label: string, href: string) => {
     if (activeItem === label) return; // 현재 선택된 항목이면 함수 중단
