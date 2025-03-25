@@ -1,9 +1,10 @@
 "use client";
 import styles from "../_css/bannersearch.module.css";
 import { useRecoilState } from "recoil";
-import { DropDown, Search } from "@/app/_components/atoms";
+import { DropDown, Icon, Search } from "@/app/_components/atoms";
 import { useState } from "react";
 import { onSearchPageState } from "@/app/_recoil";
+import IcoDelete from "@/../public/icon/icon-delete-search.svg";
 // import { useRouter } from "next/navigation";
 
 export default function BannerSearch() {
@@ -70,36 +71,175 @@ export default function BannerSearch() {
       >
         <div className={styles.list_wrap}>
           <div className={styles.list_box}>
-            <strong>최근 검색어</strong>
-            <span>최근 검색 기록이 없어요</span>
-            <ul>
+            <strong className={styles.list_box_title}>최근 검색어</strong>
+            {searchHistory.length == 0 && (
+              <span className={styles.list_box_info}>
+                최근 검색 기록이 없어요
+              </span>
+            )}
+            <ul className={styles.list_recent_searches}>
               {searchHistory.map((term, index) => (
                 <li key={index} onClick={() => handleReSearch(term)}>
-                  {term}
+                  <button
+                    type="button"
+                    onClick={() => {}}
+                    className={styles.recent_searches_title}
+                  >
+                    {term}
+                  </button>
+                  <button type="button" onClick={() => {}}>
+                    <Icon
+                      src={IcoDelete}
+                      alt="검색어 삭재"
+                      width={18}
+                      height={18}
+                    />
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
           <div className={styles.list_box}>
-            <strong>인기 검색어</strong>
-            <span>현재 인기 있는 검색어에요</span>
-            <ol>
-              <li>
-                <button type="button" onClick={() => {}}>
-                  1 dnlr rjatordj{" "}
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => {}}>
-                  2 dnlr rjatordj 검색어가 긴경우 두줄이상 이클립스{" "}
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => {}}>
-                  3 dnlr rjatordj{" "}
-                </button>
-              </li>
-            </ol>
+            <strong className={styles.list_box_title}>인기 검색어</strong>
+            <span className={styles.list_box_info}>
+              현재 인기 있는 검색어에요
+            </span>
+            <div className={styles.list_popular_searches_wrap}>
+              <ol className={styles.list_popular_searches}>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj fasdf fdsaf asfd af safdsf
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+              </ol>
+              <ol className={styles.list_popular_searches}>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.popular_searches_button}
+                    onClick={() => {}}
+                  >
+                    <span className={styles.searches_bullet}>1</span>
+                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
+                      dnlr rjatordj{" "}
+                    </span>
+                    <span className={styles.searches_icon}>-</span>
+                  </button>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
       </DropDown>

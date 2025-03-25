@@ -7,4 +7,4 @@ export { default as Select } from "./Select";
 export { default as Tooltip } from "./Tooltip";
 export { default as Icon } from "./Icon";
 export { default as Search } from "./Search";
-export { TabMenu } from "./TabMenu";
+export { TabMenu } from "../tab/TabMenu";

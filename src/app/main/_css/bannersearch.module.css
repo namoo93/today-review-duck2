@@ -15,10 +15,81 @@
 .list_wrap {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 20px;
+  gap: 40px;
 }
 .list_box {
   width: 50%;
   display: flex;
   flex-direction: column;
+}
+.list_box_title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+  padding: 5px 0;
+}
+.list_box_info {
+  font-weight: 400;
+  font-size: 12px;
+  color: #999;
+  padding: 10px 0;
+}
+.list_recent_searches {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 15px;
+}
+.list_recent_searches li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.recent_searches_title {
+  font-weight: 400;
+  font-size: 12px;
+  color: #585858;
+  width: 100%;
+  text-align: left;
+}
+
+.list_popular_searches_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list_popular_searches li {
+  width: 190px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.popular_searches_button {
+  display: flex;
+  align-items: center;
+}
+.searches_bullet {
+  font-weight: 600;
+  font-size: 12px;
+  color: #000;
+  padding: 5px 0;
+  padding-right: 15px;
+}
+.searches_item {
+  padding: 2px 0;
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  color: #000;
+  height: 15px;
+  line-height: 15px;
+  padding-right: 25px;
+}
+.searches_icon {
+  position: absolute;
+  top: 0;
+  right: 0px;
 }

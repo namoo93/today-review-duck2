@@ -1,67 +1,59 @@
-import styles from "./_css/tabmenu.module.css";
-// import profileDefault from '@/../../public/image/img-default-profile.svg';
+import React, { SetStateAction } from "react";
+import styles from "./tabmenu.module.css";
 
-export type MenuProps = {
-  label: string;
-  value: string;
-};
 type TabMenuProps = {
-  menu?: MenuProps[];
+  menu?: string[];
   className?: string;
   selected: string;
-  setTabVeiw?: (value: string) => void;
+  setTabView?: React.Dispatch<SetStateAction<string>>;
   getTabList?: (value: string) => void;
   width?: string;
   height?: string;
   margin?: string;
   onClickTab?: () => void;
   fontSize?: string;
+  textOnly?: boolean;
 };
 
 type TabProps = {
   label: string;
   height?: string;
   selected: string;
-  value: string;
   onChange: (value: string) => void;
   className?: string;
   onClickTab?: () => void;
   fontSize?: string;
+  textOnly?: boolean;
 };
 
 function Tab({
   label,
   height,
   selected,
-  value,
   onChange,
   className,
   onClickTab,
   fontSize,
+  textOnly = false,
 }: TabProps) {
   return (
     <button
       className={`${styles.tab_button} ${
-        value === selected
-          ? styles.tab_button_active
+        label === selected
+          ? textOnly
+            ? styles.text_only_active
+            : styles.tab_button_active
+          : textOnly
+          ? styles.text_only_inactive
           : styles.tab_button_inactive
-      } ${className}`}
-      style={{ height: height }}
+      } ${className || ""}`}
+      style={{ height, fontSize }}
       onClick={() => {
         if (onClickTab) onClickTab();
-        onChange(value);
+        onChange(label);
       }}
     >
-      <span
-        className={`${styles.button_text} ${
-          value === selected
-            ? styles.button_text_active
-            : styles.button_text_inactive
-        } `}
-        style={{ fontSize }}
-      >
-        {label}
-      </span>
+      <span className={styles.button_text}>{label}</span>
     </button>
   );
 }
@@ -70,38 +62,32 @@ export function TabMenu({
   menu = [],
   className,
   selected,
-  setTabVeiw,
+  setTabView,
   getTabList,
   width,
   height,
   margin,
   onClickTab,
   fontSize,
+  textOnly = false,
 }: TabMenuProps) {
   const handleChange = (value: string) => {
-    if (setTabVeiw) setTabVeiw(value);
-    if (getTabList) getTabList(value);
+    setTabView?.(value);
+    getTabList?.(value);
   };
-
   return (
-    <div
-      className={styles.component}
-      style={{
-        width: width,
-        margin: margin ? margin : "0",
-      }}
-    >
-      {menu.map(({ label, value }: MenuProps) => (
+    <div className={styles.component} style={{ width, margin }}>
+      {menu.map((label) => (
         <Tab
-          className={className}
-          key={`${value}+${label}`}
+          key={label}
           label={label}
           selected={selected}
-          value={value}
           onChange={handleChange}
+          className={className}
           height={height}
           onClickTab={onClickTab}
           fontSize={fontSize}
+          textOnly={textOnly}
         />
       ))}
     </div>

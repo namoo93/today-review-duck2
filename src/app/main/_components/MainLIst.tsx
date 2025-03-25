@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 import { themeState } from "@/app/_recoil";
 import List from "@/app/_components/list/postList/List";
 import { useState } from "react";
+import { TabMenu } from "@/app/_components/tab/TabMenu";
 
 //TODO: api
 const dummyListData = [
@@ -105,12 +106,18 @@ const dummyListData = [
 export default function MainList() {
   const [theme] = useRecoilState(themeState);
   const [reviewList, setReviewList] = useState(dummyListData);
+  const [tab, setTab] = useState("오늘");
 
   return (
     <section className={styles.page}>
-      <ul>
-        <li>tab</li>
-      </ul>
+      <TabMenu
+        width="240px"
+        margin="30px 0 10px -20px"
+        selected={tab}
+        setTabView={setTab}
+        menu={["오늘", "이번주", "이번달"]}
+        textOnly
+      />
       <ul className={styles.list_wrap}>
         {reviewList.map((review, index) => (
           <List
