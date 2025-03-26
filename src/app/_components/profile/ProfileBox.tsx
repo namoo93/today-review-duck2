@@ -1,6 +1,8 @@
 import styles from "./profilebox.module.css";
 import Icon from "../atoms/Icon";
 import { Button } from "../atoms";
+import { useRecoilState } from "recoil";
+import { themeState } from "@/app/_recoil";
 
 type Props = {
   src?: string | null | undefined;
@@ -32,6 +34,8 @@ export default function ProfileBox({
   isOnText,
   isOffText,
 }: Props) {
+  const [theme] = useRecoilState(themeState);
+
   return (
     <div className={styles.box_wrap}>
       <button
@@ -40,7 +44,7 @@ export default function ProfileBox({
         onClick={onClickBox}
       >
         <span
-          className={styles.avatar}
+          className={theme == "light" ? styles.avatar : styles.avatar_dark}
           style={{ width: iconWidth, height: iconHeight }}
         >
           <Icon

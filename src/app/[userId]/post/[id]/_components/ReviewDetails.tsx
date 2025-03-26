@@ -1,14 +1,20 @@
 "use client";
-import { Button, Icon, Input } from "@/app/_components/atoms";
 import styles from "../_css/reviewdetails.module.css";
 import IcoBack from "@/../../public/icon/icon-back.svg";
 import { useRouter } from "next/navigation";
-import { useRecoilState } from "recoil";
-import { themeState } from "@/app/_recoil";
+import ReviewDetailContents from "./ReviewDetailContents";
+import ReviewDetailComment from "./ReviewDetailComment";
+import ReviewDetailFixedButtons from "./ReviewDetailFixedButtons";
 
 export default function ReviewDetails() {
-  const [theme] = useRecoilState(themeState);
   const router = useRouter();
 
-  return <section className={styles.page}></section>;
+  return (
+    <section className={styles.page}>
+      <h3 className="sr_only">리뷰 상세 페이지</h3>
+      <ReviewDetailFixedButtons />
+      <ReviewDetailContents />
+      <ReviewDetailComment />
+    </section>
+  );
 }

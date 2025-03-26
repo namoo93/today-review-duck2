@@ -44,9 +44,6 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-.dropdown_wrap {
-  position: relative;
-}
 .profile_name {
   font-size: 20px;
   font-weight: 700;

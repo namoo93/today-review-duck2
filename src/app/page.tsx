@@ -1,5 +1,4 @@
 import Header from "./_components/navigation/Header";
-import FixedButton from "./_components/fixedButton/FixedButton";
 import Main from "./main/page";
 
 export default function Home() {
@@ -7,7 +6,7 @@ export default function Home() {
     <>
       <Header />
       <Main></Main>
-      <FixedButton />
+
       {/* <footer className={styles.footer}></footer> */}
     </>
   );
