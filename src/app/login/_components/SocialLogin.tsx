@@ -9,24 +9,44 @@ import { Button, Icon, Tooltip } from "@/app/_components/atoms";
 
 export default function SocialLogin() {
   const [lastLogin, setLastLogin] = useState<string | null>(null);
-	// 구글 인증
-  const REDIRECT_GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
-  const REDIRECT_GOOGLE_URI = process.env
-    .NEXT_PUBLIC_GOOGLE_REDIRECT_URI as string;
+  const REDIRECT_URI = process.env.NEXT_PUBLIC_REDIRECT_URI as string;
+  // 구글 인증
+  const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  // 네이버 인증
+  const NAVER_CLIENT_ID = process.env.NEXT_PUBLIC_NAVER_CLIENT_ID;
+  //kakao 인증
+  const KAKAO_CLIENT_ID = process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID;
+  // console.log(GOOGLE_CLIENT_ID, "google id");
+  // console.log(REDIRECT_URI, "REDIRECT_URI uri");
 
-  console.log(REDIRECT_GOOGLE_CLIENT_ID, "google id");
-  console.log(REDIRECT_GOOGLE_URI, "google uri");
   // 로그인 버튼 클릭 핸들러
   const handleLogin = (provider: string) => {
     if (provider == "google") {
       const url =
         "https://accounts.google.com/o/oauth2/auth?client_id=" +
-        REDIRECT_GOOGLE_CLIENT_ID +
+        GOOGLE_CLIENT_ID +
         "&redirect_uri=" +
-        encodeURIComponent(REDIRECT_GOOGLE_URI) +
+        encodeURIComponent(REDIRECT_URI) +
         "&response_type=code" +
         "&scope=email%20profile";
 
+      window.location.href = url;
+    }
+
+    if (provider == "naver") {
+      const url = `https://nid.naver.com/oauth2.0/authorize
+?response_type=code
+&client_id=${NAVER_CLIENT_ID}
+&redirect_uri=${encodeURIComponent(REDIRECT_URI)}
+&state=test`;
+
+      window.location.href = url;
+    }
+
+    if (provider == "kakao") {
+      const url = `https://kauth.kakao.com/oauth/authorize
+?client_id=${KAKAO_CLIENT_ID}
+&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code`;
       window.location.href = url;
     }
 
