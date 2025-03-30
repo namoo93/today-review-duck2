@@ -1,14 +1,16 @@
 import axios from "axios";
 import { getAuthorityCookie } from "../_utils/cookies";
 
+axios.defaults.withCredentials = true; // 쿠키 자동 포함
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 console.log("BASE_URL ----- ", BASE_URL);
+const token = getAuthorityCookie("accessToken");
+console.log("getAuthorityCookie : ", token ? `Bearer ${token}` : "undefined");
+
 export const axiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
 });
-
-// axios.defaults.withCredentials = true; // 쿠키 자동 포함
 
 console.log(
   "getAuthorityCookie : ",
@@ -19,7 +21,7 @@ export const tokenInstance = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${getAuthorityCookie("refreshToken")}`, // 리프레시 토큰 포함
+    ...(token && { Authorization: `Bearer ${token}` }), // 리프레시 토큰 포함
     "X-CSRF-Token": getAuthorityCookie("csrfToken") || "", // CSRF 보호 추가
   },
 });
@@ -45,7 +47,7 @@ function createAPIInstance(baseURL: string) {
     baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}/${baseURL}`,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${getAuthorityCookie("accessToken")}`,
+      ...(token && { Authorization: `Bearer ${token}` }),
       "X-CSRF-Token": getAuthorityCookie("csrfToken") || "", // CSRF 보호 추가
     },
   });
