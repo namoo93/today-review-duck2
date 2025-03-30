@@ -1,13 +1,10 @@
 import axios from "axios";
 import { getAuthorityCookie } from "../_utils/cookies";
 
-const locationURL =
-  typeof window !== "undefined"
-    ? `${window.location.origin}/api`
-    : `${process.env.NEXT_PUBLIC_API_ROUTE_BASE_URL}/api`;
-
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+console.log("BASE_URL ----- ", BASE_URL);
 export const axiosInstance = axios.create({
-  baseURL: locationURL,
+  baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
 });
 

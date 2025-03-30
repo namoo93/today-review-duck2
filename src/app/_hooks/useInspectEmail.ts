@@ -7,12 +7,9 @@ import { axiosInstance } from "../api/axios";
 export const useInspectDuplicateEmail = () => {
   return useMutation({
     mutationFn: async (email: string) => {
-      const response = await axiosInstance.post(
-        "/auth/email/inspect-duplicate",
-        {
-          email,
-        }
-      );
+      const response = await axiosInstance.post("/email/inspect-duplicate", {
+        email,
+      });
       return response.data;
     },
   });
@@ -24,7 +21,7 @@ export const useInspectDuplicateEmail = () => {
 export const useInspectEmail = () => {
   return useMutation({
     mutationFn: async (email: string) => {
-      const response = await axiosInstance.post("/auth/email/inspect", {
+      const response = await axiosInstance.post("/email/inspect", {
         email,
       });
       return response.data;
