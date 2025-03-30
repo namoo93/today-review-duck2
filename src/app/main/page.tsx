@@ -3,7 +3,7 @@
 import { useRecoilState } from "recoil";
 import { onSearchPageState } from "../_recoil";
 import Banner from "./_components/Banner";
-import MainList from "./_components/MainList";
+import MainList from "./_components/MainList_tem";
 import SearchList from "./_components/SearchList";
 import FixedButton from "../_components/fixedButton/FixedButton";
 
