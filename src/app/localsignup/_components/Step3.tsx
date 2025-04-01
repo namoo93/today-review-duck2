@@ -4,12 +4,18 @@ import { SetStateAction, useEffect, useState } from "react";
 import { validatePassword } from "@/app/_utils/validation";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
+import { useSignup } from "@/app/_hooks/useSignup";
+import { userState } from "@/app/_recoil";
+import { useRecoilState } from "recoil";
 
 type Props = {
   setStep: React.Dispatch<SetStateAction<number>>;
+  email: string;
 };
-export default function Step3({ setStep }: Props) {
+export default function Step3({ setStep, email }: Props) {
   const { addToast } = useToast();
+  const [, setUser] = useRecoilState(userState);
+  const { mutate: signupMutate, isPending } = useSignup();
 
   const [passwordError, setPasswordError] = useState("");
   const [verifyPasswordError, setVerifyPasswordError] = useState("");
@@ -42,9 +48,29 @@ export default function Step3({ setStep }: Props) {
   ) => {
     e.preventDefault();
     if (isButtonDisabled) return;
-    // TODO : api 연결
-    addToast("두줄이상 인포의 경우 두줄이상 ", "info");
-    setStep(4);
+
+    signupMutate(
+      {
+        email,
+        pw: passwordData,
+        confirmPw: verifyPasswordData,
+      },
+      {
+        onSuccess: (response) => {
+          addToast("회원가입이 완료되었습니다!", "success");
+          setStep(4); // 다음 단계로
+          console.log("TODO : nickname ---- ", response.data.nickname);
+          setUser({ id: response.data.nickname });
+        },
+        onError: (error: any) => {
+          if (error?.response?.status === 409) {
+            addToast("이미 가입된 이메일입니다.", "error");
+          } else {
+            addToast("회원가입 중 오류가 발생했습니다.", "error");
+          }
+        },
+      }
+    );
   };
 
   const isButtonDisabled =
@@ -91,7 +117,7 @@ export default function Step3({ setStep }: Props) {
           filled
           className={styles.form_button}
           onClick={(e) => handleNextButton(e)}
-          disabled={isButtonDisabled}
+          disabled={isButtonDisabled || isPending}
         >
           다음으로
         </Button>

@@ -3,8 +3,6 @@ import styles from "../_css/signin.module.css";
 import Image from "next/image";
 import ImgLogo from "@/../../public/images/logo.svg";
 import useAuth from "@/app/_hooks/useAuth";
-import { userState } from "@/app/_recoil";
-import { useRecoilState, useRecoilValue } from "recoil";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { Button, Input } from "@/app/_components/atoms";
@@ -14,7 +12,6 @@ import { validateEmail, validatePassword } from "@/app/_utils/validation";
 
 export default function SignIn() {
   const { login, isPending } = useAuth();
-  const [, setUser] = useRecoilState(userState);
   const router = useRouter();
   const { addToast } = useToast();
   const [emailData, setEmailData] = useState("");
@@ -36,25 +33,24 @@ export default function SignIn() {
     }
   };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
     if (isButtonDisabled) return;
 
-    // TODO : 임시로 로그인 ui 보이게
-    setUser({ id: "nickname" });
-    router.push("/");
+    try {
+      await login({
+        email: emailData,
+        password: passwordData,
+        fcmToken: "sample-fcm-token", //TODO:  추후 Firebase 연동 가능
+      });
 
-    // try {
-    //   await login({
-    //     email: emailData,
-    //     password: passwordData,
-    //     fcmToken: "sample-fcm-token",
-    //   });
-
-    //   router.push("/"); // 로그인 후 이동
-    // } catch (error) {
-    //   addToast(`로그인 실패. ${error}`, "info");
-    // }
+      addToast("로그인 성공! 환영합니다 🙌", "success");
+      router.push("/");
+    } catch (error) {
+      addToast("로그인 실패. 이메일과 비밀번호를 확인해주세요.", "error");
+    }
   };
 
   const goToFindPasswordPage = () => {

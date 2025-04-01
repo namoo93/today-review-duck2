@@ -4,6 +4,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { useVerifyEmail } from "@/app/_hooks/useVerifyEmail";
+import { useInspectDuplicateEmail } from "@/app/_hooks/useInspectEmail";
 
 type Props = {
   setStep: React.Dispatch<SetStateAction<number>>;
@@ -19,6 +20,8 @@ export default function Step2({
 }: Props) {
   const { addToast } = useToast();
   const { mutate: verifyEmailMutate, isPending, isError } = useVerifyEmail();
+  const { mutate: inspectEmailMutate, isPending: isPendingInspectEmail } =
+    useInspectDuplicateEmail();
   const [numberData, setNumberData] = useState("");
 
   useEffect(() => {
@@ -57,17 +60,16 @@ export default function Step2({
   ) => {
     e.preventDefault();
     if (isButtonDisabled) return;
+    const code = Number(numberData);
+
     verifyEmailMutate(
-      { email, code: numberData },
+      { email, code },
       {
         onSuccess: () => {
-          // addToast("이메일 인증 성공!", "success");
+          addToast("이메일 인증 성공!", "success");
           setStep(3);
         },
         onError: (error: any) => {
-          //TODO : 타입정의
-          setStep(3);
-
           if (error?.response?.status === 400) {
             addToast("유효하지 않은 요청입니다.", "error");
           } else if (error?.response?.status === 401) {
@@ -84,15 +86,17 @@ export default function Step2({
   };
 
   const handleResend = () => {
-    // resendEmail(email, {
-    //   onSuccess: () => {
-    //     addToast("인증번호가 재전송되었습니다.", "success");
-    //     setTimeLeft(299);
-    //   },
-    //   onError: () => {
-    //     addToast("인증번호 재전송 실패. 다시 시도해주세요.", "error");
-    //   },
-    // });
+    //TODO : api
+    !isPendingInspectEmail &&
+      inspectEmailMutate(email, {
+        onSuccess: () => {
+          addToast("인증번호가 재전송되었습니다.", "success");
+          setTimeLeft(299);
+        },
+        onError: () => {
+          addToast("인증번호 재전송 실패. 다시 시도해주세요.", "error");
+        },
+      });
   };
 
   const isButtonDisabled = numberData.length !== 6 || isPending;

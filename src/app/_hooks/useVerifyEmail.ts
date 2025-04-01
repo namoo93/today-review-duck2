@@ -6,7 +6,7 @@ import { authInstance } from "../api/axios";
  */
 export const useVerifyEmail = () => {
   return useMutation({
-    mutationFn: async ({ email, code }: { email: string; code: string }) => {
+    mutationFn: async ({ email, code }: { email: string; code: number }) => {
       const response = await authInstance.post("/email/verify", {
         email,
         code,

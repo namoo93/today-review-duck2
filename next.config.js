@@ -3,8 +3,8 @@ const nextConfig = {
 	output: "standalone",
 	reactStrictMode: true,
 	images: {
-		domains: ['mylittlereviewduck.site'], // 허용할 도메인 목록을 지정
-		formats: ["image/avif", "image/webp"],  // 최신이미지 포멧 지원
+		domains: ['mylittlereviewduck.site'],
+		formats: ["image/avif", "image/webp"],
 		remotePatterns: [
 			{
 				protocol: "https",
@@ -13,7 +13,16 @@ const nextConfig = {
 				pathname: "/**",
 			},
 		],
-	}
+	},
+
+	async rewrites() {
+		return [
+			{
+				source: "/api/:path*",
+				destination: "https://api.mylittlereviewduck.site/:path*", // 👉 프록시 경유
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;

@@ -5,6 +5,7 @@ axios.defaults.withCredentials = true; // 쿠키 자동 포함
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 console.log("BASE_URL ----- ", BASE_URL);
 const token = getAuthorityCookie("accessToken");
+const csrfToken = getAuthorityCookie("csrfToken");
 console.log("getAuthorityCookie : ", token ? `Bearer ${token}` : "undefined");
 
 export const axiosInstance = axios.create({
@@ -18,11 +19,11 @@ console.log(
 );
 /*  토큰 재발급 API Instance */
 export const tokenInstance = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
+  baseURL: BASE_URL,
   headers: {
     "Content-Type": "application/json",
     ...(token && { Authorization: `Bearer ${token}` }), // 리프레시 토큰 포함
-    "X-CSRF-Token": getAuthorityCookie("csrfToken") || "", // CSRF 보호 추가
+    ...(csrfToken && { "X-CSRF-Token": csrfToken }), // CSRF 보호 추가
   },
 });
 
@@ -44,11 +45,11 @@ tokenInstance.interceptors.request.use((config) => {
 /* 공통 API Instance 생성 함수 */
 function createAPIInstance(baseURL: string) {
   const instance = axios.create({
-    baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}/${baseURL}`,
+    baseURL: `${BASE_URL}/${baseURL}`,
     headers: {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
-      "X-CSRF-Token": getAuthorityCookie("csrfToken") || "", // CSRF 보호 추가
+      ...(token && { Authorization: `Bearer ${token}` }), // 리프레시 토큰 포함
+      ...(csrfToken && { "X-CSRF-Token": csrfToken }), // CSRF 보호 추가ß
     },
   });
 

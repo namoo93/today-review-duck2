@@ -41,7 +41,7 @@ export default function SignUp() {
               setTimeLeft={setTimeLeft}
             />
           )}
-          {step == 3 && <Step3 setStep={setStep} />}
+          {step == 3 && <Step3 setStep={setStep} email={email} />}
         </div>
       )}
       {step == 4 && <Completed />}

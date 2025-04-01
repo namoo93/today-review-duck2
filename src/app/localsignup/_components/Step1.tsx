@@ -34,19 +34,19 @@ export default function Step1({ setStep, setEmail }: Props) {
 
     inspectEmailMutate(emailData, {
       onSuccess: () => {
-        // setStep(2);
-        // setEmail(emailData);
-      },
-      onError: (error: any) => {
-        // TODO : 타입정의
         setStep(2);
         setEmail(emailData);
+      },
+      onError: (error: any) => {
         if (error?.response?.status === 400) {
           addToast("유효하지 않은 요청입니다.", "error");
+          return;
         }
         if (error?.response?.status === 409) {
           addToast("이미 가입된 이메일입니다.", "error");
+          return;
         }
+        // addToast("유효하지 않은 요청입니다.", "error");
       },
     });
   };
