@@ -1,11 +1,11 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage } from "firebase/messaging";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp, getApps } from "firebase/app";
+import {
+  getMessaging,
+  getToken,
+  onMessage,
+  Messaging,
+} from "firebase/messaging";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -16,8 +16,13 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+// ✅ Firebase 초기화는 클라이언트에서만
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+
+// ✅ messaging도 클라이언트에서만 초기화
+let messaging: Messaging | null = null;
+if (typeof window !== "undefined" && "Notification" in window) {
+  messaging = getMessaging(app);
+}
 
 export { messaging, getToken, onMessage };
