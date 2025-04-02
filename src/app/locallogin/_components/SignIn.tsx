@@ -43,7 +43,6 @@ export default function SignIn() {
       await login({
         email: emailData,
         password: passwordData,
-        fcmToken: "sample-fcm-token", //TODO:  추후 Firebase 연동 가능
       });
 
       addToast("로그인 성공! 환영합니다 🙌", "success");

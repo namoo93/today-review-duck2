@@ -3,18 +3,21 @@ import { useMutation } from "@tanstack/react-query";
 import { useRecoilState } from "recoil";
 import { authInstance, handleApiError } from "../api/axios";
 import { setAuthorityCookie } from "@/app/_utils/cookies";
+import { getFcmToken } from "../_utils/getFcmToken";
 
 interface LoginParams {
   email: string;
   password: string;
-  fcmToken: string;
 }
 
 const useAuth = () => {
   const [, setUser] = useRecoilState(userState);
 
   const loginMutation = useMutation({
-    mutationFn: async ({ email, password, fcmToken }: LoginParams) => {
+    mutationFn: async ({ email, password }: LoginParams) => {
+      const fcmToken = await getFcmToken();
+
+      console.log("로그인 시 fcm : ", fcmToken);
       const response = await authInstance.post("/login", {
         email,
         pw: password,

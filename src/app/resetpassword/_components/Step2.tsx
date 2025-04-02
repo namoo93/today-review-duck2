@@ -57,8 +57,9 @@ export default function Step2({
   ) => {
     e.preventDefault();
     if (isButtonDisabled) return;
+    const code = Number(numberData);
     verifyEmailMutate(
-      { email, code: numberData },
+      { email, code },
       {
         onSuccess: () => {
           // addToast("이메일 인증 성공!", "success");
