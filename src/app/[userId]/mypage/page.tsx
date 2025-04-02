@@ -7,6 +7,7 @@ import { useRecoilValue } from "recoil";
 import { userState } from "@/app/_recoil";
 import Header from "@/app/_components/navigation/Header";
 import MyPageBanner from "./_components/MyPageBanner";
+import ToMobile from "@/app/_components/navigation/ToMobile";
 
 export default function UserPage() {
   const params = useParams();
@@ -29,6 +30,7 @@ export default function UserPage() {
       <h3 className="sr_only">{`${userIdFromUrl}의 마이 페이지`}</h3>
 
       {isMyPage ? <MyPage /> : <YourPage />}
+      <ToMobile />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import Header from "../_components/navigation/Header";
+import ToMobile from "../_components/navigation/ToMobile";
 import WritingForm from "./_components/WritingForm";
 
 export default function Writing() {
@@ -6,6 +7,7 @@ export default function Writing() {
     <>
       <Header />
       <WritingForm />
+      <ToMobile />
     </>
   );
 }

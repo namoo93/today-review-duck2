@@ -169,3 +169,37 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 100 200 300 400 500 600 800;
   font-style: normal;
 }
+
+/* 모바일 태블릿 사이즈로 변경시 */
+@media screen and (max-width: 1024px) {
+  .mobile_only {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px;
+    background-color: #fff;
+    border-top: 2px solid #ffebd4;
+    z-index: 10000;
+    text-align: center;
+  }
+  .mobile_only p {
+    font-weight: 500;
+    font-size: 20px;
+    padding-bottom: 30px;
+    color: #333;
+  }
+  .mobile_only_button {
+    color: #ff7e29;
+    padding: 10px 20px;
+    background-color: #fff6ed;
+    border: 1px solid #ffebd4;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .desktop_only {
+    display: none !important;
+  }
+}
