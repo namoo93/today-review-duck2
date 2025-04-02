@@ -1,3 +1,4 @@
+"use client";
 import { userState } from "@/app/_recoil";
 import { useMutation } from "@tanstack/react-query";
 import { useRecoilState } from "recoil";
