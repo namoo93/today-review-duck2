@@ -4,6 +4,8 @@ import styles from "../../../_css/profilesettings.module.css";
 import { Button, Input } from "@/app/_components/atoms";
 import { useRecoilState } from "recoil";
 import TextArea from "@/app/_components/atoms/TextArea";
+import { useToast } from "@/app/_hooks/useToast";
+import { useUpdateMyInfo } from "@/app/_hooks/useUpdateMyInfo";
 
 export default function ProfileForm({
   nickname,
@@ -20,13 +22,49 @@ export default function ProfileForm({
   interest1: string | null;
   interest2: string | null;
 }) {
+  const { mutateAsync: updateMyInfo, isPending } = useUpdateMyInfo();
+  const { addToast } = useToast();
   const [nicknameData, setNicknameData] = useState(nickname || "");
   const [emailData, setEmailData] = useState(email || "");
   const [introduction, setIntroduction] = useState(profile || "");
   const [interestOne, setInterestOne] = useState(interest1 || "");
   const [interestTwo, setInterestTwo] = useState(interest2 || "");
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    if (isPending) return;
+
+    const interestChanged =
+      interestOne !== (interest1 || "") || interestTwo !== (interest2 || "");
+    const profileChanged = introduction !== (profile || "");
+    const nicknameChanged = nicknameData !== nickname;
+
+    // 변경된 데이터만 구성
+    const updatedData: {
+      nickname?: string;
+      profile?: string;
+      interest?: string[];
+    } = {};
+
+    if (nicknameChanged) {
+      updatedData.nickname = nicknameData;
+    }
+
+    if (profileChanged) {
+      updatedData.profile = introduction;
+    }
+
+    if (interestChanged) {
+      updatedData.interest = [interestOne, interestTwo];
+    }
+    // 모두 동일하면 요청 생략
+    if (!nicknameChanged && !profileChanged && !interestChanged) {
+      addToast("변경된 내용이 없습니다.", "info");
+      return;
+    } else {
+      await updateMyInfo(updatedData);
+      addToast("프로필이 수정되었어요!", "success");
+    }
+  };
   return (
     <div className={styles.profile_form}>
       <div className={styles.row_wrap}>
@@ -42,6 +80,8 @@ export default function ProfileForm({
           padding="30px 0 0 0"
           lineStyle
           height="46px"
+          minLength={2}
+          maxLength={10}
         />
 
         <Input
@@ -79,6 +119,7 @@ export default function ProfileForm({
             onChange={(e) => setInterestOne(e.target.value)}
             height="46px"
             lineStyle
+            maxLength={16}
           />
           <Input
             type="text"
@@ -89,18 +130,20 @@ export default function ProfileForm({
             height="46px"
             lineStyle
             subInfo="관심사는 2 ~ 10글자 사이로 입력해주세요."
+            maxLength={16}
           />
         </div>
       </div>
 
       <Button
         buttonType="button"
-        onClick={() => handleSubmit()}
+        onClick={handleSubmit}
         inlineText
         color="#FFB271"
         padding="15px 0"
+        disabled={isPending}
       >
-        프로필 수정하기
+        {isPending ? "수정 중..." : "프로필 수정하기"}
       </Button>
     </div>
   );

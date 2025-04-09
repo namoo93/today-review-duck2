@@ -5,6 +5,7 @@ import { DropDown, Icon } from "@/app/_components/atoms";
 import { useToast } from "@/app/_hooks/useToast";
 import { useUploadProfileImage } from "@/app/_hooks/useUploadProfileImage";
 import { useDeleteProfileImage } from "@/app/_hooks/useDeleteProfileImage";
+import ToastContainer from "@/app/_components/toast/ToastContainer";
 
 export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
   const [image, setImage] = useState<string | null>(imageSrc);
@@ -26,6 +27,7 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
       setImage(imageUrl); // 미리보기 먼저 보여줌
 
       await uploadImage(file);
+			addToast("프로필 이미지가 변경되었어요!", "info");
     } catch (err) {
       addToast("이미지 업로드에 실패했어요", "error");
     } finally {
@@ -103,6 +105,12 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
           </li>
         </ul>
       </DropDown>
+      <ToastContainer
+        width="335px"
+        top="100px"
+        right="50%"
+        transform="translateX(50%)"
+      />
     </div>
   );
 }

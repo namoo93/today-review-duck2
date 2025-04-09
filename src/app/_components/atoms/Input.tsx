@@ -20,6 +20,8 @@ type Props = {
   success?: string | boolean;
   important?: boolean;
   lineStyle?: boolean;
+  maxLength?: number;
+  minLength?: number;
 };
 export default function Input({
   label,
@@ -37,6 +39,8 @@ export default function Input({
   padding,
   important,
   lineStyle,
+  maxLength,
+  minLength,
 }: Props) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === "password";
@@ -63,6 +67,8 @@ export default function Input({
           placeholder={placeholder}
           disabled={disabled}
           className={styles.input}
+          maxLength={maxLength}
+          minLength={minLength}
         />
         {isPassword && (
           <button
