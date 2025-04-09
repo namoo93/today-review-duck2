@@ -24,7 +24,8 @@ const attachAuthHeaders = (config: any) => {
   return config;
 };
 
-// 로그아웃 등 리프레쉬 토큰을 가진 해더생성시
+// 아직 발급된 토큰이 없는 회원가입에서 사용,
+// 또는 해더값을 변경해야하는 로그아웃에서 사용
 export const axiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
@@ -72,6 +73,7 @@ function createAPIInstance(
 }
 export const authInstance = createAPIInstance("auth");
 export const userInstance = createAPIInstance("user");
+//프로필 이미지 변경시
 export const fileInstance = createAPIInstance("user", "multipart/form-data");
 
 // 에러 처리 함수

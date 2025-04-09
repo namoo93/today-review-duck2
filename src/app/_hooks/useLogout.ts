@@ -1,15 +1,16 @@
 "use client";
 
-import { useResetRecoilState } from "recoil";
-import { userState } from "@/app/_recoil";
+import { useRecoilState, useResetRecoilState } from "recoil";
+import { activeItemState, userState } from "@/app/_recoil";
 import {
   removeAuthorityCookie,
   getAuthorityCookie,
 } from "@/app/_utils/cookies";
-import { axiosInstance, handleApiError } from "../api/axios";
+import { axiosInstance, handleApiError } from "../_api/axios";
 import { useRouter } from "next/navigation";
 
 const useLogout = () => {
+  const [, setActiveItem] = useRecoilState(activeItemState);
   const resetUser = useResetRecoilState(userState);
   const router = useRouter();
 
@@ -37,7 +38,7 @@ const useLogout = () => {
 
       // 상태 초기화
       resetUser();
-
+      setActiveItem("트랜드");
       // 페이지 이동
       router.push("/");
     } catch (error) {

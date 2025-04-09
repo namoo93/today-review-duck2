@@ -2,7 +2,7 @@
 import { userState } from "@/app/_recoil";
 import { useMutation } from "@tanstack/react-query";
 import { useRecoilState } from "recoil";
-import { authInstance, handleApiError } from "../api/axios";
+import { authInstance, handleApiError } from "../_api/axios";
 import { setAuthorityCookie } from "@/app/_utils/cookies";
 import { getFcmToken } from "../_utils/getFcmToken";
 

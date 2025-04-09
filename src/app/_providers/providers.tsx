@@ -4,9 +4,9 @@ import { RecoilRoot } from "recoil";
 import { ReactNode, useState } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { handleApiError } from "../api/axios";
+import { handleApiError } from "../_api/axios";
 import AppInitializer from "./AppInitializer";
-import { postRefreshToken } from "../api/auth";
+import { postRefreshToken } from "../_api/auth";
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [client] = useState(

@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { userInstance } from "@/app/api/axios";
+import { userInstance } from "@/app/_api/axios";
 
 type SignupPayload = {
   email: string;

@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { authInstance } from "../api/axios";
+import { authInstance } from "../_api/axios";
 import { useMutation } from "@tanstack/react-query";
 import { setAuthorityCookie } from "../_utils/cookies";
 

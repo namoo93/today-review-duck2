@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { axiosInstance } from "../api/axios";
+import { axiosInstance } from "../_api/axios";
 
 /*
   ✅ 이메일 중복 검사 API 요청 (회원가입 시 사용)

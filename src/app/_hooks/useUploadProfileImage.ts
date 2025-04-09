@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import { fileInstance } from "../api/axios";
+import { fileInstance } from "../_api/axios";
 
 export const useUploadProfileImage = () => {
   return useMutation({

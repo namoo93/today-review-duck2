@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import { userInstance } from "../api/axios";
+import { userInstance } from "../_api/axios";
 
 export const useDeleteProfileImage = () => {
   return useMutation({

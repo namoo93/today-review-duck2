@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { authInstance } from "../api/axios";
+import { authInstance } from "../_api/axios";
 
 /*
  이메일 인증번호 검증 API 요청 Hook
