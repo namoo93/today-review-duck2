@@ -31,14 +31,17 @@ export const axiosInstance = axios.create({
 });
 
 // 공통 API 인스턴스 생성기
-function createAPIInstance(basePath: string) {
+function createAPIInstance(
+  basePath: string,
+  contentType: string = "application/json"
+) {
   const instance = axios.create({
     baseURL: `${BASE_URL}/${basePath}`,
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": contentType },
   });
 
   instance.interceptors.request.use(attachAuthHeaders);
-  // 401 일시 postRefreshToken
+
   instance.interceptors.response.use(
     (res) => res,
     async (error) => {
@@ -55,7 +58,7 @@ function createAPIInstance(basePath: string) {
             originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
           }
 
-          return axiosInstance(originalRequest);
+          return axios(originalRequest); // axiosInstance가 아니라 axios 자체로 재요청해야 정확
         } catch (err) {
           return Promise.reject(err);
         }
@@ -67,48 +70,9 @@ function createAPIInstance(basePath: string) {
 
   return instance;
 }
-
-function createAPIInstanceForFile(basePath: string) {
-  const instance = axios.create({
-    baseURL: `${BASE_URL}/${basePath}`,
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-
-  instance.interceptors.request.use(attachAuthHeaders);
-  // 401 일시 postRefreshToken
-  instance.interceptors.response.use(
-    (res) => res,
-    async (error) => {
-      const originalRequest = error.config;
-
-      if (error.response?.status === 401 && !originalRequest._retry) {
-        originalRequest._retry = true;
-
-        try {
-          await postRefreshToken();
-          const newAccessToken = getAuthorityCookie("accessToken");
-
-          if (newAccessToken) {
-            originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-          }
-
-          return axiosInstance(originalRequest);
-        } catch (err) {
-          return Promise.reject(err);
-        }
-      }
-
-      return Promise.reject(error);
-    }
-  );
-
-  return instance;
-}
-
 export const authInstance = createAPIInstance("auth");
 export const userInstance = createAPIInstance("user");
-
-export const fileInstance = createAPIInstanceForFile("user")
+export const fileInstance = createAPIInstance("user", "multipart/form-data");
 
 // 에러 처리 함수
 export const handleApiError = (error: unknown) => {

@@ -1,0 +1,13 @@
+"use client";
+
+import { useMutation } from "@tanstack/react-query";
+import { userInstance } from "../api/axios";
+
+export const useDeleteProfileImage = () => {
+  return useMutation({
+    mutationFn: async () => {
+      const response = await userInstance.delete("/profile-img");
+      return response.data;
+    },
+  });
+};

@@ -4,11 +4,14 @@ import { useState } from "react";
 import { DropDown, Icon } from "@/app/_components/atoms";
 import { useToast } from "@/app/_hooks/useToast";
 import { useUploadProfileImage } from "@/app/_hooks/useUploadProfileImage";
+import { useDeleteProfileImage } from "@/app/_hooks/useDeleteProfileImage";
 
 export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
   const [image, setImage] = useState<string | null>(imageSrc);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const { mutateAsync: uploadImage, isPending } = useUploadProfileImage();
+  const { mutateAsync: deleteImage, isPending: isDeleting } =
+    useDeleteProfileImage();
   const { addToast } = useToast();
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,12 +33,16 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
     }
   };
 
-  const handleImageDelete = () => {
-    //TODO : api
-    // 초기화
-    setImage(null);
-    setIsDropDownOpen(false);
-    addToast("프로필 이미지가 삭제되었어요!", "info");
+  const handleImageDelete = async () => {
+    try {
+      await deleteImage();
+      setImage(null);
+      addToast("프로필 이미지가 삭제되었어요!", "info");
+    } catch {
+      addToast("이미지 삭제에 실패했어요", "error");
+    } finally {
+      setIsDropDownOpen(false);
+    }
   };
 
   return (
