@@ -16,12 +16,14 @@ const nextConfig = {
 	},
 
 	async rewrites() {
-		return [
-			{
-				source: "/api/:path*",
-				destination: "https://api.mylittlereviewduck.site/:path*", // 👉 프록시 경유
-			},
-		];
+		return process.env.NEXT_PUBLIC_MODE === "local"
+			? [
+				{
+					source: "/api/:path*",
+					destination: "https://api.mylittlereviewduck.site/:path*",
+				},
+			]
+			: [];
 	},
 };
 

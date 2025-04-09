@@ -1,79 +1,75 @@
 import axios from "axios";
 import { getAuthorityCookie } from "../_utils/cookies";
+import { postRefreshToken } from "./auth";
 
 axios.defaults.withCredentials = true; // 쿠키 자동 포함
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL =
+  process.env.NEXT_PUBLIC_MODE === "local"
+    ? "/api" // 👉 로컬에서는 프록시 경유
+    : process.env.NEXT_PUBLIC_BASE_URL; // 👉 운영에서는 직접 API
+
 console.log("BASE_URL ----- ", BASE_URL);
-const token = getAuthorityCookie("accessToken");
-const csrfToken = getAuthorityCookie("csrfToken");
-console.log("getAuthorityCookie : ", token ? `Bearer ${token}` : "undefined");
 
-export const axiosInstance = axios.create({
-  baseURL: BASE_URL,
-  headers: { "Content-Type": "application/json" },
-});
-
-console.log(
-  "getAuthorityCookie : ",
-  `Bearer ${getAuthorityCookie("accessToken")}`
-);
-/*  토큰 재발급 API Instance */
-export const tokenInstance = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-    ...(token && { Authorization: `Bearer ${token}` }), // 리프레시 토큰 포함
-    ...(csrfToken && { "X-CSRF-Token": csrfToken }), // CSRF 보호 추가
-  },
-});
-
-// 요청 인터셉터 (토큰 자동 갱신)
-tokenInstance.interceptors.request.use((config) => {
-  const refreshToken = getAuthorityCookie("refreshToken");
+const attachAuthHeaders = (config: any) => {
+  const accessToken = getAuthorityCookie("accessToken");
   const csrfToken = getAuthorityCookie("csrfToken");
 
-  if (`Bearer ${refreshToken}` !== config.headers.Authorization) {
-    config.headers.Authorization = `Bearer ${refreshToken}`;
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
   }
   if (csrfToken) {
     config.headers["X-CSRF-Token"] = csrfToken;
   }
 
   return config;
+};
+
+// 로그아웃 등 리프레쉬 토큰을 가진 해더생성시
+export const axiosInstance = axios.create({
+  baseURL: BASE_URL,
+  headers: { "Content-Type": "application/json" },
 });
 
-/* 공통 API Instance 생성 함수 */
-function createAPIInstance(baseURL: string) {
+// 공통 API 인스턴스 생성기
+function createAPIInstance(basePath: string) {
   const instance = axios.create({
-    baseURL: `${BASE_URL}/${baseURL}`,
-    headers: {
-      "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }), // 리프레시 토큰 포함
-      ...(csrfToken && { "X-CSRF-Token": csrfToken }), // CSRF 보호 추가ß
-    },
+    baseURL: `${BASE_URL}/${basePath}`,
+    headers: { "Content-Type": "application/json" },
   });
 
-  // 요청 인터셉터 설정
-  instance.interceptors.request.use((config) => {
-    const accessToken = getAuthorityCookie("accessToken");
-    const csrfToken = getAuthorityCookie("csrfToken");
+  instance.interceptors.request.use(attachAuthHeaders);
+  // 401 일시 postRefreshToken
+  instance.interceptors.response.use(
+    (res) => res,
+    async (error) => {
+      const originalRequest = error.config;
 
-    if (`Bearer ${accessToken}` !== config.headers.Authorization) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-    }
-    if (csrfToken) {
-      config.headers["X-CSRF-Token"] = csrfToken;
-    }
+      if (error.response?.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
 
-    return config;
-  });
+        try {
+          await postRefreshToken();
+          const newAccessToken = getAuthorityCookie("accessToken");
+
+          if (newAccessToken) {
+            originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+          }
+
+          return axiosInstance(originalRequest);
+        } catch (err) {
+          return Promise.reject(err);
+        }
+      }
+
+      return Promise.reject(error);
+    }
+  );
 
   return instance;
 }
 
-/* 서비스별 API Instance */
-export const authInstance = createAPIInstance("auth/");
-export const userInstance = createAPIInstance("user/");
+export const authInstance = createAPIInstance("auth");
+export const userInstance = createAPIInstance("user");
 
 // 에러 처리 함수
 export const handleApiError = (error: unknown) => {

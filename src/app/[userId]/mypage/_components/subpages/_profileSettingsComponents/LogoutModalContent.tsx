@@ -2,8 +2,10 @@ import { useModal } from "@/app/_hooks/useModal";
 import styles from "../../../_css/profilesettings.module.css";
 import { Button, Icon } from "@/app/_components/atoms";
 import IcoLogout from "@/../public/icon/icon-logout.svg";
+import useLogout from "@/app/_hooks/useLogout";
 
 export default function LogoutModalContent() {
+  const logout = useLogout();
   const { closeModal } = useModal();
 
   return (
@@ -25,7 +27,10 @@ export default function LogoutModalContent() {
           height="42px"
           fontSize="12px"
           filled
-          onClick={() => closeModal()}
+          onClick={() => {
+            closeModal();
+            logout();
+          }}
         >
           확인
         </Button>

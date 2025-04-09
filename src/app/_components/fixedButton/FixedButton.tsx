@@ -1,6 +1,6 @@
 "use client";
 
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { useRouter } from "next/navigation";
 import styles from "./fixedbutton.module.css";
 import { useEffect } from "react";
@@ -10,12 +10,13 @@ import IocWritingDark from "@/../../public/icon/icon-writing-dark.svg";
 import IocModeLight from "@/../../public/icon/icon-mode-light.svg";
 import IocWritingLight from "@/../../public/icon/icon-writing-light.svg";
 import { Icon } from "../atoms";
-import { activeItemState } from "@/app/_recoil";
+import { activeItemState, userState } from "@/app/_recoil";
 
 export default function FixedButton() {
   const [, setActiveItem] = useRecoilState(activeItemState);
   const [theme, setTheme] = useRecoilState(themeState);
   const router = useRouter();
+  const user = useRecoilValue(userState);
 
   // 클라이언트에서 `localStorage`에서 초기 테마 설정
   useEffect(() => {
@@ -49,14 +50,16 @@ export default function FixedButton() {
           height={80}
         />
       </button>
-      <button className={styles.toggle_button} onClick={goToWriting}>
-        <Icon
-          src={theme == "light" ? IocWritingLight : IocWritingDark}
-          alt="글쓰기 버튼 아이콘"
-          width={80}
-          height={80}
-        />
-      </button>
+      {!!user.id && (
+        <button className={styles.toggle_button} onClick={goToWriting}>
+          <Icon
+            src={theme == "light" ? IocWritingLight : IocWritingDark}
+            alt="글쓰기 버튼 아이콘"
+            width={80}
+            height={80}
+          />
+        </button>
+      )}
     </div>
   );
 }
