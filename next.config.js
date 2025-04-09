@@ -3,7 +3,8 @@ const nextConfig = {
 	output: "standalone",
 	reactStrictMode: true,
 	images: {
-		domains: ['mylittlereviewduck.site'],
+		domains: ['mylittlereviewduck.site',
+			's3.ap-northeast-2.amazonaws.com'],
 		formats: ["image/avif", "image/webp"],
 		remotePatterns: [
 			{

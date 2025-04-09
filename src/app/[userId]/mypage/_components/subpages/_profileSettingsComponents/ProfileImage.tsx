@@ -2,19 +2,30 @@ import styles from "../../../_css/profilesettings.module.css";
 import IcoEdit from "@/../public/icon/icon-edit.svg";
 import { useState } from "react";
 import { DropDown, Icon } from "@/app/_components/atoms";
+import { useToast } from "@/app/_hooks/useToast";
+import { useUploadProfileImage } from "@/app/_hooks/useUploadProfileImage";
 
 export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
   const [image, setImage] = useState<string | null>(imageSrc);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const { mutateAsync: uploadImage, isPending } = useUploadProfileImage();
+  const { addToast } = useToast();
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) {
+      addToast("이미지 크기는 최대 5MB까지 업로드할 수 있어요!", "error");
+    }
 
-      //TODO : api
-      // 초기화
+    try {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl); // 미리보기 먼저 보여줌
+
+      await uploadImage(file);
+    } catch (err) {
+      addToast("이미지 업로드에 실패했어요", "error");
+    } finally {
       setIsDropDownOpen(false);
     }
   };
@@ -24,6 +35,7 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
     // 초기화
     setImage(null);
     setIsDropDownOpen(false);
+    addToast("프로필 이미지가 삭제되었어요!", "info");
   };
 
   return (

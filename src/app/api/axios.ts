@@ -68,8 +68,47 @@ function createAPIInstance(basePath: string) {
   return instance;
 }
 
+function createAPIInstanceForFile(basePath: string) {
+  const instance = axios.create({
+    baseURL: `${BASE_URL}/${basePath}`,
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+
+  instance.interceptors.request.use(attachAuthHeaders);
+  // 401 일시 postRefreshToken
+  instance.interceptors.response.use(
+    (res) => res,
+    async (error) => {
+      const originalRequest = error.config;
+
+      if (error.response?.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+
+        try {
+          await postRefreshToken();
+          const newAccessToken = getAuthorityCookie("accessToken");
+
+          if (newAccessToken) {
+            originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+          }
+
+          return axiosInstance(originalRequest);
+        } catch (err) {
+          return Promise.reject(err);
+        }
+      }
+
+      return Promise.reject(error);
+    }
+  );
+
+  return instance;
+}
+
 export const authInstance = createAPIInstance("auth");
 export const userInstance = createAPIInstance("user");
+
+export const fileInstance = createAPIInstanceForFile("user")
 
 // 에러 처리 함수
 export const handleApiError = (error: unknown) => {
