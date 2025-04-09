@@ -3,15 +3,28 @@ import { useState } from "react";
 import styles from "../../../_css/profilesettings.module.css";
 import { Button, Input } from "@/app/_components/atoms";
 import { useRecoilState } from "recoil";
-import { userState } from "@/app/_recoil";
 import TextArea from "@/app/_components/atoms/TextArea";
 
-export default function ProfileForm() {
-  const [user] = useRecoilState(userState);
-  const [nicknameData, setNicknameData] = useState(user.id || "");
-  const [introduction, setIntroduction] = useState("");
-  const [interestOne, setInterestOne] = useState("");
-  const [interestTwo, setInterestTwo] = useState("");
+export default function ProfileForm({
+  nickname,
+  email,
+  profile,
+  provider,
+  interest1,
+  interest2,
+}: {
+  nickname: string;
+  email: string;
+  profile: string | null;
+  provider: string;
+  interest1: string | null;
+  interest2: string | null;
+}) {
+  const [nicknameData, setNicknameData] = useState(nickname || "");
+  const [emailData, setEmailData] = useState(email || "");
+  const [introduction, setIntroduction] = useState(profile || "");
+  const [interestOne, setInterestOne] = useState(interest1 || "");
+  const [interestTwo, setInterestTwo] = useState(interest2 || "");
 
   const handleSubmit = () => {};
   return (
@@ -36,8 +49,10 @@ export default function ProfileForm() {
           name={"email"}
           label="이메일"
           disabled
-          subInfo={`${user.id}로 가입한 계정이에요.`}
-          value={nicknameData}
+          subInfo={
+            provider == "local" ? "" : `${provider}로 가입한 계정이에요.`
+          }
+          value={emailData}
           onChange={(e) => {}}
           padding="30px 0 0 0"
           height="46px"

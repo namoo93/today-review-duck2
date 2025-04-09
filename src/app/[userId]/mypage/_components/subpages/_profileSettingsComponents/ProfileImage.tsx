@@ -3,8 +3,8 @@ import IcoEdit from "@/../public/icon/icon-edit.svg";
 import { useState } from "react";
 import { DropDown, Icon } from "@/app/_components/atoms";
 
-export default function ProfileImage() {
-  const [image, setImage] = useState<string | null>(null);
+export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
+  const [image, setImage] = useState<string | null>(imageSrc);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
