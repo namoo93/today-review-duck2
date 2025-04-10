@@ -8,7 +8,7 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Completed from "./Completed";
-// import Link from "next/link";
+import Link from "next/link";
 
 export default function SignUp() {
   const [step, setStep] = useState(1);
@@ -20,16 +20,16 @@ export default function SignUp() {
       {step !== 4 && (
         <div className={styles.signup_wrap}>
           <h1 className={styles.logo_wrap}>
-            {/* <Link href={"/"}> */}
-            <Image
-              src={ImgLogo}
-              alt="logo image"
-              loading="lazy"
-              property={"public/images/logo.svg"}
-              width={69}
-              height={51}
-            />
-            {/* </Link> */}
+            <Link href={"/"}>
+              <Image
+                src={ImgLogo}
+                alt="logo image"
+                loading="lazy"
+                property={"public/images/logo.svg"}
+                width={69}
+                height={51}
+              />
+            </Link>
           </h1>
           <StepProgressBar totalSteps={3} currentStep={step} />
           {step == 1 && <Step1 setStep={setStep} setEmail={setEmail} />}

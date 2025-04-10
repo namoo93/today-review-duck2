@@ -54,15 +54,27 @@ export default function ProfileForm({
     }
 
     if (interestChanged) {
-      updatedData.interest = [interestOne, interestTwo];
+      const filteredInterests = [interestOne, interestTwo].filter((v) =>
+        v.trim()
+      );
+      if (filteredInterests.length > 0) {
+        updatedData.interest = filteredInterests;
+      }
     }
-    // 모두 동일하면 요청 생략
-    if (!nicknameChanged && !profileChanged && !interestChanged) {
+
+    if (Object.keys(updatedData).length === 0) {
       addToast("변경된 내용이 없습니다.", "info");
       return;
-    } else {
+    }
+
+    try {
+      console.log("보내지는 값 : ", updatedData);
       await updateMyInfo(updatedData);
       addToast("프로필이 수정되었어요!", "success");
+      // 인풋 초기화
+      // 서버 데이터 동기화
+    } catch (error) {
+      console.error(error);
     }
   };
   return (

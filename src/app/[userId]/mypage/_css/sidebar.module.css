@@ -76,3 +76,10 @@
 .follow_list li {
   width: 100%;
 }
+
+.empty_message {
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #818181;
+}

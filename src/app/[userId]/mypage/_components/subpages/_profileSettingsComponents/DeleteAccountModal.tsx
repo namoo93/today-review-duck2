@@ -2,9 +2,35 @@ import { useModal } from "@/app/_hooks/useModal";
 import styles from "../../../_css/profilesettings.module.css";
 import { Button, Icon } from "@/app/_components/atoms";
 import ImgDelete from "@/../public/images/img-delete.svg";
+import { useToast } from "@/app/_hooks/useToast";
+import { useRouter } from "next/navigation";
+import { useResetRecoilState } from "recoil";
+import { userState } from "@/app/_recoil";
+import { useWithdraw } from "@/app/_hooks/useWithdraw";
+import { removeAuthorityCookie } from "@/app/_utils/cookies";
 
 export default function DeleteAccountModal() {
   const { closeModal } = useModal();
+  const { addToast } = useToast();
+  const router = useRouter();
+  const resetUser = useResetRecoilState(userState);
+  const { mutateAsync: withdraw, isPending } = useWithdraw();
+
+  const handleWithdraw = async () => {
+    try {
+      await withdraw(); // API 요청
+      removeAuthorityCookie("accessToken");
+      removeAuthorityCookie("refreshToken");
+      removeAuthorityCookie("nickname");
+      resetUser();
+      addToast("회원탈퇴가 완료되었어요!", "info");
+      closeModal();
+      router.push("/"); // 홈으로 이동
+    } catch (error) {
+      addToast("회원탈퇴에 실패했어요", "error");
+      console.error("❌ 탈퇴 실패:", error);
+    }
+  };
 
   return (
     <div className={styles.modal}>
@@ -30,9 +56,10 @@ export default function DeleteAccountModal() {
           height="42px"
           fontSize="12px"
           filled
-          onClick={() => closeModal()}
+          onClick={handleWithdraw}
+          disabled={isPending}
         >
-          탈퇴하기
+          {isPending ? "처리중..." : "탈퇴하기"}
         </Button>
       </div>
     </div>

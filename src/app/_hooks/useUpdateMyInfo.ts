@@ -17,17 +17,21 @@ export const useUpdateMyInfo = () => {
       profile?: string;
       interest?: string[];
     }) => {
-      const response = await userInstance.put("/myinfo", {
-        nickname,
-        profile,
-        interest,
-      });
+      const payload: any = {};
+
+      if (nickname !== undefined) payload.nickname = nickname;
+      if (profile !== undefined) payload.profile = profile;
+      if (interest !== undefined) payload.interest = interest;
+
+      console.log("프로필 수정 최종 요청 데이터:", payload);
+
+      const response = await userInstance.put("/myinfo", payload);
       return response.data;
     },
 
-    // 에러 처리
     onError: (error: any) => {
       handleApiError(error);
+
       const res = error?.response?.data;
 
       if (typeof res?.message === "string") {
@@ -37,7 +41,6 @@ export const useUpdateMyInfo = () => {
           addToast("정보 수정에 실패했어요. 다시 시도해주세요.", "error");
         }
       } else if (Array.isArray(res?.message)) {
-        // 배열인 경우는 제약조건 에러로 판단 (예: 관심사 글자 수)
         addToast("입력한 정보가 유효하지 않아요. 다시 확인해주세요.", "error");
       } else {
         addToast("정보 수정에 실패했어요. 다시 시도해주세요.", "error");

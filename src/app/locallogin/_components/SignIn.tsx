@@ -10,6 +10,7 @@ import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { validateEmail, validatePassword } from "@/app/_utils/validation";
 import { getAuthorityCookie } from "@/app/_utils/cookies";
+import Link from "next/link";
 
 export default function SignIn() {
   const { login, isPending } = useAuth();
@@ -70,16 +71,16 @@ export default function SignIn() {
     <section className={styles.page}>
       <div className={styles.signup_wrap}>
         <h1 className={styles.logo_wrap}>
-          {/* <Link href={"/"}> */}
-          <Image
-            src={ImgLogo}
-            alt="logo image"
-            loading="lazy"
-            property={"public/images/logo.svg"}
-            width={69}
-            height={51}
-          />
-          {/* </Link> */}
+          <Link href={"/"}>
+            <Image
+              src={ImgLogo}
+              alt="logo image"
+              loading="lazy"
+              property={"public/images/logo.svg"}
+              width={69}
+              height={51}
+            />
+          </Link>
         </h1>
         <div className={styles.form_wrap}>
           <strong className={styles.sub_title}>

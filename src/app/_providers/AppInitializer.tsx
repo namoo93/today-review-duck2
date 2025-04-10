@@ -9,6 +9,9 @@ import { postRefreshToken } from "../_api/auth";
 export default function AppInitializer() {
   const setUser = useSetRecoilState(userState);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const nickname = getAuthorityCookie("nickname");
+  const refreshToken = getAuthorityCookie("refreshToken");
+  console.log("로그인 자동 연장 전 상태 확인용 refreshToken :", refreshToken);
 
   const startRefreshTokenInterval = () => {
     if (intervalRef.current) return; // 이미 설정되어 있으면 무시
@@ -33,15 +36,20 @@ export default function AppInitializer() {
   };
 
   useEffect(() => {
-    const nickname = getAuthorityCookie("nickname");
-    if (nickname) {
-      setUser({ id: nickname });
-      console.log("✅ AppInitializer → 사용자 로그인 상태 복원:", nickname);
+    if (refreshToken) {
+      setUser({ id: nickname as string });
       startRefreshTokenInterval(); // 최초 실행 시 시작
+      console.log("✅ AppInitializer → 사용자 로그인 상태 복원:", nickname);
+    }
+    if (!refreshToken) {
+      setUser({ id: null });
+      stopRefreshTokenInterval();
+      console.log("🚫 AppInitializer → 로그인 상태 없음, 초기화 완료");
     }
 
+    // 브라우져가 활성화 되있을 때만
     const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible") {
+      if (document.visibilityState === "visible" && refreshToken) {
         startRefreshTokenInterval();
       } else {
         stopRefreshTokenInterval();

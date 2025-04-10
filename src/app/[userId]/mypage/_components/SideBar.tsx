@@ -4,6 +4,10 @@ import Lnb from "./Lnb";
 import styles from "../_css/sidebar.module.css";
 import { DropDown } from "@/app/_components/atoms";
 import ProfileBox from "@/app/_components/profile/ProfileBox";
+import { useMyInfo } from "@/app/_hooks/useMyInfo";
+import { useFollowerList } from "@/app/_hooks/useFollowerList";
+import { useFollowingList } from "@/app/_hooks/useFollowingList";
+import { FollowerUser } from "@/types";
 
 //TODO :  must delete
 export const list0 = [
@@ -236,10 +240,16 @@ export default function SideBar({
   onSelectMenu: (menu: string) => void;
   selectedMenu: string;
 }) {
+  const { data: myInfo } = useMyInfo();
+  const myPostCount = myInfo?.reviewCount ?? 0;
+  const followerCount = myInfo?.followerCount ?? 0;
+  const followingCount = myInfo?.followingCount ?? 0;
+  const myIdx = myInfo?.idx as string;
+  const { data: followers = [] } = useFollowerList(myIdx);
+  const { data: followings = [] } = useFollowingList(myIdx);
+
   const [isFollowerDropDownOpen, setIsFollowerDropDownOpen] = useState(false);
   const [isFollowingDropDownOpen, setIsFollowingDropDownOpen] = useState(false);
-  const [follower, setFollower] = useState(list0);
-  const [following, setFollowing] = useState(list0);
 
   const goToMyPost = () => {
     onSelectMenu("작성한 리뷰");
@@ -256,7 +266,7 @@ export default function SideBar({
             type="button"
             onClick={() => goToMyPost()}
           >
-            10개
+            {myPostCount}개
           </button>
         </li>
         <li>
@@ -266,7 +276,7 @@ export default function SideBar({
             type="button"
             onClick={() => setIsFollowerDropDownOpen((prev) => !prev)}
           >
-            482명
+            {followerCount}명
           </button>
           <DropDown
             margin="60px 0 0 0"
@@ -275,21 +285,27 @@ export default function SideBar({
             isOpen={isFollowerDropDownOpen}
             onClose={() => setIsFollowerDropDownOpen(false)}
           >
-            <ul className={styles.follow_list}>
-              {follower.map((item) => (
-                <li key={`덕후 리스트 ${item.nickname}`}>
-                  <ProfileBox
-                    name={item.nickname}
-                    interest={`${item.interest1} ${item.interest2}`}
-                    textWidth={"190px"}
-                    isOn={item.isMyFollowing}
-                    isOnText="덕질 중"
-                    isOffText="덕질하기"
-                    onClickButton={() => {}}
-                  />
-                </li>
-              ))}
-            </ul>
+            {followers.length === 0 ? (
+              <p className={styles.empty_message}>
+                아직 나를 덕질 중인 사람이 없어요 🐥
+              </p>
+            ) : (
+              <ul className={styles.follow_list}>
+                {followers.map((user: FollowerUser) => (
+                  <li key={`덕후 리스트 ${user.nickname}`}>
+                    <ProfileBox
+                      name={user.nickname}
+                      interest={`${user.interest1} ${user.interest2}`}
+                      textWidth={"190px"}
+                      isOn={user.isMyFollowing}
+                      isOnText="덕질 중"
+                      isOffText="덕질하기"
+                      onClickButton={() => {}}
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
           </DropDown>
         </li>
         <li>
@@ -299,7 +315,7 @@ export default function SideBar({
             type="button"
             onClick={() => setIsFollowingDropDownOpen((prev) => !prev)}
           >
-            42명
+            {followingCount}명
           </button>
           <DropDown
             margin="60px 0 0 0"
@@ -308,21 +324,27 @@ export default function SideBar({
             isOpen={isFollowingDropDownOpen}
             onClose={() => setIsFollowingDropDownOpen(false)}
           >
-            <ul className={styles.follow_list}>
-              {following.map((item) => (
-                <li key={`덕후 리스트 ${item.nickname}`}>
-                  <ProfileBox
-                    name={item.nickname}
-                    interest={`${item.interest1} ${item.interest2}`}
-                    textWidth={"190px"}
-                    isOn={item.isMyFollowing}
-                    isOnText="덕질 중"
-                    isOffText="덕질하기"
-                    onClickButton={() => {}}
-                  />
-                </li>
-              ))}
-            </ul>
+            {followings.length === 0 ? (
+              <p className={styles.empty_message}>
+                아직 덕질 중인 사람이 없어요 🐣
+              </p>
+            ) : (
+              <ul className={styles.follow_list}>
+                {followings.map((user: FollowerUser) => (
+                  <li key={`덕질 리스트 ${user.nickname}`}>
+                    <ProfileBox
+                      name={user.nickname}
+                      interest={`${user.interest1} ${user.interest2}`}
+                      textWidth={"190px"}
+                      isOn={user.isMyFollowing}
+                      isOnText="덕질 중"
+                      isOffText="덕질하기"
+                      onClickButton={() => {}}
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
           </DropDown>
         </li>
       </ul>
