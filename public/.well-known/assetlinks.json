@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "site.mylittlereviewduck",
+      "sha256_cert_fingerprints":
+      ["67:6F:BD:C3:ED:66:EA:B3:18:10:70:34:C5:3B:E7:B6:28:47:24:8E:7C:1F:20:D9:78:4A:0B:88:B9:38:1B:83"] 
+    }
+  }]
