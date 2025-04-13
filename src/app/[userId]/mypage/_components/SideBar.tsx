@@ -8,230 +8,9 @@ import { useMyInfo } from "@/app/_hooks/useMyInfo";
 import { useFollowerList } from "@/app/_hooks/useFollowerList";
 import { useFollowingList } from "@/app/_hooks/useFollowingList";
 import { FollowerUser } from "@/types";
-
-//TODO :  must delete
-export const list0 = [
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-0",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname1_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-1",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname1_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-2",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname2_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-3",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname2_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-4",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname3_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-5",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname3_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-6",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname4_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-7",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname4_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-8",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname5_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-9",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname5_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-10",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname6_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-11",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname6_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-12",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname7_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-13",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname7_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-14",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname8_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-15",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname8_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-16",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname9_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-17",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname9_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-18",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname10_0",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-  {
-    isMyFollowing: false,
-    isMyBlock: false,
-    idx: "idx-19",
-    email: "test2@a.com",
-    profile: "수정된 프로필",
-    profileImg: null,
-    nickname: "nickname10_1",
-    interest1: "스포츠",
-    interest2: "여행",
-  },
-];
+import Pagination from "@/app/_components/pagination/Pagination";
+import { useToggleFollow } from "@/app/_hooks/useToggleFollow";
+import { useRouter } from "next/navigation";
 
 export default function SideBar({
   onSelectMenu,
@@ -240,19 +19,43 @@ export default function SideBar({
   onSelectMenu: (menu: string) => void;
   selectedMenu: string;
 }) {
+  const router = useRouter();
+  // 마이페이지 데이터
   const { data: myInfo } = useMyInfo();
   const myPostCount = myInfo?.reviewCount ?? 0;
   const followerCount = myInfo?.followerCount ?? 0;
   const followingCount = myInfo?.followingCount ?? 0;
   const myIdx = myInfo?.idx as string;
-  const { data: followers = [] } = useFollowerList(myIdx);
-  const { data: followings = [] } = useFollowingList(myIdx);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  // 덕후 리스트 데이터
+  const { data: followerData = { users: [], totalPage: 1 } } = useFollowerList(
+    myIdx,
+    20,
+    currentPage
+  );
+  const followers = followerData.users;
   const [isFollowerDropDownOpen, setIsFollowerDropDownOpen] = useState(false);
+  // 덕질 리스트 데이터
+  const { data: followingData = { users: [], totalPage: 1 } } =
+    useFollowingList(myIdx, 20, currentPage);
+  const followings = followingData.users;
   const [isFollowingDropDownOpen, setIsFollowingDropDownOpen] = useState(false);
+  const { follow, unfollow } = useToggleFollow();
 
   const goToMyPost = () => {
     onSelectMenu("작성한 리뷰");
+  };
+
+  const handleToggleFollow = (userIdx: string, isFollowing: boolean) => {
+    if (isFollowing) {
+      unfollow.mutate(userIdx);
+    } else {
+      follow.mutate(userIdx);
+    }
+  };
+
+  const goToUserPage = (user: string) => {
+    router.push(`/${user}/mypage`);
   };
 
   return (
@@ -283,28 +86,44 @@ export default function SideBar({
             width="415px"
             position="left"
             isOpen={isFollowerDropDownOpen}
-            onClose={() => setIsFollowerDropDownOpen(false)}
+            onClose={() => {
+              setIsFollowerDropDownOpen(false);
+              setCurrentPage(1);
+            }}
           >
             {followers.length === 0 ? (
               <p className={styles.empty_message}>
                 아직 나를 덕질 중인 사람이 없어요 🐥
               </p>
             ) : (
-              <ul className={styles.follow_list}>
-                {followers.map((user: FollowerUser) => (
-                  <li key={`덕후 리스트 ${user.nickname}`}>
-                    <ProfileBox
-                      name={user.nickname}
-                      interest={`${user.interest1} ${user.interest2}`}
-                      textWidth={"190px"}
-                      isOn={user.isMyFollowing}
-                      isOnText="덕질 중"
-                      isOffText="덕질하기"
-                      onClickButton={() => {}}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <>
+                <ul className={styles.follow_list}>
+                  {followers.map((user: FollowerUser) => (
+                    <li key={`덕후 리스트 ${user.nickname}`}>
+                      <ProfileBox
+                        name={user.nickname}
+                        onClickBox={() => goToUserPage(user.nickname)}
+                        interest={`${user.interest1} ${user.interest2}`}
+                        textWidth={"190px"}
+                        isOn={user.isMyFollowing}
+                        isOnText="덕질 중"
+                        isOffText="덕질하기"
+                        onClickButton={() =>
+                          handleToggleFollow(user.idx, user.isMyFollowing)
+                        }
+                      />
+                    </li>
+                  ))}
+                </ul>
+                {followerData.totalPage > 1 && (
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={followerData.totalPage}
+                    onPageChange={setCurrentPage}
+                    margin="15px 20px"
+                  />
+                )}
+              </>
             )}
           </DropDown>
         </li>
@@ -322,28 +141,44 @@ export default function SideBar({
             width="415px"
             position="left"
             isOpen={isFollowingDropDownOpen}
-            onClose={() => setIsFollowingDropDownOpen(false)}
+            onClose={() => {
+              setIsFollowingDropDownOpen(false);
+              setCurrentPage(1);
+            }}
           >
             {followings.length === 0 ? (
               <p className={styles.empty_message}>
                 아직 덕질 중인 사람이 없어요 🐣
               </p>
             ) : (
-              <ul className={styles.follow_list}>
-                {followings.map((user: FollowerUser) => (
-                  <li key={`덕질 리스트 ${user.nickname}`}>
-                    <ProfileBox
-                      name={user.nickname}
-                      interest={`${user.interest1} ${user.interest2}`}
-                      textWidth={"190px"}
-                      isOn={user.isMyFollowing}
-                      isOnText="덕질 중"
-                      isOffText="덕질하기"
-                      onClickButton={() => {}}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <>
+                <ul className={styles.follow_list}>
+                  {followings.map((user: FollowerUser) => (
+                    <li key={`덕질 리스트 ${user.nickname}`}>
+                      <ProfileBox
+                        name={user.nickname}
+                        onClickBox={() => goToUserPage(user.nickname)}
+                        interest={`${user.interest1} ${user.interest2}`}
+                        textWidth={"190px"}
+                        isOn={user.isMyFollowing}
+                        isOnText="덕질 중"
+                        isOffText="덕질하기"
+                        onClickButton={() =>
+                          handleToggleFollow(user.idx, user.isMyFollowing)
+                        }
+                      />
+                    </li>
+                  ))}
+                </ul>
+                {followingData.totalPage > 1 && (
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={followingData.totalPage}
+                    onPageChange={setCurrentPage}
+                    margin="15px 20px"
+                  />
+                )}
+              </>
             )}
           </DropDown>
         </li>

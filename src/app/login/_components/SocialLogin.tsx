@@ -56,7 +56,9 @@ export default function SocialLogin() {
 
   return (
     <ul className={styles.sns_list}>
-      <li>
+      {/*
+			TODO : 네이버 디벨로퍼 심사 통과 후 다시
+			<li>
         <Tooltip
           text="마지막으로 로그인한 방법이에요"
           position="left"
@@ -76,7 +78,7 @@ export default function SocialLogin() {
             />
           </Button>
         </Tooltip>
-      </li>
+      </li> */}
 
       <li>
         <Tooltip

@@ -1,11 +1,12 @@
 "use client";
 
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { handleApiError, userInstance } from "../_api/axios";
 import { useToast } from "./useToast";
 
 export const useUpdateMyInfo = () => {
   const { addToast } = useToast();
+  const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: async ({
@@ -17,7 +18,11 @@ export const useUpdateMyInfo = () => {
       profile?: string;
       interest?: string[];
     }) => {
-      const payload: any = {};
+      const payload: {
+        nickname?: string;
+        profile?: string;
+        interest?: string[];
+      } = {};
 
       if (nickname !== undefined) payload.nickname = nickname;
       if (profile !== undefined) payload.profile = profile;
@@ -27,6 +32,10 @@ export const useUpdateMyInfo = () => {
 
       const response = await userInstance.put("/myinfo", payload);
       return response.data;
+    },
+    onSuccess: () => {
+      // 최신 데이터 다시 요청
+      queryClient.refetchQueries({ queryKey: ["myinfo"] });
     },
 
     onError: (error: any) => {

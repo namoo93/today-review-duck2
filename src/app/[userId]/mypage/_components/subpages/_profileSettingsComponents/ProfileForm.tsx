@@ -71,8 +71,6 @@ export default function ProfileForm({
       console.log("보내지는 값 : ", updatedData);
       await updateMyInfo(updatedData);
       addToast("프로필이 수정되었어요!", "success");
-      // 인풋 초기화
-      // 서버 데이터 동기화
     } catch (error) {
       console.error(error);
     }

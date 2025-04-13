@@ -5,6 +5,7 @@ import { useHorizontalScroll } from "@/app/_hooks/useHorizontalScroll";
 import { useBlockedUserList } from "@/app/_hooks/useBlockedUserList";
 import Pagination from "@/app/_components/pagination/Pagination";
 import DataNone from "@/app/_components/atoms/DataNone";
+import { useUnblockUser } from "@/app/_hooks/useUnblockUser";
 
 export default function BlockedAccounts() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,6 +18,8 @@ export default function BlockedAccounts() {
     });
   const blockedUsers = blockUsers.users;
   const totalPages = blockUsers.totalPage;
+  // 차단 해제
+  const { mutate: unblockUser } = useUnblockUser();
 
   return (
     <div ref={containerRef} className={styles.contents_block_users}>
@@ -34,9 +37,7 @@ export default function BlockedAccounts() {
                 textWidth="190px"
                 isOn
                 isOnText="해제하기"
-                onClickButton={() => {
-                  // TODO: 차단 해제 로직 추가
-                }}
+                onClickButton={() => unblockUser(user.idx)}
               />
             </li>
           ))}

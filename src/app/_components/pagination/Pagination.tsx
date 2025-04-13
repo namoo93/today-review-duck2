@@ -4,12 +4,14 @@ type Props = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  margin?: string;
 };
 
 export default function Pagination({
   currentPage,
   totalPages,
   onPageChange,
+  margin,
 }: Props) {
   if (totalPages <= 1) return null;
 
@@ -40,7 +42,7 @@ export default function Pagination({
   };
 
   return (
-    <div className={styles.pagination}>
+    <div className={styles.pagination} style={{ margin }}>
       <button
         type="button"
         onClick={() => onPageChange(1)}

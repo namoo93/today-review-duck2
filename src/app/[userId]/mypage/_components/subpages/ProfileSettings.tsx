@@ -12,7 +12,7 @@ export default function ProfileSettings() {
   const { data: userInfo, isLoading } = useMyInfo();
   if (isLoading || !userInfo)
     return (
-      <>
+      <p>
         로딩 중...
         {/* TODO : 로딩 애니메이션 적용 또는 로티에 적용 */}
         {/* <DotLottieReact
@@ -20,7 +20,7 @@ export default function ProfileSettings() {
       loop
       autoplay
     /> */}
-      </>
+      </p>
     );
   return (
     <div className={styles.contents}>

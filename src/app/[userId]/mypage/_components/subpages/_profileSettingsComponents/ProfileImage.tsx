@@ -19,7 +19,7 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 5 * 1024 * 1024) {
-      addToast("이미지 크기는 최대 5MB까지 업로드할 수 있어요!", "error");
+      addToast("이미지 크기는 최대 30MB까지 업로드할 수 있어요!", "error");
     }
 
     try {
@@ -27,7 +27,7 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
       setImage(imageUrl); // 미리보기 먼저 보여줌
 
       await uploadImage(file);
-			addToast("프로필 이미지가 변경되었어요!", "info");
+      addToast("프로필 이미지가 변경되었어요!", "info");
     } catch (err) {
       addToast("이미지 업로드에 실패했어요", "error");
     } finally {
