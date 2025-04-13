@@ -7,10 +7,17 @@ interface Props {
   width?: string;
   onClkickList?: () => void;
   alt?: string;
-  src?: string;
+  src: string | null;
   title?: string;
-  user?: string;
-  value?: string;
+  user: {
+    idx: string;
+    email: string;
+    nickname: string;
+    profileImg: string | null;
+    interest1: string | null;
+    interest2: string | null;
+  };
+  value: number;
   contents?: string;
   isManager?: boolean;
 }
@@ -55,7 +62,7 @@ export default function List({
           <span className={`${styles.list_title} elipsis_1_lines`}>
             {title}
           </span>
-          <span className={styles.list_user}>{user}</span>
+          <span className={styles.list_user}>{user.nickname}</span>
           {!isManager && <span className={styles.list_value}>{value}</span>}
           <span className={`elipsis_5_lines ${styles.list_contents}`}>
             {contents}

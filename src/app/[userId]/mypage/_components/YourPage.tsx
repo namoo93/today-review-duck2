@@ -4,11 +4,10 @@ import DataNone from "@/app/_components/atoms/DataNone";
 import List from "@/app/_components/list/postList/List";
 import { useState } from "react";
 import ProfileInfo from "./subpages/_yourPageComponents/ProfileInfo";
-
-import { dummyListData, ListTypes } from "./subpages/WrittenReviews";
+import { ReviewType } from "@/types";
 
 export default function YourPage() {
-  const [reviewList, setReviewList] = useState<ListTypes[]>(dummyListData);
+  const reviewList: ReviewType[] = [];
 
   return (
     <section className={styles.page}>
@@ -16,16 +15,16 @@ export default function YourPage() {
       <div className={styles.list_contents}>
         {reviewList.length > 0 ? (
           <ul className={styles.list_wrap}>
-            {reviewList.map((review, index) => (
+            {reviewList.map((review) => (
               <List
-                key={index}
-                isManager={review.isManager}
-                alt={review.alt}
-                src={review.src}
+                key={review.idx}
+                isManager={false}
+                alt={review.title}
+                src={review.thumbnail}
                 title={review.title}
                 user={review.user}
-                value={review.value}
-                contents={review.contents}
+                value={review.score}
+                contents={review.content}
               />
             ))}
           </ul>

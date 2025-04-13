@@ -2,26 +2,25 @@ import { useState } from "react";
 import styles from "../../_css/mypage.module.css";
 import List from "@/app/_components/list/postList/List";
 import DataNone from "@/app/_components/atoms/DataNone";
-
-import { ListTypes } from "./WrittenReviews";
+import { ReviewType } from "@/types";
 
 export default function CommentedReviews() {
-  const [reviewList, setReviewList] = useState<ListTypes[]>([]);
+  const reviewList: ReviewType[] = [];
 
   return (
     <div className={styles.list_contents}>
       {reviewList.length > 0 ? (
         <ul className={styles.list_wrap}>
-          {reviewList.map((review, index) => (
+          {reviewList.map((review: ReviewType) => (
             <List
-              key={index}
-              isManager={review.isManager}
-              alt={review.alt}
-              src={review.src}
+              key={review.idx}
+              isManager={false}
+              alt={review.title}
+              src={review.thumbnail}
               title={review.title}
               user={review.user}
-              value={review.value}
-              contents={review.contents}
+              value={review.score}
+              contents={review.content}
             />
           ))}
         </ul>
