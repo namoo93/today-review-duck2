@@ -4,11 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { userInstance } from "@/app/_api/axios";
 import { BlockedUser } from "@/types";
 
-type UseBlockedUserListParams = {
-  size?: number;
-  page?: number;
-};
-
 export const useBlockedUserList = ({
   size = 100,
   page = 1,
