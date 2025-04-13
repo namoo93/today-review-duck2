@@ -12,7 +12,7 @@ export default function BlockedAccounts() {
   const [currentPage, setCurrentPage] = useState(1);
   const { data: blockUsers = { users: [], totalPage: 1 }, isLoading } =
     useBlockedUserList({
-      size: 10,
+      size: 100,
       page: currentPage,
     });
   const blockedUsers = blockUsers.users;
