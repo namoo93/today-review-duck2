@@ -1,4 +1,4 @@
-export type FollowerUser = {
+export type FollowerUserType = {
   nickname: string;
   interest1: string | null;
   interest2: string | null;

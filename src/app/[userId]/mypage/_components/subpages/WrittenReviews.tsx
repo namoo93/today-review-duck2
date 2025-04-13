@@ -109,7 +109,7 @@ export type ListTypes = {
 };
 
 export default function WrittenReviews() {
-  const [reviewList, setReviewList] = useState<ListTypes[]>(dummyListData);
+  const [reviewList, setReviewList] = useState<[]>([]);
 
   return (
     <div className={styles.list_contents}>

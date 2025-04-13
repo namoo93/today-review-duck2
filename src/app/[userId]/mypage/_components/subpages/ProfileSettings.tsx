@@ -6,10 +6,21 @@ import ProfileInfo from "./_profileSettingsComponents/ProfileInfo";
 import ProfileImage from "./_profileSettingsComponents/ProfileImage";
 import ProfileBottom from "./_profileSettingsComponents/ProfileBottom";
 import { useMyInfo } from "@/app/_hooks/useMyInfo";
+import { useSetRecoilState } from "recoil";
+import { myInfoState } from "@/app/_recoil/myInfoAtom";
+import { useEffect } from "react";
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function ProfileSettings() {
-  const { data: userInfo, isLoading } = useMyInfo();
+  const { data: userInfo, isLoading, isSuccess } = useMyInfo();
+  const setMyInfo = useSetRecoilState(myInfoState);
+
+  useEffect(() => {
+    if (isSuccess && userInfo) {
+      setMyInfo(userInfo);
+    }
+  }, [isSuccess, userInfo, setMyInfo]);
+
   if (isLoading || !userInfo)
     return (
       <p>

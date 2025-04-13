@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { userInstance } from "@/app/_api/axios";
-import { BlockedUser } from "@/types";
+import { BlockedUserType } from "@/types";
 
 export const useBlockedUserList = ({
   size = 100,
@@ -11,7 +11,7 @@ export const useBlockedUserList = ({
   size: number;
   page: number;
 }) => {
-  return useQuery<{ users: BlockedUser[]; totalPage: number }>({
+  return useQuery<{ users: BlockedUserType[]; totalPage: number }>({
     queryKey: ["blocked-users", size, page],
     queryFn: async () => {
       const res = await userInstance.get("/blocked-user/all", {

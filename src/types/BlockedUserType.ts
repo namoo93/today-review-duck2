@@ -1,4 +1,4 @@
-export type BlockedUser = {
+export type BlockedUserType = {
   isMyFollowing: boolean;
   isMyBlock: boolean;
   idx: string;

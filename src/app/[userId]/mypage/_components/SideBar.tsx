@@ -7,10 +7,12 @@ import ProfileBox from "@/app/_components/profile/ProfileBox";
 import { useMyInfo } from "@/app/_hooks/useMyInfo";
 import { useFollowerList } from "@/app/_hooks/useFollowerList";
 import { useFollowingList } from "@/app/_hooks/useFollowingList";
-import { FollowerUser } from "@/types";
+import { FollowerUserType } from "@/types";
 import Pagination from "@/app/_components/pagination/Pagination";
 import { useToggleFollow } from "@/app/_hooks/useToggleFollow";
 import { useRouter } from "next/navigation";
+import { useRecoilValue } from "recoil";
+import { myInfoState } from "@/app/_recoil/myInfoAtom";
 
 export default function SideBar({
   onSelectMenu,
@@ -21,7 +23,7 @@ export default function SideBar({
 }) {
   const router = useRouter();
   // 마이페이지 데이터
-  const { data: myInfo } = useMyInfo();
+  const myInfo = useRecoilValue(myInfoState);
   const myPostCount = myInfo?.reviewCount ?? 0;
   const followerCount = myInfo?.followerCount ?? 0;
   const followingCount = myInfo?.followingCount ?? 0;
@@ -98,7 +100,7 @@ export default function SideBar({
             ) : (
               <>
                 <ul className={styles.follow_list}>
-                  {followers.map((user: FollowerUser) => (
+                  {followers.map((user: FollowerUserType) => (
                     <li key={`덕후 리스트 ${user.nickname}`}>
                       <ProfileBox
                         name={user.nickname}
@@ -153,7 +155,7 @@ export default function SideBar({
             ) : (
               <>
                 <ul className={styles.follow_list}>
-                  {followings.map((user: FollowerUser) => (
+                  {followings.map((user: FollowerUserType) => (
                     <li key={`덕질 리스트 ${user.nickname}`}>
                       <ProfileBox
                         name={user.nickname}
