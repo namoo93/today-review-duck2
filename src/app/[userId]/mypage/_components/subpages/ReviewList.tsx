@@ -5,6 +5,7 @@ import DataNone from "@/app/_components/atoms/DataNone";
 import Pagination from "@/app/_components/pagination/Pagination";
 import { ReviewType } from "@/types";
 import { useUserReviewList } from "@/app/_hooks/useUserReviewList";
+import LottieLoading from "@/app/_components/atoms/LottieLoading";
 
 interface Props {
   type: "written" | "bookmark" | "like" | "commented";
@@ -28,7 +29,7 @@ export default function ReviewList({ type, title, userIdx }: Props) {
   return (
     <div className={styles.list_contents}>
       {isLoading ? (
-        <p>로딩 중...</p>
+        <LottieLoading />
       ) : reviewList.length > 0 ? (
         <>
           <ul className={styles.list_wrap}>

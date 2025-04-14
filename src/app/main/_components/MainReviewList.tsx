@@ -7,6 +7,7 @@ import { useMainReviewList } from "@/app/_hooks/useMainReviewList";
 import { useInView } from "react-intersection-observer";
 import { ReviewType } from "@/types";
 import DataNone from "@/app/_components/atoms/DataNone";
+
 import SkeletonItem from "@/app/_components/skeleton/list/SkeletonItem";
 
 interface Props {
@@ -47,13 +48,11 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
     return Array.from(uniqueMap.values());
   }, [data]);
 
-  if (isLoading) {
-    return <p>로딩 중...</p>;
-  }
-
   return (
     <>
-      {uniqueReviews.length === 0 ? (
+      {isLoading ? (
+        <SkeletonItem />
+      ) : uniqueReviews.length === 0 ? (
         <DataNone target="리뷰" />
       ) : (
         <>

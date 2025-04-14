@@ -8,4 +8,3 @@ export { default as Tooltip } from "./Tooltip";
 export { default as Icon } from "./Icon";
 export { default as Search } from "./Search";
 export { TabMenu } from "../tab/TabMenu";
-export { default as LottieLoading } from "./LottieLoading";

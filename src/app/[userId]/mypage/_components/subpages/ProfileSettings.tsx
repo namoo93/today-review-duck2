@@ -9,7 +9,7 @@ import { useMyInfo } from "@/app/_hooks/useMyInfo";
 import { useSetRecoilState } from "recoil";
 import { myInfoState } from "@/app/_recoil/myInfoAtom";
 import { useEffect } from "react";
-// import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import LottieLoading from "@/app/_components/atoms/LottieLoading";
 
 export default function ProfileSettings() {
   const { data: userInfo, isLoading, isSuccess } = useMyInfo();
@@ -21,7 +21,7 @@ export default function ProfileSettings() {
     }
   }, [isSuccess, userInfo, setMyInfo]);
 
-  if (isLoading || !userInfo) return <p>로딩 중...</p>;
+  if (isLoading || !userInfo) return <LottieLoading />;
   return (
     <div className={styles.contents}>
       <ProfileImage imageSrc={userInfo.profileImg} />

@@ -7,6 +7,7 @@ import { useBlockedUserList } from "@/app/_hooks/useBlockedUserList";
 import Pagination from "@/app/_components/pagination/Pagination";
 import DataNone from "@/app/_components/atoms/DataNone";
 import { useUnblockUser } from "@/app/_hooks/useUnblockUser";
+import LottieLoading from "@/app/_components/atoms/LottieLoading";
 
 export default function BlockedAccounts() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,7 +26,7 @@ export default function BlockedAccounts() {
   return (
     <div ref={containerRef} className={styles.contents_block_users}>
       {isLoading ? (
-        <p>로딩 중...</p>
+        <LottieLoading />
       ) : blockedUsers.length === 0 ? (
         <DataNone target="차단한 유저" />
       ) : (
