@@ -53,7 +53,12 @@ export default function MainListBox() {
           textOnly
         />
       )}
-      <MainReviewList type={type} mode={mode} timeframe={timeframe} />
+      <MainReviewList
+        type={type}
+        mode={mode}
+        timeframe={timeframe}
+        key={`${type}-${mode}-${timeframe}`}
+      />
     </section>
   );
 }

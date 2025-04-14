@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "../_css/mainlist.module.css";
 import List from "@/app/_components/list/postList/List";
 import { useMainReviewList } from "@/app/_hooks/useMainReviewList";
@@ -15,6 +15,7 @@ interface Props {
 }
 
 export default function MainReviewList({ type, mode, timeframe }: Props) {
+  const [hasMounted, setHasMounted] = useState(false);
   const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
     useMainReviewList(type, mode, timeframe);
 
@@ -23,10 +24,14 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
   });
 
   useEffect(() => {
-    if (inView && hasNextPage && !isFetchingNextPage) {
+    setHasMounted(true); // 페이지 진입시 호출 제한
+  }, []);
+
+  useEffect(() => {
+    if (hasMounted && inView && hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
-  }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
+  }, [hasMounted, inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   const uniqueReviews = useMemo(() => {
     const allReviews = data?.pages.flatMap((page) => page.reviews) ?? [];
@@ -64,7 +69,7 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
             ))}
           </ul>
           {isFetchingNextPage && <p>로딩 중...</p>}
-          <div ref={ref} style={{ height: 1, marginTop: "100px" }} />
+          <div ref={ref} style={{ height: 1, marginTop: "200px" }} />
         </>
       )}
     </>
