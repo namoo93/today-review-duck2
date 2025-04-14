@@ -1,49 +1,72 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import styles from "../_css/mainlist.module.css";
 import List from "@/app/_components/list/postList/List";
 import { useMainReviewList } from "@/app/_hooks/useMainReviewList";
 import { useInView } from "react-intersection-observer";
 import { ReviewType } from "@/types";
+import DataNone from "@/app/_components/atoms/DataNone";
 
 interface Props {
   type: "high-score" | "low-score";
   timeframe?: "1D" | "7D" | "1M";
+  mode: "hot" | "following" | "";
 }
 
-export default function MainReviewList({ type, timeframe }: Props) {
+export default function MainReviewList({ type, mode, timeframe }: Props) {
   const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
-    useMainReviewList(type, timeframe);
+    useMainReviewList(type, mode, timeframe);
 
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({
+    threshold: 0.5, // 요소의 절반 이상이 보여야 true
+  });
 
   useEffect(() => {
-    if (inView && hasNextPage) {
+    if (inView && hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
-  }, [inView, hasNextPage, fetchNextPage]);
+  }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  const uniqueReviews = useMemo(() => {
+    const allReviews = data?.pages.flatMap((page) => page.reviews) ?? [];
+    const uniqueMap = new Map<number, ReviewType>();
+
+    allReviews.forEach((review) => {
+      if (!uniqueMap.has(review.idx)) {
+        uniqueMap.set(review.idx, review);
+      }
+    });
+
+    return Array.from(uniqueMap.values());
+  }, [data]);
 
   return (
     <>
-      <ul className={styles.list_wrap}>
-        {data?.pages.flatMap((page: { reviews: ReviewType[] }) =>
-          page.reviews.map((review: ReviewType) => (
-            <List
-              key={review.idx}
-              isManager={false}
-              alt={review.title}
-              src={review.thumbnail}
-              title={review.title}
-              user={review.user}
-              value={review.score}
-              contents={review.content}
-            />
-          ))
-        )}
-      </ul>
-      {isLoading || isFetchingNextPage ? <p>로딩 중...</p> : null}
-      <div ref={ref} style={{ height: 1 }} />
+      {isLoading ? (
+        <p>로딩 중...</p>
+      ) : uniqueReviews.length === 0 ? (
+        <DataNone target="리뷰" />
+      ) : (
+        <>
+          <ul className={styles.list_wrap}>
+            {uniqueReviews.map((review) => (
+              <List
+                key={review.idx}
+                isManager={false}
+                alt={review.title}
+                src={review.thumbnail}
+                title={review.title}
+                user={review.user}
+                value={review.score}
+                contents={review.content}
+              />
+            ))}
+          </ul>
+          {isFetchingNextPage && <p>로딩 중...</p>}
+          <div ref={ref} style={{ height: 1, marginTop: "100px" }} />
+        </>
+      )}
     </>
   );
 }
