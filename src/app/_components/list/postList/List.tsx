@@ -2,6 +2,7 @@ import { Icon } from "../../atoms";
 import styles from "./list.module.css";
 import ImgDefault from "@/../public/images/img-default-post.svg";
 import ImgManager from "@/../public/images/img-manager.svg";
+import RatingTag from "./RatingTag";
 
 interface Props {
   width?: string;
@@ -63,7 +64,7 @@ export default function List({
             {title}
           </span>
           <span className={styles.list_user}>{user.nickname}</span>
-          {!isManager && <span className={styles.list_value}>{value}</span>}
+          {!isManager && <RatingTag score={value} />}
           <span className={`elipsis_5_lines ${styles.list_contents}`}>
             {contents}
           </span>

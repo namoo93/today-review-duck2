@@ -29,18 +29,7 @@
   color: #aaa;
   padding: 20px 0 30px 0;
 }
-.list_value {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 8px;
-  border-radius: 8px;
-  border: 1px solid #ffebd4;
-  background-color: #fff6ed;
-  color: #ff7e29;
-  font-size: 13px;
-  font-weight: 500;
-}
+
 .list_contents {
   padding-top: 20px;
   font-size: 16px;
@@ -49,4 +38,30 @@
   display: inline-block;
   text-align: left;
   color: #969696;
+}
+
+/* 평가 태그  */
+.rating_tag_good {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #ffebd4;
+  background-color: #fff6ed;
+  color: #ff7e29;
+}
+.rating_tag_bad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #f0f0f0;
+  background-color: #f7f7f7;
+  color: #aaa;
 }
