@@ -7,20 +7,19 @@ import { useState } from "react";
 import { TabMenu } from "@/app/_components/tab/TabMenu";
 import { ReviewType } from "@/types";
 
-export default function MainList() {
+export default function SearchListBox() {
   const [theme] = useRecoilState(themeState);
   const reviewList: ReviewType[] = [];
-  const [tab, setTab] = useState("오늘");
+  const [tab, setTab] = useState("게시글");
 
   return (
     <section className={styles.page}>
       <TabMenu
-        width="240px"
-        margin="30px 0 10px -20px"
+        width="140px"
+        margin="30px 0 10px 0"
         selected={tab}
         setTabView={setTab}
-        menu={["오늘", "이번주", "이번달"]}
-        textOnly
+        menu={["게시글", "유저"]}
       />
       <ul className={styles.list_wrap}>
         {reviewList.map((review: ReviewType) => (

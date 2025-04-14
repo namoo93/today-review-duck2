@@ -3,18 +3,18 @@
 import { useRecoilState } from "recoil";
 import { onSearchPageState } from "../_recoil";
 import Banner from "./_components/Banner";
-import MainList from "./_components/MainList";
-import SearchList from "./_components/SearchList";
+import MainListBox from "./_components/MainListBox";
+import SearchListBox from "./_components/SearchListBox";
 import FixedButton from "../_components/fixedButton/FixedButton";
 
 export default function Main() {
   const [onSearchPage] = useRecoilState(onSearchPageState);
-  // tst
+
   return (
     <>
       <Banner />
       <FixedButton />
-      {onSearchPage ? <SearchList /> : <MainList />}
+      {onSearchPage ? <SearchListBox /> : <MainListBox />}
     </>
   );
 }

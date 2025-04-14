@@ -12,7 +12,7 @@ interface Props {
   userIdx: string;
 }
 
-export default function ReviewListSection({ type, title, userIdx }: Props) {
+export default function ReviewList({ type, title, userIdx }: Props) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { data: reviewData = { reviews: [], totalPage: 1 }, isLoading } =
