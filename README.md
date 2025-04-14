@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 세상 모든 것의 리뷰! 오늘도 리뷰
 
-## Getting Started
+> 당신의 모든 경험을 나누는 곳, **오늘도 리뷰** ✨  
+> 리뷰 기반 커뮤니티 플랫폼으로 음식, 영화, 장소 등 다양한 주제에 대한 솔직한 리뷰를 공유하고 소통할 수 있는 공간입니다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ 사용 스택
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 14** (App Router 기반)
+- **TypeScript**
+- **React Query (@tanstack/react-query)** – 데이터 비동기 캐싱
+- **Recoil** – 글로벌 상태 관리
+- **CSS Modules** – 컴포넌트 단위 스타일링
+- **Firebase** – 소셜 로그인(Google), 알림(FCM)
+- **Vercel** – 프론트엔드 배포
+- **Axios** – API 통신
+- **Server-Sent Events (SSE)** – 실시간 알림 및 댓글
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend
 
-## Learn More
+- **NestJS**
+- **AWS S3** – 이미지 업로드 및 저장
+- **CloudFront (CDN)** – 이미지 최적화 및 빠른 로딩
+- **Docker** – 환경 구성
+- **Nginx** – 리버스 프록시 및 HTTPS
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 주요 페이지
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 페이지                      | 설명                                                                  |
+| --------------------------- | --------------------------------------------------------------------- |
+| **메인 페이지**             | 최신/인기 리뷰를 무한스크롤로 로딩                                    |
+| **검색 페이지**             | 키워드, 태그, 작성자 기준의 리뷰 및 유저 검색 제공                    |
+| **리뷰 상세 페이지**        | 댓글 기능과 실시간 알림(SSE) 지원                                     |
+| **마이페이지**              | 작성한 리뷰, 좋아요/북마크한 리뷰, 팔로우·팔로워 목록, 프로필 수정 등 |
+| **유저 페이지**             | 타 유저의 리뷰 및 프로필 확인, 팔로우/언팔로우 기능                   |
+| **리뷰 작성 페이지**        | 이미지 업로드, 태그 입력, 평점 작성 기능 지원                         |
+| **로그인/회원가입**         | Google 소셜 로그인 지원                                               |
+| **앱 다운로드 안내 페이지** | 모바일 접속 시 앱 다운로드 버튼 제공                                  |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚙️ 캐싱 정책
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 기능 영역       | 정책                                                              |
+| --------------- | ----------------------------------------------------------------- |
+| **로그인**      | 서버에서 토큰 발급, 클라이언트는 최소한의 인증 상태만 관리        |
+| **메인 페이지** | React Query 무한스크롤 + Stale Time 설정으로 효율적인 데이터 유지 |
+| **마이페이지**  | 페이지네이션 기반 캐싱 + 유저별 데이터 재사용 최적화              |
+| **알림**        | SSE 기반 실시간 푸시 수신 (Firebase FCM 연동)                     |
+| **이미지**      | AWS CloudFront 캐싱 + Next.js Image 컴포넌트 사용                 |
+
+---
+
+## 🚀 최적화 내역
+
+- `next/image`를 통한 이미지 lazy-loading 및 자동 최적화
+- 무한스크롤 데이터 prefetch 및 stale 시간 설정
+- Firebase FCM을 이용한 클라이언트 푸시 알림
+- 로그인 유지 토큰은 29분마다 갱신하여 세션 유지를 극대화
+- Skeleton UI, Lottie 애니메이션을 활용한 가볍고 직관적인 로딩 표시
+- 불필요한 re-render 최소화를 위한 컴포넌트 분리 및 메모이제이션
+- S3 + CloudFront로 이미지 로딩 속도 개선
+
+---
+
+## 🔗 사이트 바로가기
+
+👉 [https://mylittlereviewduck.site](https://mylittlereviewduck.site)
+
+---
+
+## ✨ 기타
+
+- Google 소셜 로그인 외에도 Kakao, Naver, Apple 연동 예정
+- 커스텀 도메인 및 HTTPS 구성 완료
+- 관리자 페이지를 통한 공지사항 및 유저 관리 기능 개발 예정
