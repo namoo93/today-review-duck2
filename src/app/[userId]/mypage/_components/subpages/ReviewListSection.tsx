@@ -1,23 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../../_css/mypage.module.css";
 import List from "@/app/_components/list/postList/List";
 import DataNone from "@/app/_components/atoms/DataNone";
-import { useUserReviewList } from "@/app/_hooks/useUserReviewList";
-import { useRecoilValue } from "recoil";
-import { myInfoState } from "@/app/_recoil/myInfoAtom";
-import { ReviewType } from "@/types";
 import Pagination from "@/app/_components/pagination/Pagination";
+import { ReviewType } from "@/types";
+import { useUserReviewList } from "@/app/_hooks/useUserReviewList";
 
-export default function WrittenReviews() {
-  const myInfo = useRecoilValue(myInfoState);
-  const myIdx = myInfo?.idx as string;
+interface Props {
+  type: "written" | "bookmark" | "like" | "commented";
+  title: string;
+  userIdx: string;
+}
+
+export default function ReviewListSection({ type, title, userIdx }: Props) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { data: reviewData = { reviews: [], totalPage: 1 }, isLoading } =
-    useUserReviewList(myIdx, 10, currentPage);
+    useUserReviewList(userIdx, type, 10, currentPage);
 
-  const reviewList = reviewData.reviews;
-  const totalPages = reviewData.totalPage;
+  const reviewList = reviewData?.reviews ?? [];
+  const totalPages = reviewData?.totalPage ?? 1;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [type, userIdx]);
 
   return (
     <div className={styles.list_contents}>
@@ -29,7 +35,7 @@ export default function WrittenReviews() {
             {reviewList.map((review: ReviewType) => (
               <List
                 key={review.idx}
-                isManager={false} // 필요 시 조건 설정
+                isManager={false}
                 alt={review.title}
                 src={review.thumbnail}
                 title={review.title}
@@ -49,7 +55,7 @@ export default function WrittenReviews() {
           )}
         </>
       ) : (
-        <DataNone target={"작성한 리뷰"} />
+        <DataNone target={title} />
       )}
     </div>
   );
