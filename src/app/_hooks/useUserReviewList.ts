@@ -14,5 +14,7 @@ export const useUserReviewList = (userIdx: string, size = 10, page = 1) => {
       return response.data;
     },
     enabled: !!userIdx,
+    staleTime: 1000 * 60 * 10, // 10분 동안은 신선하다고 간주
+    gcTime: 1000 * 60 * 60, // 1시간까지 메모리에서 유지
   });
 };
