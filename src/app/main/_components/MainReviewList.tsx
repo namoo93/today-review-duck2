@@ -8,7 +8,6 @@ import { useInView } from "react-intersection-observer";
 import { ReviewType } from "@/types";
 import DataNone from "@/app/_components/atoms/DataNone";
 import SkeletonItem from "@/app/_components/skeleton/list/SkeletonItem";
-import { LottieLoading } from "@/app/_components/atoms";
 
 interface Props {
   type: "high-score" | "low-score";
@@ -49,7 +48,7 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
   }, [data]);
 
   if (isLoading) {
-    return <LottieLoading />;
+    return <p>로딩 중...</p>;
   }
 
   return (

@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "../../_css/mypage.module.css";
 import ProfileBox from "@/app/_components/profile/ProfileBox";
@@ -6,7 +7,6 @@ import { useBlockedUserList } from "@/app/_hooks/useBlockedUserList";
 import Pagination from "@/app/_components/pagination/Pagination";
 import DataNone from "@/app/_components/atoms/DataNone";
 import { useUnblockUser } from "@/app/_hooks/useUnblockUser";
-import { LottieLoading } from "@/app/_components/atoms";
 
 export default function BlockedAccounts() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,7 +25,7 @@ export default function BlockedAccounts() {
   return (
     <div ref={containerRef} className={styles.contents_block_users}>
       {isLoading ? (
-        <LottieLoading />
+        <p>로딩 중...</p>
       ) : blockedUsers.length === 0 ? (
         <DataNone target="차단한 유저" />
       ) : (
