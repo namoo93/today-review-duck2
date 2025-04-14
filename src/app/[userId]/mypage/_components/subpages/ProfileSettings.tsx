@@ -9,6 +9,7 @@ import { useMyInfo } from "@/app/_hooks/useMyInfo";
 import { useSetRecoilState } from "recoil";
 import { myInfoState } from "@/app/_recoil/myInfoAtom";
 import { useEffect } from "react";
+import { LottieLoading } from "@/app/_components/atoms";
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function ProfileSettings() {
@@ -21,18 +22,7 @@ export default function ProfileSettings() {
     }
   }, [isSuccess, userInfo, setMyInfo]);
 
-  if (isLoading || !userInfo)
-    return (
-      <p>
-        로딩 중...
-        {/* TODO : 로딩 애니메이션 적용 또는 로티에 적용 */}
-        {/* <DotLottieReact
-      src="path/to/animation.lottie"
-      loop
-      autoplay
-    /> */}
-      </p>
-    );
+  if (isLoading || !userInfo) return <LottieLoading />;
   return (
     <div className={styles.contents}>
       <ProfileImage imageSrc={userInfo.profileImg} />

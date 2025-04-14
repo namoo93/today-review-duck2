@@ -1,5 +1,5 @@
 "use client";
-import { Icon } from "@/app/_components/atoms";
+import { Icon, LottieLoading } from "@/app/_components/atoms";
 import styles from "../_css/completed.module.css";
 import { useSearchParams } from "next/navigation";
 import IconCheck from "@/../../public/icon/icon-check.svg";
@@ -47,7 +47,7 @@ function CompletedContent() {
 
 export default function Completed() {
   return (
-    <Suspense fallback={<p>로딩 중...</p>}>
+    <Suspense fallback={<LottieLoading />}>
       <CompletedContent />
     </Suspense>
   );

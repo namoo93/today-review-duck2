@@ -7,6 +7,8 @@ import { useMainReviewList } from "@/app/_hooks/useMainReviewList";
 import { useInView } from "react-intersection-observer";
 import { ReviewType } from "@/types";
 import DataNone from "@/app/_components/atoms/DataNone";
+import SkeletonItem from "@/app/_components/skeleton/list/SkeletonItem";
+import { LottieLoading } from "@/app/_components/atoms";
 
 interface Props {
   type: "high-score" | "low-score";
@@ -46,11 +48,13 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
     return Array.from(uniqueMap.values());
   }, [data]);
 
+  if (isLoading) {
+    return <LottieLoading />;
+  }
+
   return (
     <>
-      {isLoading ? (
-        <p>로딩 중...</p>
-      ) : uniqueReviews.length === 0 ? (
+      {uniqueReviews.length === 0 ? (
         <DataNone target="리뷰" />
       ) : (
         <>
@@ -68,7 +72,7 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
               />
             ))}
           </ul>
-          {isFetchingNextPage && <p>로딩 중...</p>}
+          {isFetchingNextPage && <SkeletonItem />}
           <div ref={ref} style={{ height: 1, marginTop: "200px" }} />
         </>
       )}
