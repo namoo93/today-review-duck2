@@ -5,10 +5,14 @@ import { DropDown, Icon, Search } from "@/app/_components/atoms";
 import { useEffect, useState } from "react";
 import { onSearchPageState } from "@/app/_recoil";
 import IcoDelete from "@/../public/icon/icon-delete-search.svg";
+import { usePopularKeywords } from "@/app/_hooks/usePopularKeywords";
+import LottieLoading from "@/app/_components/atoms/LottieLoading";
 // import { useRouter } from "next/navigation";
 
 export default function BannerSearch() {
   const [, setOnSearchPage] = useRecoilState(onSearchPageState);
+  const { data: popularData, isLoading: isPopularLoading } =
+    usePopularKeywords();
   // const router = useRouter();
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
@@ -114,142 +118,76 @@ export default function BannerSearch() {
           <div className={styles.list_box}>
             <strong className={styles.list_box_title}>인기 검색어</strong>
             <span className={styles.list_box_info}>
-              현재 인기 있는 검색어에요
+              {isPopularLoading
+                ? "로딩 중..."
+                : popularData?.keywords.length
+                ? "현재 인기 있는 검색어에요"
+                : "아직 인기 검색어가 없어요"}
             </span>
             <div className={styles.list_popular_searches_wrap}>
               <ol className={styles.list_popular_searches}>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj fasdf fdsaf asfd af safdsf
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
+                {isPopularLoading ? (
+                  <li>
+                    <LottieLoading />
+                  </li>
+                ) : (
+                  popularData?.keywords.slice(0, 5).map((item) => (
+                    <li key={item.keyword}>
+                      <button
+                        type="button"
+                        className={styles.popular_searches_button}
+                        onClick={() => handleReSearch(item.keyword)}
+                      >
+                        <span className={styles.searches_bullet}>
+                          {item.rank}
+                        </span>
+                        <span
+                          className={`elipsis_1_lines ${styles.searches_item}`}
+                        >
+                          {item.keyword}
+                        </span>
+                        <span className={styles.searches_icon}>
+                          {item.status === "up" && "🔼"}
+                          {item.status === "down" && "🔽"}
+                          {item.status === "equal" && "➖"}
+                          {item.status === "new" && "🆕"}
+                        </span>
+                      </button>
+                    </li>
+                  ))
+                )}
               </ol>
               <ol className={styles.list_popular_searches}>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className={styles.popular_searches_button}
-                    onClick={() => {}}
-                  >
-                    <span className={styles.searches_bullet}>1</span>
-                    <span className={`elipsis_1_lines ${styles.searches_item}`}>
-                      dnlr rjatordj{" "}
-                    </span>
-                    <span className={styles.searches_icon}>-</span>
-                  </button>
-                </li>
+                {isPopularLoading ? (
+                  <li>
+                    <LottieLoading />
+                  </li>
+                ) : (
+                  popularData?.keywords.slice(5, 10).map((item) => (
+                    <li key={item.keyword}>
+                      <button
+                        type="button"
+                        className={styles.popular_searches_button}
+                        onClick={() => handleReSearch(item.keyword)}
+                      >
+                        <span className={styles.searches_bullet}>
+                          {item.rank}
+                        </span>
+                        <span
+                          className={`elipsis_1_lines ${styles.searches_item}`}
+                        >
+                          {item.keyword}
+                        </span>
+                        <span className={styles.searches_icon}>
+                          {item.status === "up" && "🔼"}
+                          {item.status === "down" && "🔽"}
+                          {item.status === "equal" && "➖"}
+                          {item.status === "new" && "🆕"}
+                        </span>
+                      </button>
+                    </li>
+                  ))
+                )}
               </ol>
             </div>
           </div>
