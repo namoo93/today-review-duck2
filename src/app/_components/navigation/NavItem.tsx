@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from "./_css/gnb.module.css";
 import { useRecoilState } from "recoil";
-import { activeItemState } from "@/app/_recoil";
+import { activeItemState, onSearchPageState } from "@/app/_recoil";
 
 type NavItemProps = {
   label: string;
@@ -13,6 +13,7 @@ type NavItemProps = {
 
 export default function NavItem({ label, href, show }: NavItemProps) {
   const [activeItem, setActiveItem] = useRecoilState(activeItemState);
+  const [, setOnSearchPage] = useRecoilState(onSearchPageState);
   const router = useRouter();
 
   if (!show) return null;
@@ -21,6 +22,7 @@ export default function NavItem({ label, href, show }: NavItemProps) {
     if (activeItem === label) return;
     setActiveItem(label);
     router.push(href);
+    setOnSearchPage(false);
   };
 
   return (
