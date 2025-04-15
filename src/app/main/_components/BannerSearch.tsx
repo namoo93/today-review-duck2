@@ -6,6 +6,11 @@ import { useEffect, useState } from "react";
 import { onSearchPageState } from "@/app/_recoil";
 import IcoDelete from "@/../public/icon/icon-delete-search.svg";
 import { usePopularKeywords } from "@/app/_hooks/usePopularKeywords";
+import {
+  getSearchHistory,
+  removeSearchHistoryItem,
+  setSearchHistory,
+} from "@/app/_utils/searchStorage";
 // import { useRouter } from "next/navigation";
 
 export default function BannerSearch() {
@@ -13,49 +18,50 @@ export default function BannerSearch() {
   const { data: popularData, isLoading: isPopularLoading } =
     usePopularKeywords();
   // const router = useRouter();
-  const [searchHistory, setSearchHistory] = useState<string[]>([]);
+  const [searchHistoryList, setSearchHistoryList] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
+  //  초기 렌더 시 localStorage에서 기록 불러오기
+  useEffect(() => {
+    setSearchHistoryList(getSearchHistory());
+  }, []);
+
   const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && searchValue !== "") {
-      console.log("검색 실행:", searchValue);
-      setOnSearchPage(true);
-
-      resetSearch();
-    }
-
+    if (e.key === "Enter" && searchValue !== "") resetSearch();
     if (e.key === "Backspace" || searchValue === "") {
-      console.log("검색 값 초기화");
       setOnSearchPage(false);
     }
   };
+
   const searchButtonHandler = () => {
     if (!searchValue.trim()) return;
-
-    console.log("검색 실행:", searchValue);
     resetSearch();
   };
 
   const handleReSearch = (term: string) => {
     setSearchValue(term);
-    searchButtonHandler();
+    setSearchHistory(term); // localStorage 갱신
+    setSearchHistoryList(getSearchHistory());
+    setOnSearchPage(true);
+  };
+
+  const deleteKeyword = (term: string) => {
+    const updated = removeSearchHistoryItem(term);
+    setSearchHistoryList(updated);
   };
 
   //초기화 함수
   const resetSearch = () => {
-    setOnSearchPage(true);
-    // 검색어 기록 추가 (중복 방지)
-    setSearchHistory((prev) =>
-      prev.includes(searchValue) ? prev : [searchValue, ...prev]
-    );
-
-    //초기화
+    const updated = setSearchHistory(searchValue); // localStorage 저장
+    setSearchHistoryList(updated); // 상태 반영
     setIsDropDownOpen(false);
     setSearchValue("");
+    setOnSearchPage(true);
   };
 
+  // 검색창 스크롤시 이동
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 700);
@@ -75,7 +81,7 @@ export default function BannerSearch() {
       <Search
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        onKeyDown={(e) => searchHandler(e)}
+        onKeyUp={(e) => searchHandler(e)}
         onClick={() => searchButtonHandler()}
         placeholder="어떤 리뷰가 궁금하신가요?"
       />
@@ -87,22 +93,22 @@ export default function BannerSearch() {
         <div className={styles.list_wrap}>
           <div className={styles.list_box}>
             <strong className={styles.list_box_title}>최근 검색어</strong>
-            {searchHistory.length == 0 && (
+            {searchHistoryList.length == 0 && (
               <span className={styles.list_box_info}>
                 최근 검색 기록이 없어요
               </span>
             )}
             <ul className={styles.list_recent_searches}>
-              {searchHistory.map((term, index) => (
-                <li key={index} onClick={() => handleReSearch(term)}>
+              {searchHistoryList.map((term, index) => (
+                <li key={term + index}>
                   <button
                     type="button"
-                    onClick={() => {}}
+                    onClick={() => handleReSearch(term)}
                     className={styles.recent_searches_title}
                   >
                     {term}
                   </button>
-                  <button type="button" onClick={() => {}}>
+                  <button type="button" onClick={() => deleteKeyword(term)}>
                     <Icon
                       src={IcoDelete}
                       alt="검색어 삭재"

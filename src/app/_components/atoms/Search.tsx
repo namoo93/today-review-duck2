@@ -8,7 +8,8 @@ type SearchProps = {
   value: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onChange: (value: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   width?: string;
   height?: string;
   fontSize?: string;
@@ -23,6 +24,7 @@ export default function Search({
   onClick,
   onChange,
   onKeyDown,
+  onKeyUp,
   width,
   height,
   margin,
@@ -51,6 +53,7 @@ export default function Search({
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
+        onKeyUp={onKeyUp}
         placeholder={placeholder}
       />
       {errorMessage && <p className={styles.error_message}>{errorMessage}</p>}
