@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { onSearchPageState } from "@/app/_recoil";
 import IcoDelete from "@/../public/icon/icon-delete-search.svg";
 import { usePopularKeywords } from "@/app/_hooks/usePopularKeywords";
-import LottieLoading from "@/app/_components/atoms/LottieLoading";
 // import { useRouter } from "next/navigation";
 
 export default function BannerSearch() {
@@ -128,7 +127,7 @@ export default function BannerSearch() {
               <ol className={styles.list_popular_searches}>
                 {isPopularLoading ? (
                   <li>
-                    <LottieLoading />
+                    <span className={styles.list_box_info}>로딩 중...</span>
                   </li>
                 ) : (
                   popularData?.keywords.slice(0, 5).map((item) => (
@@ -160,7 +159,7 @@ export default function BannerSearch() {
               <ol className={styles.list_popular_searches}>
                 {isPopularLoading ? (
                   <li>
-                    <LottieLoading />
+                    <span className={styles.list_box_info}>로딩 중...</span>
                   </li>
                 ) : (
                   popularData?.keywords.slice(5, 10).map((item) => (
