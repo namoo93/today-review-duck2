@@ -2,7 +2,7 @@
 import styles from "../_css/bannersearch.module.css";
 import { useRecoilState } from "recoil";
 import { DropDown, Icon, Search } from "@/app/_components/atoms";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { onSearchPageState } from "@/app/_recoil";
 import IcoDelete from "@/../public/icon/icon-delete-search.svg";
 // import { useRouter } from "next/navigation";
@@ -13,6 +13,7 @@ export default function BannerSearch() {
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
   const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchValue !== "") {
@@ -52,9 +53,20 @@ export default function BannerSearch() {
     setSearchValue("");
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 700);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div
-      className={styles.search_input_wrap}
+      className={`${styles.search_input_wrap} ${
+        isSticky ? styles.sticky_input : styles.fixed_y
+      }`}
       onClick={() => setIsDropDownOpen((prev) => !prev)}
     >
       <Search
@@ -65,7 +77,7 @@ export default function BannerSearch() {
         placeholder="어떤 리뷰가 궁금하신가요?"
       />
       <DropDown
-        margin="70px 0 0 0"
+        margin={isSticky ? "45px 0 0 0" : "70px 0 0 0"}
         isOpen={isDropDownOpen}
         onClose={() => setIsDropDownOpen(false)}
       >

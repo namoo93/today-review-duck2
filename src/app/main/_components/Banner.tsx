@@ -23,8 +23,6 @@ export default function Banner() {
           나의 이야기가 정보가 되는 곳 <br />
           여러분의 일상, 취미 모든 것을 자유롭게 공유해주세요!
         </p>
-
-        <BannerSearch />
       </div>
     </section>
   );
