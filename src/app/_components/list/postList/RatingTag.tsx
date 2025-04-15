@@ -5,9 +5,9 @@ export default function RatingTag({ score }: { score: number }) {
   const ratingText = getRatingText(score);
 
   const ratingClass =
-    score >= 1 && score <= 3
+    score >= 0 && score <= 2
       ? styles.rating_tag_bad
-      : score >= 4 && score <= 6
+      : score >= 3 && score <= 5
       ? styles.rating_tag_good
       : styles.none;
 
