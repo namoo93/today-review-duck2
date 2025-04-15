@@ -11,13 +11,18 @@ import {
   removeSearchHistoryItem,
   setSearchHistory,
 } from "@/app/_utils/searchStorage";
+import { searchKeywordState } from "@/app/_recoil/searchKeywordAtom";
+import { useToast } from "@/app/_hooks/useToast";
+import ToastContainer from "@/app/_components/toast/ToastContainer";
 // import { useRouter } from "next/navigation";
 
 export default function BannerSearch() {
   const [, setOnSearchPage] = useRecoilState(onSearchPageState);
+  const [, setKeyword] = useRecoilState(searchKeywordState);
   const { data: popularData, isLoading: isPopularLoading } =
     usePopularKeywords();
   // const router = useRouter();
+  const { addToast } = useToast();
   const [searchHistoryList, setSearchHistoryList] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
@@ -29,14 +34,33 @@ export default function BannerSearch() {
   }, []);
 
   const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && searchValue !== "") resetSearch();
-    if (e.key === "Backspace" || searchValue === "") {
+    if (e.key === "Backspace") {
       setOnSearchPage(false);
+      return;
+    }
+    if (searchValue.length == 0) return;
+    if (e.key === "Enter") {
+      if (searchValue.length < 1) {
+        addToast("검색어는 두 글자 이상 입력해주세요", "error");
+        return;
+      }
+
+      if (searchValue.length > 1) {
+        setKeyword(searchValue);
+        setOnSearchPage(true);
+        resetSearch();
+        return;
+      }
     }
   };
 
   const searchButtonHandler = () => {
-    if (!searchValue.trim()) return;
+    if (!searchValue.trim()) {
+      addToast("검색어는 두 글자 이상 입력해주세요", "error");
+      return;
+    }
+    setKeyword(searchValue);
+    setOnSearchPage(true);
     resetSearch();
   };
 
@@ -45,6 +69,7 @@ export default function BannerSearch() {
     setSearchHistory(term); // localStorage 갱신
     setSearchHistoryList(getSearchHistory());
     setOnSearchPage(true);
+    setKeyword(term);
   };
 
   const deleteKeyword = (term: string) => {
@@ -78,12 +103,19 @@ export default function BannerSearch() {
       }`}
       onClick={() => setIsDropDownOpen((prev) => !prev)}
     >
+      <ToastContainer
+        width="335px"
+        top="50px"
+        right="50%"
+        transform="translateX(50%)"
+      />
       <Search
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         onKeyUp={(e) => searchHandler(e)}
         onClick={() => searchButtonHandler()}
         placeholder="어떤 리뷰가 궁금하신가요?"
+        minLength={2}
       />
       <DropDown
         margin={isSticky ? "45px 0 0 0" : "70px 0 0 0"}

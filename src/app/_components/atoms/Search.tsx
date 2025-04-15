@@ -15,6 +15,7 @@ type SearchProps = {
   fontSize?: string;
   margin?: string;
   errorMessage?: string;
+  minLength?: number;
 };
 
 export default function Search({
@@ -29,6 +30,7 @@ export default function Search({
   height,
   margin,
   errorMessage,
+  minLength,
 }: SearchProps) {
   return (
     <div
@@ -55,6 +57,7 @@ export default function Search({
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
         placeholder={placeholder}
+        minLength={minLength}
       />
       {errorMessage && <p className={styles.error_message}>{errorMessage}</p>}
     </div>

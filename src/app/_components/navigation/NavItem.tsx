@@ -22,6 +22,7 @@ export default function NavItem({ label, href, show }: NavItemProps) {
     if (activeItem === label) return;
     setActiveItem(label);
     router.push(href);
+    // 초기화
     setOnSearchPage(false);
   };
 

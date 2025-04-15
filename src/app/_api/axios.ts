@@ -24,8 +24,7 @@ const attachAuthHeaders = (config: any) => {
   return config;
 };
 
-// 아직 발급된 토큰이 없는 회원가입에서 사용,
-// 또는 해더값을 변경해야하는 로그아웃에서 사용
+// 아직 발급된 토큰이 없는 상태에서 사용
 export const axiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
