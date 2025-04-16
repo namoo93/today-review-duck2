@@ -10,12 +10,15 @@ import IcoBookmarkOn from "@/../../public/icon/icon-bookmark-on.svg";
 import IcoShare from "@/../../public/icon/icon-share.svg";
 import ShareSnsList from "@/app/_components/list/shareSnsList/ShareSnsList";
 import { useState } from "react";
+import { ReviewDetailType } from "@/types";
 
-export default function ReviewDetailFixedButtons() {
+export default function ReviewDetailFixedButtons({
+  review,
+}: {
+  review: ReviewDetailType;
+}) {
   const [theme] = useRecoilState(themeState);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const isLike = true;
-  const isBookmark = true;
 
   return (
     <div className={styles.review_fixed_button_wrap}>
@@ -27,7 +30,7 @@ export default function ReviewDetailFixedButtons() {
             onClick={() => {}}
           >
             <Icon
-              src={isLike ? IcoLikeOn : IcoLike}
+              src={review.isMyLike ? IcoLikeOn : IcoLike}
               alt=""
               width={32}
               height={32}
@@ -38,7 +41,7 @@ export default function ReviewDetailFixedButtons() {
                 theme == "light" ? styles.like_num : styles.like_num_dark
               }
             >
-              {`${99}`}
+              {review.likeCount}
             </span>
           </button>
         </li>
@@ -49,7 +52,7 @@ export default function ReviewDetailFixedButtons() {
             onClick={() => {}}
           >
             <Icon
-              src={isBookmark ? IcoBookmarkOn : IcoBookmark}
+              src={review.isMyBookmark ? IcoBookmarkOn : IcoBookmark}
               alt=""
               width={32}
               height={32}

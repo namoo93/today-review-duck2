@@ -9,7 +9,11 @@ import { useRecoilState } from "recoil";
 import { themeState } from "@/app/_recoil";
 import { useState } from "react";
 
-export default function ReviewDetailComment() {
+export default function ReviewDetailComment({
+  reviewIdx,
+}: {
+  reviewIdx: number;
+}) {
   const [theme] = useRecoilState(themeState);
   const [comment, setComment] = useState<string>("");
   const router = useRouter();

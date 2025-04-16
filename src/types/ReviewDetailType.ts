@@ -1,0 +1,33 @@
+export type ReviewDetailType = {
+  idx: number;
+  user: {
+    idx: string;
+    email: string;
+    nickname: string;
+    profileImg: string | null;
+    interest1: string | null;
+    interest2: string | null;
+  };
+  title: string;
+  content: string;
+  score: number;
+  tags: string[];
+  thumbnail: string | null;
+  thumbnailContent: string | null;
+  images: string[] | [] | null;
+  imgContent: string[] | [] | null;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
+  viewCount: number;
+  likeCount: number;
+  dislikeCount: number;
+  bookmarkCount: number;
+  shareCount: number;
+  commentCount: number;
+  isMyLike: boolean;
+  isMyDislike: boolean;
+  isMyBookmark: boolean;
+  isMyShare: boolean;
+  isMyBlock: boolean;
+};

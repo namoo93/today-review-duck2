@@ -18,6 +18,7 @@ export default function YourPage() {
             {reviewList.map((review) => (
               <List
                 key={review.idx}
+                reviewIdx={review.idx}
                 isManager={false}
                 alt={review.title}
                 src={review.thumbnail}

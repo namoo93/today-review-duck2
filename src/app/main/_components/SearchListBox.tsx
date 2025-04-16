@@ -102,6 +102,7 @@ export default function SearchListBox() {
                 {data?.reviews.map((review: ReviewType) => (
                   <List
                     key={review.idx}
+                    reviewIdx={review.idx}
                     isManager={false}
                     alt={review.title}
                     src={review.thumbnail}

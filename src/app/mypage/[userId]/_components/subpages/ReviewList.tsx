@@ -36,6 +36,7 @@ export default function ReviewList({ type, title, userIdx }: Props) {
             {reviewList.map((review: ReviewType) => (
               <List
                 key={review.idx}
+                reviewIdx={review.idx}
                 isManager={false}
                 alt={review.title}
                 src={review.thumbnail}

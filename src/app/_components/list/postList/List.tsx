@@ -3,6 +3,7 @@ import styles from "./list.module.css";
 import ImgDefault from "@/../public/images/img-default-post.svg";
 import ImgManager from "@/../public/images/img-manager.svg";
 import RatingTag from "./RatingTag";
+import { useRouter } from "next/navigation";
 
 interface Props {
   width?: string;
@@ -21,6 +22,7 @@ interface Props {
   value: number;
   contents?: string;
   isManager?: boolean;
+  reviewIdx?: number;
 }
 
 export default function List({
@@ -33,13 +35,22 @@ export default function List({
   contents,
   isManager,
   onClkickList,
+  reviewIdx,
 }: Props) {
+  const router = useRouter();
+  const onClickItem = () => {
+    //상세로 이동 reviewIdx
+    if (reviewIdx) {
+      router.push(`/post/${reviewIdx}`);
+    }
+    if (!!onClkickList) onClkickList;
+  };
   return (
     <li className={styles.list_box} style={{ width }}>
       <button
         type="button"
         className={styles.list_button}
-        onClick={onClkickList}
+        onClick={onClickItem}
       >
         <span className={styles.list_img}>
           {isManager ? (

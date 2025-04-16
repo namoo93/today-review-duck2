@@ -60,6 +60,7 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
             {uniqueReviews.map((review) => (
               <List
                 key={review.idx}
+                reviewIdx={review.idx}
                 isManager={false}
                 alt={review.title}
                 src={review.thumbnail}

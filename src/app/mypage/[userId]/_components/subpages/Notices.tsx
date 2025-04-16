@@ -15,6 +15,7 @@ export default function Notices() {
           {noticeList.map((review, index) => (
             <List
               key={review.idx}
+              reviewIdx={review.idx}
               isManager={true}
               alt={review.title}
               src={review.thumbnail}
