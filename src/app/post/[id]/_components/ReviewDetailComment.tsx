@@ -11,8 +11,10 @@ import { useState } from "react";
 
 export default function ReviewDetailComment({
   reviewIdx,
+  commentCount,
 }: {
   reviewIdx: number;
+  commentCount: number;
 }) {
   const [theme] = useRecoilState(themeState);
   const [comment, setComment] = useState<string>("");
@@ -24,7 +26,9 @@ export default function ReviewDetailComment({
         <Icon src={IcoComment} alt="댓글 아이콘" width={24} height={24} />
         <span className={styles.review_comment_info}>
           리뷰에 달린 댓글
-          <strong className={styles.review_comment_info_num}>{`${0}개`}</strong>
+          <strong
+            className={styles.review_comment_info_num}
+          >{`${commentCount}개`}</strong>
         </span>
       </div>
       <div className={styles.review_comment_body}>
