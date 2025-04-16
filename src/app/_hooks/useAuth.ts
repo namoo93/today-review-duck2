@@ -1,10 +1,11 @@
 "use client";
-import { userState } from "@/app/_recoil";
+import { userIdxState } from "@/app/_recoil";
 import { useMutation } from "@tanstack/react-query";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { authInstance, handleApiError } from "../_api/axios";
 import { setAuthorityCookie } from "@/app/_utils/cookies";
 import { getFcmToken } from "../_utils/getFcmToken";
+import { decodeJWT } from "../_utils/jwt";
 
 interface LoginParams {
   email: string;
@@ -12,7 +13,7 @@ interface LoginParams {
 }
 
 const useAuth = () => {
-  const [, setUser] = useRecoilState(userState);
+  const setUserIdx = useSetRecoilState(userIdxState);
 
   const loginMutation = useMutation({
     mutationFn: async ({ email, password }: LoginParams) => {
@@ -29,13 +30,18 @@ const useAuth = () => {
       setAuthorityCookie("accessToken", response.data.accessToken);
       setAuthorityCookie("refreshToken", response.data.refreshToken);
       setAuthorityCookie("nickname", response.data.nickname);
-      setUser({ id: response.data.nickname });
+
+      const payload = decodeJWT(response.data.accessToken);
+      // console.log("디코딩 결과:", payload);
+
+      if (payload && payload.idx) {
+        setUserIdx(payload.idx);
+      }
 
       // console.log(
       //   " 로그인 하며 : ",
-      //   response.data.nickname,
       //   response.data.accessToken,
-      //   response.data.refreshToken
+      //   payload && payload.idx
       // );
 
       return response.data;

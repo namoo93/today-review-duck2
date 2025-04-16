@@ -5,7 +5,7 @@ import ImgDelete from "@/../public/images/img-delete.svg";
 import { useToast } from "@/app/_hooks/useToast";
 import { useRouter } from "next/navigation";
 import { useResetRecoilState } from "recoil";
-import { userState } from "@/app/_recoil";
+import { userIdxState } from "@/app/_recoil";
 import { useWithdraw } from "@/app/_hooks/useWithdraw";
 import { removeAuthorityCookie } from "@/app/_utils/cookies";
 
@@ -13,7 +13,7 @@ export default function DeleteAccountModal() {
   const { closeModal } = useModal();
   const { addToast } = useToast();
   const router = useRouter();
-  const resetUser = useResetRecoilState(userState);
+  const resetUser = useResetRecoilState(userIdxState);
   const { mutateAsync: withdraw, isPending } = useWithdraw();
 
   const handleWithdraw = async () => {

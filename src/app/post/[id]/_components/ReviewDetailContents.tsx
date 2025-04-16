@@ -36,7 +36,7 @@ export default function ReviewDetailContents({
       </strong>
       <button
         type="button"
-        onClick={() => goToUserPage(review.user.nickname)}
+        onClick={() => goToUserPage(review.user.idx)}
         className={styles.review_detail_user}
       >
         <span

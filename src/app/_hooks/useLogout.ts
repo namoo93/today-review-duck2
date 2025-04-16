@@ -1,7 +1,7 @@
 "use client";
 
 import { useRecoilState, useResetRecoilState } from "recoil";
-import { activeItemState, userState } from "@/app/_recoil";
+import { activeItemState, userIdxState } from "@/app/_recoil";
 import {
   removeAuthorityCookie,
   getAuthorityCookie,
@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 const useLogout = () => {
   const [, setActiveItem] = useRecoilState(activeItemState);
-  const resetUser = useResetRecoilState(userState);
+  const resetUser = useResetRecoilState(userIdxState);
   const router = useRouter();
 
   const logout = async () => {

@@ -1,7 +1,7 @@
 "use client";
 import styles from "../_css/searchlist.module.css";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { themeState, userState } from "@/app/_recoil";
+import { themeState, userIdxState } from "@/app/_recoil";
 import List from "@/app/_components/list/postList/List";
 import { useRef, useState } from "react";
 import { TabMenu } from "@/app/_components/tab/TabMenu";
@@ -23,7 +23,7 @@ export default function SearchListBox() {
   const router = useRouter();
   const { addToast } = useToast();
   const theme = useRecoilValue(themeState);
-  const user = useRecoilValue(userState);
+  const userIdx = useRecoilValue(userIdxState);
   const keyword = useRecoilValue(searchKeywordState);
   const containerRef = useRef(null);
   useHorizontalScroll(containerRef, { width: "960px" });
@@ -61,7 +61,7 @@ export default function SearchListBox() {
   };
 
   const handleToggleFollow = (userIdx: string, isFollowing: boolean) => {
-    if (!user?.id) {
+    if (!userIdx) {
       addToast("로그인이 필요한 기능이에요 🐥", "error");
       return;
     }
@@ -123,7 +123,7 @@ export default function SearchListBox() {
                   <li key={`검색된 유저 리스트 ${user.nickname}`}>
                     <ProfileBox
                       name={user.nickname}
-                      onClickBox={() => goToUserPage(user.nickname)}
+                      onClickBox={() => goToUserPage(user.idx)}
                       interest={`${user.interest1 ?? ""} ${
                         user.interest2 ?? ""
                       }`}

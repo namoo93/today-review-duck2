@@ -3,7 +3,7 @@
 import styles from "./_css/aside.module.css";
 import Alarm from "@/../public/icon/alarm-icon.svg";
 import AlarmDark from "@/../public/icon/alarm-icon-dark.svg";
-import { themeState, userState } from "@/app/_recoil";
+import { themeState, userIdxState } from "@/app/_recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { DropDown, Icon } from "../atoms";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import { useState } from "react";
 
 export default function Aside() {
   const [theme] = useRecoilState(themeState);
-  const user = useRecoilValue(userState);
+  const userIdx = useRecoilValue(userIdxState);
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
@@ -22,7 +22,7 @@ export default function Aside() {
 
   return (
     <aside className={styles.aside}>
-      {user.id ? (
+      {userIdx?.length ? (
         <button
           type="button"
           className={styles.alaram_button}

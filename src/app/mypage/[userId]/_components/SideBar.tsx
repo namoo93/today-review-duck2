@@ -104,7 +104,7 @@ export default function SideBar({
                     <li key={`덕후 리스트 ${user.nickname}`}>
                       <ProfileBox
                         name={user.nickname}
-                        onClickBox={() => goToUserPage(user.nickname)}
+                        onClickBox={() => goToUserPage(user.idx)}
                         interest={`${user.interest1 ?? ""} ${
                           user.interest2 ?? ""
                         }`}

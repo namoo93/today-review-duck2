@@ -3,11 +3,12 @@
 import { useEffect, useRef } from "react";
 import { getAuthorityCookie } from "@/app/_utils/cookies";
 import { useSetRecoilState } from "recoil";
-import { userState } from "@/app/_recoil";
+import { userIdxState } from "@/app/_recoil";
 import { postRefreshToken } from "../_api/auth";
+import { decodeJWT } from "../_utils/jwt";
 
 export default function AppInitializer() {
-  const setUser = useSetRecoilState(userState);
+  const setUserIdx = useSetRecoilState(userIdxState);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const nickname = getAuthorityCookie("nickname");
   const refreshToken = getAuthorityCookie("refreshToken");
@@ -37,12 +38,15 @@ export default function AppInitializer() {
 
   useEffect(() => {
     if (refreshToken) {
-      setUser({ id: nickname as string });
+      const payload = decodeJWT(refreshToken);
+      if (payload && payload.idx) {
+        setUserIdx(payload.idx);
+      }
       startRefreshTokenInterval(); // 최초 실행 시 시작
       console.log("✅ AppInitializer → 사용자 로그인 상태 복원:", nickname);
     }
     if (!refreshToken) {
-      setUser({ id: null });
+      setUserIdx(null);
       stopRefreshTokenInterval();
       console.log("🚫 AppInitializer → 로그인 상태 없음, 초기화 완료");
     }

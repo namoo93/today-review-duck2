@@ -2,7 +2,7 @@
 import { DropDown, Icon } from "@/app/_components/atoms";
 import styles from "../_css/reviewdetails.module.css";
 import { useRecoilValue } from "recoil";
-import { themeState, userState } from "@/app/_recoil";
+import { themeState, userIdxState } from "@/app/_recoil";
 import IcoLike from "@/../../public/icon/icon-like.svg";
 import IcoLikeOn from "@/../../public/icon/icon-like-on.svg";
 import IcoBookmark from "@/../../public/icon/icon-bookmark.svg";
@@ -24,14 +24,14 @@ export default function ReviewDetailFixedButtons({
   setReview: Dispatch<SetStateAction<ReviewDetailType | null>>;
 }) {
   const theme = useRecoilValue(themeState);
-  const user = useRecoilValue(userState);
+  const userIdx = useRecoilValue(userIdxState);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const { handleToggle: toggleLike } = useToggleLike();
   const { handleToggle: toggleBookmark } = useToggleBookmark();
   const { addToast } = useToast();
 
   const handleLike = () => {
-    if (!user?.id) {
+    if (!userIdx) {
       addToast("로그인이 필요한 기능이에요 🐥", "error");
       return;
     }
@@ -49,7 +49,7 @@ export default function ReviewDetailFixedButtons({
   };
 
   const handleBookmark = () => {
-    if (!user?.id) {
+    if (!userIdx) {
       addToast("로그인이 필요한 기능이에요 🐥", "error");
       return;
     }
@@ -117,6 +117,26 @@ export default function ReviewDetailFixedButtons({
             </DropDown>
           </button>
         </li>
+        {userIdx == review.user.idx && (
+          <li>
+            <button
+              type="button"
+              className={styles.fixed_button}
+              onClick={() => setIsDropDownOpen((prev) => !prev)}
+            >
+              <Icon src={IcoShare} alt="" width={32} height={32} />
+              <DropDown
+                margin="-2px 0 0 60px"
+                width="240px"
+                position="left"
+                isOpen={isDropDownOpen}
+                onClose={() => setIsDropDownOpen(false)}
+              >
+                <ShareSnsList />
+              </DropDown>
+            </button>
+          </li>
+        )}
       </ul>
       <ToastContainer
         width="335px"

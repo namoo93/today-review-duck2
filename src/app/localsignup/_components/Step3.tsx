@@ -5,8 +5,9 @@ import { validatePassword } from "@/app/_utils/validation";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { useSignup } from "@/app/_hooks/useSignup";
-import { userState } from "@/app/_recoil";
-import { useRecoilState } from "recoil";
+import { userIdxState } from "@/app/_recoil";
+import { useSetRecoilState } from "recoil";
+import { decodeJWT } from "@/app/_utils/jwt";
 
 type Props = {
   setStep: React.Dispatch<SetStateAction<number>>;
@@ -14,7 +15,7 @@ type Props = {
 };
 export default function Step3({ setStep, email }: Props) {
   const { addToast } = useToast();
-  const [, setUser] = useRecoilState(userState);
+  const setUserIdx = useSetRecoilState(userIdxState);
   const { mutate: signupMutate, isPending } = useSignup();
 
   const [passwordError, setPasswordError] = useState("");
@@ -58,9 +59,12 @@ export default function Step3({ setStep, email }: Props) {
       {
         onSuccess: (response) => {
           addToast("회원가입이 완료되었습니다!", "success");
-          setStep(4); // 다음 단계로
-          console.log("TODO : nickname ---- ", response.data.nickname);
-          setUser({ id: response.data.nickname });
+          setStep(4);
+
+          const payload = decodeJWT(response.data.accessToken);
+          if (payload && payload.idx) {
+            setUserIdx(payload.idx);
+          }
         },
         onError: (error: any) => {
           if (error?.response?.status === 409) {
