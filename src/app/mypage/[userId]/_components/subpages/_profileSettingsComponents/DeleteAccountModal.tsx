@@ -26,7 +26,7 @@ export default function DeleteAccountModal() {
       removeAuthorityCookie("refreshToken");
       removeAuthorityCookie("nickname");
       resetUser();
-      queryClient.removeQueries({ queryKey: ["myinfo"] });
+      queryClient.clear();
       addToast("회원탈퇴가 완료되었어요!", "info");
       closeModal();
       router.push("/"); // 홈으로 이동
