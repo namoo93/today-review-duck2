@@ -75,7 +75,7 @@ export default function SearchListBox() {
     }
   };
   const goToUserPage = (user: string) => {
-    router.push(`/${user}`);
+    router.push(`/mypage/${user}`);
   };
 
   return (

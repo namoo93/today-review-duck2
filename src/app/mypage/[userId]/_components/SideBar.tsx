@@ -57,7 +57,7 @@ export default function SideBar({
   };
 
   const goToUserPage = (user: string) => {
-    router.push(`/${user}`);
+    router.push(`/mypage/${user}`);
   };
 
   return (

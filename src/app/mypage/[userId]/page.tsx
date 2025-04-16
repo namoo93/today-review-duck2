@@ -1,12 +1,12 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import MyPage from "./mypage/_components/MyPage";
-import YourPage from "./mypage/_components/YourPage";
+import MyPage from "./_components/MyPage";
+import YourPage from "./_components/YourPage";
 import { useRecoilValue } from "recoil";
 import { userState } from "@/app/_recoil";
 import Header from "@/app/_components/navigation/Header";
-import MyPageBanner from "./mypage/_components/MyPageBanner";
+import MyPageBanner from "./_components/MyPageBanner";
 import ToMobile from "@/app/_components/navigation/ToMobile";
 
 export default function UserPage() {

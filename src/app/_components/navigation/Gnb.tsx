@@ -17,7 +17,7 @@ export default function Gnb() {
       <NavItem label={"리뷰 작성하기"} href={"/writing"} show={!!user.id} />
       <NavItem
         label={"마이페이지"}
-        href={user.id ? `/${user.id}` : "/login"}
+        href={user.id ? `/mypage/${user.id}` : "/login"}
         show={!!user.id}
       />
     </ul>
