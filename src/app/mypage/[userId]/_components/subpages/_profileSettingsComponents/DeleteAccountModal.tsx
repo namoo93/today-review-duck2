@@ -8,8 +8,10 @@ import { useResetRecoilState } from "recoil";
 import { userIdxState } from "@/app/_recoil";
 import { useWithdraw } from "@/app/_hooks/useWithdraw";
 import { removeAuthorityCookie } from "@/app/_utils/cookies";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function DeleteAccountModal() {
+  const queryClient = useQueryClient();
   const { closeModal } = useModal();
   const { addToast } = useToast();
   const router = useRouter();
@@ -19,10 +21,12 @@ export default function DeleteAccountModal() {
   const handleWithdraw = async () => {
     try {
       await withdraw(); // API 요청
+      // 초기화
       removeAuthorityCookie("accessToken");
       removeAuthorityCookie("refreshToken");
       removeAuthorityCookie("nickname");
       resetUser();
+      queryClient.removeQueries({ queryKey: ["myinfo"] });
       addToast("회원탈퇴가 완료되었어요!", "info");
       closeModal();
       router.push("/"); // 홈으로 이동
