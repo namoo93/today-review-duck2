@@ -17,7 +17,7 @@ interface UserResponse {
 export const useSearchResult = (tab: string, keyword: string, page: number) => {
   const url = tab === "게시글" ? "/review" : "/user";
   const paramName = "search"; // 공통으로 쓰이는 파라미터명
-
+  const size = tab === "게시글" ? 10 : 50;
   return useQuery({
     queryKey: ["searchResult", tab, keyword, page],
     queryFn: async () => {
@@ -25,7 +25,7 @@ export const useSearchResult = (tab: string, keyword: string, page: number) => {
         params: {
           [paramName]: keyword,
           page,
-          size: 10,
+          size,
         },
       });
       return res.data;

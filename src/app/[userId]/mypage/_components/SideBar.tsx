@@ -105,7 +105,9 @@ export default function SideBar({
                       <ProfileBox
                         name={user.nickname}
                         onClickBox={() => goToUserPage(user.nickname)}
-                        interest={`${user.interest1} ${user.interest2}`}
+                        interest={`${user.interest1 ?? ""} ${
+                          user.interest2 ?? ""
+                        }`}
                         textWidth={"190px"}
                         isOn={user.isMyFollowing}
                         isOnText="덕질 중"
@@ -160,7 +162,9 @@ export default function SideBar({
                       <ProfileBox
                         name={user.nickname}
                         onClickBox={() => goToUserPage(user.nickname)}
-                        interest={`${user.interest1} ${user.interest2}`}
+                        interest={`${user.interest1 ?? ""} ${
+                          user.interest2 ?? ""
+                        }`}
                         textWidth={"190px"}
                         isOn={user.isMyFollowing}
                         isOnText="덕질 중"

@@ -1,9 +1,32 @@
 .page {
   margin: 0 auto;
   max-width: 936px;
+  margin-bottom: 30px;
 }
 .list_wrap {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.list_box {
+  margin-top: 20px;
+}
+.list_box_user {
+  margin-top: 20px;
+  /* width: 936px;
+  height: 650px; */
+}
+
+.list_wrap_user {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 100%;
+}
+
+.list_wrap_user li {
+  width: 300px;
+  margin-right: 100px;
+  flex-shrink: 0;
 }

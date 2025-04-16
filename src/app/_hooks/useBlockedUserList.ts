@@ -5,7 +5,7 @@ import { userInstance } from "@/app/_api/axios";
 import { BlockedUserType } from "@/types";
 
 export const useBlockedUserList = ({
-  size = 100,
+  size = 50,
   page = 1,
 }: {
   size: number;
