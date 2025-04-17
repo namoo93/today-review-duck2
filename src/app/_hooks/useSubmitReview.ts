@@ -1,11 +1,16 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { reviewInstance } from "../_api/axios";
 import { ReviewSubmitPayload } from "@/types";
 
 export const useSubmitReview = () => {
+  const queryClient = useQueryClient();
+
   const post = useMutation({
     mutationFn: (payload: ReviewSubmitPayload) =>
       reviewInstance.post("/", payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["mainReviewList"] });
+    },
   });
 
   const put = useMutation({
@@ -16,6 +21,9 @@ export const useSubmitReview = () => {
       reviewIdx: number;
       payload: ReviewSubmitPayload;
     }) => reviewInstance.put(`/${reviewIdx}`, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["mainReviewList"] });
+    }
   });
 
   return { post, put };

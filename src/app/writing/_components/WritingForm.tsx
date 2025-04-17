@@ -141,38 +141,34 @@ export default function WritingForm({ reviewIdx }: { reviewIdx?: number }) {
   };
 
   const handleSubmit = async () => {
-    // 업로드 전 처리
-    const finalImages = await prepareUploadImages(images);
+    try {
+      const finalImages = await prepareUploadImages(images);
 
-    const payload: ReviewSubmitPayload = {
-      title: titleData,
-      content: review,
-      score: rangeValue,
-      tags,
-      thumbnail: finalImages[0]?.previewUrl,
-      thumbnailContent: finalImages[0]?.description ?? "",
-      images: finalImages.map(
-        (img: { previewUrl: string; description: string }) => ({
+      const payload: ReviewSubmitPayload = {
+        title: titleData,
+        content: review,
+        score: rangeValue,
+        tags,
+        thumbnail: finalImages[0]?.previewUrl,
+        thumbnailContent: finalImages[0]?.description ?? "",
+        images: finalImages.map((img) => ({
           imgPath: img.previewUrl,
           content: img.description,
-        })
-      ),
-    };
+        })),
+      };
 
-    const onSuccess = () => {
+      if (isEdit && reviewIdx) {
+        await put.mutateAsync({ reviewIdx, payload });
+      } else {
+        await post.mutateAsync(payload);
+      }
+
+      // 👉 UI 후처리
       addToast("리뷰가 성공적으로 등록되었어요! 🎉", "success");
       router.push("/");
-			setActiveItem("최신")
-		};
-
-    const onError = () => {
+      setActiveItem("최신");
+    } catch (err) {
       addToast("오류가 발생했어요. 다시 시도해주세요. 😢", "error");
-    };
-
-    if (isEdit && reviewIdx) {
-      put.mutate({ reviewIdx, payload }, { onSuccess, onError });
-    } else {
-      post.mutate(payload, { onSuccess, onError });
     }
   };
 
@@ -203,6 +199,8 @@ export default function WritingForm({ reviewIdx }: { reviewIdx?: number }) {
               placeholder="리뷰 제목을 자유롭게 작성해주세요."
               value={titleData}
               onChange={(e) => setTitleData(e.target.value)}
+              maxLength={150}
+              minLength={1}
             />
           </div>
           <div className={`${styles.input_container}`}>
@@ -260,6 +258,8 @@ export default function WritingForm({ reviewIdx }: { reviewIdx?: number }) {
               value={review}
               onChange={(e) => setReview(e.target.value)}
               height="242px"
+              maxLength={5000}
+              minLength={1}
             />
           </div>
           <p className={styles.writing_info}>

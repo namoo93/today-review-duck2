@@ -9,6 +9,7 @@ type Props = {
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   height?: string;
   maxLength?: number;
+  minLength?: number;
 };
 
 export default function TextArea({
@@ -19,6 +20,7 @@ export default function TextArea({
   onChange,
   height = "100px",
   maxLength,
+  minLength,
 }: Props) {
   const isLimited = typeof maxLength === "number";
 
@@ -37,6 +39,7 @@ export default function TextArea({
           value={value}
           onChange={onChange}
           maxLength={maxLength}
+          minLength={minLength}
           style={{ height }}
           className={styles.textarea}
         />
