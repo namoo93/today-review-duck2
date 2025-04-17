@@ -5,7 +5,7 @@ import IcoBack from "@/../../public/icon/icon-back.svg";
 import IcoBackDark from "@/../../public/icon/icon-back-dark.svg";
 import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
-import { themeState } from "@/app/_recoil";
+import { activeItemState, themeState } from "@/app/_recoil";
 import { useEffect, useRef, useState } from "react";
 import Modal from "@/app/_components/modal/Modal";
 import { useModal } from "@/app/_hooks/useModal";
@@ -13,19 +13,50 @@ import IsBackModalContent from "./IsBackModalContent";
 import TextArea from "@/app/_components/atoms/TextArea";
 import TagInput from "./TagInput";
 import EvaluationSelector from "./EvaluationSelector";
-import { ImageDataType } from "@/types";
+import { ImageDataType, ReviewSubmitPayload } from "@/types";
 import ImageUploader from "./ImageUploader";
+import { useReviewDetail } from "@/app/_hooks/useReviewDetail";
+import { useSubmitReview } from "@/app/_hooks/useSubmitReview";
+import { useToast } from "@/app/_hooks/useToast";
+import { useUploadReviewImages } from "@/app/_hooks/useUploadReviewImages";
 
-export default function WritingForm() {
+export default function WritingForm({ reviewIdx }: { reviewIdx?: number }) {
+  const isEdit = typeof reviewIdx === "number" && !isNaN(reviewIdx);
   const [theme] = useRecoilState(themeState);
+  const [, setActiveItem] = useRecoilState(activeItemState);
+  const { addToast } = useToast();
   const router = useRouter();
   const { openModal } = useModal();
   const [titleData, setTitleData] = useState("");
   const [review, setReview] = useState("");
-
   const [rangeValue, setRangeValue] = useState<number>(3);
   const [tags, setTags] = useState<string[]>([]);
   const [images, setImages] = useState<ImageDataType[]>([]);
+
+  const { post, put } = useSubmitReview();
+  const { mutateAsync: uploadImages } = useUploadReviewImages();
+
+  // 수정인 경우 기존 데이터 호출
+  const { data: reviewDetail, isLoading } = useReviewDetail(reviewIdx!, {
+    enabled: isEdit,
+  });
+  useEffect(() => {
+    if (reviewIdx && reviewDetail) {
+      setTitleData(reviewDetail.title);
+      setReview(reviewDetail.content);
+      setTags(reviewDetail.tags);
+      setRangeValue(reviewDetail.score);
+      setImages(
+        reviewDetail.images
+          ? reviewDetail.images.map((src, idx) => ({
+              previewUrl: src,
+              description: reviewDetail.imgContent?.[idx] ?? "",
+              isRepresentative: idx === 0,
+            }))
+          : []
+      );
+    }
+  }, [reviewIdx, reviewDetail]);
 
   const handleBack = () => {
     openModal(<IsBackModalContent />);
@@ -37,7 +68,6 @@ export default function WritingForm() {
   };
 
   const handleTagChange = (index: number, value: string) => {
-    console.log("value-----", value);
     const newTags = [...tags];
     newTags[index] = value;
     setTags(newTags);
@@ -74,7 +104,77 @@ export default function WritingForm() {
     setImages(updated);
   };
 
-  const handleSubmit = () => {};
+  /** 이미지 업로드 후 images state 갱신 */
+  const prepareUploadImages = async (
+    images: ImageDataType[]
+  ): Promise<ImageDataType[]> => {
+    /* S3 경로 체크 */
+    const isUploadedUrl = (url: string) =>
+      url.includes("https://s3.ap-northeast-2.amazonaws.com/");
+
+    // 업로드 대상: S3 URL이 아닌 이미지들만
+    const newImageFiles = images
+      .filter((img) => !isUploadedUrl(img.previewUrl) && img.file)
+      .map((img) => img.file!);
+
+    // 이미지 업로드
+    const uploadedPaths = await uploadImages(newImageFiles);
+
+    // 새 업로드 이미지 인덱스 추적
+    let uploadIndex = 0;
+
+    // images 배열을 실제 업로드된 URL로 치환
+    const updatedImages = images.map((img) => {
+      if (isUploadedUrl(img.previewUrl)) {
+        return img; // 기존 S3 이미지 그대로 유지
+      }
+
+      const newPreviewUrl = uploadedPaths[uploadIndex++];
+      return {
+        previewUrl: newPreviewUrl,
+        description: img.description,
+        isRepresentative: img.isRepresentative,
+      };
+    });
+
+    return updatedImages;
+  };
+
+  const handleSubmit = async () => {
+    // 업로드 전 처리
+    const finalImages = await prepareUploadImages(images);
+
+    const payload: ReviewSubmitPayload = {
+      title: titleData,
+      content: review,
+      score: rangeValue,
+      tags,
+      thumbnail: finalImages[0]?.previewUrl,
+      thumbnailContent: finalImages[0]?.description ?? "",
+      images: finalImages.map(
+        (img: { previewUrl: string; description: string }) => ({
+          imgPath: img.previewUrl,
+          content: img.description,
+        })
+      ),
+    };
+
+    const onSuccess = () => {
+      addToast("리뷰가 성공적으로 등록되었어요! 🎉", "success");
+      router.push("/");
+			setActiveItem("최신")
+		};
+
+    const onError = () => {
+      addToast("오류가 발생했어요. 다시 시도해주세요. 😢", "error");
+    };
+
+    if (isEdit && reviewIdx) {
+      put.mutate({ reviewIdx, payload }, { onSuccess, onError });
+    } else {
+      post.mutate(payload, { onSuccess, onError });
+    }
+  };
 
   return (
     <section className={styles.page}>
@@ -169,12 +269,22 @@ export default function WritingForm() {
         </div>
         <div className={styles.writing_form_button}>
           {theme == "light" ? (
-            <Button buttonType={"button"} filled width="335px ">
-              등록하기
+            <Button
+              buttonType={"button"}
+              filled
+              width="335px"
+              onClick={handleSubmit}
+            >
+              {isEdit ? "수정하기" : "등록하기"}
             </Button>
           ) : (
-            <Button buttonType={"button"} filledDark width="335px ">
-              등록하기
+            <Button
+              buttonType={"button"}
+              filledDark
+              width="335px"
+              onClick={handleSubmit}
+            >
+              {isEdit ? "수정하기" : "등록하기"}
             </Button>
           )}
         </div>

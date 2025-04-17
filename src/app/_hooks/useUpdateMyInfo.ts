@@ -44,7 +44,10 @@ export const useUpdateMyInfo = () => {
       const res = error?.response?.data;
 
       if (typeof res?.message === "string") {
-        if (res.message.includes("닉네임에 사용할 수 없습니다")) {
+        if (
+          res.message.includes("닉네임에 사용할 수 없습니다") ||
+          res.message.includes("중복된 닉네임 입니다")
+        ) {
           addToast(res.message, "error");
         } else {
           addToast("정보 수정에 실패했어요. 다시 시도해주세요.", "error");

@@ -26,6 +26,7 @@ export default function DeleteAccountModal() {
       removeAuthorityCookie("refreshToken");
       removeAuthorityCookie("nickname");
       resetUser();
+			// 탈퇴시 모든 캐시 삭제
       queryClient.clear();
       addToast("회원탈퇴가 완료되었어요!", "info");
       closeModal();

@@ -6,6 +6,7 @@ import { useToast } from "@/app/_hooks/useToast";
 import { useUploadProfileImage } from "@/app/_hooks/useUploadProfileImage";
 import { useDeleteProfileImage } from "@/app/_hooks/useDeleteProfileImage";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
+import TextButtonList from "@/app/_components/list/textButtonList/TextButtonList";
 
 export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
   const [image, setImage] = useState<string | null>(imageSrc);
@@ -77,15 +78,9 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
         onClose={() => setIsDropDownOpen(false)}
       >
         <ul className={styles.profile_setting_list}>
-          <li>
-            <button
-              className={styles.profile_setting_list_button}
-              type="button"
-              onClick={handleImageDelete}
-            >
-              현재 사진 삭제
-            </button>
-          </li>
+          <TextButtonList onClkickList={handleImageDelete}>
+            현재 사진 삭제
+          </TextButtonList>
           <li>
             <label
               htmlFor="profile-upload"
@@ -94,7 +89,6 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
             >
               프로필 사진 변경
             </label>
-
             <input
               id="profile-upload"
               type="file"

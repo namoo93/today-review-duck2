@@ -8,6 +8,7 @@ import IcoLikeOn from "@/../../public/icon/icon-like-on.svg";
 import IcoBookmark from "@/../../public/icon/icon-bookmark.svg";
 import IcoBookmarkOn from "@/../../public/icon/icon-bookmark-on.svg";
 import IcoShare from "@/../../public/icon/icon-share.svg";
+import IcoMore from "@/../../public/icon/icon-my-more.svg";
 import ShareSnsList from "@/app/_components/list/shareSnsList/ShareSnsList";
 import { Dispatch, SetStateAction, useState } from "react";
 import { ReviewDetailType } from "@/types";
@@ -15,6 +16,9 @@ import { useToggleLike } from "@/app/_hooks/useToggleLike";
 import { useToggleBookmark } from "@/app/_hooks/useToggleBookmark";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { useToast } from "@/app/_hooks/useToast";
+import TextButtonList from "@/app/_components/list/textButtonList/TextButtonList";
+import { useDeleteReview } from "@/app/_hooks/useDeleteReview";
+import { useRouter } from "next/navigation";
 
 export default function ReviewDetailFixedButtons({
   review,
@@ -26,8 +30,11 @@ export default function ReviewDetailFixedButtons({
   const theme = useRecoilValue(themeState);
   const userIdx = useRecoilValue(userIdxState);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [isListDropDownOpen, setIsListDropDownOpen] = useState(false);
   const { handleToggle: toggleLike } = useToggleLike();
   const { handleToggle: toggleBookmark } = useToggleBookmark();
+  const { mutate: deleteReview } = useDeleteReview();
+  const router = useRouter();
   const { addToast } = useToast();
 
   const handleLike = () => {
@@ -58,6 +65,22 @@ export default function ReviewDetailFixedButtons({
     setReview((prev) =>
       prev ? { ...prev, isMyBookmark: !prev.isMyBookmark } : prev
     );
+  };
+
+  const handleDelete = () => {
+    deleteReview(review.idx, {
+      onSuccess: () => {
+        addToast("리뷰가 삭제되었어요 🧼", "success");
+        router.back();
+      },
+      onError: () => {
+        addToast("삭제 중 오류가 발생했어요 😢", "error");
+      },
+    });
+  };
+
+  const handleEdit = () => {
+    router.push(`/writing/${review.idx}`);
   };
 
   return (
@@ -122,17 +145,24 @@ export default function ReviewDetailFixedButtons({
             <button
               type="button"
               className={styles.fixed_button}
-              onClick={() => setIsDropDownOpen((prev) => !prev)}
+              onClick={() => setIsListDropDownOpen((prev) => !prev)}
             >
-              <Icon src={IcoShare} alt="" width={32} height={32} />
+              <Icon src={IcoMore} alt="" width={32} height={32} />
               <DropDown
                 margin="-2px 0 0 60px"
-                width="240px"
+                width="170px"
                 position="left"
-                isOpen={isDropDownOpen}
-                onClose={() => setIsDropDownOpen(false)}
+                isOpen={isListDropDownOpen}
+                onClose={() => setIsListDropDownOpen(false)}
               >
-                <ShareSnsList />
+                <ul>
+                  <TextButtonList onClkickList={handleDelete}>
+                    게시글 삭제하기
+                  </TextButtonList>
+                  <TextButtonList onClkickList={handleEdit}>
+                    게시글 수정하기
+                  </TextButtonList>
+                </ul>
               </DropDown>
             </button>
           </li>

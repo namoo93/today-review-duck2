@@ -1,0 +1,16 @@
+.item_list {
+}
+.item_button {
+	width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.item_button:hover {
+  background-color: #f0f0f0;
+}

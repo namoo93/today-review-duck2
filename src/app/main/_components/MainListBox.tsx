@@ -46,7 +46,7 @@ export default function MainListBox() {
       {activeItem == "트랜드" && (
         <TabMenu
           width="240px"
-          margin="0 10px 0"
+          margin="0 10px 0 -20px"
           selected={tab}
           setTabView={setTab}
           menu={["오늘", "이번주", "이번달"]}

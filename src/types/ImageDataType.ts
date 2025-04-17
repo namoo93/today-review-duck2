@@ -1,5 +1,5 @@
 export type ImageDataType = {
-  file: File;
+  file?: File;
   previewUrl: string;
   description: string;
   isRepresentative?: boolean;
