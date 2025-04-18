@@ -6,8 +6,7 @@ interface CommentListResponse {
   totalPage: number;
   comments: CommentType[];
 }
-
-export const useCommentList = (reviewIdx: number, page = 1, size = 10) => {
+export const useCommentList = (reviewIdx: number, page: number, size = 10) => {
   return useQuery<CommentListResponse>({
     queryKey: ["comments", reviewIdx, page],
     queryFn: async () => {
