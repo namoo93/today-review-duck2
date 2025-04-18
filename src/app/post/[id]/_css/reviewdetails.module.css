@@ -283,6 +283,15 @@
   border-radius: 8px;
   padding-right: 50px;
   position: relative;
+  flex: 1;
+}
+.comment_input_edit {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+}
+.comment_cancel_button {
+  margin-left: 15px;
 }
 .comment_input::placeholder {
   color: #969696;

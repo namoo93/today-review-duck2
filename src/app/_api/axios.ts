@@ -73,6 +73,7 @@ function createAPIInstance(
 export const authInstance = createAPIInstance("auth");
 export const userInstance = createAPIInstance("user");
 export const reviewInstance = createAPIInstance("review");
+export const commentInstance = createAPIInstance("comment");
 //프로필 이미지 변경시
 export const fileInstance = createAPIInstance("user", "multipart/form-data");
 
