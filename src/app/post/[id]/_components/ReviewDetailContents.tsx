@@ -1,15 +1,14 @@
 "use client";
 import { Icon } from "@/app/_components/atoms";
 import styles from "../_css/reviewdetails.module.css";
-import IcoBack from "@/../../public/icon/icon-back.svg";
 import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
 import { themeState } from "@/app/_recoil";
 import { useRef, useState } from "react";
-import { useHorizontalScroll } from "@/app/_hooks/useHorizontalScroll";
 import { ReviewDetailType } from "@/types";
 import { getRatingText } from "@/app/_utils/ratingUtils";
 import { formatDate } from "@/app/_utils/date";
+import { applyHorizontalScroll } from "@/app/_utils/applyHorizontalScroll";
 
 export default function ReviewDetailContents({
   review,
@@ -20,7 +19,7 @@ export default function ReviewDetailContents({
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState(["", "", "", ""]);
-  useHorizontalScroll(containerRef, {
+  applyHorizontalScroll(containerRef, {
     width: "calc(100% + 4px)",
     height: "320px",
   });

@@ -98,6 +98,9 @@ export default function WritingForm({ reviewIdx }: { reviewIdx?: number }) {
     setImages(newImages);
   };
 
+  // 인풋 텍스트 개행 있을시 /n으로 변경
+  const escapeNewlines = (text: string) => text.replace(/\n/g, "\n");
+
   const handleDescriptionChange = (index: number, desc: string) => {
     const updated = [...images];
     updated[index].description = desc;
@@ -141,12 +144,13 @@ export default function WritingForm({ reviewIdx }: { reviewIdx?: number }) {
   };
 
   const handleSubmit = async () => {
+    console.log("등록될 리뷰 내용", review);
     try {
       const finalImages = await prepareUploadImages(images);
 
       const payload: ReviewSubmitPayload = {
         title: titleData,
-        content: review,
+        content: escapeNewlines(review),
         score: rangeValue,
         tags,
         thumbnail: finalImages[0]?.previewUrl,
