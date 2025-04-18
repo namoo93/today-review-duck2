@@ -17,7 +17,7 @@
 - **Firebase** – 소셜 로그인(Google), 알림(FCM)
 - **Vercel** – 프론트엔드 배포
 - **Axios** – API 통신
-- **Server-Sent Events (SSE)** – 실시간 알림 및 댓글
+- **Server-Sent Events (SSE)** – 실시간 알림 
 
 ### Backend
 
