@@ -26,6 +26,7 @@ export default function YourPage() {
                 user={review.user}
                 value={review.score}
                 contents={review.content}
+                date={review.createdAt}
               />
             ))}
           </ul>

@@ -124,6 +124,7 @@ export default function SearchListBox() {
                     user={review.user}
                     value={review.score}
                     contents={review.content}
+                    date={review.createdAt}
                   />
                 ))}
               </ul>

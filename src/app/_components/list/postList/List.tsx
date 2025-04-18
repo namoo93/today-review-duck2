@@ -4,6 +4,7 @@ import ImgDefault from "@/../public/images/img-default-post.svg";
 import ImgManager from "@/../public/images/img-manager.svg";
 import RatingTag from "./RatingTag";
 import { useRouter } from "next/navigation";
+import { formatDate } from "@/app/_utils/date";
 
 interface Props {
   width?: string;
@@ -23,6 +24,7 @@ interface Props {
   contents?: string;
   isManager?: boolean;
   reviewIdx?: number;
+  date: string;
 }
 
 export default function List({
@@ -36,6 +38,7 @@ export default function List({
   isManager,
   onClkickList,
   reviewIdx,
+  date,
 }: Props) {
   const router = useRouter();
   const onClickItem = () => {
@@ -74,7 +77,9 @@ export default function List({
           <span className={`${styles.list_title} elipsis_1_lines`}>
             {title}
           </span>
-          <span className={styles.list_user}>{user.nickname}</span>
+          <span className={styles.list_user}>
+            {`${user.nickname} | ${formatDate(date)}`}
+          </span>
           {!isManager && <RatingTag score={value} />}
           <span className={`elipsis_5_lines ${styles.list_contents}`}>
             {contents}

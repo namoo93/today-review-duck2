@@ -23,6 +23,7 @@ export default function Notices() {
               user={review.user}
               value={review.score}
               contents={review.content}
+              date={review.createdAt}
             />
           ))}
         </ul>

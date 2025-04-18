@@ -12,9 +12,8 @@ import { useCreateComment } from "@/app/_hooks/useCreateComment";
 import { useCommentList } from "@/app/_hooks/useCommentList";
 import Pagination from "@/app/_components/pagination/Pagination";
 import DataNone from "@/app/_components/atoms/DataNone";
-import SkeletonUserItem from "@/app/_components/skeleton/userList/SkeletonUserItem";
-import Skeleton from "@/app/_components/skeleton/Skeleton";
 import SkeletonCommentItem from "@/app/_components/skeleton/comment/SkeletonCommentItem";
+import { formatDate } from "@/app/_utils/date";
 
 export default function ReviewDetailComment({
   reviewIdx,
@@ -50,6 +49,10 @@ export default function ReviewDetailComment({
     setComment("");
   };
 
+  const goToUserPage = (user: string) => {
+    router.push(`/mypage/${user}`);
+  };
+
   return (
     <div className={styles.review_comment_wrap}>
       <div className={styles.review_comment_header}>
@@ -64,86 +67,90 @@ export default function ReviewDetailComment({
       <div className={styles.review_comment_body}>
         {/* 개별 댓글들 */}
         {isLoading && <SkeletonCommentItem />}
-        {commentList.length == 0 && <DataNone target="등록 된 댓글" />}
-        {commentList.length > 0 && (
-          <div className={`${styles.comment_box} ${styles.depth1} `}>
-            <div className={`${styles.comment_user_box}`}>
-              <div className={`${styles.comment_user}`}>
-                <span
-                  className={`${
-                    theme == "light"
-                      ? styles.comment_user_profile
-                      : styles.comment_user_profile_dark
-                  }`}
-                >
-                  <Icon src="" width={50} height={50} alt="유저 아이콘" />
-                </span>
-                <div className={`${styles.comment_user_name}`}>
-                  <span className={`${styles.user_profile_name}`}>
-                    {`${"user01 dsad dsad sd"}`}
-                    <span
-                      className={`${styles.user_profile_time}`}
-                    >{`${2025}.01.01 23:12`}</span>
-                    <Button
-                      onClick={() => {}}
-                      transparent
-                      buttonType={"button"}
-                      className={`${styles.user_profile_button}`}
-                    >
-                      <Icon
-                        src={IocMoreview}
-                        alt="더보기 버튼"
-                        width={20}
-                        height={20}
-                      />
-                    </Button>
-                  </span>
-                  <ul className={`${styles.comment_user_tags_list}`}>
-                    <li>
-                      <button
-                        type="button"
-                        className={`${styles.comment_user_tag_button}`}
-                      >
-                        리뷰태그
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        className={`${styles.comment_user_tag_button}`}
-                      >
-                        리뷰태그
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p className={`${styles.comment}`}>
-                좋은 질문 감사합니다! 개선이 필요하다고 느낀 부분은 앱과의
-                연동성입니다. 가끔 앱이 기기를 인식하지 못하거나 연결이 끊기는
-                경우가 있었어요. 소프트웨어 업데이트로 해결될 수 있을 것 같지만,
-                이 부분만 개선된다면 더 완벽한 제품이 될 것 같습니다.
-              </p>
-            </div>
-          </div>
+        {commentList.length == 0 && !isLoading && (
+          <DataNone target="등록 된 댓글" />
         )}
+        {commentList.length > 0 &&
+          commentList.map((comment) => (
+            <div className={`${styles.comment_box} ${styles.depth1} `}>
+              <div className={`${styles.comment_user_box}`}>
+                <div className={`${styles.comment_user}`}>
+                  <button
+                    type="button"
+                    onClick={() => goToUserPage(comment.user.idx)}
+                    className={`${
+                      theme == "light"
+                        ? styles.comment_user_profile
+                        : styles.comment_user_profile_dark
+                    }`}
+                  >
+                    <Icon
+                      src={comment.user.profileImg || ""}
+                      width={50}
+                      height={50}
+                      alt={`${comment.user.nickname} 프로필 이미지`}
+                    />
+                  </button>
+                  <div className={`${styles.comment_user_name}`}>
+                    <span className={`${styles.user_profile_name}`}>
+                      {`${comment.user.nickname}`}
+                      <span className={`${styles.user_profile_time}`}>
+                        {formatDate(comment.createdAt)}
+                      </span>
+                      <Button
+                        onClick={() => {}}
+                        transparent
+                        buttonType={"button"}
+                        className={`${styles.user_profile_button}`}
+                      >
+                        <Icon
+                          src={IocMoreview}
+                          alt="더보기 버튼"
+                          width={20}
+                          height={20}
+                        />
+                      </Button>
+                    </span>
+                    <ul className={`${styles.comment_user_tags_list}`}>
+                      <li>
+                        <span className={`${styles.comment_user_tag_button}`}>
+                          {comment.user.interest1}
+                        </span>
+                      </li>
+                      <li>
+                        <span className={`${styles.comment_user_tag_button}`}>
+                          {comment.user.interest2}
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <button type="button" className={`${styles.comment}`}>
+                  {comment.content}
+                </button>
+              </div>
+            </div>
+          ))}
         {totalPages > 1 && (
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={setCurrentPage}
-            margin="20px 0"
+            margin="30px 0"
           />
         )}
 
         {/* 댓글 인풋 */}
         <div className={styles.comment_input_box}>
           <div className={styles.comment_input_wrap}>
-            <input
+            <textarea
               className={styles.comment_input}
               onChange={(e) => setComment(e.target.value)}
               value={comment}
               placeholder="댓글을  작성해 주세요."
+              maxLength={3000}
+              minLength={1}
             />
             <Button
               transparent
