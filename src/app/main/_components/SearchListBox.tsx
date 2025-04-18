@@ -3,7 +3,7 @@ import styles from "../_css/searchlist.module.css";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { themeState, userIdxState } from "@/app/_recoil";
 import List from "@/app/_components/list/postList/List";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TabMenu } from "@/app/_components/tab/TabMenu";
 import { MyInfoType, ReviewType } from "@/types";
 import { useSearchResult } from "@/app/_hooks/useSearchResult";
@@ -13,10 +13,11 @@ import { searchKeywordState } from "@/app/_recoil/searchKeywordAtom";
 import ProfileBox from "@/app/_components/profile/ProfileBox";
 import { useToggleFollow } from "@/app/_hooks/useToggleFollow";
 import { useRouter } from "next/navigation";
-import { useHorizontalScroll } from "@/app/_hooks/useHorizontalScroll";
 import { useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/app/_hooks/useToast";
-import ToastContainer from "@/app/_components/toast/ToastContainer";
+import SkeletonItem from "@/app/_components/skeleton/list/SkeletonItem";
+import SkeletonUserItem from "@/app/_components/skeleton/userList/SkeletonUserItem";
+import { applyHorizontalScroll } from "@/app/_utils/applyHorizontalScroll";
 
 export default function SearchListBox() {
   const queryClient = useQueryClient();
@@ -26,7 +27,6 @@ export default function SearchListBox() {
   const userIdx = useRecoilValue(userIdxState);
   const keyword = useRecoilValue(searchKeywordState);
   const containerRef = useRef(null);
-  useHorizontalScroll(containerRef, { width: "960px" });
 
   const [tab, setTab] = useState("게시글");
   const [currentPage, setCurrentPage] = useState(1);
@@ -78,6 +78,13 @@ export default function SearchListBox() {
     router.push(`/mypage/${user}`);
   };
 
+  useEffect(() => {
+    if (tab === "유저") {
+      const cleanup = applyHorizontalScroll(containerRef, { width: "960px" });
+      return cleanup;
+    }
+  }, [tab]);
+
   return (
     <section className={styles.page}>
       <TabMenu
@@ -91,7 +98,14 @@ export default function SearchListBox() {
         menu={["게시글", "유저"]}
       />
       {isLoading ? (
-        <p>로딩 중...</p>
+        <>
+          {tab === "게시글" && <SkeletonItem />}
+          {tab === "유저" && (
+            <>
+              <SkeletonUserItem /> <SkeletonUserItem />
+            </>
+          )}
+        </>
       ) : isEmpty ? (
         <DataNone target={`검색된 키워드' ${keyword}' 의 ${tab}(이)`} />
       ) : (
@@ -115,7 +129,6 @@ export default function SearchListBox() {
               </ul>
             </div>
           )}
-
           {tab === "유저" && (
             <div ref={containerRef} className={styles.list_box_user}>
               <ul className={styles.list_wrap_user}>

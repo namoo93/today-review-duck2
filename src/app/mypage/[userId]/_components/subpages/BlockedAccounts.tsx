@@ -2,16 +2,16 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../../_css/mypage.module.css";
 import ProfileBox from "@/app/_components/profile/ProfileBox";
-import { useHorizontalScroll } from "@/app/_hooks/useHorizontalScroll";
 import { useBlockedUserList } from "@/app/_hooks/useBlockedUserList";
 import Pagination from "@/app/_components/pagination/Pagination";
 import DataNone from "@/app/_components/atoms/DataNone";
 import { useUnblockUser } from "@/app/_hooks/useUnblockUser";
 import LottieLoading from "@/app/_components/atoms/LottieLoading";
+import { applyHorizontalScroll } from "@/app/_utils/applyHorizontalScroll";
 
 export default function BlockedAccounts() {
   const containerRef = useRef<HTMLDivElement>(null);
-  useHorizontalScroll(containerRef);
+  applyHorizontalScroll(containerRef);
   const [currentPage, setCurrentPage] = useState(1);
   const { data: blockUsers = { users: [], totalPage: 1 }, isLoading } =
     useBlockedUserList({
