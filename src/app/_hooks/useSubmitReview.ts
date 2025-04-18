@@ -10,6 +10,7 @@ export const useSubmitReview = () => {
       reviewInstance.post("/", payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["mainReviewList"] });
+      queryClient.invalidateQueries({ queryKey: ["userReviewList"] });
     },
   });
 
@@ -23,7 +24,8 @@ export const useSubmitReview = () => {
     }) => reviewInstance.put(`/${reviewIdx}`, payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["mainReviewList"] });
-    }
+      queryClient.invalidateQueries({ queryKey: ["userReviewList"] });
+    },
   });
 
   return { post, put };
