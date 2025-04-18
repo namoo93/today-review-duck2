@@ -40,10 +40,16 @@ export const applyHorizontalScroll = (
     };
   };
 
-  // DOM이 완전히 렌더된 뒤 적용되도록 지연
-  const frameId = requestAnimationFrame(() => {
-    setTimeout(apply, 10); // setTimeout이 없으면 너무 빨라서 ref가 null일 수 있음
-  });
+  // ref.current가 생길 때까지 기다림
+  let frameId: number;
+  const waitForRef = () => {
+    if (ref.current) {
+      apply();
+    } else {
+      frameId = requestAnimationFrame(waitForRef);
+    }
+  };
+  frameId = requestAnimationFrame(waitForRef);
 
   return () => {
     cancelAnimationFrame(frameId);
