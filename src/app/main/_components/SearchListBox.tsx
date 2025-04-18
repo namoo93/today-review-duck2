@@ -15,7 +15,7 @@ import { useToggleFollow } from "@/app/_hooks/useToggleFollow";
 import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/app/_hooks/useToast";
-import SkeletonItem from "@/app/_components/skeleton/list/SkeletonItem";
+import SkeletonListItem from "@/app/_components/skeleton/list/SkeletonListItem";
 import SkeletonUserItem from "@/app/_components/skeleton/userList/SkeletonUserItem";
 import { applyHorizontalScroll } from "@/app/_utils/applyHorizontalScroll";
 
@@ -99,7 +99,7 @@ export default function SearchListBox() {
       />
       {isLoading ? (
         <>
-          {tab === "게시글" && <SkeletonItem />}
+          {tab === "게시글" && <SkeletonListItem />}
           {tab === "유저" && (
             <>
               <SkeletonUserItem /> <SkeletonUserItem />

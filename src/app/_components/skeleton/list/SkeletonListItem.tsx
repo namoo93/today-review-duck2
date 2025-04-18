@@ -5,7 +5,7 @@ interface SkeletonProps {
   width?: string;
 }
 
-export default function SkeletonItem({ width = "100%" }: SkeletonProps) {
+export default function SkeletonListItem({ width = "100%" }: SkeletonProps) {
   return (
     <div className={styles.skeleton_wrap} style={{ width }}>
       <Skeleton width="300px" height="300px" borderRadius="12px" />

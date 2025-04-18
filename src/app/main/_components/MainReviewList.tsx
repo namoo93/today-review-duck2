@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 import { ReviewType } from "@/types";
 import DataNone from "@/app/_components/atoms/DataNone";
 
-import SkeletonItem from "@/app/_components/skeleton/list/SkeletonItem";
+import SkeletonListItem from "@/app/_components/skeleton/list/SkeletonListItem";
 
 interface Props {
   type: "high-score" | "low-score";
@@ -51,7 +51,7 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
   return (
     <>
       {isLoading ? (
-        <SkeletonItem />
+        <SkeletonListItem />
       ) : uniqueReviews.length === 0 ? (
         <DataNone target="리뷰" />
       ) : (
@@ -71,7 +71,7 @@ export default function MainReviewList({ type, mode, timeframe }: Props) {
               />
             ))}
           </ul>
-          {isFetchingNextPage && <SkeletonItem />}
+          {isFetchingNextPage && <SkeletonListItem />}
           <div ref={ref} style={{ height: 1, marginTop: "200px" }} />
         </>
       )}
