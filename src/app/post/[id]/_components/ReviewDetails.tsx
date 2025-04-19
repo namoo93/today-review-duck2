@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import SkeletonItem from "@/app/_components/skeleton/detail/SkeletonItem";
 import { useEffect, useState } from "react";
 import { ReviewDetailType } from "@/types";
+import Modal from "@/app/_components/modal/Modal";
 
 export default function ReviewDetails() {
   const { id } = useParams();
@@ -38,6 +39,8 @@ export default function ReviewDetails() {
         reviewIdx={review.idx}
         commentCount={review.commentCount}
       />
+
+      <Modal width="500px" />
     </section>
   );
 }

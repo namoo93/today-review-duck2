@@ -19,6 +19,9 @@ import { useToast } from "@/app/_hooks/useToast";
 import TextButtonList from "@/app/_components/list/textButtonList/TextButtonList";
 import { useDeleteReview } from "@/app/_hooks/useDeleteReview";
 import { useRouter } from "next/navigation";
+import Modal from "@/app/_components/modal/Modal";
+import { useModal } from "@/app/_hooks/useModal";
+import ReviewReportModal from "./ReviewReportModal";
 
 export default function ReviewDetailFixedButtons({
   review,
@@ -35,6 +38,7 @@ export default function ReviewDetailFixedButtons({
   const { handleToggle: toggleBookmark } = useToggleBookmark();
   const { mutate: deleteReview } = useDeleteReview();
   const router = useRouter();
+  const { openModal } = useModal();
   const { addToast } = useToast();
 
   const handleLike = () => {
@@ -83,7 +87,13 @@ export default function ReviewDetailFixedButtons({
     router.push(`/writing/${review.idx}`);
   };
 
-  const handleReport = () => {};
+  const handleReport = (idx: number) => {
+    if (!userIdx) {
+      addToast("로그인이 필요한 기능이에요 🐥", "error");
+      return;
+    }
+    openModal(<ReviewReportModal reviewIdx={idx} />);
+  };
 
   return (
     <div className={styles.review_fixed_button_wrap}>
@@ -167,7 +177,7 @@ export default function ReviewDetailFixedButtons({
                     </TextButtonList>
                   </>
                 ) : (
-                  <TextButtonList onClkickList={handleReport}>
+                  <TextButtonList onClkickList={() => handleReport(review.idx)}>
                     게시글 신고하기
                   </TextButtonList>
                 )}

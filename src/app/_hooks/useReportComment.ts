@@ -1,6 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { commentInstance } from "@/app/_api/axios";
-import { useToast } from "./useToast";
+import { commentInstance, handleApiError } from "@/app/_api/axios";
 
 interface ReportPayload {
   commentIdx: number;
@@ -9,16 +8,14 @@ interface ReportPayload {
 }
 
 export const useReportComment = () => {
-  const { addToast } = useToast();
-
   return useMutation({
     mutationFn: ({ commentIdx, content, type }: ReportPayload) =>
       commentInstance.post(`/${commentIdx}/report`, {
         content,
         type,
       }),
-    onSuccess: () => {
-      addToast("댓글이 신고 되었어요!", "success");
+    onError: (error) => {
+      handleApiError(error);
     },
   });
 };

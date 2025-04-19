@@ -10,6 +10,7 @@ type Props = {
   height?: string;
   maxLength?: number;
   minLength?: number;
+  errorMessage?: string | null;
 };
 
 export default function TextArea({
@@ -21,16 +22,17 @@ export default function TextArea({
   height = "100px",
   maxLength,
   minLength,
+  errorMessage,
 }: Props) {
   const isLimited = typeof maxLength === "number";
-
+  const hasError = !!errorMessage;
   return (
     <div className={styles.textarea_wrapper}>
       {label && <label htmlFor={name}>{label}</label>}
       <div
         className={`${styles.textarea_box} ${
           !isLimited ? styles.textarea_box_filled : ""
-        }`}
+        } ${hasError ? styles.textarea_box_error : ""}`}
       >
         <textarea
           id={name}
@@ -41,7 +43,9 @@ export default function TextArea({
           maxLength={maxLength}
           minLength={minLength}
           style={{ height }}
-          className={styles.textarea}
+          className={`${styles.textarea} ${
+            hasError ? styles.textarea_error : ""
+          }`}
         />
         {isLimited && (
           <span className={styles.sub_info}>
@@ -49,6 +53,7 @@ export default function TextArea({
           </span>
         )}
       </div>
+      {hasError && <p className={styles.error_message}>{errorMessage}</p>}
     </div>
   );
 }

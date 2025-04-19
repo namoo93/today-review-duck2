@@ -19,8 +19,10 @@ import { formatDate } from "@/app/_utils/date";
 import TextButtonList from "@/app/_components/list/textButtonList/TextButtonList";
 import { useDeleteComment } from "@/app/_hooks/useDeleteComment";
 import { useEditComment } from "@/app/_hooks/useEditComment";
-import { useReportComment } from "@/app/_hooks/useReportComment";
 import { useBlockUser } from "@/app/_hooks/useBlockUser";
+import { useModal } from "@/app/_hooks/useModal";
+import CommentReportModal from "./CommentReportModal";
+import { useToast } from "@/app/_hooks/useToast";
 
 export default function ReviewDetailComment({
   reviewIdx,
@@ -38,9 +40,9 @@ export default function ReviewDetailComment({
   const [dropDownOpenCommentId, setDropDownOpenCommentId] = useState<
     number | null
   >(null);
-
+  const { openModal } = useModal();
   const router = useRouter();
-
+  const { addToast } = useToast();
   const { data: commentData, isLoading } = useCommentList(
     reviewIdx,
     currentPage
@@ -48,7 +50,6 @@ export default function ReviewDetailComment({
   const createComment = useCreateComment(reviewIdx);
   const deleteComment = useDeleteComment(reviewIdx);
   const editComment = useEditComment(reviewIdx);
-  const reportComment = useReportComment();
   const blockUser = useBlockUser();
 
   const totalPages = commentData?.totalPage ?? 1;
@@ -95,18 +96,20 @@ export default function ReviewDetailComment({
     setEditContent("");
   };
 
-  const handleReport = (commentIdx: number) => {
-    const reason = prompt("신고 사유를 입력하세요", "욕설/비방 등")?.trim();
-    if (!reason) return;
-    reportComment.mutate({
-      commentIdx,
-      type: 1, // 고정 타입 (API 명세에 따라 조정 가능)
-      content: reason,
-    });
+  const handleBlock = (idx: string) => {
+    if (!userIdx) {
+      addToast("로그인이 필요한 기능이에요 🐥", "error");
+      return;
+    }
+    blockUser.mutate(idx);
   };
 
-  const handleBlock = (userIdx: string) => {
-    blockUser.mutate(userIdx);
+  const handleReport = (idx: number) => {
+    if (!userIdx) {
+      addToast("로그인이 필요한 기능이에요 🐥", "error");
+      return;
+    }
+    openModal(<CommentReportModal commentIdx={idx} />);
   };
 
   return (

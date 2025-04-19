@@ -1,17 +1,16 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styles from "./_css/select.module.css";
 import Icon from "./Icon";
 import IocSelect from "@/../../public/icon/icon-select.svg";
 
 export type ItemSelectProps = {
-  id?: string | number;
-  label?: string;
-  value?: string | number;
+  label: string;
+  value: number;
 };
 
 type SelectProps = {
-  options?: ItemSelectProps[];
+  options: ItemSelectProps[];
   onClick?: () => void;
   onSelect?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   defaultValue?: null | string;
@@ -22,7 +21,13 @@ type SelectProps = {
   text?: string;
   disabled?: boolean;
   $positionTop?: boolean;
-  setSelectedValue?: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedValue?: Dispatch<
+    SetStateAction<{
+      label: string;
+      value: number;
+    } | null>
+  >;
+  errorMessage?: string | null;
 };
 
 export default function Select({
@@ -33,21 +38,19 @@ export default function Select({
   height = "40px",
   disabled,
   setSelectedValue,
+  errorMessage,
 }: SelectProps) {
   const [isOptionShow, setIsOptionShow] = useState(false);
-  const [selected, setSelected] = useState<string>();
-
+  const [selected, setSelected] = useState<ItemSelectProps>();
+  const hasError = !!errorMessage;
   useEffect(() => {
-    selectHandler();
-  }, [selected]);
-  const selectHandler = () => {
-    if (setSelectedValue !== undefined && selected) {
+    if (selected && setSelectedValue) {
       setSelectedValue(selected);
     }
-  };
+  }, [selected, setSelectedValue]);
 
-  const optionHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setSelected(e.currentTarget.value);
+  const optionHandler = (option: ItemSelectProps) => {
+    setSelected(option);
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     if (onSelect) onSelect;
   };
@@ -56,14 +59,16 @@ export default function Select({
     <div className={styles.component}>
       <button
         type="button"
-        className={styles.select_button}
+        className={`${styles.select_button} ${
+          hasError ? styles.error_box : ""
+        }`}
         style={{
           width: width ? width : "100%",
           height: height ? height : "30px",
         }}
         onClick={() => setIsOptionShow(true)}
       >
-        <span>{selected || defaultValue}</span>
+        <span>{selected?.label || defaultValue}</span>
         <Icon
           alt="셀렉트 버튼"
           src={IocSelect}
@@ -74,21 +79,15 @@ export default function Select({
       {isOptionShow && (
         <ul
           className={styles.select_options_list}
-          style={{ width: "65px" }}
           onMouseLeave={() => setIsOptionShow(false)}
         >
-          {options?.map((el, idx) => (
-            <li
-              key={el.id}
-              className={`${styles.list_item} ${
-                idx === 0 && styles.first_list_item
-              } ${idx === options.length - 1 ? styles.last_list_item : ""}`}
-            >
+          {options?.map((el) => (
+            <li key={el.label} className={`${styles.list_item}`}>
               <button
                 disabled={disabled}
                 value={el.label}
-                onClick={(e) => {
-                  optionHandler(e);
+                onClick={() => {
+                  optionHandler(el);
                 }}
               >
                 <span>{el.label}</span>
