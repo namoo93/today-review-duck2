@@ -58,8 +58,9 @@ export default function Step1({ setStep, setEmail }: Props) {
     <>
       <div className={styles.form_wrap}>
         <strong className={styles.main_title}>
-          다시 만나서 반가워요!
-          <br /> 로그인 후 모든 활동이 가능해요
+          만나서 반가워요!
+          <br />
+          사용하실 이메일을 입력해주세요.
         </strong>
         <p className={styles.sub_title}>이메일로 인증번호를 보내드릴게요!</p>
         <Input

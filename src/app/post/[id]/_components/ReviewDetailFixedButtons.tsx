@@ -83,6 +83,8 @@ export default function ReviewDetailFixedButtons({
     router.push(`/writing/${review.idx}`);
   };
 
+  const handleReport = () => {};
+
   return (
     <div className={styles.review_fixed_button_wrap}>
       <ul className={styles.fixed_button_list}>
@@ -140,33 +142,39 @@ export default function ReviewDetailFixedButtons({
             </DropDown>
           </button>
         </li>
-        {userIdx == review.user.idx && (
-          <li>
-            <button
-              type="button"
-              className={styles.fixed_button}
-              onClick={() => setIsListDropDownOpen((prev) => !prev)}
+        <li>
+          <button
+            type="button"
+            className={styles.fixed_button}
+            onClick={() => setIsListDropDownOpen((prev) => !prev)}
+          >
+            <Icon src={IcoMore} alt="" width={32} height={32} />
+            <DropDown
+              margin="-2px 0 0 60px"
+              width="170px"
+              position="left"
+              isOpen={isListDropDownOpen}
+              onClose={() => setIsListDropDownOpen(false)}
             >
-              <Icon src={IcoMore} alt="" width={32} height={32} />
-              <DropDown
-                margin="-2px 0 0 60px"
-                width="170px"
-                position="left"
-                isOpen={isListDropDownOpen}
-                onClose={() => setIsListDropDownOpen(false)}
-              >
-                <ul>
-                  <TextButtonList onClkickList={handleDelete}>
-                    게시글 삭제하기
+              <ul>
+                {userIdx == review.user.idx ? (
+                  <>
+                    <TextButtonList onClkickList={handleDelete}>
+                      게시글 삭제하기
+                    </TextButtonList>
+                    <TextButtonList onClkickList={handleEdit}>
+                      게시글 수정하기
+                    </TextButtonList>
+                  </>
+                ) : (
+                  <TextButtonList onClkickList={handleReport}>
+                    게시글 신고하기
                   </TextButtonList>
-                  <TextButtonList onClkickList={handleEdit}>
-                    게시글 수정하기
-                  </TextButtonList>
-                </ul>
-              </DropDown>
-            </button>
-          </li>
-        )}
+                )}
+              </ul>
+            </DropDown>
+          </button>
+        </li>
       </ul>
       <ToastContainer
         width="335px"

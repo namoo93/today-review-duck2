@@ -4,6 +4,7 @@ import styles from "../_css/reviewdetails.module.css";
 import IcoComment from "@/../../public/icon/icon-comment-thin.svg";
 import IocMoreview from "@/../../public/icon/icon-moreview.svg";
 import IocSend from "@/../../public/icon/icon-send-fill.svg";
+import IocSendOn from "@/../../public/icon/icon-send-fill-on.svg";
 import IcoClose from "@/../../public/icon/icon-delete-imges.svg";
 import { useRouter } from "next/navigation";
 import { useRecoilValue } from "recoil";
@@ -296,12 +297,21 @@ export default function ReviewDetailComment({
               buttonType="button"
               className={styles.comment_button}
             >
-              <Icon
-                src={IocSend}
-                alt="보내기 버튼 아이콘"
-                width={24}
-                height={24}
-              />
+              {comment.length > 0 ? (
+                <Icon
+                  src={IocSendOn}
+                  alt="보내기 버튼 아이콘"
+                  width={24}
+                  height={24}
+                />
+              ) : (
+                <Icon
+                  src={IocSend}
+                  alt="보내기 버튼 아이콘"
+                  width={24}
+                  height={24}
+                />
+              )}
             </Button>
           </div>
         </div>

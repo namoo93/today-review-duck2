@@ -8,6 +8,7 @@
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   display: none;
   width: 100%; /* 기본 너비 */
+  overflow: hidden;
 }
 
 .dropdown.open {
