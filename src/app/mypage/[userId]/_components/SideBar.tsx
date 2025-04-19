@@ -115,6 +115,7 @@ export default function SideBar({
                         onClickButton={() =>
                           handleToggleFollow(user.idx, user.isMyFollowing)
                         }
+                        src={user.profileImg}
                       />
                     </li>
                   ))}
@@ -172,6 +173,7 @@ export default function SideBar({
                         onClickButton={() =>
                           handleToggleFollow(user.idx, user.isMyFollowing)
                         }
+                        src={user.profileImg}
                       />
                     </li>
                   ))}

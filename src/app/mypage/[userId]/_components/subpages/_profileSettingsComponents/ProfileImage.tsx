@@ -89,6 +89,7 @@ export default function ProfileImage({ imageSrc }: { imageSrc: string }) {
             >
               프로필 사진 변경
             </label>
+
             <input
               id="profile-upload"
               type="file"

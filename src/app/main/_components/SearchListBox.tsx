@@ -148,6 +148,7 @@ export default function SearchListBox() {
                       onClickButton={() =>
                         handleToggleFollow(user.idx, user.isMyFollowing)
                       }
+                      src={user.profileImg}
                     />
                   </li>
                 ))}

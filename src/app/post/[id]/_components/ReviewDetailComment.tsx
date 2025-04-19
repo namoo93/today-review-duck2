@@ -105,8 +105,6 @@ export default function ReviewDetailComment({
   };
 
   const handleBlock = (userIdx: string) => {
-    const confirmBlock = confirm("해당 유저를 차단하시겠어요?");
-    if (!confirmBlock) return;
     blockUser.mutate(userIdx);
   };
 

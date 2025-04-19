@@ -304,6 +304,7 @@ export default function ProfileInfo() {
                     isOnText="덕질 중"
                     isOffText="덕질하기"
                     onClickButton={() => {}}
+                    src={item.profileImg}
                   />
                 </li>
               ))}
@@ -337,6 +338,7 @@ export default function ProfileInfo() {
                     isOnText="덕질 중"
                     isOffText="덕질하기"
                     onClickButton={() => {}}
+                    src={item.profileImg}
                   />
                 </li>
               ))}
