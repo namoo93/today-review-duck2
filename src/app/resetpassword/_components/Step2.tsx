@@ -87,15 +87,16 @@ export default function Step2({
   };
 
   const handleResend = () => {
-    resendEmailMutate(email, {
-      onSuccess: () => {
-        addToast("인증번호가 재전송되었습니다.", "success");
-        setTimeLeft(299);
-      },
-      onError: () => {
-        addToast("인증번호 재전송 실패. 다시 시도해주세요.", "error");
-      },
-    });
+    !isPending &&
+      resendEmailMutate(email, {
+        onSuccess: () => {
+          addToast("인증번호가 재전송되었습니다.", "success");
+          setTimeLeft(299);
+        },
+        onError: () => {
+          addToast("인증번호 재전송 실패. 다시 시도해주세요.", "error");
+        },
+      });
   };
 
   const isButtonDisabled = numberData.length !== 6 || isPending;
