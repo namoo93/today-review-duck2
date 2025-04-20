@@ -1,14 +1,17 @@
 "use client";
 
-import { RecoilRoot } from "recoil";
+import { RecoilRoot, useSetRecoilState } from "recoil";
 import { ReactNode, useState } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { handleApiError } from "../_api/axios";
 import AppInitializer from "./AppInitializer";
-import { postRefreshToken } from "../_api/auth";
+import { postRefreshToken } from "../_api/postRefreshToken";
+import { userIdxState } from "../_recoil";
+import { forceLogout } from "../_utils/forceLogout";
 
 export default function Providers({ children }: { children: ReactNode }) {
+  const setUserIdx = useSetRecoilState(userIdxState);
   const [client] = useState(
     new QueryClient({
       defaultOptions: {
@@ -25,7 +28,9 @@ export default function Providers({ children }: { children: ReactNode }) {
                 await postRefreshToken();
               } catch (refreshError) {
                 console.error("🔒 자동 로그인 갱신 실패:", refreshError);
-                // 필요 시 자동 로그아웃 처리
+                // 초기화
+                forceLogout();
+                setUserIdx(null);
               }
             }
 

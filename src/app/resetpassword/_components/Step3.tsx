@@ -4,17 +4,21 @@ import { SetStateAction, useEffect, useState } from "react";
 import { validatePassword } from "@/app/_utils/validation";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
+import { useRouter } from "next/navigation";
+import { useResetPassword } from "@/app/_hooks/useResetPassword";
 
 type Props = {
-  setStep: React.Dispatch<SetStateAction<number>>;
+  email: string;
 };
-export default function Step3({ setStep }: Props) {
-  const { addToast } = useToast();
 
+export default function Step3({ email }: Props) {
+  const { addToast } = useToast();
+  const router = useRouter();
   const [passwordError, setPasswordError] = useState("");
   const [verifyPasswordError, setVerifyPasswordError] = useState("");
   const [passwordData, setPasswordData] = useState("");
   const [verifyPasswordData, setVerifyPasswordData] = useState("");
+  const resetPassword = useResetPassword();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -37,14 +41,24 @@ export default function Step3({ setStep }: Props) {
     }
   }, [verifyPasswordData]);
 
-  const handleNextButton = (
+  const handleSubmitButton = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     if (isButtonDisabled) return;
-    // TODO : api 연결
-    addToast("두줄이상 인포의 경우 두줄이상 ", "info");
-    setStep(4);
+    resetPassword.mutate(
+      {
+        email,
+        pw: passwordData,
+        confirmPw: verifyPasswordData,
+      },
+      {
+        onSuccess: () => {
+          addToast("변경 되었습니다.", "info");
+          router.push(`/locallogin`);
+        },
+      }
+    );
   };
 
   const isButtonDisabled =
@@ -90,10 +104,10 @@ export default function Step3({ setStep }: Props) {
           buttonType="button"
           filled
           className={styles.form_button}
-          onClick={(e) => handleNextButton(e)}
+          onClick={(e) => handleSubmitButton(e)}
           disabled={isButtonDisabled}
         >
-          다음으로
+          적용하기
         </Button>
 
         <ToastContainer

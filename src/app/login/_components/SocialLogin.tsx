@@ -16,8 +16,6 @@ export default function SocialLogin() {
   const NAVER_CLIENT_ID = process.env.NEXT_PUBLIC_NAVER_CLIENT_ID;
   //kakao 인증
   const KAKAO_CLIENT_ID = process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID;
-  // console.log(GOOGLE_CLIENT_ID, "google id");
-  // console.log(REDIRECT_URI, "REDIRECT_URI uri");
 
   // 로그인 버튼 클릭 핸들러
   const handleLogin = (provider: string) => {
@@ -56,9 +54,7 @@ export default function SocialLogin() {
 
   return (
     <ul className={styles.sns_list}>
-      {/*
-			TODO : 네이버 디벨로퍼 심사 통과 후 다시
-			<li>
+      {/* <li>
         <Tooltip
           text="마지막으로 로그인한 방법이에요"
           position="left"
@@ -79,7 +75,6 @@ export default function SocialLogin() {
           </Button>
         </Tooltip>
       </li> */}
-
       <li>
         <Tooltip
           text="마지막으로 로그인한 방법이에요"
@@ -101,7 +96,6 @@ export default function SocialLogin() {
           </Button>
         </Tooltip>
       </li>
-
       <li>
         <Tooltip
           text="마지막으로 로그인한 방법이에요"
@@ -125,7 +119,6 @@ export default function SocialLogin() {
           </Button>
         </Tooltip>
       </li>
-
       <li>
         <Tooltip
           text="마지막으로 로그인한 방법이에요"

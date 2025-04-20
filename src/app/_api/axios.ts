@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getAuthorityCookie } from "../_utils/cookies";
-import { postRefreshToken } from "./auth";
+import { postRefreshToken } from "./postRefreshToken";
 
 axios.defaults.withCredentials = true; // 쿠키 자동 포함
 const BASE_URL =

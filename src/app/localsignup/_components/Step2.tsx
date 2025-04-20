@@ -77,8 +77,10 @@ export default function Step2({
               "인증되지 않은 이메일이거나 시간이 초과되었습니다.",
               "error"
             );
+            setNumberData("");
           } else {
             addToast("알 수 없는 오류가 발생했습니다.", "error");
+            setNumberData("");
           }
         },
       }
@@ -86,7 +88,6 @@ export default function Step2({
   };
 
   const handleResend = () => {
-    //TODO : api
     !isPendingInspectEmail &&
       inspectEmailMutate(email, {
         onSuccess: () => {

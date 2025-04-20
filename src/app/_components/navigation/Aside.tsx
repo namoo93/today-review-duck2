@@ -8,7 +8,6 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { DropDown, Icon } from "../atoms";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-// import { useState } from "react";
 
 export default function Aside() {
   const [theme] = useRecoilState(themeState);
@@ -41,7 +40,9 @@ export default function Aside() {
             height="500px"
             width="428px"
           >
-            <p>alaram</p>
+            <ul>
+              <li></li>
+            </ul>
           </DropDown>
         </button>
       ) : (

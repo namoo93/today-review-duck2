@@ -16,9 +16,12 @@ function CompletedContent() {
 
   useEffect(() => {
     const codeParam = searchParams.get("code");
+
+    console.log("codeParam", codeParam);
+
     if (codeParam) {
       setCode(codeParam);
-      loginWithGoogle(codeParam);
+      // loginWithGoogle(codeParam);
     }
   }, [searchParams, loginWithGoogle]);
 

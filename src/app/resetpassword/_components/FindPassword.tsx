@@ -7,7 +7,6 @@ import { useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
-import Completed from "./Completed";
 import Link from "next/link";
 
 export default function FindPassword() {
@@ -17,34 +16,31 @@ export default function FindPassword() {
 
   return (
     <section className={styles.page}>
-      {step !== 4 && (
-        <div className={styles.signup_wrap}>
-          <h1 className={styles.logo_wrap}>
-            <Link href={"/"}>
-              <Image
-                src={ImgLogo}
-                alt="logo image"
-                loading="lazy"
-                property={"public/images/logo.svg"}
-                width={69}
-                height={51}
-              />
-            </Link>
-          </h1>
-          <StepProgressBar totalSteps={3} currentStep={step} />
-          {step == 1 && <Step1 setStep={setStep} setEmail={setEmail} />}
-          {step == 2 && (
-            <Step2
-              setStep={setStep}
-              email={email}
-              timeLeft={timeLeft}
-              setTimeLeft={setTimeLeft}
+      <div className={styles.signup_wrap}>
+        <h1 className={styles.logo_wrap}>
+          <Link href={"/"}>
+            <Image
+              src={ImgLogo}
+              alt="logo image"
+              loading="lazy"
+              property={"public/images/logo.svg"}
+              width={69}
+              height={51}
             />
-          )}
-          {step == 3 && <Step3 setStep={setStep} />}
-        </div>
-      )}
-      {step == 4 && <Completed />}
+          </Link>
+        </h1>
+        <StepProgressBar totalSteps={3} currentStep={step} />
+        {step == 1 && <Step1 setStep={setStep} setEmail={setEmail} />}
+        {step == 2 && (
+          <Step2
+            setStep={setStep}
+            email={email}
+            timeLeft={timeLeft}
+            setTimeLeft={setTimeLeft}
+          />
+        )}
+        {step == 3 && <Step3 email={email} />}
+      </div>
     </section>
   );
 }

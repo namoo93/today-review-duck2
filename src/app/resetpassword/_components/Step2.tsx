@@ -1,9 +1,11 @@
+"use client";
 import { Button, Input } from "@/app/_components/atoms";
 import styles from "../_css/step.module.css";
 import { SetStateAction, useEffect, useState } from "react";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { useVerifyEmail } from "@/app/_hooks/useVerifyEmail";
+import { useInspectEmail } from "@/app/_hooks/useInspectEmail";
 
 type Props = {
   setStep: React.Dispatch<SetStateAction<number>>;
@@ -19,6 +21,7 @@ export default function Step2({
 }: Props) {
   const { addToast } = useToast();
   const { mutate: verifyEmailMutate, isPending, isError } = useVerifyEmail();
+  const { mutate: resendEmailMutate } = useInspectEmail();
   const [numberData, setNumberData] = useState("");
 
   useEffect(() => {
@@ -62,13 +65,10 @@ export default function Step2({
       { email, code },
       {
         onSuccess: () => {
-          // addToast("이메일 인증 성공!", "success");
+          addToast("이메일 인증 성공!", "success");
           setStep(3);
         },
         onError: (error: any) => {
-          //TODO : 타입정의
-          setStep(3);
-
           if (error?.response?.status === 400) {
             addToast("유효하지 않은 요청입니다.", "error");
           } else if (error?.response?.status === 401) {
@@ -76,8 +76,10 @@ export default function Step2({
               "인증되지 않은 이메일이거나 시간이 초과되었습니다.",
               "error"
             );
+            setNumberData("");
           } else {
-            addToast("알 수 없는 오류가 발생했습니다.", "error");
+            addToast("인증번호를 다시 요청해 주세요.", "error");
+            setNumberData("");
           }
         },
       }
@@ -85,15 +87,15 @@ export default function Step2({
   };
 
   const handleResend = () => {
-    // resendEmail(email, {
-    //   onSuccess: () => {
-    //     addToast("인증번호가 재전송되었습니다.", "success");
-    //     setTimeLeft(299);
-    //   },
-    //   onError: () => {
-    //     addToast("인증번호 재전송 실패. 다시 시도해주세요.", "error");
-    //   },
-    // });
+    resendEmailMutate(email, {
+      onSuccess: () => {
+        addToast("인증번호가 재전송되었습니다.", "success");
+        setTimeLeft(299);
+      },
+      onError: () => {
+        addToast("인증번호 재전송 실패. 다시 시도해주세요.", "error");
+      },
+    });
   };
 
   const isButtonDisabled = numberData.length !== 6 || isPending;

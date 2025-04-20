@@ -4,8 +4,9 @@ import { useEffect, useRef } from "react";
 import { getAuthorityCookie } from "@/app/_utils/cookies";
 import { useSetRecoilState } from "recoil";
 import { userIdxState } from "@/app/_recoil";
-import { postRefreshToken } from "../_api/auth";
+import { postRefreshToken } from "../_api/postRefreshToken";
 import { decodeJWT } from "../_utils/jwt";
+import { forceLogout } from "../_utils/forceLogout";
 
 export default function AppInitializer() {
   const setUserIdx = useSetRecoilState(userIdxState);
@@ -23,9 +24,18 @@ export default function AppInitializer() {
         })
         .catch((err) => {
           console.warn("❌ 토큰 갱신 실패", err);
+          handleAutoLogout();
         });
     }, 29 * 60 * 1000); // 29분 마다
     console.log("🔔 토큰 갱신 인터벌 시작");
+  };
+
+  // 연장 실패시 초기화
+  const handleAutoLogout = () => {
+    forceLogout();
+    setUserIdx(null);
+    stopRefreshTokenInterval();
+    console.warn("🚫 자동 로그아웃 처리됨");
   };
 
   const stopRefreshTokenInterval = () => {
@@ -46,8 +56,7 @@ export default function AppInitializer() {
       console.log("✅ AppInitializer → 사용자 로그인 상태 복원:", nickname);
     }
     if (!refreshToken) {
-      setUserIdx(null);
-      stopRefreshTokenInterval();
+      handleAutoLogout();
       console.log("🚫 AppInitializer → 로그인 상태 없음, 초기화 완료");
     }
 
