@@ -38,7 +38,7 @@ const useLogout = () => {
 
       // 상태 초기화
       resetUser();
-      setActiveItem("트랜드");
+      setActiveItem("최신");
       // 페이지 이동
       router.push("/");
     } catch (error) {

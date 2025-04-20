@@ -15,7 +15,7 @@ export default function Logo() {
   const [, setActiveItem] = useRecoilState(activeItemState);
 
   const handleNavigation = () => {
-    setActiveItem("트랜드");
+    setActiveItem("최신");
     router.push("/"); // Next.js 페이지 이동
   };
 
