@@ -7,17 +7,31 @@ import { themeState, userIdxState } from "@/app/_recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { DropDown, Icon } from "../atoms";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNotificationList } from "@/app/_hooks/useNotificationList";
+import { useSseNotification } from "@/app/_hooks/useSseNotification";
 
 export default function Aside() {
   const [theme] = useRecoilState(themeState);
   const userIdx = useRecoilValue(userIdxState);
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [notifications, setNotifications] = useState<any[]>([]);
+  const { data } = useNotificationList();
 
   const goToSignPage = () => {
     router.push(`/login`);
   };
+
+  useEffect(() => {
+    if (data?.notifications) {
+      setNotifications(data.notifications);
+    }
+  }, [data]);
+
+  useSseNotification((newNotif) => {
+    setNotifications((prev) => [newNotif, ...prev]);
+  });
 
   return (
     <aside className={styles.aside}>
@@ -40,8 +54,13 @@ export default function Aside() {
             height="500px"
             width="428px"
           >
-            <ul>
-              <li></li>
+            <ul className={styles.notification_list}>
+              {notifications.map((n, i) => (
+                <li key={i} className={styles.notification_item}>
+                  <p>{n.content}</p>
+                  <span>{new Date(n.createdAt).toLocaleString()}</span>
+                </li>
+              ))}
             </ul>
           </DropDown>
         </button>

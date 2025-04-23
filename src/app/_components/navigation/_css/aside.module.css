@@ -13,6 +13,20 @@
   color: #585858;
 }
 
+/*  알람 */
 .alaram_button {
   position: relative;
+}
+
+.notification_list {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.notification_item {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
 }

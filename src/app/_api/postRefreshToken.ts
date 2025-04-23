@@ -4,6 +4,7 @@ import { axiosInstance } from "./axios";
 export const postRefreshToken = async (): Promise<boolean> => {
   const refreshToken = getAuthorityCookie("refreshToken");
 
+  console.log("postRefreshToken 실행 refreshToken :", refreshToken);
   if (!refreshToken) {
     throw new Error("리프레시 토큰 없음");
   }
@@ -15,6 +16,7 @@ export const postRefreshToken = async (): Promise<boolean> => {
       },
     });
 
+    console.log("postRefreshToken 실행 response :", response);
     const newAccessToken = response.data.accessToken;
     if (!newAccessToken) {
       throw new Error("엑세스 토큰 없음");
