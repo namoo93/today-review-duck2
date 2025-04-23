@@ -2,14 +2,25 @@ import { useEffect } from "react";
 import { EventSourcePolyfill } from "event-source-polyfill";
 
 export const useSseNotification = (onReceive: (data: any) => void) => {
+  const BASE_URL =
+    process.env.NEXT_PUBLIC_MODE === "local"
+      ? "/api" // 👉 로컬에서는 프록시 경유
+      : process.env.NEXT_PUBLIC_BASE_URL;
+
   useEffect(() => {
+    console.log("NEXT_PUBLIC_BASE_URL", process.env.NEXT_PUBLIC_BASE_URL);
     const accessToken = document.cookie
       .split("; ")
       .find((row) => row.startsWith("accessToken="))
       ?.split("=")[1];
 
+    if (!BASE_URL) {
+      console.error("⛔ BASE_URL is undefined.");
+      return;
+    }
+
     const eventSource = new EventSourcePolyfill(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/notification/sse`,
+      `${BASE_URL}/notification/sse`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
