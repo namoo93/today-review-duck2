@@ -90,58 +90,110 @@ export default function NotificationList({ item, onFollowChange }: Props) {
       )}
       {item.type == "like_review" && (
         <button type="button" className={styles.item_button} onClick={() => {}}>
-          <Icon
-            src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
-            alt={"알람 프로필 이미지"}
-            width={40}
-            height={40}
-          />
-          <p>{item.content}</p>
-          <span>{formatDate(item.createdAt)}</span>
+          <span className={styles.item_profile_wrap}>
+            <Icon
+              src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
+              alt={"알람 프로필 이미지"}
+              width={40}
+              height={40}
+            />
+          </span>
+          <span className={styles.contents_wrap}>
+            <span className={styles.contents}>
+              {parseContentWithBold(item.content)}
+            </span>
+            <span className={styles.contents_date}>
+              {formatDate(item.createdAt)}
+            </span>
+          </span>
         </button>
       )}
       {item.type == "create_comment" && (
         <button type="button" className={styles.item_button} onClick={() => {}}>
-          <p>{item.content}</p>
-          <span>{formatDate(item.createdAt)}</span>
+          <span className={styles.item_profile_wrap}>
+            <Icon
+              src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
+              alt={"알람 프로필 이미지"}
+              width={40}
+              height={40}
+            />
+          </span>
+          <span className={styles.contents_wrap}>
+            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents_date}>
+              {formatDate(item.createdAt)}
+            </span>
+          </span>
         </button>
       )}
       {item.type == "like_comment" && (
         <button type="button" className={styles.item_button} onClick={() => {}}>
-          <Icon
-            src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
-            alt={"알람 프로필 이미지"}
-            width={40}
-            height={40}
-          />
-          <p>{item.content}</p>
-          <span>{formatDate(item.createdAt)}</span>
+          <span className={styles.item_profile_wrap}>
+            <Icon
+              src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
+              alt={"알람 프로필 이미지"}
+              width={40}
+              height={40}
+            />
+          </span>
+          <span className={styles.contents_wrap}>
+            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents_date}>
+              {formatDate(item.createdAt)}
+            </span>
+          </span>
         </button>
       )}
       {item.type == "reply_comment" && (
         <button type="button" className={styles.item_button} onClick={() => {}}>
-          <Icon
-            src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
-            alt={"알람 프로필 이미지"}
-            width={40}
-            height={40}
-          />
-          <p>{item.content}</p>
-          <span>{formatDate(item.createdAt)}</span>
+          <span className={styles.item_profile_wrap}>
+            <Icon
+              src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
+              alt={"알람 프로필 이미지"}
+              width={40}
+              height={40}
+            />
+          </span>
+          <span className={styles.contents_wrap}>
+            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents_date}>
+              {formatDate(item.createdAt)}
+            </span>
+          </span>
         </button>
       )}
       {item.type == "admin_notice" && (
         <button type="button" className={styles.item_button} onClick={() => {}}>
-          <Icon
-            src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
-            alt={"알람 프로필 이미지"}
-            width={40}
-            height={40}
-          />
-          <p>{item.content}</p>
-          <span>{formatDate(item.createdAt)}</span>
+          <span className={styles.item_profile_wrap}>
+            <Icon
+              src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
+              alt={"알람 프로필 이미지"}
+              width={40}
+              height={40}
+            />
+          </span>
+          <span className={styles.contents_wrap}>
+            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents_date}>
+              {formatDate(item.createdAt)}
+            </span>
+          </span>
         </button>
       )}
     </li>
   );
 }
+
+export const parseContentWithBold = (content: string) => {
+  const splitKeyword = "님이";
+  const index = content.indexOf(splitKeyword);
+  if (index === -1) return content;
+  const prefix = content.slice(0, index + splitKeyword.length);
+  const rest = content.slice(index + splitKeyword.length);
+  return (
+    <>
+      <span className={styles.contents_bold}>{prefix}</span>
+      {rest}
+    </>
+  );
+};

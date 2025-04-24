@@ -16,14 +16,36 @@
   border: 1px solid #e3e3e3;
   border-radius: 50%;
   overflow: hidden;
-  width: 40px;
+  width: 42px;
+  height: 42px;
+  margin-right: 10px;
   flex-grow: 0;
   flex-shrink: 0;
 }
 .contents_wrap {
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .contents {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 최대 줄 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  line-height: 1.5; /* 줄 높이 조절 */
+  max-height: calc(1.5em * 2); /* 2줄 기준 높이 */
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+}
+.contents_bold {
+  font-weight: 800;
 }
 .contents_date {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  color: #aaa;
 }
