@@ -12,6 +12,11 @@
   color: #333;
   background-color: #fff;
 }
+.button_wrap {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
 .item_profile_wrap {
   border: 1px solid #e3e3e3;
   border-radius: 50%;
@@ -38,7 +43,8 @@
   max-height: calc(1.5em * 2); /* 2줄 기준 높이 */
   text-align: left;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
+  padding-right: 5px;
 }
 .contents_bold {
   font-weight: 800;
@@ -48,4 +54,5 @@
   font-weight: 500;
   text-align: left;
   color: #aaa;
+  display: flex;
 }

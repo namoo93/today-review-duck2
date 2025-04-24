@@ -85,7 +85,7 @@ export default function Aside() {
         </button>
       ) : (
         <button type="button" onClick={() => goToSignPage()}>
-          <span>로그인 및 회원가입</span>
+          <span className={styles.login_info_title}>로그인 및 회원가입</span>
         </button>
       )}
     </aside>

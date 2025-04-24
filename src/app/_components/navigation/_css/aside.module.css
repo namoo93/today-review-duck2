@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.aside span {
+.aside .login_info_title {
   font-size: 16px;
   font-weight: 500;
   color: #585858;
@@ -27,6 +27,4 @@
 .notification_item {
   border-bottom: 1px solid #eee;
   padding: 10px;
-  font-size: 14px;
-  color: #333;
 }

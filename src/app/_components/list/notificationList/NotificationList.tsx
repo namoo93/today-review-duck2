@@ -63,29 +63,37 @@ export default function NotificationList({ item, onFollowChange }: Props) {
             />
           </span>
           <span className={styles.contents_wrap}>
-            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents}>
+              {parseContentWithBold(item.content)}
+            </span>
             <span className={styles.contents_date}>
               {formatDate(item.createdAt)}
             </span>
           </span>
-          <Button
-            buttonType="button"
-            width="74px"
-            height="34px"
-            onClick={(e) =>
-              handleToggleFollow(e, item.sender.idx, item.sender.isMyFollowing)
-            }
-            fontSize="12px"
-            filled={!item.sender.isMyFollowing}
-            brightFilled={item.sender.isMyFollowing}
-            disabled={isLoading}
-          >
-            {isLoading
-              ? "로딩중..."
-              : item.sender.isMyFollowing
-              ? "덕질 중"
-              : "덕질하기"}
-          </Button>
+          <span className={styles.button_wrap}>
+            <Button
+              buttonType="button"
+              width="74px"
+              height="34px"
+              onClick={(e) =>
+                handleToggleFollow(
+                  e,
+                  item.sender.idx,
+                  item.sender.isMyFollowing
+                )
+              }
+              fontSize="12px"
+              filled={!item.sender.isMyFollowing}
+              brightFilled={item.sender.isMyFollowing}
+              disabled={isLoading}
+            >
+              {isLoading
+                ? "로딩중..."
+                : item.sender.isMyFollowing
+                ? "덕질 중"
+                : "덕질하기"}
+            </Button>
+          </span>
         </button>
       )}
       {item.type == "like_review" && (
@@ -119,7 +127,9 @@ export default function NotificationList({ item, onFollowChange }: Props) {
             />
           </span>
           <span className={styles.contents_wrap}>
-            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents}>
+              {parseContentWithBold(item.content)}
+            </span>
             <span className={styles.contents_date}>
               {formatDate(item.createdAt)}
             </span>
@@ -137,7 +147,9 @@ export default function NotificationList({ item, onFollowChange }: Props) {
             />
           </span>
           <span className={styles.contents_wrap}>
-            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents}>
+              {parseContentWithBold(item.content)}
+            </span>
             <span className={styles.contents_date}>
               {formatDate(item.createdAt)}
             </span>
@@ -155,7 +167,9 @@ export default function NotificationList({ item, onFollowChange }: Props) {
             />
           </span>
           <span className={styles.contents_wrap}>
-            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents}>
+              {parseContentWithBold(item.content)}
+            </span>
             <span className={styles.contents_date}>
               {formatDate(item.createdAt)}
             </span>
@@ -173,7 +187,9 @@ export default function NotificationList({ item, onFollowChange }: Props) {
             />
           </span>
           <span className={styles.contents_wrap}>
-            <span className={styles.contents}>{item.content}</span>
+            <span className={styles.contents}>
+              {parseContentWithBold(item.content)}
+            </span>
             <span className={styles.contents_date}>
               {formatDate(item.createdAt)}
             </span>
