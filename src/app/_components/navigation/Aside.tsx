@@ -10,13 +10,15 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useNotificationList } from "@/app/_hooks/useNotificationList";
 import { useSseNotification } from "@/app/_hooks/useSseNotification";
+import { NotificationType } from "@/types/NotificationType";
+import NotificationList from "../list/notificationList/NotificationList";
 
 export default function Aside() {
   const [theme] = useRecoilState(themeState);
   const userIdx = useRecoilValue(userIdxState);
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [notifications, setNotifications] = useState<any[]>([]);
+  const [notifications, setNotifications] = useState<NotificationType[]>([]);
   const { data } = useNotificationList();
 
   const goToSignPage = () => {
@@ -32,6 +34,23 @@ export default function Aside() {
   useSseNotification((newNotif) => {
     setNotifications((prev) => [newNotif, ...prev]);
   });
+
+  // 알림 리스트 내 유저 팔로우 상태 업데이트 함수
+  const updateFollowState = (senderIdx: string, isNowFollowing: boolean) => {
+    setNotifications((prev) =>
+      prev.map((n) =>
+        n.sender.idx === senderIdx
+          ? {
+              ...n,
+              sender: {
+                ...n.sender,
+                isMyFollowing: isNowFollowing,
+              },
+            }
+          : n
+      )
+    );
+  };
 
   return (
     <aside className={styles.aside}>
@@ -55,11 +74,11 @@ export default function Aside() {
             width="428px"
           >
             <ul className={styles.notification_list}>
-              {notifications.map((n, i) => (
-                <li key={i} className={styles.notification_item}>
-                  <p>{n.content}</p>
-                  <span>{new Date(n.createdAt).toLocaleString()}</span>
-                </li>
+              {notifications.map((item) => (
+                <NotificationList
+                  item={item}
+                  onFollowChange={updateFollowState}
+                />
               ))}
             </ul>
           </DropDown>
