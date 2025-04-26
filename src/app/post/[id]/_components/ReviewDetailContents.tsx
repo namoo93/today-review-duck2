@@ -9,6 +9,7 @@ import { ReviewDetailType } from "@/types";
 import { getRatingText } from "@/app/_utils/ratingUtils";
 import { formatDate } from "@/app/_utils/date";
 import { applyHorizontalScroll } from "@/app/_utils/applyHorizontalScroll";
+import IcoArrow from "@/../../public/icon/icon-arrow-off.svg";
 
 export default function ReviewDetailContents({
   review,
@@ -18,7 +19,6 @@ export default function ReviewDetailContents({
   const [theme] = useRecoilState(themeState);
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [images, setImages] = useState(["", "", "", ""]);
   applyHorizontalScroll(containerRef, {
     width: "calc(100% + 4px)",
     height: "320px",
@@ -56,24 +56,42 @@ export default function ReviewDetailContents({
           {`${review.user.nickname} | ${formatDate(review.createdAt)}`}
         </span>
       </button>
-      {review.images && review.images.length > 0 ? (
-        <div ref={containerRef} className={styles.review_detail_images}>
-          <div className={styles.image_box_wrap}>
-            {review.images.map((image, idx) => (
-              <span key={`${image}_${idx}`} className={styles.image_box}>
+      <div className={styles.review_detail_images}>
+        {review.images && review.images.length > 0 ? (
+          <div ref={containerRef}>
+            <div className={styles.image_box_wrap}>
+              {review.images.map((image, idx) => (
+                <span key={`${image}_${idx}`} className={styles.image_box}>
+                  <Icon
+                    width={300}
+                    height={300}
+                    src={image || ""}
+                    alt={review.imgContent?.[idx] || `이미지 ${idx + 1}`}
+                  />
+                  <span className={styles.overlay}>
+                    <span className={styles.overlay_text}>
+                      {review.imgContent?.[idx] || ""}
+                    </span>
+                  </span>
+                </span>
+              ))}
+            </div>
+            {review.images.length > 3 && (
+              <span className={styles.image_box_next}>
+                scroll
                 <Icon
-                  width={300}
-                  height={300}
-                  src={image || ""}
-                  alt={review.imgContent?.[idx] || `이미지 ${idx + 1}`}
+                  src={IcoArrow}
+                  alt="이미지 더보기"
+                  width={15}
+                  height={15}
                 />
               </span>
-            ))}
+            )}
           </div>
-        </div>
-      ) : (
-        <></>
-      )}
+        ) : (
+          <></>
+        )}
+      </div>
       <div className={styles.review_detail_evaluation}>
         <span
           className={

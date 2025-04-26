@@ -48,6 +48,29 @@
 }
 .review_detail_images {
   margin: 20px -2px;
+  position: relative;
+}
+
+.image_box_next {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  transition: all 0.8s;
+  transform: translateX(20px);
+  animation: pokeRight 0.8s ease-in-out infinite;
+  font-size: 12px;
+  color: #555;
+}
+@keyframes pokeRight {
+  0% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(25px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
 }
 .image_box_wrap {
   display: flex;
@@ -57,6 +80,36 @@
   border: 1px solid #d1d1d1;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+.overlay_text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  word-break: break-word;
+  padding: 15px;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.image_box:hover .overlay {
+  opacity: 1;
 }
 .review_detail_evaluation {
   padding-bottom: 20px;
