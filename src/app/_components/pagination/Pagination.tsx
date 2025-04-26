@@ -1,4 +1,9 @@
 import styles from "./pagination.module.css";
+import IconNextMore from "@/../../public/icon/icon-arrow-next-more.svg";
+import IconNext from "@/../../public/icon/icon-arrow-next.svg";
+import IconPrevMore from "@/../../public/icon/icon-arrow-prev-more.svg";
+import IconPrev from "@/../../public/icon/icon-arrow-prev.svg";
+import { Icon } from "../atoms";
 
 type Props = {
   currentPage: number;
@@ -48,14 +53,14 @@ export default function Pagination({
         onClick={() => onPageChange(1)}
         disabled={currentPage === 1}
       >
-        ⏮
+        <Icon width={20} height={20} src={IconPrevMore} alt="이전 목록 끝" />
       </button>
       <button
         type="button"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        ◀
+        <Icon width={20} height={20} src={IconPrev} alt="이전 목록 " />
       </button>
 
       {getPageNumbers().map((page) => (
@@ -76,14 +81,14 @@ export default function Pagination({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        ▶
+        <Icon width={20} height={20} src={IconNext} alt="다음 목록 " />
       </button>
       <button
         type="button"
         onClick={() => onPageChange(totalPages)}
         disabled={currentPage === totalPages}
       >
-        ⏭
+        <Icon width={20} height={20} src={IconNextMore} alt="다음 목록 끝" />
       </button>
     </div>
   );

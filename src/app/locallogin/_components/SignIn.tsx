@@ -9,11 +9,13 @@ import { Button, Input } from "@/app/_components/atoms";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { validateEmail, validatePassword } from "@/app/_utils/validation";
-import { getAuthorityCookie } from "@/app/_utils/cookies";
 import Link from "next/link";
+import { useRecoilState } from "recoil";
+import { activeItemState } from "@/app/_recoil";
 
 export default function SignIn() {
   const { login, isPending } = useAuth();
+  const [, setActiveItem] = useRecoilState(activeItemState);
   const router = useRouter();
   const { addToast } = useToast();
   const [emailData, setEmailData] = useState("");
@@ -49,7 +51,7 @@ export default function SignIn() {
 
       addToast("로그인 성공! 환영합니다 🙌", "success");
       // console.log(" 로그인 하며 저장 된: ", getAuthorityCookie("accessToken"));
-
+      setActiveItem("최신");
       router.push("/");
     } catch (error) {
       addToast("로그인 실패. 이메일과 비밀번호를 확인해주세요.", "error");
@@ -57,7 +59,7 @@ export default function SignIn() {
   };
 
   const goToFindPasswordPage = () => {
-    router.push(`/resetpassword`); // 페이지가 아닌 컴포넌트로분기 고려
+    router.push(`/resetpassword`);
   };
 
   const isButtonDisabled =

@@ -2,6 +2,8 @@ import { useRouter } from "next/navigation";
 import { authInstance } from "../_api/axios";
 import { useMutation } from "@tanstack/react-query";
 import { setAuthorityCookie } from "../_utils/cookies";
+import { useRecoilState } from "recoil";
+import { activeItemState } from "../_recoil";
 
 interface AuthResponse {
   accessToken: string;
@@ -17,6 +19,7 @@ const loginWithGoogle = async (code: string): Promise<AuthResponse> => {
 };
 
 export default function useSocialAuth() {
+  const [, setActiveItem] = useRecoilState(activeItemState);
   const router = useRouter();
   return useMutation({
     mutationFn: loginWithGoogle,
@@ -29,6 +32,7 @@ export default function useSocialAuth() {
 
       // ✅ 로그인 후 홈으로 이동
       router.push("/");
+      setActiveItem("최신");
     },
     onError: (error) => {
       console.error("로그인 실패:", error);
