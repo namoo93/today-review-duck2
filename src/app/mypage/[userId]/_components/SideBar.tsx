@@ -42,7 +42,7 @@ export default function SideBar({
     useFollowingList(myIdx, 20, currentPage);
   const followings = followingData.users;
   const [isFollowingDropDownOpen, setIsFollowingDropDownOpen] = useState(false);
-  const { follow, unfollow } = useToggleFollow();
+  const { follow, unfollow, isPending } = useToggleFollow();
 
   const goToMyPost = () => {
     onSelectMenu("작성한 리뷰");
@@ -115,6 +115,7 @@ export default function SideBar({
                         onClickButton={() =>
                           handleToggleFollow(user.idx, user.isMyFollowing)
                         }
+                        disabled={isPending}
                         src={user.profileImg}
                       />
                     </li>
@@ -162,7 +163,7 @@ export default function SideBar({
                     <li key={`덕질 리스트 ${user.nickname}`}>
                       <ProfileBox
                         name={user.nickname}
-                        onClickBox={() => goToUserPage(user.nickname)}
+                        onClickBox={() => goToUserPage(user.idx)}
                         interest={`${user.interest1 ?? ""} ${
                           user.interest2 ?? ""
                         }`}
@@ -173,6 +174,7 @@ export default function SideBar({
                         onClickButton={() =>
                           handleToggleFollow(user.idx, user.isMyFollowing)
                         }
+                        disabled={isPending}
                         src={user.profileImg}
                       />
                     </li>

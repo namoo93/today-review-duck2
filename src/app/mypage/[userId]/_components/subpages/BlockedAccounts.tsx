@@ -41,6 +41,7 @@ export default function BlockedAccounts() {
                 isOnText="해제하기"
                 src={user.profileImg}
                 onClickButton={() => unblockUser(user.idx)}
+                disabled={false}
               />
             </li>
           ))}

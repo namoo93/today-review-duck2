@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { userInstance } from "@/app/_api/axios";
+import { axiosInstance } from "@/app/_api/axios";
 import { ReviewType } from "@/types";
 
 type ReviewListType = "written" | "bookmark" | "like" | "commented";
@@ -13,13 +13,13 @@ export const useUserReviewList = (
   const getApiPath = () => {
     switch (type) {
       case "written":
-        return `/${userIdx}/review/all`;
+        return `/user/${userIdx}/review/all`;
       case "bookmark":
-        return `/${userIdx}/review/bookmark`;
+        return `/user/${userIdx}/review/bookmark`;
       case "like":
-        return `/${userIdx}/review/like`;
+        return `/user/${userIdx}/review/like`;
       case "commented":
-        return `/${userIdx}/review/commented`;
+        return `/user/${userIdx}/review/commented`;
       default:
         throw new Error("리뷰 타입이 올바르지 않습니다.");
     }
@@ -28,7 +28,7 @@ export const useUserReviewList = (
   return useQuery<{ totalPage: number; reviews: ReviewType[] }>({
     queryKey: ["userReviewList", userIdx, type, page],
     queryFn: async () => {
-      const res = await userInstance.get(getApiPath(), {
+      const res = await axiosInstance.get(getApiPath(), {
         params: { size, page },
       });
       return res.data;

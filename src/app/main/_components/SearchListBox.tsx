@@ -32,7 +32,7 @@ export default function SearchListBox() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { data, isLoading } = useSearchResult(tab, keyword, currentPage);
-  const { follow, unfollow } = useToggleFollow();
+  const { follow, unfollow, isPending } = useToggleFollow();
   const totalPages = data?.totalPage ?? 1;
   const isEmpty =
     (tab === "게시글" && data?.reviews.length === 0) ||
@@ -148,6 +148,7 @@ export default function SearchListBox() {
                       onClickButton={() =>
                         handleToggleFollow(user.idx, user.isMyFollowing)
                       }
+                      disabled={isPending}
                       src={user.profileImg}
                     />
                   </li>

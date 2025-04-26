@@ -15,8 +15,7 @@ interface Props {
 
 export default function NotificationList({ item, onFollowChange }: Props) {
   const router = useRouter();
-  const { follow, unfollow } = useToggleFollow();
-  const [isLoading, setIsLoading] = useState(false);
+  const { follow, unfollow, isPending } = useToggleFollow();
 
   const goToUserPage = (user: string) => {
     router.push(`/mypage/${user}`);
@@ -27,23 +26,17 @@ export default function NotificationList({ item, onFollowChange }: Props) {
     isFollowing: boolean
   ) => {
     e.stopPropagation();
-    setIsLoading(true);
 
     const onSuccess = () => {
       if (onFollowChange) {
         onFollowChange(userIdx, !isFollowing);
       }
-      setIsLoading(false);
-    };
-
-    const onError = () => {
-      setIsLoading(false); // 실패 시도 리셋
     };
 
     if (isFollowing) {
-      unfollow.mutate(userIdx, { onSuccess, onError });
+      unfollow.mutate(userIdx, { onSuccess });
     } else {
-      follow.mutate(userIdx, { onSuccess, onError });
+      follow.mutate(userIdx, { onSuccess });
     }
   };
 
@@ -86,9 +79,9 @@ export default function NotificationList({ item, onFollowChange }: Props) {
               fontSize="12px"
               filled={!item.sender.isMyFollowing}
               brightFilled={item.sender.isMyFollowing}
-              disabled={isLoading}
+              disabled={isPending}
             >
-              {isLoading
+              {isPending
                 ? "로딩중..."
                 : item.sender.isMyFollowing
                 ? "덕질 중"

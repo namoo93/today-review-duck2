@@ -1,0 +1,20 @@
+export type UserInfoType = {
+  idx: string;
+  email: string;
+  profile: string;
+  provider: string;
+  profileImg: string | null;
+  nickname: string;
+  interest1: string | null;
+  interest2: string | null;
+  isAdmin: boolean;
+  serialNumber: number;
+  createdAt: string;
+  suspensionCount: string | null;
+  suspendExpireAt: string | null;
+  reviewCount: number;
+  followingCount: number;
+  followerCount: number;
+  isMyFollowing: boolean;
+  isMyBlock: boolean;
+};

@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { userInstance } from "@/app/_api/axios";
+import { handleApiError, userInstance } from "@/app/_api/axios";
 
 export const useToggleFollow = () => {
   const queryClient = useQueryClient();
@@ -11,6 +11,9 @@ export const useToggleFollow = () => {
       queryClient.invalidateQueries({ queryKey: ["followingList"] });
       queryClient.invalidateQueries({ queryKey: ["myinfo"] });
     },
+    onError: (error) => {
+      handleApiError(error);
+    },
   });
 
   const unfollow = useMutation({
@@ -20,7 +23,12 @@ export const useToggleFollow = () => {
       queryClient.invalidateQueries({ queryKey: ["followingList"] });
       queryClient.invalidateQueries({ queryKey: ["myinfo"] });
     },
+    onError: (error) => {
+      handleApiError(error);
+    },
   });
 
-  return { follow, unfollow };
+  const isPending = follow.isPending || unfollow.isPending;
+
+  return { follow, unfollow, isPending };
 };

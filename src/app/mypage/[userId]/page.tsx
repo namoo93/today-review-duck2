@@ -29,7 +29,7 @@ export default function UserPage() {
       <MyPageBanner />
       <h3 className="sr_only">{`${userIdFromUrl}의 마이 페이지`}</h3>
 
-      {isMyPage ? <MyPage /> : <YourPage />}
+      {isMyPage ? <MyPage /> : <YourPage userIdx={userIdFromUrl} />}
       <ToMobile />
     </>
   );

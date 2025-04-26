@@ -18,6 +18,7 @@ type Props = {
   isOn?: boolean;
   isOnText?: string;
   isOffText?: string;
+  disabled: boolean;
 };
 export default function ProfileBox({
   src,
@@ -33,6 +34,7 @@ export default function ProfileBox({
   isOn,
   isOnText,
   isOffText,
+  disabled,
 }: Props) {
   const [theme] = useRecoilState(themeState);
 
@@ -74,6 +76,7 @@ export default function ProfileBox({
             onClick={onClickButton}
             fontSize="12px"
             brightFilled
+            disabled={disabled}
           >
             {isOnText}
           </Button>
@@ -85,6 +88,7 @@ export default function ProfileBox({
             onClick={onClickButton}
             fontSize="12px"
             filled
+            disabled={disabled}
           >
             {isOffText}
           </Button>
