@@ -14,7 +14,7 @@ import { myInfoState } from "@/app/_recoil/myInfoAtom";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { useUserInfo } from "@/app/_hooks/useUserInfo";
-// import LottieLoading from "@/app/_components/atoms/LottieLoading";
+import LottieLoading from "@/app/_components/atoms/LottieLoading";
 
 export default function ProfileInfo({ userIdx }: { userIdx: string }) {
   const router = useRouter();
@@ -103,7 +103,9 @@ export default function ProfileInfo({ userIdx }: { userIdx: string }) {
           </Button>
         </div>
       ) : (
-        <>{/* <LottieLoading /> */}</>
+        <>
+          <LottieLoading />
+        </>
       )}
       {/* 통계 */}
       <ul className={styles.info_list}>
