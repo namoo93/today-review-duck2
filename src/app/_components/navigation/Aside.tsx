@@ -80,6 +80,7 @@ export default function Aside() {
                   onFollowChange={updateFollowState}
                 />
               ))}
+              <li></li>
             </ul>
           </DropDown>
         </button>

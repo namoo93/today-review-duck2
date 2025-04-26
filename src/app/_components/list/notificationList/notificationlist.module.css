@@ -12,6 +12,17 @@
   color: #333;
   background-color: #fff;
 }
+.item_admin {
+  display: flex;
+  align-items: center;
+  margin: 5px 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
 .button_wrap {
   display: flex;
   flex-grow: 0;
@@ -26,6 +37,9 @@
   margin-right: 10px;
   flex-grow: 0;
   flex-shrink: 0;
+}
+.item_admin_img {
+  margin-right: 10px;
 }
 .contents_wrap {
   display: flex;

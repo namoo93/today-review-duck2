@@ -4,6 +4,7 @@ import { NotificationType } from "@/types/NotificationType";
 import { formatDate } from "@/app/_utils/date";
 import { Button, Icon } from "../../atoms";
 import ImgDefault from "@/../public/images/img-default-post.svg";
+import ImgAdmin from "@/../public/images/img-notification.svg";
 import { useRouter } from "next/navigation";
 import { useToggleFollow } from "@/app/_hooks/useToggleFollow";
 
@@ -97,7 +98,11 @@ export default function NotificationList({ item, onFollowChange }: Props) {
         </button>
       )}
       {item.type == "like_review" && (
-        <button type="button" className={styles.item_button} onClick={() => {}}>
+        <button
+          type="button"
+          className={styles.item_button}
+          onClick={() => goToUserPage(item.sender.idx)}
+        >
           <span className={styles.item_profile_wrap}>
             <Icon
               src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
@@ -117,7 +122,11 @@ export default function NotificationList({ item, onFollowChange }: Props) {
         </button>
       )}
       {item.type == "create_comment" && (
-        <button type="button" className={styles.item_button} onClick={() => {}}>
+        <button
+          type="button"
+          className={styles.item_button}
+          onClick={() => goToUserPage(item.sender.idx)}
+        >
           <span className={styles.item_profile_wrap}>
             <Icon
               src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
@@ -137,7 +146,11 @@ export default function NotificationList({ item, onFollowChange }: Props) {
         </button>
       )}
       {item.type == "like_comment" && (
-        <button type="button" className={styles.item_button} onClick={() => {}}>
+        <button
+          type="button"
+          className={styles.item_button}
+          onClick={() => goToUserPage(item.sender.idx)}
+        >
           <span className={styles.item_profile_wrap}>
             <Icon
               src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
@@ -157,7 +170,11 @@ export default function NotificationList({ item, onFollowChange }: Props) {
         </button>
       )}
       {item.type == "reply_comment" && (
-        <button type="button" className={styles.item_button} onClick={() => {}}>
+        <button
+          type="button"
+          className={styles.item_button}
+          onClick={() => goToUserPage(item.sender.idx)}
+        >
           <span className={styles.item_profile_wrap}>
             <Icon
               src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
@@ -177,19 +194,16 @@ export default function NotificationList({ item, onFollowChange }: Props) {
         </button>
       )}
       {item.type == "admin_notice" && (
-        <button type="button" className={styles.item_button} onClick={() => {}}>
-          <span className={styles.item_profile_wrap}>
-            <Icon
-              src={item.sender.profileImg ? item.sender.profileImg : ImgDefault}
-              alt={"알람 프로필 이미지"}
-              width={40}
-              height={40}
-            />
+        <button
+          type="button"
+          className={`${styles.item_admin}`}
+          onClick={() => {}}
+        >
+          <span className={styles.item_admin_img}>
+            <Icon src={ImgAdmin} alt="공지사항 이미지" width={74} height={74} />
           </span>
           <span className={styles.contents_wrap}>
-            <span className={styles.contents}>
-              {parseContentWithBold(item.content)}
-            </span>
+            <span className={styles.contents}>{item.content}</span>
             <span className={styles.contents_date}>
               {formatDate(item.createdAt)}
             </span>
