@@ -108,126 +108,133 @@ export default function ProfileInfo({ userIdx }: { userIdx: string }) {
         </>
       )}
       {/* 통계 */}
-      <ul className={styles.info_list}>
-        <li>
-          <strong className={styles.info_list_title}>게시글</strong>
-          <span className={styles.info_list_button}>
-            {`${userData?.reviewCount} 개`}
-          </span>
-        </li>
-        <li>
-          <strong className={styles.info_list_title}>덕후</strong>
-          <button
-            className={styles.info_list_button}
-            type="button"
-            onClick={() => setIsFollowerDropDownOpen((prev) => !prev)}
-          >
-            {`${userData?.followerCount} 명`}
-          </button>
-          <DropDown
-            margin="80px 0 0 0"
-            width="415px"
-            position="center"
-            isOpen={isFollowerDropDownOpen}
-            onClose={() => setIsFollowerDropDownOpen(false)}
-          >
-            {followers.length === 0 ? (
-              <p className={styles.empty_message}>
-                아직 덕질 하는 사람이 없어요 🐥
-              </p>
-            ) : (
-              <>
-                <ul className={styles.follow_list}>
-                  {followers.map((user: FollowerUserType) => (
-                    <li key={`덕후 리스트 ${user.nickname}`}>
-                      <ProfileBox
-                        name={user.nickname}
-                        onClickBox={() => goToUserPage(user.idx)}
-                        interest={`${user.interest1 ?? ""} ${
-                          user.interest2 ?? ""
-                        }`}
-                        textWidth={"190px"}
-                        isOn={user.isMyFollowing}
-                        isOnText="덕질 중"
-                        isOffText="덕질하기"
-                        onClickButton={() =>
-                          handleToggleFollow(user.idx, user.isMyFollowing)
-                        }
-                        src={user.profileImg}
-                        disabled={isPending}
-                      />
-                    </li>
-                  ))}
-                </ul>
-                {followerData.totalPage > 1 && (
-                  <Pagination
-                    currentPage={currentPage}
-                    totalPages={followerData.totalPage}
-                    onPageChange={setCurrentPage}
-                    margin="15px 20px"
-                  />
-                )}
-              </>
-            )}
-          </DropDown>
-        </li>
-        <li>
-          <strong className={styles.info_list_title}>덕질</strong>
-          <button
-            className={styles.info_list_button}
-            type="button"
-            onClick={() => setIsFollowingDropDownOpen((prev) => !prev)}
-          >
-            {`${userData?.followingCount} 명`}
-          </button>
-          <DropDown
-            margin="80px 0 0 0"
-            width="415px"
-            position="right"
-            isOpen={isFollowingDropDownOpen}
-            onClose={() => setIsFollowingDropDownOpen(false)}
-          >
-            {followings.length === 0 ? (
-              <p className={styles.empty_message}>
-                아직 덕질 중인 사람이 없어요 🐣
-              </p>
-            ) : (
-              <>
-                <ul className={styles.follow_list}>
-                  {followings.map((user: FollowerUserType) => (
-                    <li key={`덕질 리스트 ${user.nickname}`}>
-                      <ProfileBox
-                        name={user.nickname}
-                        onClickBox={() => goToUserPage(user.idx)}
-                        interest={`${user.interest1 ?? ""} ${
-                          user.interest2 ?? ""
-                        }`}
-                        textWidth={"190px"}
-                        isOn={user.isMyFollowing}
-                        isOnText="덕질 중"
-                        isOffText="덕질하기"
-                        onClickButton={() =>
-                          handleToggleFollow(user.idx, user.isMyFollowing)
-                        }
-                        src={user.profileImg}
-                        disabled={isPending}
-                      />
-                    </li>
-                  ))}
-                </ul>
-                {followingData.totalPage > 1 && (
-                  <Pagination
-                    currentPage={currentPage}
-                    totalPages={followingData.totalPage}
-                    onPageChange={setCurrentPage}
-                    margin="15px 20px"
-                  />
-                )}
-              </>
-            )}
-          </DropDown>
-        </li>
-      </ul>
+      {userData ? (
+        <ul className={styles.info_list}>
+          <li>
+            <strong className={styles.info_list_title}>게시글</strong>
+            <span className={styles.info_list_button}>
+              {`${userData.reviewCount} 개`}
+            </span>
+          </li>
+          <li>
+            <strong className={styles.info_list_title}>덕후</strong>
+            <button
+              className={styles.info_list_button}
+              type="button"
+              onClick={() => setIsFollowerDropDownOpen((prev) => !prev)}
+            >
+              {`${userData.followerCount} 명`}
+            </button>
+            <DropDown
+              margin="80px 0 0 0"
+              width="415px"
+              position="center"
+              isOpen={isFollowerDropDownOpen}
+              onClose={() => setIsFollowerDropDownOpen(false)}
+            >
+              {followers.length === 0 ? (
+                <p className={styles.empty_message}>
+                  아직 덕질 하는 사람이 없어요 🐥
+                </p>
+              ) : (
+                <>
+                  <ul className={styles.follow_list}>
+                    {followers.map((user: FollowerUserType) => (
+                      <li key={`덕후 리스트 ${user.nickname}`}>
+                        <ProfileBox
+                          name={user.nickname}
+                          onClickBox={() => goToUserPage(user.idx)}
+                          interest={`${user.interest1 ?? ""} ${
+                            user.interest2 ?? ""
+                          }`}
+                          textWidth={"190px"}
+                          isOn={user.isMyFollowing}
+                          isOnText={myIdx == user.idx ? "나" : "덕질 중"}
+                          isOffText={myIdx == user.idx ? "나" : "덕질하기"}
+                          onClickButton={() =>
+                            handleToggleFollow(user.idx, user.isMyFollowing)
+                          }
+                          src={user.profileImg}
+                          disabled={isPending || myIdx == user.idx}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                  {followerData.totalPage > 1 && (
+                    <Pagination
+                      currentPage={currentPage}
+                      totalPages={followerData.totalPage}
+                      onPageChange={setCurrentPage}
+                      margin="15px 20px"
+                    />
+                  )}
+                </>
+              )}
+            </DropDown>
+          </li>
+          <li>
+            <strong className={styles.info_list_title}>덕질</strong>
+            <button
+              className={styles.info_list_button}
+              type="button"
+              onClick={() => setIsFollowingDropDownOpen((prev) => !prev)}
+            >
+              {`${userData.followingCount} 명`}
+            </button>
+            <DropDown
+              margin="80px 0 0 0"
+              width="415px"
+              position="right"
+              isOpen={isFollowingDropDownOpen}
+              onClose={() => setIsFollowingDropDownOpen(false)}
+            >
+              {followings.length === 0 ? (
+                <p className={styles.empty_message}>
+                  아직 덕질 중인 사람이 없어요 🐣
+                </p>
+              ) : (
+                <>
+                  <ul className={styles.follow_list}>
+                    {followings.map((user: FollowerUserType) => (
+                      <li key={`덕질 리스트 ${user.nickname}`}>
+                        <ProfileBox
+                          name={user.nickname}
+                          onClickBox={() => goToUserPage(user.idx)}
+                          interest={`${user.interest1 ?? ""} ${
+                            user.interest2 ?? ""
+                          }`}
+                          textWidth={"190px"}
+                          isOn={user.isMyFollowing}
+                          isOnText={myIdx == user.idx ? "나" : "덕질 중"}
+                          isOffText={myIdx == user.idx ? "나" : "덕질하기"}
+                          onClickButton={() =>
+                            handleToggleFollow(user.idx, user.isMyFollowing)
+                          }
+                          src={user.profileImg}
+                          disabled={isPending || myIdx == user.idx}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                  {followingData.totalPage > 1 && (
+                    <Pagination
+                      currentPage={currentPage}
+                      totalPages={followingData.totalPage}
+                      onPageChange={setCurrentPage}
+                      margin="15px 20px"
+                    />
+                  )}
+                </>
+              )}
+            </DropDown>
+          </li>
+        </ul>
+      ) : (
+        <>
+          {" "}
+          <LottieLoading />
+        </>
+      )}
     </div>
   );
 }

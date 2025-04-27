@@ -12,7 +12,7 @@ export default function YourPage({ userIdx }: { userIdx: string }) {
   const [tab, setTab] = useState("작성 리뷰");
   const [currentPage, setCurrentPage] = useState(1);
 
-  console.log("다른 유저 마이페이지 접근시/", userIdx);
+  // console.log("다른 유저 마이페이지 접근시/", userIdx);
   const type = useMemo(() => {
     switch (tab) {
       case "작성 리뷰":
