@@ -4,9 +4,20 @@
   bottom: 16px;
   right: 16px;
   flex-direction: column;
+  align-items: center;
 }
 
 .toggle_button {
   padding: 0;
   margin: 0;
+}
+
+.icon_wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

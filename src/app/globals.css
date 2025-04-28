@@ -172,6 +172,7 @@ input[type="range"]::-moz-range-thumb {
 /* 모바일 태블릿 사이즈로 변경시 */
 .desktop_none {
   display: none;
+  width: 100dvw;
 }
 
 @media screen and (max-width: 1024px) {
@@ -187,12 +188,14 @@ input[type="range"]::-moz-range-thumb {
     border-top: 2px solid #ffebd4;
     z-index: 10000;
     text-align: center;
+    width: 100dvw;
   }
   .mobile_only p {
     font-weight: 500;
     font-size: 20px;
     padding-bottom: 30px;
     color: #333;
+    word-break: break-all;
   }
   .mobile_only_button {
     color: #ff7e29;
