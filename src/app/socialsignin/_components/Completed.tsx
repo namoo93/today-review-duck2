@@ -1,9 +1,8 @@
 "use client";
 import { Icon } from "@/app/_components/atoms";
 import styles from "../_css/completed.module.css";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import IconCheck from "@/../../public/icon/icon-check.svg";
-import useSocialAuth from "@/app/_hooks/useSocialAuth";
 import { Suspense, useEffect, useState } from "react";
 
 // ✅ Next.js에서 서버 프리렌더링 방지 설정 추가
@@ -11,19 +10,33 @@ export const dynamic = "force-dynamic";
 
 function CompletedContent() {
   const searchParams = useSearchParams();
-  const { mutate: loginWithGoogle, isSuccess, isPending } = useSocialAuth();
-  const [code, setCode] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
-    const codeParam = searchParams.get("code");
+    const code = searchParams.get("code");
 
-    console.log("codeParam", codeParam);
+    if (code) {
+      console.log("✅ code 가져옴:", code);
 
-    if (codeParam) {
-      setCode(codeParam);
-      // loginWithGoogle(codeParam);
+      const fetchLogin = async () => {
+        try {
+          const res = await fetch(`/auth/callback?code=${code}`);
+          if (res.ok) {
+            console.log("✅ 서버에서 로그인 성공");
+            router.replace("/"); // 로그인 성공 → 홈으로 이동
+          } else {
+            console.error("❌ 로그인 실패");
+            router.replace("/auth/auth-code-error"); // 실패 시 에러 페이지
+          }
+        } catch (error) {
+          console.error("❌ fetch 에러:", error);
+          router.replace("/auth/auth-code-error");
+        }
+      };
+
+      fetchLogin();
     }
-  }, [searchParams, loginWithGoogle]);
+  }, [searchParams, router]);
 
   return (
     <section className={styles.page}>
@@ -36,11 +49,7 @@ function CompletedContent() {
             height={90}
           />
           <strong className={styles.sub_title}>
-            {isPending
-              ? "로그인 처리 중..."
-              : isSuccess
-              ? "로그인이 완료되었어요!"
-              : "로그인을 진행 중입니다."}
+            구글 로그인 처리 중입니다...
           </strong>
         </div>
       </div>

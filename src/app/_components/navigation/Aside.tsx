@@ -54,6 +54,8 @@ export default function Aside() {
 
   return (
     <aside className={styles.aside}>
+      {/* TODO : 검색 */}
+
       {userIdx?.length ? (
         <button
           type="button"
@@ -80,13 +82,16 @@ export default function Aside() {
                   onFollowChange={updateFollowState}
                 />
               ))}
-              <li></li>
             </ul>
           </DropDown>
         </button>
       ) : (
-        <button type="button" onClick={() => goToSignPage()}>
-          <span className={styles.login_info_title}>로그인 및 회원가입</span>
+        <button
+          type="button"
+          className={styles.login_info_button}
+          onClick={() => goToSignPage()}
+        >
+          <span>로그인</span>
         </button>
       )}
     </aside>

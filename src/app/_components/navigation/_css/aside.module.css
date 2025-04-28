@@ -7,10 +7,13 @@
   align-items: center;
 }
 
-.aside .login_info_title {
-  font-size: 16px;
+.aside .login_info_button {
+  font-size: 14px;
   font-weight: 500;
   color: #585858;
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 8px;
 }
 
 /*  알람 */
