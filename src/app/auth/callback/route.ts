@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     const tokenData = await tokenRes.json();
 
     if (!tokenRes.ok) {
-      console.error("❌ Google OAuth Error:", tokenData); // << 여기
+      console.error("❌ Google OAuth Error:", tokenData);
       return NextResponse.json(
         { message: "Failed to get Google access token", error: tokenData },
         { status: 400 }

@@ -18,6 +18,7 @@ export default function Aside() {
   const userIdx = useRecoilValue(userIdxState);
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [hasUnread, setHasUnread] = useState(false);
   const [notifications, setNotifications] = useState<NotificationType[]>([]);
   const { data } = useNotificationList();
 
@@ -33,6 +34,7 @@ export default function Aside() {
 
   useSseNotification((newNotif) => {
     setNotifications((prev) => [newNotif, ...prev]);
+    setHasUnread(true);
   });
 
   // 알림 리스트 내 유저 팔로우 상태 업데이트 함수
@@ -52,6 +54,14 @@ export default function Aside() {
     );
   };
 
+  const handleToggleDropDown = () => {
+    setIsDropDownOpen((prev) => !prev);
+
+    if (!isDropDownOpen) {
+      setHasUnread(false); // ✅ 드롭다운 열 때 badge 끄기
+    }
+  };
+
   return (
     <aside className={styles.aside}>
       {/* TODO : 검색 */}
@@ -67,22 +77,27 @@ export default function Aside() {
           ) : (
             <Icon src={AlarmDark} alt="alarm image" width={24} height={24} />
           )}
+          {hasUnread && <span className={styles.badge} />}
           <DropDown
             margin="30px 0 0 0"
             isOpen={isDropDownOpen}
-            onClose={() => setIsDropDownOpen(false)}
+            onClose={() => handleToggleDropDown()}
             position="right"
-            height="500px"
             width="428px"
           >
-            <ul className={styles.notification_list}>
-              {notifications.map((item) => (
-                <NotificationList
-                  item={item}
-                  onFollowChange={updateFollowState}
-                />
-              ))}
-            </ul>
+            {notifications.length === 0 ? (
+              <div className={styles.empty_message}>아직 알림이 없어요 🐥</div>
+            ) : (
+              <ul className={styles.notification_list}>
+                {notifications.map((item) => (
+                  <NotificationList
+                    key={`${item.createdAt}-${item.sender.idx}`} // ✅ key 추가
+                    item={item}
+                    onFollowChange={updateFollowState}
+                  />
+                ))}
+              </ul>
+            )}
           </DropDown>
         </button>
       ) : (

@@ -10,11 +10,15 @@ export const postRefreshToken = async (): Promise<boolean> => {
   }
 
   try {
-    const response = await axiosInstance.post("/auth/access-token", null, {
-      headers: {
-        Authorization: `Bearer ${refreshToken}`,
-      },
-    });
+    const response = await axiosInstance.post(
+      "/auth/access-token",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+        },
+      }
+    );
 
     console.log("postRefreshToken 실행 response :", response);
     const newAccessToken = response.data.accessToken;

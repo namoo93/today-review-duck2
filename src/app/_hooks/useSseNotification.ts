@@ -6,14 +6,16 @@ export const useSseNotification = (onReceive: (data: any) => void) => {
     process.env.NEXT_PUBLIC_MODE === "local"
       ? "/api" // 👉 로컬에서는 프록시 경유
       : process.env.NEXT_PUBLIC_BASE_URL;
+  console.log("NEXT_PUBLIC_BASE_URL", process.env.NEXT_PUBLIC_BASE_URL);
 
   useEffect(() => {
-    console.log("NEXT_PUBLIC_BASE_URL", process.env.NEXT_PUBLIC_BASE_URL);
     const accessToken = document.cookie
       .split("; ")
       .find((row) => row.startsWith("accessToken="))
       ?.split("=")[1];
-
+    if (!accessToken) {
+      return; // ❗ accessToken 없으면 연결 안 함
+    }
     if (!BASE_URL) {
       console.error("⛔ BASE_URL is undefined.");
       return;
