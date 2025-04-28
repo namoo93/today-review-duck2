@@ -37,7 +37,7 @@ export default function ProfileInfo({ userIdx }: { userIdx: string }) {
   const [isFollowingDropDownOpen, setIsFollowingDropDownOpen] = useState(false);
   const { follow, unfollow, isPending } = useToggleFollow();
 
-  const { data: userData } = useUserInfo(userIdx);
+  const { data: userData } = useUserInfo(userIdx, myIdx);
 
   const handleToggleFollow = (userIdx: string, isFollowing: boolean) => {
     if (!myIdx) {
