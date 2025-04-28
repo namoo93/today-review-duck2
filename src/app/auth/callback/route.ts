@@ -28,14 +28,23 @@ export async function GET(request: NextRequest) {
 
     const tokenData = await tokenRes.json();
 
-    if (!tokenRes.ok || !tokenData.access_token) {
+    if (!tokenRes.ok) {
+      console.error("❌ Google OAuth Error:", tokenData); // << 여기
       return NextResponse.json(
-        { message: "Failed to get Google access token" },
+        { message: "Failed to get Google access token", error: tokenData },
         { status: 400 }
       );
     }
 
-    const backendResult = await googleLogin(tokenData.accessToken);
+    if (!tokenData.access_token) {
+      console.error("❌ Access token not found:", tokenData);
+      return NextResponse.json(
+        { message: "Access token not found" },
+        { status: 400 }
+      );
+    }
+
+    const backendResult = await googleLogin(tokenData.access_token);
     const isProduction = process.env.NODE_ENV === "production";
 
     // ✅ 쿠키 설정 + 리다이렉트
