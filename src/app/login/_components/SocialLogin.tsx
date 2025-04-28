@@ -36,19 +36,26 @@ export default function SocialLogin() {
     }
 
     if (provider == "naver") {
-      const url = `https://nid.naver.com/oauth2.0/authorize
-?response_type=code
-&client_id=${NAVER_CLIENT_ID}
-&redirect_uri=${encodeURIComponent(REDIRECT_URI)}
-&state=test`;
-
+      const url =
+        "https://nid.naver.com/oauth2.0/authorize" +
+        "?response_type=code" +
+        "&client_id=" +
+        NAVER_CLIENT_ID +
+        "&redirect_uri=" +
+        encodeURIComponent(REDIRECT_URI) +
+        "&state=test";
       window.location.href = url;
     }
 
     if (provider == "kakao") {
-      const url = `https://kauth.kakao.com/oauth/authorize
-?client_id=${KAKAO_CLIENT_ID}
-&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code`;
+      const url =
+        "https://kauth.kakao.com/oauth/authorize" +
+        "?client_id=" +
+        KAKAO_CLIENT_ID +
+        "&redirect_uri=" +
+        encodeURIComponent(REDIRECT_URI) +
+        "&response_type=code";
+
       window.location.href = url;
     }
 
