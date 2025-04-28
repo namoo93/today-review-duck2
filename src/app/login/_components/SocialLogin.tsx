@@ -29,7 +29,8 @@ export default function SocialLogin() {
         "&redirect_uri=" +
         encodeURIComponent(GOOGLE_REDIRECT_URI) +
         "&response_type=code" +
-        "&scope=email%20profile%20openid";
+        "&scope=" +
+        encodeURIComponent("email profile openid");
 
       window.location.href = url;
     }
