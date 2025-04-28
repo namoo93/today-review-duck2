@@ -45,6 +45,8 @@ export default function ReviewList({ type, title, userIdx }: Props) {
                 value={review.score}
                 contents={review.content}
                 date={review.createdAt}
+                likeCount={review.likeCount}
+                commentCount={review.commentCount}
               />
             ))}
           </ul>

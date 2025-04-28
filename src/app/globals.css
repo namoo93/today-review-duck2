@@ -89,10 +89,9 @@ button {
   text-overflow: ellipsis;
   height: auto;
 }
-.elipsis_5_lines {
-  /*  최대 5줄까지만 표시 */
+.elipsis_3_lines {
   display: -webkit-box !important;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

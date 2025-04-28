@@ -62,6 +62,8 @@ export default function YourPage({ userIdx }: { userIdx: string }) {
                 value={review.score}
                 contents={review.content}
                 date={review.createdAt}
+                likeCount={review.likeCount}
+                commentCount={review.commentCount}
               />
             ))}
           </ul>

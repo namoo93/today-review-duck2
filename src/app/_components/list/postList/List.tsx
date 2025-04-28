@@ -2,6 +2,8 @@ import { Icon } from "../../atoms";
 import styles from "./list.module.css";
 import ImgDefault from "@/../public/images/img-default-post.svg";
 import ImgManager from "@/../public/images/img-manager.svg";
+import IconLike from "@/../public/icon/icon-like-post.svg";
+import IconComment from "@/../public/icon/icon-comment-post.svg";
 import RatingTag from "./RatingTag";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/app/_utils/date";
@@ -24,6 +26,8 @@ interface Props {
   contents?: string;
   isManager?: boolean;
   reviewIdx?: number;
+  likeCount?: number;
+  commentCount?: number;
   date: string;
 }
 
@@ -39,6 +43,8 @@ export default function List({
   onClkickList,
   reviewIdx,
   date,
+  likeCount,
+  commentCount,
 }: Props) {
   const router = useRouter();
   const onClickItem = () => {
@@ -60,15 +66,15 @@ export default function List({
             <Icon
               alt={alt}
               src={src ? src : ImgManager}
-              height={300}
-              width={300}
+              height={210}
+              width={210}
             />
           ) : (
             <Icon
               alt={alt}
               src={src ? src : ImgDefault}
-              height={300}
-              width={300}
+              height={210}
+              width={210}
             />
           )}
         </span>
@@ -80,8 +86,26 @@ export default function List({
           <span className={styles.list_user}>
             {`${user.nickname} | ${formatDate(date)}`}
           </span>
-          {!isManager && <RatingTag score={value} />}
-          <span className={`elipsis_5_lines ${styles.list_contents}`}>
+          {!isManager && (
+            <span className={styles.icon_wrap}>
+              <RatingTag score={value} />
+              <Icon
+                alt={"좋아요 아이콘"}
+                src={IconLike}
+                height={20}
+                width={20}
+              />
+              <span className={styles.count}>{likeCount}</span>
+              <Icon
+                alt={"댓글 아이콘"}
+                src={IconComment}
+                height={20}
+                width={20}
+              />
+              <span className={styles.count}>{commentCount}</span>
+            </span>
+          )}
+          <span className={`elipsis_3_lines ${styles.list_contents}`}>
             {contents}
           </span>
         </span>

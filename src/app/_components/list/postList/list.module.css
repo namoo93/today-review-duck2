@@ -3,6 +3,7 @@
 .list_button {
   display: flex;
   gap: 25px;
+  width: 100%;
 }
 .list_img {
   display: flex;
@@ -16,22 +17,32 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
 .list_title {
   font-size: 24px;
   font-weight: 500;
   text-align: left;
   color: #333;
+  padding-top: 3px;
 }
 .list_user {
   font-size: 15px;
   font-weight: 500;
   text-align: left;
   color: #aaa;
-  padding: 20px 0 30px 0;
+  padding: 15px 0 30px 0;
 }
-
+.icon_wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.count {
+  font-size: 12px;
+  color: #969696;
+}
 .list_contents {
-  padding-top: 20px;
+  padding-top: 15px;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
