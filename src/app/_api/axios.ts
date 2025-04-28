@@ -30,6 +30,12 @@ export const axiosInstance = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
+// 서버에서 직접 API 호출용
+export const serverInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL, // /api가 아니라 직접 URL
+  headers: { "Content-Type": "application/json" },
+});
+
 // 공통 API 인스턴스 생성기
 function createAPIInstance(
   basePath: string,

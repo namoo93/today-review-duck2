@@ -5,15 +5,21 @@ export const getAuthorityCookie = (key: string): string | undefined => {
   return Cookies.get(key);
 };
 
-// 쿠키 설정 (만료 시간 30분)
-export const setAuthorityCookie = (key: string, value: string) => {
+// 쿠키 설정 (key, value, expires(초 단위))
+export const setAuthorityCookie = (
+  key: string,
+  value: string,
+  expiresInSeconds?: number // 만료시간 직접 넘길 수 있게
+) => {
   const isProduction = process.env.NODE_ENV === "production";
 
   Cookies.set(key, value, {
-    expires: 30 / 1440, // 30분
-    secure: isProduction, // 운영환경에서는 secure, 개발에서는 false
-    sameSite: isProduction ? "Strict" : "Lax", // 개발환경에서는 Lax로 허용
-    path: "/", // 전체 경로에서 접근 가능하도록
+    expires: expiresInSeconds
+      ? expiresInSeconds / (60 * 60 * 24) // 초 → 일(day)로 변환
+      : 30 / 1440, // 기본 30분 (기존과 동일)
+    secure: isProduction,
+    sameSite: isProduction ? "Strict" : "Lax",
+    path: "/",
   });
 };
 

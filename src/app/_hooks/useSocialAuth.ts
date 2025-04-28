@@ -28,7 +28,7 @@ export default function useSocialAuth() {
 
       // ✅ 받은 accessToken & refreshToken 저장
       setAuthorityCookie("accessToken", data.accessToken);
-      setAuthorityCookie("refreshToken", data.refreshToken);
+      setAuthorityCookie("refreshToken", data.refreshToken, 1209600); // refreshToken은 2주
 
       // ✅ 로그인 후 홈으로 이동
       router.push("/");

@@ -28,7 +28,8 @@ const useAuth = () => {
 
       // 액세스 토큰 & 리프레시 토큰을 쿠키에 저장
       setAuthorityCookie("accessToken", response.data.accessToken);
-      setAuthorityCookie("refreshToken", response.data.refreshToken);
+      // refreshToken은 2주 (1209600초)
+      setAuthorityCookie("refreshToken", response.data.refreshToken, 1209600);
       setAuthorityCookie("nickname", response.data.nickname);
 
       const payload = decodeJWT(response.data.accessToken);

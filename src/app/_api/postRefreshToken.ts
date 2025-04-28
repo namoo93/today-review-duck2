@@ -22,7 +22,7 @@ export const postRefreshToken = async (): Promise<boolean> => {
       throw new Error("엑세스 토큰 없음");
     }
 
-    setAuthorityCookie("accessToken", newAccessToken); // ✅ 갱신된 토큰 저장
+    setAuthorityCookie("accessToken", newAccessToken, 1800); // ✅ 갱신된 토큰 저장
     return true;
   } catch (error) {
     console.error("❌ 토큰 갱신 실패", error);

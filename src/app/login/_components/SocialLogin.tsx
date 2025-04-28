@@ -12,6 +12,8 @@ export default function SocialLogin() {
   const REDIRECT_URI = process.env.NEXT_PUBLIC_REDIRECT_URI as string;
   // 구글 인증
   const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  const GOOGLE_REDIRECT_URI = process.env
+    .NEXT_PUBLIC_GOOGLE_REDIRECT_URI as string;
   // 네이버 인증
   const NAVER_CLIENT_ID = process.env.NEXT_PUBLIC_NAVER_CLIENT_ID;
   //kakao 인증
@@ -21,12 +23,13 @@ export default function SocialLogin() {
   const handleLogin = (provider: string) => {
     if (provider == "google") {
       const url =
-        "https://accounts.google.com/o/oauth2/auth?client_id=" +
+        "https://accounts.google.com/o/oauth2/v2/auth" +
+        "?client_id=" +
         GOOGLE_CLIENT_ID +
         "&redirect_uri=" +
-        encodeURIComponent(REDIRECT_URI) +
+        encodeURIComponent(GOOGLE_REDIRECT_URI) +
         "&response_type=code" +
-        "&scope=email%20profile";
+        "&scope=email%20profile%20openid";
 
       window.location.href = url;
     }

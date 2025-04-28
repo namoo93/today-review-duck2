@@ -11,30 +11,14 @@ export const dynamic = "force-dynamic";
 function CompletedContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-
   useEffect(() => {
     const code = searchParams.get("code");
 
     if (code) {
       console.log("✅ code 가져옴:", code);
 
-      const fetchLogin = async () => {
-        try {
-          const res = await fetch(`/auth/callback?code=${code}`);
-          if (res.ok) {
-            console.log("✅ 서버에서 로그인 성공");
-            router.replace("/"); // 로그인 성공 → 홈으로 이동
-          } else {
-            console.error("❌ 로그인 실패");
-            router.replace("/auth/auth-code-error"); // 실패 시 에러 페이지
-          }
-        } catch (error) {
-          console.error("❌ fetch 에러:", error);
-          router.replace("/auth/auth-code-error");
-        }
-      };
-
-      fetchLogin();
+      // ❗ fetch 대신 그냥 리다이렉트
+      window.location.href = `/auth/callback?code=${code}`;
     }
   }, [searchParams, router]);
 
