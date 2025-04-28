@@ -21,3 +21,35 @@
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* 모바일 바로가기 모달 */
+.modal {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.modal_title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+
+.modal_info {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  color: #6a6a6a;
+  padding-bottom: 40px;
+}
+.modal_button_wrap {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  margin-top: 20px;
+}

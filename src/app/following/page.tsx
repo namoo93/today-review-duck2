@@ -9,6 +9,7 @@ import SearchListBox from "../main/_components/SearchListBox";
 import MainListBox from "../main/_components/MainListBox";
 import Header from "../_components/navigation/Header";
 import ToMobile from "../_components/navigation/ToMobile";
+import Modal from "../_components/modal/Modal";
 
 export default function Main() {
   const [onSearchPage] = useRecoilState(onSearchPageState);
@@ -21,6 +22,7 @@ export default function Main() {
       <FixedButton />
       {onSearchPage ? <SearchListBox /> : <MainListBox />}
       <ToMobile />
+      <Modal width="400px" />
     </>
   );
 }

@@ -207,3 +207,10 @@ input[type="range"]::-moz-range-thumb {
     font-size: 15px;
   }
 }
+
+/* slider 커스텀 활성화된 dot */
+.swiper-pagination-bullet-active {
+  background: #ff7e29 !important;
+  width: 10px;
+  height: 10px;
+}

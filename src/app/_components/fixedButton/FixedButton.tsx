@@ -1,7 +1,6 @@
 "use client";
 
-import { useRecoilState, useRecoilValue } from "recoil";
-import { useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
 import styles from "./fixedbutton.module.css";
 import { useEffect } from "react";
 import { themeState, ThemeType } from "@/app/_recoil/themeAtom";
@@ -10,9 +9,12 @@ import IocModeLight from "@/../../public/icon/icon-mode-light.svg";
 import IocMobileDark from "@/../../public/icon/icon-mobile-dark.svg";
 import IocMobileLight from "@/../../public/icon/icon-mobile-light.svg";
 import { Icon } from "../atoms";
+import { useModal } from "@/app/_hooks/useModal";
+import MobileModal from "./MobileModal";
 
 export default function FixedButton() {
   const [theme, setTheme] = useRecoilState(themeState);
+  const { openModal } = useModal();
 
   // 클라이언트에서 `localStorage`에서 초기 테마 설정
   useEffect(() => {
@@ -32,7 +34,7 @@ export default function FixedButton() {
   };
 
   const goToMobile = () => {
-    //
+    openModal(<MobileModal />);
   };
 
   return (
