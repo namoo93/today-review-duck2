@@ -22,15 +22,11 @@ export default function SocialLogin() {
   // 로그인 버튼 클릭 핸들러
   const handleLogin = (provider: string) => {
     if (provider == "google") {
-      const url =
-        "https://accounts.google.com/o/oauth2/v2/auth" +
-        "?client_id=" +
-        GOOGLE_CLIENT_ID +
-        "&redirect_uri=" +
-        encodeURIComponent(GOOGLE_REDIRECT_URI) +
-        "&response_type=code" +
-        "&scope=" +
-        encodeURIComponent("email profile openid");
+     const url = `https://accounts.google.com/o/oauth2/v2/auth` +
+    `?client_id=${GOOGLE_CLIENT_ID}` +
+    `&redirect_uri=${encodeURIComponent(GOOGLE_REDIRECT_URI)}` + // 서버로 바로
+    `&response_type=code` +
+    `&scope=${encodeURIComponent("openid email profile")}`;
 
       window.location.href = url;
     }
