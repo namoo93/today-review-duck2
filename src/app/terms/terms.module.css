@@ -1,0 +1,31 @@
+.termsPage {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.termsPage h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.termsPage h2 {
+  font-size: 22px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.termsPage ul {
+  list-style-type: circle !important;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.termsPage ol {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}

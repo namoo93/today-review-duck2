@@ -5,6 +5,8 @@ import Notices from "./subpages/Notices";
 import ProfileSettings from "./subpages/ProfileSettings";
 import ReviewList from "./subpages/ReviewList";
 import { myInfoState } from "@/app/_recoil/myInfoAtom";
+import TermsPage from "@/app/terms/page";
+import PrivacyPage from "@/app/privacy/page";
 
 export default function Contents({ selectedMenu }: { selectedMenu: string }) {
   const myInfo = useRecoilValue(myInfoState);
@@ -35,9 +37,17 @@ export default function Contents({ selectedMenu }: { selectedMenu: string }) {
       case "공지사항":
         return <Notices />;
       case "약관":
-        return <>새창으로 링크 열기</>;
+        return (
+          <>
+            <TermsPage />
+          </>
+        );
       case "정책":
-        return <>새창으로 링크 열기</>;
+        return (
+          <>
+            <PrivacyPage />
+          </>
+        );
       default:
         return <ProfileSettings />;
     }

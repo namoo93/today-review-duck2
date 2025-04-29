@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // 🔥 카카오 토큰 요청
+    // 카카오 토큰 요청
     const tokenRes = await fetch("https://kauth.kakao.com/oauth/token", {
       method: "POST",
       headers: {
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 🔥 우리 백엔드로 카카오 access_token 보내 로그인
+    // 우리 백엔드로 카카오 access_token 보내 로그인
     const backendResult = await kakaoLogin(tokenData.access_token);
 
     const isProduction = process.env.NODE_ENV === "production";
