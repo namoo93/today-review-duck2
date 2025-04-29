@@ -6,13 +6,15 @@ import Pagination from "@/app/_components/pagination/Pagination";
 import { ReviewType } from "@/types";
 
 export default function Notices() {
+  const [currentPage, setCurrentPage] = useState(1);
   const noticeList: ReviewType[] = [];
+  const totalPages = 1;
 
   return (
     <div className={styles.list_contents}>
       {noticeList.length > 0 ? (
         <ul className={styles.list_wrap}>
-          {noticeList.map((review, index) => (
+          {noticeList.map((review) => (
             <List
               key={review.idx}
               reviewIdx={review.idx}
@@ -30,7 +32,14 @@ export default function Notices() {
       ) : (
         <DataNone target={"올라온 공지"} />
       )}
-      <Pagination currentPage={1} totalPages={10} onPageChange={() => {}} />
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+          margin="20px 0"
+        />
+      )}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Providers from "./_providers/providers";
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { postRefreshTokenServer } from "./_api/authServer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "오늘도 리뷰",
@@ -29,6 +30,13 @@ export default async function RootLayout({
 
   return (
     <html lang="ko">
+      <head>
+        {/* ✅ Kakao SDK 스크립트 추가 */}
+        <Script
+          src="https://developers.kakao.com/sdk/js/kakao.min.js"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>
