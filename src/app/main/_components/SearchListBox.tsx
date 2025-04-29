@@ -107,7 +107,7 @@ export default function SearchListBox() {
           )}
         </>
       ) : isEmpty ? (
-        <DataNone target={`검색된 키워드' ${keyword}' 의 ${tab}(이)`} />
+        <DataNone target={`검색된 키워드' ${keyword}' 의 ${tab}`} />
       ) : (
         <>
           {tab === "게시글" && (
