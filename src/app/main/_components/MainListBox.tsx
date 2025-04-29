@@ -7,7 +7,7 @@ import { TabMenu } from "@/app/_components/tab/TabMenu";
 import MainReviewList from "./MainReviewList";
 
 export default function MainListBox() {
-  const [activeItem] = useRecoilState(activeItemState); // "트랜드", "최신", "덕질 중"
+  const [activeItem] = useRecoilState(activeItemState); // "트렌드", "최신", "덕질 중"
   const [theme] = useRecoilState(themeState); // "light" or "dark"
   const [tab, setTab] = useState("오늘"); // 트렌드일 때만 사용하는 탭
 
@@ -15,7 +15,7 @@ export default function MainListBox() {
 
   // 트렌드이면 mode는 "hot", timeframe은 탭 기준
   const mode =
-    activeItem === "트랜드"
+    activeItem === "트렌드"
       ? "hot"
       : activeItem === "덕질 중"
       ? "following"
@@ -23,7 +23,7 @@ export default function MainListBox() {
 
   let timeframe: "1D" | "7D" | "1M" | undefined;
 
-  if (activeItem === "트랜드") {
+  if (activeItem === "트렌드") {
     switch (tab) {
       case "오늘":
         timeframe = "1D";
@@ -43,7 +43,7 @@ export default function MainListBox() {
 
   return (
     <section className={styles.page}>
-      {activeItem == "트랜드" && (
+      {activeItem == "트렌드" && (
         <TabMenu
           width="240px"
           margin="0 0 10px -20px"

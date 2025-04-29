@@ -12,7 +12,7 @@ export default function Gnb() {
   return (
     <ul className={styles.gnb_list}>
       <NavItem label={"최신"} href={"/"} show={true} />
-      <NavItem label={"트랜드"} href={"/"} show={true} />
+      <NavItem label={"트렌드"} href={"/"} show={true} />
       <NavItem label={"덕질 중"} href={"/following"} show={!!userIdx?.length} />
       <NavItem
         label={"리뷰 작성하기"}
