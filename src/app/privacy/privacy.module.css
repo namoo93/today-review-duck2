@@ -19,13 +19,26 @@
 }
 
 .privacyPage ul {
-  list-style-type: circle !important;
   padding-left: 20px;
   margin-bottom: 20px;
 }
 
 .privacyPage ol {
-  list-style-type: disc;
   padding-left: 20px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .privacyPage {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .privacyPage h1 {
+    font-size: 22px;
+  }
+
+  .privacyPage h2 {
+    font-size: 18px;
+  }
 }

@@ -19,13 +19,26 @@
 }
 
 .termsPage ul {
-  list-style-type: circle !important;
   padding-left: 20px;
   margin-bottom: 20px;
 }
 
 .termsPage ol {
-  list-style-type: disc;
   padding-left: 20px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .termsPage {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .termsPage h1 {
+    font-size: 22px;
+  }
+
+  .termsPage h2 {
+    font-size: 18px;
+  }
 }
