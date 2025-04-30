@@ -1,0 +1,47 @@
+.admin_logo {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.admin_logo strong {
+  font-weight: 500;
+  font-size: 22px;
+  vertical-align: middle;
+  color: #ff7e29;
+  padding-top: 5px;
+}
+
+/* nav */
+.admin_nav_wrap {
+  position: absolute;
+  padding: 30px;
+  padding-top: 120px;
+  width: 220px;
+  height: 100dvh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+.admin_nav {
+}
+.nav_title {
+}
+.nav_subtitle {
+}
+.logout_button {
+}
+
+/* section */
+.admin_section {
+  background-color: #f7f7f7;
+  width: 100dvw;
+  height: 100dvh;
+  padding-left: 250px;
+}

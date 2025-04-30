@@ -28,6 +28,7 @@ export default function SideBar({
   const followerCount = myInfo?.followerCount ?? 0;
   const followingCount = myInfo?.followingCount ?? 0;
   const myIdx = myInfo?.idx as string;
+  const isAdmin = myInfo?.isAdmin ?? false;
   const [currentPage, setCurrentPage] = useState(1);
   // 덕후 리스트 데이터
   const { data: followerData = { users: [], totalPage: 1 } } = useFollowerList(
@@ -195,7 +196,11 @@ export default function SideBar({
       </ul>
 
       {/* 네비게이션 목록 */}
-      <Lnb onSelectMenu={onSelectMenu} selectedMenu={selectedMenu} />
+      <Lnb
+        onSelectMenu={onSelectMenu}
+        selectedMenu={selectedMenu}
+        isAdmin={isAdmin}
+      />
     </div>
   );
 }

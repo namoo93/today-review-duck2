@@ -17,4 +17,5 @@ export type UserInfoType = {
   followerCount: number;
   isMyFollowing: boolean;
   isMyBlock: boolean;
+  status?: string;
 };

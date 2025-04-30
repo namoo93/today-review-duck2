@@ -1,19 +1,27 @@
 "use client";
-import { useState } from "react";
 import styles from "../_css/lnb.module.css";
 import { Icon } from "@/app/_components/atoms";
 import IcoArrowOff from "@/../public/icon/icon-arrow-off.svg";
 import IcoArrowOn from "@/../public/icon/icon-arrow-on.svg";
+import IcoArrowW from "@/../public/icon/icon-arrow-w.svg";
+import { useRouter } from "next/navigation";
 
 export default function Lnb({
   onSelectMenu,
   selectedMenu,
+  isAdmin,
 }: {
   onSelectMenu: (menu: string) => void;
   selectedMenu: string;
+  isAdmin: boolean;
 }) {
+  const router = useRouter();
   const handleSelectMenu = (title: string) => {
     onSelectMenu(title);
+  };
+
+  const goToAdminPage = () => {
+    router.push(`/admin`);
   };
 
   return (
@@ -169,6 +177,22 @@ export default function Lnb({
                 alt="화살표 아이콘"
               />
             </li>
+            {isAdmin && (
+              <li className={styles.admin}>
+                <button
+                  onClick={() => goToAdminPage()}
+                  className={`${styles.admin_button}`}
+                >
+                  관리자 페이지
+                  <Icon
+                    width={20}
+                    height={20}
+                    src={IcoArrowW}
+                    alt="화살표 아이콘"
+                  />
+                </button>
+              </li>
+            )}
           </ul>
         </li>
       </ul>

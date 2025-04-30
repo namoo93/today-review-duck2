@@ -58,7 +58,7 @@ export default function Aside() {
     setIsDropDownOpen((prev) => !prev);
 
     if (!isDropDownOpen) {
-      setHasUnread(false); // ✅ 드롭다운 열 때 badge 끄기
+      setHasUnread(false);
     }
   };
 

@@ -45,3 +45,17 @@
 .lnb_list button.on {
   color: #ff7e29;
 }
+.lnb_list_wrap li.admin {
+  padding: 10px 0;
+  margin: 0 10px;
+}
+.lnb_list button.admin_button {
+  background-color: rgb(255, 178, 113);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  padding-right: 10px;
+  border-radius: 8px;
+}
