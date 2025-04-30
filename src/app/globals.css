@@ -195,7 +195,7 @@ input[type="range"]::-moz-range-thumb {
     font-size: 20px;
     padding-bottom: 30px;
     color: #333;
-    word-break: break-all;
+    word-break: keep-all;
   }
   .mobile_only_button {
     color: #ff7e29;
@@ -205,6 +205,11 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 8px;
     font-weight: 500;
     font-size: 15px;
+  }
+  .button_group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 

@@ -12,10 +12,10 @@ export default function MobileModal() {
 
     const userAgent = navigator.userAgent || navigator.vendor;
 
-    const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+    const isIOS = /iPad|iPhone|iPod|Macintosh/.test(userAgent);
 
     const url = isIOS
-      ? "https://apps.apple.com/kr/app/" //TODO: 애플스토어 승인후 링크 등록
+      ? "https://apps.apple.com/kr/app/오늘도-리뷰/id6744454725?l=en-GB"
       : "https://play.google.com/store/apps/details?id=site.mylittlereviewduck";
 
     window.open(url, "_blank", "noopener,noreferrer");

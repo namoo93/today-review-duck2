@@ -13,7 +13,7 @@ export default function DataNone({ target }: Props) {
         alt="데이타 없음 페이지 아이콘"
         margin={"0 0 30px 0"}
       />
-      <span>아직 {target}&#40;이&#41; 가 없어요</span>
+      <span>아직 {target} &#40;이&#41;가 없어요</span>
     </p>
   );
 }
