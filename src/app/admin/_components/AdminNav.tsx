@@ -26,7 +26,7 @@ export default function AdminNav({
           <li>
             <h2 className={styles.nav_title}>운영 관리</h2>
             <ul>
-              <li>
+              <li className={styles.nav_list_item}>
                 <button
                   className={getClass("notice")}
                   onClick={() => setCurrent("notice")}
@@ -46,7 +46,7 @@ export default function AdminNav({
           <li>
             <h2 className={styles.nav_title}>유저 관리</h2>
             <ul>
-              <li>
+              <li className={styles.nav_list_item}>
                 <button
                   className={getClass("user_list")}
                   onClick={() => setCurrent("user_list")}
@@ -60,21 +60,7 @@ export default function AdminNav({
                   />
                 </button>
               </li>
-              <li>
-                <button
-                  className={getClass("blacklist")}
-                  onClick={() => setCurrent("blacklist")}
-                >
-                  <h3>블랙 리스트</h3>
-                  <Icon
-                    width={20}
-                    height={20}
-                    src={getIcon("blacklist")}
-                    alt="화살표 아이콘"
-                  />
-                </button>
-              </li>
-              <li>
+              <li className={styles.nav_list_item}>
                 <button
                   className={getClass("opinion_list")}
                   onClick={() => setCurrent("opinion_list")}
@@ -94,7 +80,7 @@ export default function AdminNav({
           <li>
             <h2 className={styles.nav_title}>신고 관리</h2>
             <ul>
-              <li>
+              <li className={styles.nav_list_item}>
                 <button
                   className={getClass("report")}
                   onClick={() => setCurrent("report")}

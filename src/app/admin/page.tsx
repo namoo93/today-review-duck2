@@ -6,9 +6,9 @@ import UserListView from "./_components/UserListView";
 import ImgLogo from "@/../public/images/logo.svg";
 import { Icon } from "../_components/atoms";
 import NoticeView from "./_components/NoticeView";
-import BlacklistView from "./_components/BlacklistView";
 import OpinionView from "./_components/OpinionView";
 import ReportView from "./_components/ReportView";
+import Modal from "../_components/modal/Modal";
 
 export default function AdminPage() {
   const [current, setCurrent] = useState("notice");
@@ -28,9 +28,9 @@ export default function AdminPage() {
       <main>
         {current === "notice" && <NoticeView />}
         {current === "user_list" && <UserListView />}
-        {current === "blacklist" && <BlacklistView />}
         {current === "opinion_list" && <OpinionView />}
         {current === "report" && <ReportView />}
+        <Modal width="600px" />
       </main>
     </>
   );

@@ -13,6 +13,7 @@ type TabMenuProps = {
   onClickTab?: () => void;
   fontSize?: string;
   textOnly?: boolean;
+  lineOnly?: boolean;
 };
 
 type TabProps = {
@@ -24,6 +25,7 @@ type TabProps = {
   onClickTab?: () => void;
   fontSize?: string;
   textOnly?: boolean;
+  lineOnly?: boolean;
 };
 
 function Tab({
@@ -35,14 +37,19 @@ function Tab({
   onClickTab,
   fontSize,
   textOnly = false,
+  lineOnly = false,
 }: TabProps) {
   return (
     <button
       className={`${styles.tab_button} ${
         label === selected
-          ? textOnly
+          ? lineOnly
+            ? styles.line_only_active
+            : textOnly
             ? styles.text_only_active
             : styles.tab_button_active
+          : lineOnly
+          ? styles.line_only_inactive
           : textOnly
           ? styles.text_only_inactive
           : styles.tab_button_inactive
@@ -70,6 +77,7 @@ export function TabMenu({
   onClickTab,
   fontSize,
   textOnly = false,
+  lineOnly = false,
 }: TabMenuProps) {
   const handleChange = (value: string) => {
     setTabView?.(value);
@@ -88,6 +96,7 @@ export function TabMenu({
           onClickTab={onClickTab}
           fontSize={fontSize}
           textOnly={textOnly}
+          lineOnly={lineOnly}
         />
       ))}
     </div>

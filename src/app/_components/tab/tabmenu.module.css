@@ -38,3 +38,25 @@
   color: #999999;
   font-weight: 500;
 }
+.line_only_active {
+  background-color: transparent;
+  color: #ff7b00;
+  font-weight: 600;
+  position: relative;
+}
+
+.line_only_active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #ff7b00;
+}
+
+.line_only_inactive {
+  background-color: transparent;
+  color: #999;
+  font-weight: 500;
+}

@@ -28,7 +28,18 @@
   font-size: 16px;
   color: #aaa;
 }
-
+.input_right {
+  display: flex;
+  width: 100%;
+  flex: 1 0 0;
+  font-size: 16px;
+  padding: 8px 15px;
+  padding-right: 50px;
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
+  color: #585858;
+}
 .button {
   position: absolute;
   left: 0;
@@ -38,7 +49,15 @@
   background-color: transparent;
   cursor: pointer;
 }
-
+.button_right {
+  position: absolute;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
 .error_message {
   color: var(--error-color);
   font-size: 12px;

@@ -16,6 +16,8 @@ type SearchProps = {
   margin?: string;
   errorMessage?: string;
   minLength?: number;
+  bgColor?: string;
+  iconRight?: boolean;
 };
 
 export default function Search({
@@ -31,6 +33,8 @@ export default function Search({
   margin,
   errorMessage,
   minLength,
+  bgColor = "#fff",
+  iconRight = false,
 }: SearchProps) {
   return (
     <div
@@ -40,9 +44,14 @@ export default function Search({
         height: height,
         fontSize: fontSize,
         margin: margin,
+        backgroundColor: bgColor,
       }}
     >
-      <button className={styles.button} onClick={onClick} type="button">
+      <button
+        className={!iconRight ? styles.button : styles.button_right}
+        onClick={onClick}
+        type="button"
+      >
         <Icon
           width={"20px"}
           height={"20px"}
@@ -51,7 +60,9 @@ export default function Search({
         />
       </button>
       <input
-        className={`${styles.input} elipsis_1_lines`}
+        className={`${
+          !iconRight ? styles.input : styles.input_right
+        } elipsis_1_lines`}
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
@@ -59,6 +70,7 @@ export default function Search({
         placeholder={placeholder}
         minLength={minLength}
       />
+
       {errorMessage && <p className={styles.error_message}>{errorMessage}</p>}
     </div>
   );

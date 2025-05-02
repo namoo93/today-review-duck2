@@ -11,6 +11,7 @@ type Props = {
   maxLength?: number;
   minLength?: number;
   errorMessage?: string | null;
+  margin?: string;
 };
 
 export default function TextArea({
@@ -23,11 +24,12 @@ export default function TextArea({
   maxLength,
   minLength,
   errorMessage,
+  margin,
 }: Props) {
   const isLimited = typeof maxLength === "number";
   const hasError = !!errorMessage;
   return (
-    <div className={styles.textarea_wrapper}>
+    <div className={styles.textarea_wrapper} style={{ margin }}>
       {label && <label htmlFor={name}>{label}</label>}
       <div
         className={`${styles.textarea_box} ${

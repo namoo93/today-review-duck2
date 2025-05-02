@@ -28,6 +28,7 @@ type SelectProps = {
     } | null>
   >;
   errorMessage?: string | null;
+  margin?: string;
 };
 
 export default function Select({
@@ -39,6 +40,7 @@ export default function Select({
   disabled,
   setSelectedValue,
   errorMessage,
+  margin,
 }: SelectProps) {
   const [isOptionShow, setIsOptionShow] = useState(false);
   const [selected, setSelected] = useState<ItemSelectProps>();
@@ -56,7 +58,12 @@ export default function Select({
   };
 
   return (
-    <div className={styles.component}>
+    <div
+      className={styles.component}
+      style={{
+        margin: margin ? margin : "0 0 20px 0",
+      }}
+    >
       <button
         type="button"
         className={`${styles.select_button} ${
