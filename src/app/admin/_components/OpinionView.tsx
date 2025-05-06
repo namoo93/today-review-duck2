@@ -60,7 +60,7 @@ export default function OpinionView() {
         <div className={styles.table_header_wrap}>
           <strong className={styles.table_header_5}>
             <span>닉네임</span>
-            <span>아이디</span>
+            <span>이메일</span>
             <span>활성화 상태</span>
             <span>작성 날짜</span>
             <span>의견 내용</span>
@@ -69,10 +69,12 @@ export default function OpinionView() {
         <ul className={styles.table_list}>
           {users.map((user) => (
             <li key={user.email} className={styles.table_card_5}>
-              <span>{user.nickname}</span>
-              <span>{user.email}</span>
-              <span>{user.status}</span>
-              <span>{formatDate(user.createdAt)}</span>
+              <span className="elipsis_2_lines">{user.nickname}</span>
+              <span className="elipsis_2_lines">{user.email}</span>
+              <span className="elipsis_2_lines">{user.status}</span>
+              <span className="elipsis_2_lines">
+                {formatDate(user.createdAt)}
+              </span>
               <button
                 type="button"
                 className={styles.table_button_line}

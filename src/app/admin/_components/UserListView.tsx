@@ -115,7 +115,7 @@ export default function UserListView() {
         <div className={styles.table_header_wrap}>
           <strong className={styles.table_header}>
             <span>닉네임</span>
-            <span>가입한 이메일</span>
+            <span>이메일</span>
             <span>활성화 여부</span>
             <span>가입 날짜</span>
             <span>가입 경로</span>
@@ -125,11 +125,13 @@ export default function UserListView() {
         <ul className={styles.table_list}>
           {users.map((user) => (
             <li key={user.email} className={styles.table_card}>
-              <span>{user.nickname}</span>
-              <span>{user.email}</span>
-              <span>{user.status}</span>
-              <span>{formatDate(user.createdAt)}</span>
-              <span>{user.provider}</span>
+              <span className="elipsis_2_lines">{user.nickname}</span>
+              <span className="elipsis_2_lines">{user.email}</span>
+              <span className="elipsis_2_lines">{user.status}</span>
+              <span className="elipsis_2_lines">
+                {formatDate(user.createdAt)}
+              </span>
+              <span className="elipsis_2_lines">{user.provider}</span>
               <span className={styles.restrict_wrap}>
                 <Select
                   options={selectOptions}

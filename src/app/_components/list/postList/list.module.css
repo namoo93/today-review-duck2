@@ -76,3 +76,13 @@
   background-color: #f7f7f7;
   color: #aaa;
 }
+
+.review_evaluation {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ff7e29;
+  background-color: #fff6ed;
+  border: 1px solid #ffebd4;
+  padding: 4px 8px 5px;
+  border-radius: 8px;
+}

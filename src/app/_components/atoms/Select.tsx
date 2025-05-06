@@ -6,7 +6,7 @@ import IocSelect from "@/../../public/icon/icon-select.svg";
 
 export type ItemSelectProps = {
   label: string;
-  value: number;
+  value: number | string;
 };
 
 type SelectProps = {
@@ -24,7 +24,7 @@ type SelectProps = {
   setSelectedValue?: Dispatch<
     SetStateAction<{
       label: string;
-      value: number;
+      value: number | string;
     } | null>
   >;
   errorMessage?: string | null;

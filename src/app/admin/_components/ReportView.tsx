@@ -106,10 +106,14 @@ export default function ReportView() {
         <ul className={styles.table_list}>
           {users.map((user) => (
             <li key={user.email} className={styles.table_card}>
-              <span>{user.nickname}</span>
-              <span>{user.email}</span>
-              <span>{user.status}</span>
-              <span>{formatDate(user.createdAt)}</span>
+              <span className="elipsis_2_lines">{user.nickname}</span>
+              <span className="elipsis_2_lines">
+                {user.nickname} / {user.email}
+              </span>
+              <span className="elipsis_2_lines">{user.status}</span>
+              <span className="elipsis_2_lines">
+                {formatDate(user.createdAt)}
+              </span>
               <button
                 type="button"
                 className={styles.table_button_line}

@@ -113,6 +113,9 @@
   flex-direction: column;
   border-bottom: 2px solid #f0f0f0;
 }
+.table_list > li > span {
+  padding: 0 3px;
+}
 .table_header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
@@ -132,6 +135,7 @@
   border-bottom: 1px solid #f0f0f0;
   font-size: 15px;
   color: #333;
+  min-height: 50px;
 }
 
 .table_header_5 {
@@ -149,12 +153,33 @@
   grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
   align-items: center;
   background-color: #fff;
-  padding: 20px 14px;
+  padding: 5px 14px;
+  min-height: 50px;
   border-bottom: 1px solid #f0f0f0;
   font-size: 15px;
   color: #333;
 }
-
+.table_header_8 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 1fr;
+  padding: 12px;
+  font-weight: 600;
+  color: #666;
+  background-color: #fff;
+  border-top: 2px solid #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+}
+.table_card_8 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 1fr;
+  align-items: center;
+  background-color: #fff;
+  padding: 5px 14px;
+  min-height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  color: #333;
+}
 .restrict_wrap {
   display: flex;
   flex-direction: row;
@@ -163,9 +188,21 @@
 .table_button {
   font-weight: 500;
   font-size: 14px;
-  padding: 10px;
+  padding: 10px 5px;
   color: #ff7b00;
-  width: 50px;
+  text-align: left;
+  min-width: 50px;
+}
+.table_button:disabled {
+  color: #585858;
+  cursor: default;
+}
+.table_delete_button {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 0;
+  color: #ff0000;
+  text-align: left;
 }
 .table_button_line {
   text-align: left;

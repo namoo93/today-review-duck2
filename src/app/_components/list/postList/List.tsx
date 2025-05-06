@@ -7,6 +7,7 @@ import IconComment from "@/../public/icon/icon-comment-post.svg";
 import RatingTag from "./RatingTag";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/app/_utils/date";
+import { category } from "@/app/_utils/ratingUtils";
 
 interface Props {
   width?: string;
@@ -49,10 +50,11 @@ export default function List({
   const router = useRouter();
   const onClickItem = () => {
     //상세로 이동 reviewIdx
-    if (reviewIdx) {
+    if (reviewIdx && !isManager) {
       router.push(`/post/${reviewIdx}`);
     }
-    if (!!onClkickList) onClkickList;
+
+    if (onClkickList) onClkickList();
   };
   return (
     <li className={styles.list_box} style={{ width }}>
@@ -86,6 +88,9 @@ export default function List({
           <span className={styles.list_user}>
             {`${user.nickname} | ${formatDate(date)}`}
           </span>
+          {isManager && (
+            <span className={styles.review_evaluation}>{category(value)}</span>
+          )}
           {!isManager && (
             <span className={styles.icon_wrap}>
               <RatingTag score={value} />

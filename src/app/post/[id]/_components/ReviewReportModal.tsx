@@ -55,7 +55,7 @@ export default function ReviewReportModal({
       reportReview.mutate(
         {
           reviewIdx,
-          type: selectedCategory.value,
+          type: selectedCategory.value as number,
           content: reason,
         },
         {

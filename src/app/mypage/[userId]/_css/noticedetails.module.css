@@ -1,0 +1,116 @@
+.page {
+  /* max-width: calc(936px + 72px + 72px); */
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+/* 리뷰 상세 내용 */
+.review_detail_contents {
+  max-width: 936px;
+  margin: 0 auto;
+}
+.review_detail_title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+}
+.review_detail_user {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+}
+.review_detail_user_icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #ffebd4;
+}
+.review_detail_user_icon_dark {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #f0f0f0;
+}
+.review_detail_user_text {
+  padding: 0 10px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #aaa;
+}
+.review_detail_images {
+  margin: 20px -2px;
+  position: relative;
+}
+
+.image_box_wrap {
+  display: flex;
+  gap: 16px;
+}
+.image_box {
+  border: 1px solid #d1d1d1;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+.overlay_text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  word-break: break-word;
+  padding: 15px;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.image_box:hover .overlay {
+  opacity: 1;
+}
+.review_detail_evaluation {
+  padding-bottom: 20px;
+}
+
+.review_evaluation {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ff7e29;
+  background-color: #fff6ed;
+  border: 1px solid #ffebd4;
+  padding: 4px 8px 5px;
+  border-radius: 8px;
+}
+.review_detail_text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-weight: 500;
+  font-size: 16px;
+  color: #969696;
+  width: 100%;
+  display: inline-block;
+  height: auto;
+  padding-bottom: 40px;
+}

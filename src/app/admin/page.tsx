@@ -5,13 +5,14 @@ import AdminNav from "./_components/AdminNav";
 import UserListView from "./_components/UserListView";
 import ImgLogo from "@/../public/images/logo.svg";
 import { Icon } from "../_components/atoms";
-import NoticeView from "./_components/NoticeView";
+import AnnouncementView from "./_components/AnnouncementView";
 import OpinionView from "./_components/OpinionView";
 import ReportView from "./_components/ReportView";
 import Modal from "../_components/modal/Modal";
+import ToastContainer from "../_components/toast/ToastContainer";
 
 export default function AdminPage() {
-  const [current, setCurrent] = useState("notice");
+  const [current, setCurrent] = useState("announcement_list");
 
   return (
     <>
@@ -26,11 +27,17 @@ export default function AdminPage() {
       <AdminNav setCurrent={setCurrent} current={current} />
 
       <main>
-        {current === "notice" && <NoticeView />}
+        {current === "announcement_list" && <AnnouncementView />}
         {current === "user_list" && <UserListView />}
         {current === "opinion_list" && <OpinionView />}
         {current === "report" && <ReportView />}
         <Modal width="600px" />
+        <ToastContainer
+          width="335px"
+          top="60px"
+          right="50%"
+          transform="translateX(50%)"
+        />
       </main>
     </>
   );

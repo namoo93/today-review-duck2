@@ -80,6 +80,7 @@ export const authInstance = createAPIInstance("auth");
 export const userInstance = createAPIInstance("user");
 export const reviewInstance = createAPIInstance("review");
 export const commentInstance = createAPIInstance("comment");
+export const adminInstance = createAPIInstance("admin");
 //프로필 이미지 변경시
 export const fileInstance = createAPIInstance("user", "multipart/form-data");
 
