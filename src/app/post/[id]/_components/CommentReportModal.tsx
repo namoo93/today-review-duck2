@@ -54,7 +54,7 @@ export default function CommentReportModal({
       reportComment.mutate(
         {
           commentIdx,
-          type: selectedCategory.value,
+          type: selectedCategory.value as number,
           content: reason,
         },
         {
@@ -78,7 +78,7 @@ export default function CommentReportModal({
           defaultValue="신고 사유를 선택해주세요"
           setSelectedValue={setSelectedCategory}
           height="40px"
-					errorMessage={isError}
+          errorMessage={isError}
         />
       </div>
       <TextArea
