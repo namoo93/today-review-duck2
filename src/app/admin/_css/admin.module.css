@@ -74,14 +74,21 @@
   color: #ff7e29;
 }
 
-.logout_button {
+.bottom_button {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   width: 100%;
   color: #ff7e29;
+  border: 1px solid #ff7e29;
   /* text-align: left; */
+  padding: 10px;
+  border-radius: 5px;
 }
-
+.button_box {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
 /* section */
 .admin_section {
   background-color: #f7f7f7;

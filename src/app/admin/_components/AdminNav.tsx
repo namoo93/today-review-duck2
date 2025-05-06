@@ -3,6 +3,8 @@ import styles from "../_css/admin.module.css";
 import { Icon } from "@/app/_components/atoms";
 import IcoArrowOff from "@/../public/icon/icon-arrow-off.svg";
 import IcoArrowOn from "@/../public/icon/icon-arrow-on.svg";
+import { useRouter } from "next/navigation";
+import useLogout from "@/app/_hooks/useLogout";
 
 export default function AdminNav({
   setCurrent,
@@ -11,6 +13,9 @@ export default function AdminNav({
   setCurrent: Dispatch<SetStateAction<string>>;
   current: string;
 }) {
+  const router = useRouter();
+  const logout = useLogout();
+
   const getClass = (label: string) =>
     current === label
       ? `${styles.nav_subtitle} ${styles.on}`
@@ -28,14 +33,14 @@ export default function AdminNav({
             <ul>
               <li className={styles.nav_list_item}>
                 <button
-                  className={getClass("notice")}
-                  onClick={() => setCurrent("notice")}
+                  className={getClass("announcement_list")}
+                  onClick={() => setCurrent("announcement_list")}
                 >
                   <h3>공지사항</h3>
                   <Icon
                     width={20}
                     height={20}
-                    src={getIcon("notice")}
+                    src={getIcon("announcement_list")}
                     alt="화살표 아이콘"
                   />
                 </button>
@@ -98,10 +103,25 @@ export default function AdminNav({
           </li>
         </ul>
       </nav>
-
-      <button type="button" onClick={() => {}} className={styles.logout_button}>
-        로그아웃
-      </button>
+      <div className={styles.button_box}>
+        <button
+          type="button"
+          onClick={() => router.push("/")}
+          className={styles.bottom_button}
+        >
+          메인으로
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            logout();
+            router.push("/");
+          }}
+          className={styles.bottom_button}
+        >
+          로그아웃
+        </button>
+      </div>
     </div>
   );
 }
