@@ -7,6 +7,7 @@ import Pagination from "@/app/_components/pagination/Pagination";
 import { ItemSelectProps } from "@/app/_components/atoms/Select";
 import { formatDate } from "@/app/_utils/date";
 import DataNone from "@/app/_components/atoms/DataNone";
+import { useAdminUserList } from "@/app/_hooks/useAdminUserList";
 
 export const users: UserInfoType[] = Array.from({ length: 10 }).map((_, i) => ({
   idx: `user${i}@example.com idxxxxx`,
@@ -38,6 +39,13 @@ export default function UserListView() {
     useState<ItemSelectProps | null>(null);
   const { addToast } = useToast();
 
+  const statusParam =
+    tab === "활성화"
+      ? "active"
+      : tab === "영구정지"
+      ? "blacklist"
+      : "suspended";
+  const { data, isLoading } = useAdminUserList(statusParam, currentPage);
   const totalPages = 2;
 
   const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {

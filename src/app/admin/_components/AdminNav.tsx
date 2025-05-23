@@ -5,6 +5,8 @@ import IcoArrowOff from "@/../public/icon/icon-arrow-off.svg";
 import IcoArrowOn from "@/../public/icon/icon-arrow-on.svg";
 import { useRouter } from "next/navigation";
 import useLogout from "@/app/_hooks/useLogout";
+import { activeItemState } from "@/app/_recoil";
+import { useRecoilState } from "recoil";
 
 export default function AdminNav({
   setCurrent,
@@ -13,6 +15,7 @@ export default function AdminNav({
   setCurrent: Dispatch<SetStateAction<string>>;
   current: string;
 }) {
+  const [, setActiveItem] = useRecoilState(activeItemState);
   const router = useRouter();
   const logout = useLogout();
 
@@ -106,7 +109,10 @@ export default function AdminNav({
       <div className={styles.button_box}>
         <button
           type="button"
-          onClick={() => router.push("/")}
+          onClick={() => {
+            router.push("/");
+            setActiveItem("최신");
+          }}
           className={styles.bottom_button}
         >
           메인으로
@@ -116,6 +122,7 @@ export default function AdminNav({
           onClick={() => {
             logout();
             router.push("/");
+            setActiveItem("최신");
           }}
           className={styles.bottom_button}
         >

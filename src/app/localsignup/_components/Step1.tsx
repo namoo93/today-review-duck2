@@ -73,6 +73,8 @@ export default function Step1({ setStep, setEmail }: Props) {
           onChange={(e) => handleChange(e)}
           padding="30px 0 0 0"
         />
+
+				<p> 약관의 동의</p>
       </div>
 
       <div className={styles.form_button_wrap}>
