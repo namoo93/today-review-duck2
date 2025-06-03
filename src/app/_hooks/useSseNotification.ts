@@ -1,20 +1,26 @@
 import { useEffect } from "react";
 import { EventSourcePolyfill } from "event-source-polyfill";
+import { useRecoilValue } from "recoil";
+import { userIdxState } from "@/app/_recoil";
 
 export const useSseNotification = (onReceive: (data: any) => void) => {
+  const userIdx = useRecoilValue(userIdxState); // ✅ 로그인 여부 체크
+
   const BASE_URL =
     process.env.NEXT_PUBLIC_MODE === "local"
-      ? "/api" // 👉 로컬에서는 프록시 경유
+      ? "/api"
       : process.env.NEXT_PUBLIC_BASE_URL;
-  console.log("NEXT_PUBLIC_BASE_URL", process.env.NEXT_PUBLIC_BASE_URL);
 
   useEffect(() => {
+    if (!userIdx) return; // ✅ 로그인 안 했으면 SSE 연결 안 함
+
     const accessToken = document.cookie
       .split("; ")
       .find((row) => row.startsWith("accessToken="))
       ?.split("=")[1];
+
     if (!accessToken) {
-      return; // ❗ accessToken 없으면 연결 안 함
+      return;
     }
     if (!BASE_URL) {
       console.error("⛔ BASE_URL is undefined.");
@@ -48,5 +54,5 @@ export const useSseNotification = (onReceive: (data: any) => void) => {
     return () => {
       eventSource.close();
     };
-  }, [onReceive]);
+  }, [onReceive, userIdx]);
 };

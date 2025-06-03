@@ -62,6 +62,8 @@ export default function Aside() {
     }
   };
 
+
+
   return (
     <aside className={styles.aside}>
       {/* TODO : 검색 */}
