@@ -1,10 +1,11 @@
-import { Button, Input } from "@/app/_components/atoms";
+import { Button, Checkbox, Input } from "@/app/_components/atoms";
 import styles from "../_css/step.module.css";
 import { SetStateAction, useState } from "react";
 import { validateEmail } from "@/app/_utils/validation";
 import { useToast } from "@/app/_hooks/useToast";
 import ToastContainer from "@/app/_components/toast/ToastContainer";
 import { useInspectDuplicateEmail } from "@/app/_hooks/useInspectEmail";
+import Link from "next/link";
 
 type Props = {
   setStep: React.Dispatch<SetStateAction<number>>;
@@ -15,6 +16,7 @@ export default function Step1({ setStep, setEmail }: Props) {
   const { mutate: inspectEmailMutate, isPending } = useInspectDuplicateEmail();
   const [emailError, setEmailError] = useState("");
   const [emailData, setEmailData] = useState("");
+  const [agreeChecked, setAgreeChecked] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -52,7 +54,7 @@ export default function Step1({ setStep, setEmail }: Props) {
   };
 
   const isButtonDisabled =
-    !emailData.trim() || emailError.trim() !== "" || isPending;
+    !emailData.trim() || emailError.trim() !== "" || isPending || !agreeChecked;
 
   return (
     <>
@@ -74,7 +76,33 @@ export default function Step1({ setStep, setEmail }: Props) {
           padding="30px 0 0 0"
         />
 
-				<p> 약관의 동의</p>
+        <p className={styles.partial_agreement}>
+          <Checkbox
+            id="partial_agreement"
+            value="partial_agreement"
+            checked={agreeChecked}
+            onChange={(e) => setAgreeChecked(e.target.checked)}
+            label={
+              <>
+                약관에 동의합니다.
+                <Link
+                  href="/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    textDecoration: "underline",
+                    color: "#FF7E29",
+                    marginLeft: "6px",
+                  }}
+                >
+                  약관 보기
+                </Link>
+              </>
+            }
+            textMarginLeft={5}
+            checkRound={5}
+          />
+        </p>
       </div>
 
       <div className={styles.form_button_wrap}>

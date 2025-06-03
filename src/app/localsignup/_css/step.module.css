@@ -39,7 +39,14 @@
   color: #ff7e29;
   padding: 0 10px;
 }
-
+.partial_agreement {
+  font-size: 14px;
+  font-weight: 500;
+  color: #818181;
+  padding: 10px 0;
+  background-color: #fff;
+  cursor: pointer;
+}
 .form_button_wrap {
   position: absolute;
   width: 335px;
