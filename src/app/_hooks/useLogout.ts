@@ -28,13 +28,14 @@ const useLogout = () => {
           headers: {
             Authorization: `Bearer ${refreshToken}`,
           },
+          withCredentials: true,
         }
       );
 
       // 쿠키 제거
-      removeAuthorityCookie("accessToken");
-      removeAuthorityCookie("refreshToken");
-      removeAuthorityCookie("nickname");
+      ["accessToken", "refreshToken", "nickname"].forEach((cookieName) => {
+        removeAuthorityCookie(cookieName);
+      });
 
       // 상태 초기화
       resetUser();
