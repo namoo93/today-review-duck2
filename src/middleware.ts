@@ -7,9 +7,9 @@ const isProtectedRoute = createRouteMatcher([
   '/following(.*)',
 ]);
 
-export default clerkMiddleware(async (auth, request) => {
+export default clerkMiddleware((auth, request) => {
   if (isProtectedRoute(request)) {
-    await auth.protect(); // ✅ 반드시 return
+    auth.protect(); // ✅ 반드시 return
   }
 
   return NextResponse.next(); // ✅ 나머지 경로는 통과
