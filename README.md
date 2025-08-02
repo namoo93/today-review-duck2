@@ -16,16 +16,7 @@
 - **Vercel** – 프론트엔드 배포
 - **Axios** – API 통신
 - **Server-Sent Events (SSE)** – 실시간 알림
-
-### Backend
-
-- **NestJS**
-- **AWS S3** – 이미지 업로드 및 저장
-- **CloudFront (CDN)** – 이미지 최적화 및 빠른 로딩
-- **Docker** – 환경 구성
-- **Nginx** – 리버스 프록시 및 HTTPS
-
----
+- **Clerk** – 로그인 인증
 
 ## 📄 주요 페이지
 
@@ -68,11 +59,6 @@
 
 ## 🔗 사이트 바로가기
 
-👉 [https://mylittlereviewduck.site](https://mylittlereviewduck.site)
+👉 [https://mylittlereviewduck.site](https://mylittlereviewduck.site) -> 도메인 연장 필요
 
 ---
-
-## ✨ 기타
-
-- 커스텀 도메인 및 HTTPS 구성 완료
-- 관리자 페이지를 통한 공지사항 및 유저 관리 기능 개발 예정

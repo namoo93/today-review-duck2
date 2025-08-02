@@ -1,80 +1,44 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import { getAuthorityCookie } from "@/app/_utils/cookies";
-import { useSetRecoilState } from "recoil";
-import { userIdxState } from "@/app/_recoil";
-import { postRefreshToken } from "../_api/postRefreshToken";
-import { decodeJWT } from "../_utils/jwt";
-import { forceLogout } from "../_utils/forceLogout";
+import { useEffect, useRef } from 'react';
+import { useSetRecoilState } from 'recoil';
+import { useUser } from '@clerk/nextjs';
+import { userIdxState } from '@/app/_recoil';
 
 export default function AppInitializer() {
+  const { isSignedIn, user } = useUser();
   const setUserIdx = useSetRecoilState(userIdxState);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const nickname = getAuthorityCookie("nickname");
-  const refreshToken = getAuthorityCookie("refreshToken");
-  console.log("로그인 자동 연장 전 상태 확인용 refreshToken :", refreshToken);
 
-  const startRefreshTokenInterval = () => {
-    if (intervalRef.current) return; // 이미 설정되어 있으면 무시
-    intervalRef.current = setInterval(() => {
-      postRefreshToken()
-        .then(() => {
-          console.log("🔄 토큰 갱신 완료");
-        })
-        .catch((err) => {
-          console.warn("❌ 토큰 갱신 실패", err);
-          handleAutoLogout();
-        });
-    }, 29 * 60 * 1000); // 29분 마다
-    console.log("🔔 토큰 갱신 인터벌 시작");
-  };
-
-  // 연장 실패시 초기화
-  const handleAutoLogout = () => {
-    forceLogout();
-    setUserIdx(null);
-    stopRefreshTokenInterval();
-    console.warn("🚫 자동 로그아웃 처리됨");
-  };
-
-  const stopRefreshTokenInterval = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-      console.log("🛑 토큰 갱신 인터벌 중지");
-    }
-  };
-
+  // 상태 설정
   useEffect(() => {
-    if (refreshToken) {
-      const payload = decodeJWT(refreshToken);
-      if (payload && payload.idx) {
-        setUserIdx(payload.idx);
-      }
-      startRefreshTokenInterval(); // 최초 실행 시 시작
-      console.log("✅ AppInitializer → 사용자 로그인 상태 복원:", nickname);
+    if (isSignedIn && user) {
+      // ✅ Clerk 사용자 ID를 Recoil에 설정
+      setUserIdx(user.id);
+      console.log(
+        '✅ 로그인 상태 유지됨:',
+        user.username ?? user.emailAddresses[0]?.emailAddress,
+      );
+    } else {
+      // ❌ 로그아웃 상태 → Recoil 초기화
+      setUserIdx(null);
+      console.log('🚫 로그인 되어있지 않음, 상태 초기화');
     }
-    if (!refreshToken) {
-      handleAutoLogout();
-      console.log("🚫 AppInitializer → 로그인 상태 없음, 초기화 완료");
-    }
+  }, [isSignedIn, user, setUserIdx]);
 
-    // 브라우져가 활성화 되있을 때만
+  // 👇 필요 시 visibilitychange 이벤트 등록
+  useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible" && refreshToken) {
-        startRefreshTokenInterval();
+      if (document.visibilityState === 'visible') {
+        console.log('🟢 탭 활성화됨');
       } else {
-        stopRefreshTokenInterval();
+        console.log('⚪ 탭 비활성화됨');
       }
     };
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      stopRefreshTokenInterval();
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () =>
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
   return null;

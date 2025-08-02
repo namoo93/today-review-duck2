@@ -1,31 +1,51 @@
-"use client";
+'use client';
 
-import styles from "./_css/aside.module.css";
-import Alarm from "@/../public/icon/alarm-icon.svg";
-import AlarmDark from "@/../public/icon/alarm-icon-dark.svg";
-import { themeState, userIdxState } from "@/app/_recoil";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { DropDown, Icon } from "../atoms";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useNotificationList } from "@/app/_hooks/useNotificationList";
-import { useSseNotification } from "@/app/_hooks/useSseNotification";
-import { NotificationType } from "@/types/NotificationType";
-import NotificationList from "../list/notificationList/NotificationList";
+import styles from './_css/aside.module.css';
+import Alarm from '@/../public/icon/alarm-icon.svg';
+import AlarmDark from '@/../public/icon/alarm-icon-dark.svg';
+import { themeState, userIdxState } from '@/app/_recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { DropDown, Icon } from '../atoms';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useNotificationList } from '@/app/_hooks/useNotificationList';
+import { useSseNotification } from '@/app/_hooks/useSseNotification';
+import { NotificationType } from '@/types/NotificationType';
+import NotificationList from '../list/notificationList/NotificationList';
+// Clerk
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+  useUser,
+} from '@clerk/nextjs';
 
 export default function Aside() {
   const [theme] = useRecoilState(themeState);
-  const userIdx = useRecoilValue(userIdxState);
+  // const userIdx = useRecoilValue(userIdxState);
+
   const router = useRouter();
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [hasUnread, setHasUnread] = useState(false);
   const [notifications, setNotifications] = useState<NotificationType[]>([]);
   const { data } = useNotificationList();
 
-  const goToSignPage = () => {
-    router.push(`/login`);
-  };
-
+  // const goToSignPage = () => {
+  //   router.push(`/login`);
+  // };
+  const { isSignedIn, user } = useUser(); // ✅ 로그인 상태 및 유저 정보
+  const setUserIdx = useSetRecoilState(userIdxState);
+  useEffect(() => {
+    if (isSignedIn && user) {
+      // 로그인한 경우 Clerk의 user.id를 Recoil에 저장
+      setUserIdx(user.id);
+    } else {
+      // 로그아웃 시 null로 초기화
+      setUserIdx(null);
+    }
+  }, [isSignedIn, user, setUserIdx]);
   useEffect(() => {
     if (data?.notifications) {
       setNotifications(data.notifications);
@@ -49,8 +69,8 @@ export default function Aside() {
                 isMyFollowing: isNowFollowing,
               },
             }
-          : n
-      )
+          : n,
+      ),
     );
   };
 
@@ -62,19 +82,15 @@ export default function Aside() {
     }
   };
 
-
-
   return (
     <aside className={styles.aside}>
-      {/* TODO : 검색 */}
-
-      {userIdx?.length ? (
+      <SignedIn>
         <button
           type="button"
           className={styles.alaram_button}
           onClick={() => setIsDropDownOpen((prev) => !prev)}
         >
-          {theme == "light" ? (
+          {theme == 'light' ? (
             <Icon src={Alarm} alt="alarm image" width={24} height={24} />
           ) : (
             <Icon src={AlarmDark} alt="alarm image" width={24} height={24} />
@@ -102,15 +118,23 @@ export default function Aside() {
             )}
           </DropDown>
         </button>
-      ) : (
-        <button
-          type="button"
-          className={styles.login_info_button}
-          onClick={() => goToSignPage()}
-        >
-          <span>로그인</span>
-        </button>
-      )}
+        <UserButton />
+      </SignedIn>
+
+      <SignedOut>
+        <SignUpButton>
+          <button className={styles.accession_info_button}>회원가입</button>
+        </SignUpButton>
+        <SignInButton>
+          <button
+            type="button"
+            className={styles.login_info_button}
+            // onClick={() => goToSignPage()}
+          >
+            <span>로그인</span>
+          </button>
+        </SignInButton>
+      </SignedOut>
     </aside>
   );
 }

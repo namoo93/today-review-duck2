@@ -1,12 +1,20 @@
-"use client";
-import styles from "../_css/signin.module.css";
-import ImgLogo from "@/../../public/images/logo.svg";
-import IcoMail from "@/../../public/icon/icon-mail.svg";
-import { Icon } from "@/app/_components/atoms";
-import Image from "next/image";
-import SocialLogin from "./SocialLogin";
-import { useRouter } from "next/navigation";
-// import Link from "next/link";
+'use client';
+import styles from '../_css/signin.module.css';
+import ImgLogo from '@/../../public/images/logo.svg';
+import IcoMail from '@/../../public/icon/icon-mail.svg';
+import { Icon } from '@/app/_components/atoms';
+import Image from 'next/image';
+import SocialLogin from './SocialLogin';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+// Clerk
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from '@clerk/nextjs';
 
 export default function Login() {
   const router = useRouter();
@@ -21,20 +29,33 @@ export default function Login() {
     <section className={styles.page}>
       <div className={styles.login_wrap}>
         <h1 className={styles.logo_wrap}>
-          {/* <Link href={"/"}> */}
-          <Image
-            src={ImgLogo}
-            alt="logo image"
-            loading="lazy"
-            property={"public/images/logo.svg"}
-            width={138}
-            height={102}
-          />
-          {/* </Link> */}
+          <Link href={'/'}>
+            <Image
+              src={ImgLogo}
+              alt="logo image"
+              loading="lazy"
+              property={'public/images/logo.svg'}
+              width={138}
+              height={102}
+            />
+          </Link>
         </h1>
         <strong className={styles.sns_title}>
           소셜 계정으로 빠르게 시작하기
         </strong>
+        <header className="flex justify-end items-center p-4 gap-4 h-16">
+          <SignedOut>
+            <SignInButton>로그인</SignInButton>
+            <SignUpButton>
+              <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                회원가입
+              </button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </header>
         <SocialLogin />
         <div className={styles.list_or}>
           <span className={styles.list_or_line}></span>
