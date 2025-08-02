@@ -9,15 +9,18 @@ const isProtectedRoute = createRouteMatcher([
 
 export default clerkMiddleware(async (auth, request) => {
   if (isProtectedRoute(request)) {
-    await auth.protect();
+    await auth.protect(); // ✅ 반드시 return
   }
+
+  return NextResponse.next(); // ✅ 나머지 경로는 통과
 });
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
+    '/mypage/:path*',
+    '/writing/:path*',
+    '/following',
     '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
     '/(api|trpc)(.*)',
   ],
 };
